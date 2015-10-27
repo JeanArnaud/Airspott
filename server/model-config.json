@@ -1,0 +1,68 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "db",
+    "public": "false"
+  },
+  "AccessToken": {
+    "dataSource": "db",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "db",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "db",
+    "public": false
+  },
+  "Role": {
+    "dataSource": "db",
+    "public": false
+  },
+  "Club": {
+    "dataSource": "db",
+    "public": true
+  },
+  "ClubSetting": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Ticket": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Customer": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Rating": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Address": {
+    "dataSource": "db",
+    "public": true
+  },
+  "TAX": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Media": {
+    "dataSource": "db",
+    "public": true
+  }
+}

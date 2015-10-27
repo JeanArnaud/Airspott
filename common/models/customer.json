@@ -1,0 +1,40 @@
+{
+  "name": "Customer",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "firstname": {
+      "type": "string",
+      "required": true
+    },
+    "lastname": {
+      "type": "string",
+      "required": true
+    },
+    "dob": {
+      "type": "date",
+      "required": true
+    },
+    "email": {
+      "type": "string",
+      "required": true
+    },
+    "gender": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "address": {
+      "type": "embedsOne",
+      "model": "Address",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

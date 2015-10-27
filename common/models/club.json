@@ -1,0 +1,45 @@
+{
+    "name": "Club",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
+    },
+    "properties": {
+        "name": {
+            "type": "string",
+            "required": true
+        },
+        "description": {
+            "type": "string"
+        },
+        "price": {
+            "type": "number",
+            "required": true
+        },
+        "capacity": {
+            "type": "number",
+            "required": true
+        }
+    },
+    "validations": [],
+    "relations": {
+        "address": {
+            "type": "embedsOne",
+            "model": "Address",
+            "foreignKey": ""
+        },
+        "clubSettings": {
+            "type": "hasMany",
+            "model": "ClubSetting",
+            "foreignKey": ""
+        },
+        "media": {
+            "type": "hasMany",
+            "model": "Media",
+            "foreignKey": ""
+        }
+    },
+    "acls": [],
+    "methods": {}
+}

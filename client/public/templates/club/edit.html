@@ -1,0 +1,211 @@
+<form name="clubForm" class="row">
+
+    <section class="col-sm-4 col-md-3">
+        <ul class="nav nav-pills nav-stacked">
+            <li class="nav-item">
+                <a href ng-click="setActiveItem('general')" class="nav-link"
+                   ng-class="activeItem == 'general' ? 'active':''">{{'DETAILS' | translate}}</a>
+            </li>
+            <li class="nav-item">
+                <a href ng-click="setActiveItem('pricing')" class="nav-link"
+                   ng-class="activeItem == 'pricing' ? 'active':''">{{'PRICING_CAPACITIES' | translate}}</a>
+            </li>
+            <li class="nav-item">
+                <a href ng-click="setActiveItem('media')" class="nav-link"
+                   ng-class="activeItem == 'media' ? 'active':''">{{'MEDIA' | translate}}</a>
+            </li>
+        </ul>
+    </section>
+
+
+    <section class="col-sm-8 col-md-9" ng-hide="activeItem != 'general'">
+
+        <h2>{{'DETAILS' | translate}}</h2>
+        <hr />
+
+        <fieldset class="form-group">
+            <label for="name">{{'NAME' | translate}}</label>
+            <input type="text" ng-model="club.name" id="name" class="form-control" placeholder="{{'NAME' | translate}}">
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label for="address">{{'ADDRESS' | translate}}</label>
+            <input type="text" ng-model="club.address.address" id="address" class="form-control"
+                   placeholder="{{'ADDRESS' | translate}}">
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label for="address2" class="sr-only">{{'ADDRESS_2' | translate}}</label>
+            <input type="text" ng-model="club.address.address2" id="address2" class="form-control"
+                   placeholder="{{'ADDRESS_2' | translate}}">
+        </fieldset>
+
+        <fieldset class="form-group row">
+
+            <div class="col-xs-4 col-sm-4 col-md-2">
+                <label for="zip">{{'ZIP' | translate}}</label>
+                <input type="text" ng-model="club.address.zip" id="zip" class="form-control"
+                       placeholder="{{'ZIP' | translate}}" required ng-pattern="/^[0-9]{5}$/">
+            </div>
+
+            <div class="col-xs-8 col-sm-4 col-md-5">
+                <label for="city">{{'CITY' | translate}}</label>
+                <input type="text" ng-model="club.address.city" id="city" class="form-control"
+                       placeholder="{{'CITY' | translate}}">
+            </div>
+
+            <div class="col-xs-12 col-sm-4 col-md-5">
+                <label for="country">{{'COUNTRY' | translate}}</label>
+
+                <select id="country" class="c-select form-control" ng-model="club.address.country" required>
+                    <option selected>{{'COUNTRY' | translate}}</option>
+                    <!--<option ng-repeat="country in countries" value="{{country.name}}">-->
+                    <!--{{country.name}}-->
+                    <!--</option>-->
+                </select>
+            </div>
+
+            <!--<div ng-messages="userForm.postalCode.$error" role="alert" multiple>-->
+            <!--<div ng-message="required" class="my-message">You must supply a postal code.</div>-->
+            <!--<div ng-message="pattern" class="my-message">That doesn't look like a valid postal-->
+            <!--code.-->
+            <!--</div>-->
+            <!--<div ng-message="md-maxlength" class="my-message">-->
+            <!--Don't use the long version silly...we don't need to be that specific...-->
+            <!--</div>-->
+            <!--</div>-->
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label for="description">{{'DESCRIPTION' | translate}}</label>
+            <textarea ng-model="club.description" id="description" class="form-control"
+                      placeholder="{{'DESCRIPTION' | translate}}"></textarea>
+        </fieldset>
+    </section>
+
+
+    <section class="col-sm-8 col-md-9" ng-hide="activeItem != 'pricing'">
+
+        <h2>{{'PRICING_CAPACITIES' | translate}}</h2>
+        <hr />
+
+        <fieldset class="form-group row">
+            <div class="col-xs-6 col-md-4">
+                <label for="price">{{'DEFAULT_PRICE' | translate}}</label>
+                <input type="text" ng-model="club.price" id="price" class="form-control"
+                       placeholder="{{'DEFAULT_PRICE' | translate}}" required>
+            </div>
+            <div class="col-xs-6 col-md-4">
+                <label for="tax">{{'TAX' | translate}}</label>
+                <select id="tax" ng-model="club.tax" class="c-select form-control">
+                    <option selected>{{'TAX' | translate}}</option>
+
+                    <option ng-repeat="tax in taxes" value="{{tax.id}}">
+                        {{tax.name}}
+                    </option>
+                </select>
+            </div>
+
+            <div class="col-xs-12 col-md-4">
+                <label for="defaultCapacity">{{'DEFAULT_CAPACITY' | translate}}</label>
+                <input type="text" ng-model="club.capacity" id="defaultCapacity" class="form-control"
+                       placeholder="{{'DEFAULT_CAPACITY' | translate}}" required>
+            </div>
+        </fieldset>
+
+        <h4>{{'DAY_BASED_PLANNING' | translate}}</h4>
+
+        <p>{{'PLANNING_DESCRIPTION' | translate}}</p>
+        <hr />
+
+        <div class="modal fade" id="calendarEventModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            <span class="sr-only">Close</span>
+                        </button>
+
+                        <h5 class="modal-title">{{'ADD_PLANNING_ENTRY' | translate}}</h5>
+                    </div>
+
+                    <div class="modal-body">
+
+                        <p>{{'WHICH_TYPE_TO_CHANGE' | translate}}</p>
+
+                        <fieldset class="form-group">
+                            <label for="priceInModal">{{'PRICE' | translate}}</label>
+                            <input type="text" ng-model="modal.price" id="priceInModal" class="form-control"
+                                   placeholder="{{'PRICE_FOR_EACH_DAY' | translate}}">
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <label for="capacityInModal">{{'CAPACITY' | translate}}</label>
+                            <input type="text" ng-model="modal.capacity" id="capacityInModal" class="form-control"
+                                   placeholder="{{'CAPACITY_PER_DAY' | translate}}">
+                        </fieldset>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{'CANCEL' | translate}}
+                        </button>
+                        <button type="button" class="btn btn-primary" ng-click="updateCapacities()">{{'SAVE' | translate}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div ui-calendar="calConfig.calendar"></div>
+    </section>
+
+    <section class="col-sm-8 col-md-9" ng-hide="activeItem != 'media'">
+        <h2>{{'MEDIA' | translate}}</h2>
+        <hr />
+
+        <div ngf-no-file-drop>
+            {{'FILE_UPLOAD_DROP_UNAVAILABLE_USE_ANOTHER_BROWSER' | translate}}
+        </div>
+
+        <div class="card-columns" ng-if="media && media.length">
+            <div class="card" ng-repeat="mediaItem in media">
+                <div style="height:12em;width:100%" class="text-center">
+                    <img class="card-img-top" ng-src="{{mediaItem.media}}" alt="{{mediaItem.name}}"
+                         style="max-height:100%;max-width:100%">
+                </div>
+
+                <div class="card-block">
+
+                    <hr />
+
+                    <fieldset class="form-group">
+                        <label for="{{'mediaItemName'+$index}}">{{'MEDIA_NAME' | translate}}</label>
+                        <input type="text" ng-model="mediaItem.name" id="{{'mediaItemName'+$index}}"
+                               class="form-control" placeholder="{{'MEDIA_NAME' | translate}}" required>
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <label for="{{'mediaItemDescription'+$index}}">{{'MEDIA_DESCRIPTION' | translate}}</label>
+                        <textarea ng-model="mediaItem.description" id="{{'mediaItemDescription'+$index}}"
+                                  class="form-control"
+                                  placeholder="{{'MEDIA_DESCRIPTION' | translate}}"></textarea>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+
+        <div class="card text-center" style="height:10em"
+             ngf-drop="processFiles($files)"
+             ngf-drag-over-class="'card-info'"
+             ngf-multiple="true"
+             ngf-pattern="'image/*,application/pdf'">
+
+            <div class="card-block">
+                {{'FILE_UPLOAD_DROP_DESCRIPTION' | translate}}
+            </div>
+        </div>
+
+    </section>
+</form>

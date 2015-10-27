@@ -1,0 +1,30 @@
+{
+    "name": "Media",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
+    },
+    "properties": {
+        "name": {
+            "type": "string",
+            "required": true
+        },
+        "description": {
+            "type": "string",
+            "required": false
+        },
+        "media": {
+            "type": "string",
+            "required": true
+        },
+        "order": {
+            "type": "number",
+            "required": false
+        }
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
+}
