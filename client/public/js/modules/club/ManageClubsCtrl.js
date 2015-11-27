@@ -8,7 +8,10 @@ angular.module('com.airspott.club')
 
                 $rootScope.meta.title = "MANAGE_MY_CLUBS";
 
-                $scope.clubs = Customer.clubs({id: Customer.getCurrentId(), include: ['address']}, function (clubs)
+                $scope.clubs = Customer.clubs({
+                    id: Customer.getCurrentId(),
+                    filter: {include: ['address', 'media']}
+                }, function (clubs)
                 {
                     $scope.clubsLoaded = true;
                 }, function (err)

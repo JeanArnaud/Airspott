@@ -25,6 +25,8 @@
     "TAX": "Steuer",
     "DEFAULT_CAPACITY": "Standardkapazität pro Tag",
 
+    "ADDRESS_SHORT":"{{address}}, {{zip}} {{city}}, {{country | translate}}",
+
     "DAY_BASED_PLANNING": "Kapazitätsplanung pro Tag",
     "PLANNING_DESCRIPTION": "Kapazitäten und Preise für Zeiträume festlegen",
 
@@ -75,7 +77,10 @@
     "ATTENTION": "Achtung",
     "NO_PAYOUT_CONFIGURED": "Es ist kein Auszahlungskonto vorhanden. Auszahlungen können möglicherweise nicht bearbeitet werden.",
 
-    "PRICING_CAPACITY_SUMMARY":"Pro Tag werden maximal {{capacity}} Tickets zu je {{price | currency:'€ '}} verkauft. Dies inkludiert unsere Provision i.H.v. {{commission*100}}% ({{price * commission | currency:'€ '}}).",
+    "PRICING_CAPACITY_SUMMARY": "Pro Tag werden maximal {{capacity}} Tickets zu je {{price | currency:'€ '}} verkauft. Dies inkludiert unsere Provision i.H.v. {{commission*100}}% ({{price * commission | currency:'€ '}}).",
+
+    "DROP_HERE": "Datei(en) jetzt fallen lassen...",
+
 
     "AT": "Österreich",
     "DE": "Deutschland",

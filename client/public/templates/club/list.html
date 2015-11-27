@@ -6,7 +6,7 @@
     <a href="#/club/edit/" class="btn btn-primary">{{'ADD_A_CLUB' | translate}}</a>
 </div>
 
-<progress class="progress progress-striped progress-animated" ng-if="!clubsLoaded"></progress>
+<us-spinner ng-if="!clubsLoaded"></us-spinner>
 
 <h2 ng-if="clubs && clubs.length">{{'MY_CLUBS' | translate}}</h2>
 <hr />
@@ -15,11 +15,11 @@
         <div class="card-block">
             <h4 class="card-title">{{club.name}}</h4>
 
-            <p class="card-text">{{club.address}}</p>
+            <p class="card-text">{{'ADDRESS_SHORT' | translate:club._address}}</p>
         </div>
 
         <div style="height:12em;width:100%" class="text-center">
-            <img class="card-img-top" src="http://placehold.it/1500x500" alt="{{club.name}}"
+            <img class="card-img-top" ng-src="{{club.media.length ? club.media[0].media : ''}}" alt="{{club.name}}"
                  style="max-height:100%;max-width:100%">
         </div>
 

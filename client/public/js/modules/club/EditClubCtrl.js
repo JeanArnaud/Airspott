@@ -1,9 +1,9 @@
 angular.module('com.airspott.club')
     .controller('EditClubCtrl',
         [
-            '$rootScope', '$stateParams', '$scope', '$log', '$translate', '$state', 'Club', 'Upload', 'Message', 'Offer', 'Customer', 'TAX',
+            '$rootScope', '$stateParams', '$scope', '$log', '$translate', '$state', '$q', 'Club', 'Upload', 'Message', 'Offer', 'Customer', 'TAX',
 
-            function ($rootScope, $stateParams, $scope, $log, $translate, $state, Club, Upload, Message, Offer, Customer, TAX)
+            function ($rootScope, $stateParams, $scope, $log, $translate, $state, $q, Club, Upload, Message, Offer, Customer, TAX)
             {
 
                 $scope.taxes = TAX.find();
@@ -87,6 +87,8 @@ angular.module('com.airspott.club')
 
                         $scope.loading = false;
 
+                        $scope.media = Club.media({id: club.id});
+
                     }, function (err)
                     {
                         Message.error('GENERIC_ERROR_CLUB_LOAD');
@@ -110,12 +112,40 @@ angular.module('com.airspott.club')
                 {
                     Club.upsert($scope.club, function (club)
                     {
-                        $translate(['CREATE_CLUB_MODAL_SUCCESS_TITLE', 'CREATE_CLUB_MODAL_SUCCESS_CONTENT', 'CREATE_CLUB_MODAL_SUCCESS_BUTTON']).then(function (translation)
+                        var promises = [];
+
+                        for (var i = 0; i < $scope.media.length; i++)
                         {
-                            Message.success('CREATE_CLUB_SUCCESS_MESSAGE').then(function ()
+
+                            var oneMedia;
+
+                            if ($scope.media[i].clubId)
                             {
-                                $scope.transitTo('club.manage');
+                                oneMedia = Club.media.updateById({
+                                    id: club.id,
+                                    fk: $scope.media[i].id
+                                }, $scope.media[i]);
+                            }
+                            else
+                            {
+                                oneMedia = Club.media.create({id: club.id}, $scope.media[i]);
+                            }
+
+                            promises.push(oneMedia.$promise);
+                        }
+
+                        $q.all(promises).then(function ()
+                        {
+                            $translate(['CREATE_CLUB_MODAL_SUCCESS_TITLE', 'CREATE_CLUB_MODAL_SUCCESS_CONTENT', 'CREATE_CLUB_MODAL_SUCCESS_BUTTON']).then(function (translation)
+                            {
+                                Message.success('CREATE_CLUB_SUCCESS_MESSAGE').then(function ()
+                                {
+                                    $scope.transitTo('club.manage');
+                                });
                             });
+                        }, function (err)
+                        {
+
                         });
                     }, function (err)
                     {
