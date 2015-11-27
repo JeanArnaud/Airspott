@@ -1,14 +1,14 @@
 angular.module('com.airspott.club').service('Message',
-    ["$rootScope", "$q",
+    ["$rootScope", "$q", "toastr",
 
-     function ($rootScope, $q)
+     function ($rootScope, $q, toastr)
      {
 
          var showMessage = function (message, level)
          {
              var deferred = $q.defer();
 
-             alert(message + level);
+             toastr.success(message, 'Toastr fun!');
 
              deferred.resolve(message);
 

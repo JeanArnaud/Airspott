@@ -1,0 +1,85 @@
+{
+    "HOME": "Dashboard",
+    "MANAGE_CLUBS": "Clubs verwalten",
+    "SALES": "Verkäufe",
+    "REPORTS": "Berichte",
+    "ACCOUNTING": "Kommerzielles",
+    "SETTINGS": "Einstellungen",
+    "LOGOUT": "Abmelden",
+
+    "COPYRIGHT_FOOTER": "Made with heart by Airspott in Vienna. Copyright 2015 Airspott GmbH.",
+
+
+    "WELCOME_TO_AIRSPOTT": "Willkommen bei Airspott!",
+    "ACCOUNT_WELCOME_SUBLINE": "Hier können Sie Ihre Angebote verwalten.",
+
+    "ADD": "Hinzufügen",
+    "SAVE": "Speichern",
+    "CANCEL": "Abbrechen",
+
+    "EDIT_CLUB": "Club bearbeiten",
+    "MY_CLUBS": "Meine Clubs",
+    "DEFAULT_PRICE_CAPACITY_DESCRIPTION": "Normalpreis: {{price | currency:'€ '}}, Standardkapazität: {{capacity}} Karten/Tag",
+
+    "DEFAULT_PRICE": "Normalpreis",
+    "TAX": "Steuer",
+    "DEFAULT_CAPACITY": "Standardkapazität pro Tag",
+
+    "DAY_BASED_PLANNING": "Kapazitätsplanung pro Tag",
+    "PLANNING_DESCRIPTION": "Kapazitäten und Preise für Zeiträume festlegen",
+
+    "FILE_UPLOAD_DROP_DESCRIPTION": "Bilder hierher ziehen und hinzufügen...",
+
+    "NAME": "Name",
+    "ADDRESS": "Adresse",
+    "ADDRESS_2": "Weitere Adresszeile",
+    "ZIP": "PLZ",
+    "CITY": "Ort",
+    "COUNTRY": "Land",
+    "DESCRIPTION": "Beschreibung",
+
+    "DETAILS": "Allgemeine Details",
+    "PRICING_CAPACITIES": "Preise & Verfügbarkeiten",
+    "MEDIA": "Bilder",
+    "OFFERS": "Angebote",
+    "WHAT_DO_YOU_OFFER_DESCRIPTION": "Welche Einrichtungen und Angebote können Sie in diesem Club anbieten?",
+    "OPENING_HOURS": "Öffnungszeiten",
+    "OPEN_FROM": "Öffnet um",
+    "OPEN_TO": "Schließt um",
+    "BREAK_FROM": "Pause ab",
+    "BREAK_TO": "Pause bis",
+    "MO": "Montag",
+    "TU": "Dienstag",
+    "WE": "Mittwoch",
+    "TH": "Donnerstag",
+    "FR": "Freitag",
+    "SA": "Samstag",
+    "SU": "Sonntag",
+
+    "USER_E_MAIL": "E-Mail:",
+    "USER_E_MAIL_DATA": " {{email}}",
+
+
+    "AT_A_GLANCE": "Auf einen Blick...",
+    "USER_TYPE": "Kontotyp",
+    "BALANCE": "Guthaben",
+    "PENDING_PAYOUT": "Laufende Auszahlung",
+    "NEXT_TODO": "Ihre nächsten Schritte",
+
+    "QUICK_ACTIONS": "Schnell zum Ziel",
+    "ADD_A_CLUB": "Einen Club hinzufügen",
+    "VIEW_ACCOUNTING": "Kommerzielle Daten anzeigen",
+    "REQUEST_PAYOUT": "Auszahlung beantragen",
+
+    "TAKE_ACTION_NOW": "Los geht's",
+    "ATTENTION": "Achtung",
+    "NO_PAYOUT_CONFIGURED": "Es ist kein Auszahlungskonto vorhanden. Auszahlungen können möglicherweise nicht bearbeitet werden.",
+
+    "PRICING_CAPACITY_SUMMARY":"Pro Tag werden maximal {{capacity}} Tickets zu je {{price | currency:'€ '}} verkauft. Dies inkludiert unsere Provision i.H.v. {{commission*100}}% ({{price * commission | currency:'€ '}}).",
+
+    "AT": "Österreich",
+    "DE": "Deutschland",
+    "CH": "Schweiz"
+
+
+}

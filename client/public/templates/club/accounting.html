@@ -1,2 +1,51 @@
 <h2>{{'ACCOUNTING' | translate}}</h2>
 <hr />
+
+<div class="alert alert-danger" role="alert" ng-if="ownerAccount === false">
+    <strong>{{'ATTENTION' | translate}}</strong>
+
+    <span>{{'NO_PAYOUT_CONFIGURED' | translate}}</span> <span>{{'SET_IT_UP_NOW' | translate}}</span>
+</div>
+
+<form class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="iban">{{'IBAN' | translate}}</label>
+            <input id="iban" class="form-control" type="text" ng-model="ownerAccount.iban" ng-iban>
+        </div>
+    </div>
+
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="bic">{{'BIC_SWIFT' | translate}}</label>
+            <input id="bic" class="form-control" type="text" ng-model="ownerAccount.bic">
+        </div>
+    </div>
+
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="bank">{{'BANK' | translate}}</label>
+            <input id="bank" class="form-control" placeholder="{{'AUTO_DETECTION' | translate}}" type="text" disabled>
+        </div>
+    </div>
+
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="commission">{{'COMMISSION' | translate}}</label>
+
+            <div class="input-group">
+                <input id="commission" ng-value="ownerAccount.salesCommission * 100" class="form-control" type="text"
+                       disabled>
+
+                <div class="input-group-addon">%</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12">
+        <div class="form-group">
+            <button class="btn btn-block btn-primary-outline" ng-click="save()">{{'SAVE' | translate}}
+            </button>
+        </div>
+    </div>
+</form>

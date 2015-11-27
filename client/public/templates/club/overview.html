@@ -1,48 +1,55 @@
 <h2>{{'WELCOME_TO_AIRSPOTT' | translate}}
     <br>
-    <small>{{'ACCOUNT_WELCOME_SUBLINE' | translate:user}}</small>
+    <small>{{'ACCOUNT_WELCOME_SUBLINE' | translate}}</small>
 </h2>
 <hr />
 
-<div class="card-columns">
-    <div class="card">
-        <div class="card-block">
-            <h4 class="card-title">
-                {{'AT_A_GLANCE' | translate}}
-            </h4>
+<div class="card-deck-wrapper">
+    <div class="card-deck">
+        <div class="card">
+            <div class="card-block">
+                <h4 class="card-title">
+                    {{'AT_A_GLANCE' | translate}}
+                </h4>
 
-            <ul class="list-unstyled">
-                <li><strong>{{'USER_TYPE' | translate:user}}</strong>{{'USER_TYPE_DATA' | translate:user}}</li>
-                <li><strong>{{'BALANCE' | translate:user}}</strong>{{'BALANCE_DATA' | translate:user}}</li>
-                <li><strong>{{'PENDING_PAYOUT' | translate:user}}</strong>{{'PENDING_PAYOUT_DATA' | translate:user}}
-                </li>
-                <li><strong>{{'NEXT_TODO' | translate:user}}</strong>{{'NEXT_TODO_DATA' | translate:user}}</li>
-            </ul>
+                <ul class="list-unstyled" ng-if="user">
+                    <li>
+                        <strong>{{'USER_E_MAIL' | translate}}</strong>{{'USER_E_MAIL_DATA' | translate:{email: user.email} }}
+                    </li>
+                    <li><strong>{{'USER_TYPE' | translate}}</strong>{{'USER_TYPE_DATA' | translate}}</li>
+                    <li><strong>{{'BALANCE' | translate}}</strong>{{'BALANCE_DATA' | translate}}</li>
+                    <li><strong>{{'PENDING_PAYOUT' | translate}}</strong>{{'PENDING_PAYOUT_DATA' | translate}}
+                    </li>
+                    <li><strong>{{'NEXT_TODO' | translate}}</strong>{{'NEXT_TODO_DATA' | translate}}</li>
+                </ul>
+            </div>
         </div>
-    </div>
 
-    <div class="card">
-        <div class="card-block">
-            <h4 class="card-title">
-                {{'QUICK_ACTIONS' | translate}}
-            </h4>
+        <div class="card">
+            <div class="card-block">
+                <h4 class="card-title">
+                    {{'QUICK_ACTIONS' | translate}}
+                </h4>
 
-            <a class="btn btn-primary-outline btn-block" href="#/club/edit/">{{'ADD_A_CLUB' | translate}}</a>
-            <a class="btn btn-primary-outline btn-block" href="#/club/edit/">{{'VIEW_ACCOUNTING' | translate}}</a>
-            <a class="btn btn-primary-outline btn-block" href="#/club/edit/">{{'REQUEST_PAYOUT' | translate}}</a>
-            <a class="btn btn-primary-outline btn-block" href="#/club/edit/">{{'ADD_A_CLUB' | translate}}</a>
+                <a class="btn btn-primary-outline btn-block" href="#/club/edit/">{{'ADD_A_CLUB' | translate}}</a>
+                <a class="btn btn-primary-outline btn-block" href="#/club/edit/"
+                   ng-if="ownerAccount">{{'VIEW_ACCOUNTING' | translate}}</a>
+                <a class="btn btn-primary-outline btn-block" href="#/club/edit/"
+                   ng-if="ownerAccount">{{'REQUEST_PAYOUT' | translate}}</a>
+            </div>
         </div>
-    </div>
 
-    <div class="card card-danger card-inverse">
-        <div class="card-block">
-            <h4 class="card-title">
-                {{'ATTENTION' | translate}}
-            </h4>
+        <div class="card card-danger card-inverse" ng-if="ownerAccount === false">
+            <div class="card-block">
+                <h4 class="card-title">
+                    {{'ATTENTION' | translate}}
+                </h4>
 
-            <p class="card-text">{{'NO_PAYOUT_CONFIGURED' | translate}}</p>
+                <p class="card-text">{{'NO_PAYOUT_CONFIGURED' | translate}}</p>
 
-            <a class="btn btn-secondary-outline btn-block" href="#/club/edit/">{{'TAKE_ACTION_NOW' | translate}}</a>
+                <a class="btn btn-secondary-outline btn-block"
+                   href="#/club/account">{{'TAKE_ACTION_NOW' | translate}}</a>
+            </div>
         </div>
     </div>
 </div>

@@ -45,10 +45,6 @@
     "dataSource": "db",
     "public": true
   },
-  "Customer": {
-    "dataSource": "db",
-    "public": true
-  },
   "Rating": {
     "dataSource": "db",
     "public": true
@@ -62,6 +58,18 @@
     "public": true
   },
   "Media": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Offer": {
+    "dataSource": "db",
+    "public": true
+  },
+  "OwnerAccount": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Customer": {
     "dataSource": "db",
     "public": true
   }

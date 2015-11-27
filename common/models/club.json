@@ -1,45 +1,83 @@
 {
-    "name": "Club",
-    "base": "PersistedModel",
-    "idInjection": true,
-    "options": {
-        "validateUpsert": true
+  "name": "Club",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
     },
-    "properties": {
-        "name": {
-            "type": "string",
-            "required": true
-        },
-        "description": {
-            "type": "string"
-        },
-        "price": {
-            "type": "number",
-            "required": true
-        },
-        "capacity": {
-            "type": "number",
-            "required": true
-        }
+    "description": {
+      "type": "string"
     },
-    "validations": [],
-    "relations": {
-        "address": {
-            "type": "embedsOne",
-            "model": "Address",
-            "foreignKey": ""
-        },
-        "clubSettings": {
-            "type": "hasMany",
-            "model": "ClubSetting",
-            "foreignKey": ""
-        },
-        "media": {
-            "type": "hasMany",
-            "model": "Media",
-            "foreignKey": ""
-        }
+    "price": {
+      "type": "number",
+      "required": true
     },
-    "acls": [],
-    "methods": {}
+    "capacity": {
+      "type": "number",
+      "required": true
+    },
+    "openingHours": {
+      "type": "object",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "address": {
+      "type": "embedsOne",
+      "model": "Address",
+      "foreignKey": ""
+    },
+    "clubSettings": {
+      "type": "hasMany",
+      "model": "ClubSetting",
+      "foreignKey": ""
+    },
+    "media": {
+      "type": "hasMany",
+      "model": "Media",
+      "foreignKey": ""
+    },
+    "offers": {
+      "type": "hasMany",
+      "model": "Offer",
+      "foreignKey": ""
+    },
+    "customer": {
+      "type": "belongsTo",
+      "model": "Customer",
+      "foreignKey": ""
+    },
+    "tax": {
+      "type": "belongsTo",
+      "model": "TAX",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
 }

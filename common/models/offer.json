@@ -1,5 +1,5 @@
 {
-  "name": "Media",
+  "name": "Offer",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -10,16 +10,12 @@
       "type": "string",
       "required": true
     },
-    "description": {
+    "icon": {
       "type": "string",
       "required": false
     },
-    "media": {
+    "parent": {
       "type": "string",
-      "required": true
-    },
-    "order": {
-      "type": "number",
       "required": false
     }
   },

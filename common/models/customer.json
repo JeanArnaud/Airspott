@@ -5,36 +5,27 @@
   "options": {
     "validateUpsert": true
   },
-  "properties": {
-    "firstname": {
-      "type": "string",
-      "required": true
-    },
-    "lastname": {
-      "type": "string",
-      "required": true
-    },
-    "dob": {
-      "type": "date",
-      "required": true
-    },
-    "email": {
-      "type": "string",
-      "required": true
-    },
-    "gender": {
-      "type": "string",
-      "required": true
-    }
-  },
+  "properties": {},
   "validations": [],
   "relations": {
-    "address": {
-      "type": "embedsOne",
-      "model": "Address",
+    "ownerAccount": {
+      "type": "hasOne",
+      "model": "OwnerAccount",
+      "foreignKey": ""
+    },
+    "clubs": {
+      "type": "hasMany",
+      "model": "Club",
       "foreignKey": ""
     }
   },
-  "acls": [],
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    }
+  ],
   "methods": {}
 }

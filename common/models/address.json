@@ -8,35 +8,35 @@
   "properties": {
     "address": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "address2": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "zip": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "city": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "country": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "phone": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "phone2": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "latLon": {
       "type": "geopoint",
-      "required": true
+      "required": false
     }
   },
   "validations": [],

@@ -1,4 +1,6 @@
-<form name="clubForm" class="row">
+<us-spinner ng-if="loading"></us-spinner>
+
+<form name="clubForm" class="row" ng-if="!loading">
 
     <section class="col-sm-4 col-md-3">
         <ul class="nav nav-pills nav-stacked">
@@ -13,6 +15,16 @@
             <li class="nav-item">
                 <a href ng-click="setActiveItem('media')" class="nav-link"
                    ng-class="activeItem == 'media' ? 'active':''">{{'MEDIA' | translate}}</a>
+            </li>
+
+            <li class="nav-item">
+                <a href ng-click="setActiveItem('offers')" class="nav-link"
+                   ng-class="activeItem == 'offers' ? 'active':''">{{'OFFERS' | translate}}</a>
+            </li>
+
+            <li class="nav-item">
+                <a href ng-click="setActiveItem('opening')" class="nav-link"
+                   ng-class="activeItem == 'opening' ? 'active':''">{{'OPENING_HOURS' | translate}}</a>
             </li>
         </ul>
     </section>
@@ -30,13 +42,13 @@
 
         <fieldset class="form-group">
             <label for="address">{{'ADDRESS' | translate}}</label>
-            <input type="text" ng-model="club.address.address" id="address" class="form-control"
+            <input type="text" ng-model="club._address.address" id="address" class="form-control"
                    placeholder="{{'ADDRESS' | translate}}">
         </fieldset>
 
         <fieldset class="form-group">
             <label for="address2" class="sr-only">{{'ADDRESS_2' | translate}}</label>
-            <input type="text" ng-model="club.address.address2" id="address2" class="form-control"
+            <input type="text" ng-model="club._address.address2" id="address2" class="form-control"
                    placeholder="{{'ADDRESS_2' | translate}}">
         </fieldset>
 
@@ -44,24 +56,26 @@
 
             <div class="col-xs-4 col-sm-4 col-md-2">
                 <label for="zip">{{'ZIP' | translate}}</label>
-                <input type="text" ng-model="club.address.zip" id="zip" class="form-control"
-                       placeholder="{{'ZIP' | translate}}" required ng-pattern="/^[0-9]{5}$/">
+                <input type="text" ng-model="club._address.zip" id="zip" class="form-control"
+                       placeholder="{{'ZIP' | translate}}" required>
             </div>
 
             <div class="col-xs-8 col-sm-4 col-md-5">
                 <label for="city">{{'CITY' | translate}}</label>
-                <input type="text" ng-model="club.address.city" id="city" class="form-control"
+                <input type="text" ng-model="club._address.city" id="city" class="form-control"
                        placeholder="{{'CITY' | translate}}">
             </div>
 
             <div class="col-xs-12 col-sm-4 col-md-5">
                 <label for="country">{{'COUNTRY' | translate}}</label>
 
-                <select id="country" class="c-select form-control" ng-model="club.address.country" required>
-                    <option selected>{{'COUNTRY' | translate}}</option>
-                    <!--<option ng-repeat="country in countries" value="{{country.name}}">-->
-                    <!--{{country.name}}-->
-                    <!--</option>-->
+                <select class="c-select form-control"
+                        placeholder="{{'COUNTRY' | translate}}"
+                        ng-model="club._address.country"
+                        name="country"
+                        id="country"
+                        ng-options="country as country | translate for country in countries"
+                        required>
                 </select>
             </div>
 
@@ -78,8 +92,12 @@
 
         <fieldset class="form-group">
             <label for="description">{{'DESCRIPTION' | translate}}</label>
-            <textarea ng-model="club.description" id="description" class="form-control"
-                      placeholder="{{'DESCRIPTION' | translate}}"></textarea>
+
+            <text-angular ta-toolbar="editorToolbar" id="description" placeholder="{{'DESCRIPTION' | translate}}"
+                          ng-model="club.description"></text-angular>
+
+            <!--<textarea text-angular ng-model="club.description" id="description" class="form-control"-->
+            <!--placeholder="{{'DESCRIPTION' | translate}}"></textarea>-->
         </fieldset>
     </section>
 
@@ -97,12 +115,11 @@
             </div>
             <div class="col-xs-6 col-md-4">
                 <label for="tax">{{'TAX' | translate}}</label>
-                <select id="tax" ng-model="club.tax" class="c-select form-control">
-                    <option selected>{{'TAX' | translate}}</option>
-
-                    <option ng-repeat="tax in taxes" value="{{tax.id}}">
-                        {{tax.name}}
-                    </option>
+                <select ng-options="tax.id as tax.name + ' (' + tax.percentage + '%)' for tax in taxes"
+                        ng-model="club.taxId"
+                        class="c-select form-control"
+                        placeholder="{{'TAX' | translate}}"
+                        id="tax">
                 </select>
             </div>
 
@@ -111,6 +128,11 @@
                 <input type="text" ng-model="club.capacity" id="defaultCapacity" class="form-control"
                        placeholder="{{'DEFAULT_CAPACITY' | translate}}" required>
             </div>
+
+            <div class="col-xs-12">
+                <p><small>{{'PRICING_CAPACITY_SUMMARY' | translate:{price:club.price, commission: ownerAccount.salesCommission, capacity:club.capacity} }}</small></p>
+            </div>
+
         </fieldset>
 
         <h4>{{'DAY_BASED_PLANNING' | translate}}</h4>
@@ -152,7 +174,9 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">{{'CANCEL' | translate}}
                         </button>
-                        <button type="button" class="btn btn-primary" ng-click="updateCapacities()">{{'SAVE' | translate}}</button>
+                        <button type="button" class="btn btn-primary"
+                                ng-click="updateCapacities()">{{'SAVE' | translate}}
+                        </button>
                     </div>
                 </div>
             </div>
@@ -208,4 +232,67 @@
         </div>
 
     </section>
+
+    <section class="col-sm-8 col-md-9" ng-hide="activeItem != 'offers'">
+        <h2>{{'OFFERS' | translate}}</h2>
+        <hr />
+
+        <p>{{'WHAT_DO_YOU_OFFER_DESCRIPTION' | translate}}</p>
+
+        <us-spinner ng-if="!offers"></us-spinner>
+
+        <div class="checkbox" ng-repeat="offer in offers">
+            <label>
+                <input type="checkbox" ng-model="offer.link" value="{{offer.id}}">
+                {{offer.name}}
+            </label>
+        </div>
+
+    </section>
+
+    <section class="col-sm-8 col-md-9" ng-hide="activeItem != 'opening'">
+        <h2>{{'OPENING_HOURS' | translate}}</h2>
+        <hr />
+
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="(day, openingObj) in club.openingHours">
+
+                <div class="row">
+
+                    <div class="col-xs-12"><h4 class="list-group-item-heading">{{day | translate}}</h4></div>
+
+                    <div class="col-md-3 col-xs-6">
+                        <p>{{'OPEN_FROM' | translate}}</p>
+
+                        <uib-timepicker ng-model="openingObj.openFrom" hour-step="1" minute-step="1"
+                                        show-meridian="false"></uib-timepicker>
+                    </div>
+
+                    <div class="col-md-3 col-xs-6">
+                        <p>{{'BREAK_FROM' | translate}}</p>
+
+                        <uib-timepicker ng-model="openingObj.breakFrom" hour-step="1" minute-step="1"
+                                        show-meridian="false"></uib-timepicker>
+                    </div>
+
+                    <div class="col-md-3 col-xs-6">
+                        <p>{{'BREAK_TO' | translate}}</p>
+
+                        <uib-timepicker ng-model="openingObj.breakTo" hour-step="1" minute-step="1"
+                                        show-meridian="false"></uib-timepicker>
+                    </div>
+
+                    <div class="col-md-3 col-xs-6">
+                        <p>{{'OPEN_TO' | translate}}</p>
+
+                        <uib-timepicker ng-model="openingObj.openTo" hour-step="1" minute-step="1"
+                                        show-meridian="false"></uib-timepicker>
+                    </div>
+
+                </div>
+            </li>
+        </ul>
+
+    </section>
+
 </form>

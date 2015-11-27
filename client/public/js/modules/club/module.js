@@ -1,1 +1,1 @@
-angular.module('com.airspott.club', ['ngFileUpload', 'ui.calendar']);
+angular.module('com.airspott.club', ['ngFileUpload', 'ui.calendar', 'mm.iban', 'textAngular']);

@@ -1,26 +1,23 @@
 {
-  "name": "Media",
+  "name": "OwnerAccount",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "name": {
+    "iban": {
       "type": "string",
       "required": true
     },
-    "description": {
-      "type": "string",
-      "required": false
-    },
-    "media": {
+    "bic": {
       "type": "string",
       "required": true
     },
-    "order": {
+    "salesCommission": {
       "type": "number",
-      "required": false
+      "required": true,
+      "default": 0.2
     }
   },
   "validations": [],
