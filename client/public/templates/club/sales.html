@@ -1,2 +1,12 @@
-<h2>{{'SALES' | translate}}</h2>
-<hr />
+<div ng-if="(!sales || !sales.length)">
+
+    <h2>{{'NO_SALES_YET' | translate}}</h2>
+    <hr />
+
+    <a href="#/club/manage" class="btn btn-primary">{{'REFINE_YOUR_CLUBS' | translate}}</a>
+</div>
+
+<us-spinner ng-if="!salesLoaded"></us-spinner>
+
+<h2 ng-if="sales && sales.length">{{'SALES' | translate}}</h2>
+<hr ng-if="sales && sales.length" />

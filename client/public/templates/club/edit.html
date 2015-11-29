@@ -221,7 +221,7 @@
         <div class="card-columns"
              ng-if="media && media.length">
 
-            <div class="card" ng-repeat="mediaItem in media">
+            <div class="card" ng-repeat="mediaItem in media | orderBy:'':true">
                 <div style="height:12em;width:100%" class="text-center">
                     <img class="card-img-top" ng-src="{{mediaItem.media}}" alt="{{mediaItem.name}}"
                          style="max-height:100%;max-width:100%">

@@ -40,6 +40,12 @@ angular.module('com.airspott')
                     controller: 'ClubAccountCtrl'
                 })
 
+                .state('sellerRegister', {
+                    url: '/club/register',
+                    templateUrl: 'templates/club/register.html',
+                    controller: 'ClubAccountCtrl'
+                })
+
                 .state('club.main', {
                     url: '/main',
                     views: {

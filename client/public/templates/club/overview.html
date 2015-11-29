@@ -17,10 +17,7 @@
                         <strong>{{'USER_E_MAIL' | translate}}</strong>{{'USER_E_MAIL_DATA' | translate:{email: user.email} }}
                     </li>
                     <li><strong>{{'USER_TYPE' | translate}}</strong>{{'USER_TYPE_DATA' | translate}}</li>
-                    <li><strong>{{'BALANCE' | translate}}</strong>{{'BALANCE_DATA' | translate}}</li>
-                    <li><strong>{{'PENDING_PAYOUT' | translate}}</strong>{{'PENDING_PAYOUT_DATA' | translate}}
-                    </li>
-                    <li><strong>{{'NEXT_TODO' | translate}}</strong>{{'NEXT_TODO_DATA' | translate}}</li>
+                    <li ng-if="ownerAccount === false"><strong>{{'NEXT_TODO' | translate}}</strong>{{'NEXT_TODO_DATA' | translate}}</li>
                 </ul>
             </div>
         </div>
@@ -32,10 +29,8 @@
                 </h4>
 
                 <a class="btn btn-primary-outline btn-block" href="#/club/edit/">{{'ADD_A_CLUB' | translate}}</a>
-                <a class="btn btn-primary-outline btn-block" href="#/club/edit/"
+                <a class="btn btn-primary-outline btn-block" href="#/club/account"
                    ng-if="ownerAccount">{{'VIEW_ACCOUNTING' | translate}}</a>
-                <a class="btn btn-primary-outline btn-block" href="#/club/edit/"
-                   ng-if="ownerAccount">{{'REQUEST_PAYOUT' | translate}}</a>
             </div>
         </div>
 

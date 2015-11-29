@@ -9,7 +9,7 @@
 <us-spinner ng-if="!clubsLoaded"></us-spinner>
 
 <h2 ng-if="clubs && clubs.length">{{'MY_CLUBS' | translate}}</h2>
-<hr />
+<hr ng-if="clubs && clubs.length" />
 <div class="card-columns" ng-if="clubs && clubs.length">
     <div class="card" ng-repeat="club in clubs">
         <div class="card-block">
@@ -18,7 +18,8 @@
             <p class="card-text">{{'ADDRESS_SHORT' | translate:club._address}}</p>
         </div>
 
-        <div style="height:12em;width:100%" class="text-center">
+        <div style="height:12em;width:100%;background:rgba(0,0,0,.3);"
+             class="text-center">
             <img class="card-img-top" ng-src="{{club.media.length ? club.media[0].media : ''}}" alt="{{club.name}}"
                  style="max-height:100%;max-width:100%">
         </div>

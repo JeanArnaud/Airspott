@@ -7,7 +7,9 @@
     "SETTINGS": "Einstellungen",
     "LOGOUT": "Abmelden",
 
-    "COPYRIGHT_FOOTER": "Made with heart by Airspott in Vienna. Copyright 2015 Airspott GmbH.",
+    "APP_NAME": "Airspott",
+
+    "COPYRIGHT_FOOTER": "Made with ♥ by Airspott in Vienna. © 2015 Airspott GmbH.",
 
 
     "WELCOME_TO_AIRSPOTT": "Willkommen bei Airspott!",
@@ -25,12 +27,20 @@
     "TAX": "Steuer",
     "DEFAULT_CAPACITY": "Standardkapazität pro Tag",
 
-    "ADDRESS_SHORT":"{{address}}, {{zip}} {{city}}, {{country | translate}}",
+    "ADDRESS_SHORT": "{{address}}, {{zip}} {{city}}, {{country | translate}}",
 
     "DAY_BASED_PLANNING": "Kapazitätsplanung pro Tag",
     "PLANNING_DESCRIPTION": "Kapazitäten und Preise für Zeiträume festlegen",
 
+    "NEXT_TODO_DATA": " Auszahlungskonto hinzufügen",
+    "USER_TYPE_DATA": " Verkäufer",
+
+    "REPORTS_COMING_SOON": "Wir verbessern Airspott kontinuierlich. Bald finden Sie hier Angebote um detaillierte Berichte Ihrer Verkäufe zu erstellen.",
+
     "FILE_UPLOAD_DROP_DESCRIPTION": "Bilder hierher ziehen und hinzufügen...",
+
+    "MEDIA_NAME": "Name",
+    "MEDIA_DESCRIPTION": "Beschreibung",
 
     "NAME": "Name",
     "ADDRESS": "Adresse",
@@ -80,6 +90,10 @@
     "PRICING_CAPACITY_SUMMARY": "Pro Tag werden maximal {{capacity}} Tickets zu je {{price | currency:'€ '}} verkauft. Dies inkludiert unsere Provision i.H.v. {{commission*100}}% ({{price * commission | currency:'€ '}}).",
 
     "DROP_HERE": "Datei(en) jetzt fallen lassen...",
+
+
+    "REGISTER_ERROR_INVALID_DATA": "Fehler bei der Registrierung: Bitte überprüfen Sie die eingegebenen Daten auf Vollständigkeit.",
+    "REGISTER_ERROR_GENERIC": "Fehler bei der Registrierung: Bitte versuchen Sie es erneut oder kontaktieren Sie uns, falls der Fehler weiterhin besteht.",
 
 
     "AT": "Österreich",
