@@ -17,6 +17,12 @@ angular.module('com.airspott.club')
                         var next = $location.nextAfterLogin || '/club/main';
                         $location.nextAfterLogin = null;
                         $location.path(next);
+                    }, function (err)
+                    {
+                        $translate('LOGIN_ERROR_GENERIC').then(function (translation)
+                        {
+                            Message.error(translation);
+                        });
                     });
                 };
 

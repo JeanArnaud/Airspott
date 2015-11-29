@@ -1,12 +1,14 @@
 angular.module('com.airspott.club')
     .controller('AccountingCtrl',
         [
-            '$rootScope', '$scope', '$state', 'Customer', 'OwnerAccount', 'Message',
+            '$rootScope', '$scope', '$state', '$translate', '$log', 'Customer', 'OwnerAccount', 'Message',
 
-            function ($rootScope, $scope, $state, Customer, OwnerAccount, Message)
+            function ($rootScope, $scope, $state, $translate, $log, Customer, OwnerAccount, Message)
             {
 
                 $rootScope.meta.title = "ACCOUNTING";
+
+                if (!$rootScope.ownerAccount) $scope.fullyNew = true;
 
                 $scope.save = function ()
                 {
@@ -19,13 +21,19 @@ angular.module('com.airspott.club')
 
                             $rootScope.ownerAccount = ownerAccount;
 
-                            Message.success('SUCCESS_SAVING_OWNER_ACCOUNT');
+                            $translate('SUCCESS_SAVING_OWNER_ACCOUNT').then(function (translation)
+                            {
+                                Message.success(translation);
 
-                            $state.go('club.main');
+                                $state.go('club.main');
+                            });
 
                         }, function (err)
                         {
-                            Message.error('ERROR_SAVING_OWNER_ACCOUNT');
+                            $translate('ERROR_SAVING_OWNER_ACCOUNT').then(function (translation)
+                            {
+                                Message.error(translation);
+                            });
                         });
 
                     }, function (err)
@@ -37,12 +45,19 @@ angular.module('com.airspott.club')
 
                                 $rootScope.ownerAccount = ownerAccount;
 
-                                Message.success('SUCCESS_SAVING_OWNER_ACCOUNT');
+                                $translate('SUCCESS_SAVING_OWNER_ACCOUNT').then(function (translation)
+                                {
+                                    Message.success(translation);
 
-                                $state.go('club.main');
+                                    $state.go('club.main');
+                                });
+
                             }, function (err)
                             {
-                                Message.error('ERROR_SAVING_OWNER_ACCOUNT');
+                                $translate('ERROR_SAVING_OWNER_ACCOUNT').then(function (translation)
+                                {
+                                    Message.error(translation);
+                                });
                             });
                         }
                     });

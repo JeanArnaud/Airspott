@@ -33,12 +33,16 @@
         <div class="form-group">
             <label for="commission">{{'COMMISSION' | translate}}</label>
 
-            <div class="input-group">
+            <div class="input-group" ng-if="ownerAccount && !fullyNew">
                 <input id="commission" ng-value="ownerAccount.salesCommission * 100" class="form-control" type="text"
                        disabled>
 
                 <div class="input-group-addon">%</div>
             </div>
+
+            <input id="commission" value="{{'COMMISSION_AFTER_ACCOUNT_SETUP' | translate}}" class="form-control"
+                   type="text"
+                   disabled ng-if="fullyNew || !ownerAccount">
         </div>
     </div>
 

@@ -1,0 +1,36 @@
+{
+  "name": "PlanningEntry",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "price": {
+      "type": "number",
+      "required": false
+    },
+    "capacity": {
+      "type": "number",
+      "required": false
+    },
+    "start": {
+      "type": "date",
+      "required": true
+    },
+    "end": {
+      "type": "date",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "club": {
+      "type": "belongsTo",
+      "model": "Club",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

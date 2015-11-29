@@ -95,9 +95,6 @@
 
             <text-angular ta-toolbar="editorToolbar" id="description" placeholder="{{'DESCRIPTION' | translate}}"
                           ng-model="club.description"></text-angular>
-
-            <!--<textarea text-angular ng-model="club.description" id="description" class="form-control"-->
-            <!--placeholder="{{'DESCRIPTION' | translate}}"></textarea>-->
         </fieldset>
     </section>
 
@@ -106,6 +103,20 @@
 
         <h2>{{'PRICING_CAPACITIES' | translate}}</h2>
         <hr />
+
+        <fieldset class="form-group row">
+            <div class="col-xs-12">
+                <label for="saleUnit">{{'SALE_UNIT' | translate}}</label>
+
+                <select ng-options="saleUnit as 'SALE_UNIT_' + saleUnit | translate for saleUnit in saleUnits"
+                        ng-model="club.saleUnit"
+                        class="c-select form-control"
+                        placeholder="{{'SALE_UNIT' | translate}}"
+                        id="saleUnit"
+                        ng-change="generateCalConfig()">
+                </select>
+            </div>
+        </fieldset>
 
         <fieldset class="form-group row">
             <div class="col-xs-6 col-md-4">
@@ -129,18 +140,20 @@
                        placeholder="{{'DEFAULT_CAPACITY' | translate}}" required>
             </div>
 
-            <div class="col-xs-12">
+            <div class="col-xs-12" ng-if="club.saleUnit && club.price && club.capacity">
                 <p>
-                    <small>{{'PRICING_CAPACITY_SUMMARY' | translate:{price:club.price, commission: ownerAccount.salesCommission, capacity:club.capacity} }}</small>
+                    <small>{{'PRICING_CAPACITY_SUMMARY' | translate:{saleUnit: club.saleUnit, price:club.price, commission: ownerAccount.salesCommission, capacity:club.capacity} }}</small>
                 </p>
             </div>
-
         </fieldset>
+
+        <hr />
 
         <h4>{{'DAY_BASED_PLANNING' | translate}}</h4>
 
-        <p>{{'PLANNING_DESCRIPTION' | translate}}</p>
-        <hr />
+        <p ng-if="calConfig">{{'PLANNING_DESCRIPTION' | translate}}</p>
+        <p ng-if="!calConfig">{{'PLANNING_DESCRIPTION_SALE_UNIT_REQUIRED' | translate}}</p>
+        <hr ng-if="calConfig" />
 
         <div class="modal fade" id="calendarEventModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
              aria-hidden="true">
@@ -149,7 +162,7 @@
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
-                            <span class="sr-only">Close</span>
+                            <span class="sr-only">{{'CLOSE' | translate}}</span>
                         </button>
 
                         <h5 class="modal-title">{{'ADD_PLANNING_ENTRY' | translate}}</h5>
@@ -157,18 +170,18 @@
 
                     <div class="modal-body">
 
-                        <p>{{'WHICH_TYPE_TO_CHANGE' | translate}}</p>
+                        <p ng-if="!eventInChange">{{'WHICH_PLANNING_TYPE_TO_CHANGE' | translate}}</p>
 
-                        <fieldset class="form-group">
+                        <fieldset class="form-group" ng-if="!eventInChange || eventInChange.price">
                             <label for="priceInModal">{{'PRICE' | translate}}</label>
                             <input type="text" ng-model="modal.price" id="priceInModal" class="form-control"
-                                   placeholder="{{'PRICE_FOR_EACH_DAY' | translate}}">
+                                   placeholder="{{'PRICE_FOREACH_SALE_UNIT' | translate}}">
                         </fieldset>
 
-                        <fieldset class="form-group">
+                        <fieldset class="form-group" ng-if="!eventInChange || eventInChange.capacity">
                             <label for="capacityInModal">{{'CAPACITY' | translate}}</label>
                             <input type="text" ng-model="modal.capacity" id="capacityInModal" class="form-control"
-                                   placeholder="{{'CAPACITY_PER_DAY' | translate}}">
+                                   placeholder="{{'CAPACITY_FOREACH_SALE_UNIT' | translate}}">
                         </fieldset>
 
                     </div>
@@ -184,7 +197,7 @@
             </div>
         </div>
 
-        <div ui-calendar="calConfig.calendar"></div>
+        <div ui-calendar="calConfig.calendar" ng-model="capacityPlanningEntries" ng-if="calConfig"></div>
     </section>
 
     <style type="text/css">

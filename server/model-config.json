@@ -37,10 +37,6 @@
     "dataSource": "db",
     "public": true
   },
-  "ClubSetting": {
-    "dataSource": "db",
-    "public": true
-  },
   "Ticket": {
     "dataSource": "db",
     "public": true
@@ -70,6 +66,10 @@
     "public": true
   },
   "Customer": {
+    "dataSource": "db",
+    "public": true
+  },
+  "PlanningEntry": {
     "dataSource": "db",
     "public": true
   }

@@ -36,6 +36,7 @@
     "angular-translate-loader-static-files": "~2.8.1",
     "angular-toastr": "~1.5.0",
     "ng-iban": "~0.4.0",
-    "textAngular": "~1.4.6"
+    "textAngular": "~1.4.6",
+    "font-awesome": "~4.5.0"
   }
 }

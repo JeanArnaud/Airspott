@@ -8,7 +8,26 @@ angular.module('com.airspott.club').service('Message',
          {
              var deferred = $q.defer();
 
-             toastr.success(message, 'Toastr fun!');
+             switch (level)
+             {
+                 case 'success':
+                     toastr.success(message);
+                     break;
+
+                 case 'error':
+                     toastr.error(message);
+                     break;
+
+                 case 'warning':
+                     toastr.warning(message);
+                     break;
+
+                 case 'info':
+                 default:
+                     toastr.info(message);
+                     break;
+
+             }
 
              deferred.resolve(message);
 

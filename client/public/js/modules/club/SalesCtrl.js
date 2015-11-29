@@ -8,5 +8,7 @@ angular.module('com.airspott.club')
 
             $rootScope.meta.title = "CLUB_SALES";
 
+            $scope.salesLoaded = true;
+
         }
     ]);

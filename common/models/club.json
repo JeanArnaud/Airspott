@@ -24,6 +24,10 @@
     "openingHours": {
       "type": "object",
       "required": false
+    },
+    "saleUnit": {
+      "type": "string",
+      "required": true
     }
   },
   "validations": [],
@@ -56,6 +60,11 @@
     "tax": {
       "type": "belongsTo",
       "model": "TAX",
+      "foreignKey": ""
+    },
+    "planningEntries": {
+      "type": "hasMany",
+      "model": "PlanningEntry",
       "foreignKey": ""
     }
   },

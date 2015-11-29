@@ -1,0 +1,43 @@
+/**
+ * Bootstrap
+ */
+@import "../common/lib/bootstrap/scss/bootstrap";
+
+/**
+ * Font Awesome
+ */
+@import "../common/lib/font-awesome/scss/font-awesome";
+
+/**
+ * CSS Dependencies
+ */
+@import "../common/lib/fullcalendar/dist/fullcalendar";
+@import "../common/lib/angular-toastr/dist/angular-toastr";
+@import "../common/lib/textAngular/dist/textAngular";
+
+/**
+ * Admin UI reset
+ */
+html, body
+{
+    height:100%;
+    width:100%;
+}
+
+/**
+ * Custom modules
+ */
+@import "club/login";
+
+.glyphicon
+{
+    @extend .fa;
+}
+
+.glyphicon-chevron-up:before { content: $fa-var-chevron-up; }
+.glyphicon-chevron-down:before { content: $fa-var-chevron-down; }
+
+.btn, .btn-link
+{
+    outline:0;
+}

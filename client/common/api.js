@@ -1131,33 +1131,6 @@ module.factory(
       { 'id': '@id' },
       {
 
-        // INTERNAL. Use Club.clubSettings.findById() instead.
-        "prototype$__findById__clubSettings": {
-          params: {
-          'fk': '@fk'
-          },
-          url: urlBase + "/Clubs/:id/clubSettings/:fk",
-          method: "GET"
-        },
-
-        // INTERNAL. Use Club.clubSettings.destroyById() instead.
-        "prototype$__destroyById__clubSettings": {
-          params: {
-          'fk': '@fk'
-          },
-          url: urlBase + "/Clubs/:id/clubSettings/:fk",
-          method: "DELETE"
-        },
-
-        // INTERNAL. Use Club.clubSettings.updateById() instead.
-        "prototype$__updateById__clubSettings": {
-          params: {
-          'fk': '@fk'
-          },
-          url: urlBase + "/Clubs/:id/clubSettings/:fk",
-          method: "PUT"
-        },
-
         // INTERNAL. Use Club.address() instead.
         "prototype$__get__address": {
           url: urlBase + "/Clubs/:id/address",
@@ -1248,29 +1221,31 @@ module.factory(
           method: "GET"
         },
 
-        // INTERNAL. Use Club.clubSettings() instead.
-        "prototype$__get__clubSettings": {
-          isArray: true,
-          url: urlBase + "/Clubs/:id/clubSettings",
+        // INTERNAL. Use Club.planningEntries.findById() instead.
+        "prototype$__findById__planningEntries": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/Clubs/:id/planningEntries/:fk",
           method: "GET"
         },
 
-        // INTERNAL. Use Club.clubSettings.create() instead.
-        "prototype$__create__clubSettings": {
-          url: urlBase + "/Clubs/:id/clubSettings",
-          method: "POST"
-        },
-
-        // INTERNAL. Use Club.clubSettings.destroyAll() instead.
-        "prototype$__delete__clubSettings": {
-          url: urlBase + "/Clubs/:id/clubSettings",
+        // INTERNAL. Use Club.planningEntries.destroyById() instead.
+        "prototype$__destroyById__planningEntries": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/Clubs/:id/planningEntries/:fk",
           method: "DELETE"
         },
 
-        // INTERNAL. Use Club.clubSettings.count() instead.
-        "prototype$__count__clubSettings": {
-          url: urlBase + "/Clubs/:id/clubSettings/count",
-          method: "GET"
+        // INTERNAL. Use Club.planningEntries.updateById() instead.
+        "prototype$__updateById__planningEntries": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/Clubs/:id/planningEntries/:fk",
+          method: "PUT"
         },
 
         // INTERNAL. Use Club.media() instead.
@@ -1320,6 +1295,31 @@ module.factory(
         // INTERNAL. Use Club.offers.count() instead.
         "prototype$__count__offers": {
           url: urlBase + "/Clubs/:id/offers/count",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Club.planningEntries() instead.
+        "prototype$__get__planningEntries": {
+          isArray: true,
+          url: urlBase + "/Clubs/:id/planningEntries",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Club.planningEntries.create() instead.
+        "prototype$__create__planningEntries": {
+          url: urlBase + "/Clubs/:id/planningEntries",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Club.planningEntries.destroyAll() instead.
+        "prototype$__delete__planningEntries": {
+          url: urlBase + "/Clubs/:id/planningEntries",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Club.planningEntries.count() instead.
+        "prototype$__count__planningEntries": {
+          url: urlBase + "/Clubs/:id/planningEntries/count",
           method: "GET"
         },
 
@@ -1803,6 +1803,12 @@ module.factory(
           url: urlBase + "/Customers/:id/clubs/count",
           method: "GET"
         },
+
+        // INTERNAL. Use PlanningEntry.club() instead.
+        "::get::PlanningEntry::club": {
+          url: urlBase + "/PlanningEntries/:id/club",
+          method: "GET"
+        },
       }
     );
 
@@ -1945,307 +1951,6 @@ module.factory(
     */
     R.modelName = "Club";
 
-    /**
-     * @ngdoc object
-     * @name com.airspott.api.Club.clubSettings
-     * @header com.airspott.api.Club.clubSettings
-     * @object
-     * @description
-     *
-     * The object `Club.clubSettings` groups methods
-     * manipulating `ClubSetting` instances related to `Club`.
-     *
-     * Call {@link com.airspott.api.Club#clubSettings Club.clubSettings()}
-     * to query all related instances.
-     */
-
-
-        /**
-         * @ngdoc method
-         * @name com.airspott.api.Club#clubSettings
-         * @methodOf com.airspott.api.Club
-         *
-         * @description
-         *
-         * Queries clubSettings of Club.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         *  - `filter` – `{object=}` - 
-         *
-         * @param {function(Array.<Object>,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Array.<Object>} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `ClubSetting` object.)
-         * </em>
-         */
-        R.clubSettings = function() {
-          var TargetResource = $injector.get("ClubSetting");
-          var action = TargetResource["::get::Club::clubSettings"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name com.airspott.api.Club.clubSettings#count
-         * @methodOf com.airspott.api.Club.clubSettings
-         *
-         * @description
-         *
-         * Counts clubSettings of Club.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         *  - `where` – `{object=}` - Criteria to match model instances
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * Data properties:
-         *
-         *  - `count` – `{number=}` - 
-         */
-        R.clubSettings.count = function() {
-          var TargetResource = $injector.get("ClubSetting");
-          var action = TargetResource["::count::Club::clubSettings"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name com.airspott.api.Club.clubSettings#create
-         * @methodOf com.airspott.api.Club.clubSettings
-         *
-         * @description
-         *
-         * Creates a new instance in clubSettings of this model.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `ClubSetting` object.)
-         * </em>
-         */
-        R.clubSettings.create = function() {
-          var TargetResource = $injector.get("ClubSetting");
-          var action = TargetResource["::create::Club::clubSettings"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name com.airspott.api.Club.clubSettings#createMany
-         * @methodOf com.airspott.api.Club.clubSettings
-         *
-         * @description
-         *
-         * Creates a new instance in clubSettings of this model.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Array.<Object>,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Array.<Object>} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `ClubSetting` object.)
-         * </em>
-         */
-        R.clubSettings.createMany = function() {
-          var TargetResource = $injector.get("ClubSetting");
-          var action = TargetResource["::createMany::Club::clubSettings"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name com.airspott.api.Club.clubSettings#destroyAll
-         * @methodOf com.airspott.api.Club.clubSettings
-         *
-         * @description
-         *
-         * Deletes all clubSettings of this model.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * This method returns no data.
-         */
-        R.clubSettings.destroyAll = function() {
-          var TargetResource = $injector.get("ClubSetting");
-          var action = TargetResource["::delete::Club::clubSettings"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name com.airspott.api.Club.clubSettings#destroyById
-         * @methodOf com.airspott.api.Club.clubSettings
-         *
-         * @description
-         *
-         * Delete a related item by id for clubSettings.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         *  - `fk` – `{*}` - Foreign key for clubSettings
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * This method returns no data.
-         */
-        R.clubSettings.destroyById = function() {
-          var TargetResource = $injector.get("ClubSetting");
-          var action = TargetResource["::destroyById::Club::clubSettings"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name com.airspott.api.Club.clubSettings#findById
-         * @methodOf com.airspott.api.Club.clubSettings
-         *
-         * @description
-         *
-         * Find a related item by id for clubSettings.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         *  - `fk` – `{*}` - Foreign key for clubSettings
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `ClubSetting` object.)
-         * </em>
-         */
-        R.clubSettings.findById = function() {
-          var TargetResource = $injector.get("ClubSetting");
-          var action = TargetResource["::findById::Club::clubSettings"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name com.airspott.api.Club.clubSettings#updateById
-         * @methodOf com.airspott.api.Club.clubSettings
-         *
-         * @description
-         *
-         * Update a related item by id for clubSettings.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         *  - `fk` – `{*}` - Foreign key for clubSettings
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `ClubSetting` object.)
-         * </em>
-         */
-        R.clubSettings.updateById = function() {
-          var TargetResource = $injector.get("ClubSetting");
-          var action = TargetResource["::updateById::Club::clubSettings"];
-          return action.apply(R, arguments);
-        };
     /**
      * @ngdoc object
      * @name com.airspott.api.Club.address
@@ -3115,90 +2820,35 @@ module.factory(
           var action = TargetResource["::get::Club::customer"];
           return action.apply(R, arguments);
         };
+    /**
+     * @ngdoc object
+     * @name com.airspott.api.Club.planningEntries
+     * @header com.airspott.api.Club.planningEntries
+     * @object
+     * @description
+     *
+     * The object `Club.planningEntries` groups methods
+     * manipulating `PlanningEntry` instances related to `Club`.
+     *
+     * Call {@link com.airspott.api.Club#planningEntries Club.planningEntries()}
+     * to query all related instances.
+     */
 
-    return R;
-  }]);
-
-/**
- * @ngdoc object
- * @name com.airspott.api.ClubSetting
- * @header com.airspott.api.ClubSetting
- * @object
- *
- * @description
- *
- * A $resource object for interacting with the `ClubSetting` model.
- *
- * ## Example
- *
- * See
- * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
- * for an example of using this object.
- *
- */
-module.factory(
-  "ClubSetting",
-  ['LoopBackResource', 'LoopBackAuth', '$injector', function(Resource, LoopBackAuth, $injector) {
-    var R = Resource(
-      urlBase + "/ClubSettings/:id",
-      { 'id': '@id' },
-      {
 
         /**
          * @ngdoc method
-         * @name com.airspott.api.ClubSetting#create
-         * @methodOf com.airspott.api.ClubSetting
+         * @name com.airspott.api.Club#planningEntries
+         * @methodOf com.airspott.api.Club
          *
          * @description
          *
-         * Create a new instance of the model and persist it into the data source.
+         * Queries planningEntries of Club.
          *
          * @param {Object=} parameters Request parameters.
          *
-         *   This method does not accept any parameters.
-         *   Supply an empty object or omit this argument altogether.
+         *  - `id` – `{*}` - PersistedModel id
          *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `ClubSetting` object.)
-         * </em>
-         */
-        "create": {
-          url: urlBase + "/ClubSettings",
-          method: "POST"
-        },
-
-        /**
-         * @ngdoc method
-         * @name com.airspott.api.ClubSetting#createMany
-         * @methodOf com.airspott.api.ClubSetting
-         *
-         * @description
-         *
-         * Create a new instance of the model and persist it into the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *   This method does not accept any parameters.
-         *   Supply an empty object or omit this argument altogether.
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
+         *  - `filter` – `{object=}` - 
          *
          * @param {function(Array.<Object>,Object)=} successCb
          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -3212,264 +2862,27 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `ClubSetting` object.)
+         * This usually means the response is a `PlanningEntry` object.)
          * </em>
          */
-        "createMany": {
-          isArray: true,
-          url: urlBase + "/ClubSettings",
-          method: "POST"
-        },
+        R.planningEntries = function() {
+          var TargetResource = $injector.get("PlanningEntry");
+          var action = TargetResource["::get::Club::planningEntries"];
+          return action.apply(R, arguments);
+        };
 
         /**
          * @ngdoc method
-         * @name com.airspott.api.ClubSetting#upsert
-         * @methodOf com.airspott.api.ClubSetting
+         * @name com.airspott.api.Club.planningEntries#count
+         * @methodOf com.airspott.api.Club.planningEntries
          *
          * @description
          *
-         * Update an existing model instance or insert a new one into the data source.
+         * Counts planningEntries of Club.
          *
          * @param {Object=} parameters Request parameters.
          *
-         *   This method does not accept any parameters.
-         *   Supply an empty object or omit this argument altogether.
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `ClubSetting` object.)
-         * </em>
-         */
-        "upsert": {
-          url: urlBase + "/ClubSettings",
-          method: "PUT"
-        },
-
-        /**
-         * @ngdoc method
-         * @name com.airspott.api.ClubSetting#exists
-         * @methodOf com.airspott.api.ClubSetting
-         *
-         * @description
-         *
-         * Check whether a model instance exists in the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - Model id
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * Data properties:
-         *
-         *  - `exists` – `{boolean=}` - 
-         */
-        "exists": {
-          url: urlBase + "/ClubSettings/:id/exists",
-          method: "GET"
-        },
-
-        /**
-         * @ngdoc method
-         * @name com.airspott.api.ClubSetting#findById
-         * @methodOf com.airspott.api.ClubSetting
-         *
-         * @description
-         *
-         * Find a model instance by id from the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - Model id
-         *
-         *  - `filter` – `{object=}` - Filter defining fields and include
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `ClubSetting` object.)
-         * </em>
-         */
-        "findById": {
-          url: urlBase + "/ClubSettings/:id",
-          method: "GET"
-        },
-
-        /**
-         * @ngdoc method
-         * @name com.airspott.api.ClubSetting#find
-         * @methodOf com.airspott.api.ClubSetting
-         *
-         * @description
-         *
-         * Find all instances of the model matched by filter from the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
-         *
-         * @param {function(Array.<Object>,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Array.<Object>} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `ClubSetting` object.)
-         * </em>
-         */
-        "find": {
-          isArray: true,
-          url: urlBase + "/ClubSettings",
-          method: "GET"
-        },
-
-        /**
-         * @ngdoc method
-         * @name com.airspott.api.ClubSetting#findOne
-         * @methodOf com.airspott.api.ClubSetting
-         *
-         * @description
-         *
-         * Find first instance of the model matched by filter from the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `ClubSetting` object.)
-         * </em>
-         */
-        "findOne": {
-          url: urlBase + "/ClubSettings/findOne",
-          method: "GET"
-        },
-
-        /**
-         * @ngdoc method
-         * @name com.airspott.api.ClubSetting#updateAll
-         * @methodOf com.airspott.api.ClubSetting
-         *
-         * @description
-         *
-         * Update instances of the model matched by where from the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `where` – `{object=}` - Criteria to match model instances
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * The number of instances updated
-         */
-        "updateAll": {
-          url: urlBase + "/ClubSettings/update",
-          method: "POST"
-        },
-
-        /**
-         * @ngdoc method
-         * @name com.airspott.api.ClubSetting#deleteById
-         * @methodOf com.airspott.api.ClubSetting
-         *
-         * @description
-         *
-         * Delete a model instance by id from the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - Model id
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `ClubSetting` object.)
-         * </em>
-         */
-        "deleteById": {
-          url: urlBase + "/ClubSettings/:id",
-          method: "DELETE"
-        },
-
-        /**
-         * @ngdoc method
-         * @name com.airspott.api.ClubSetting#count
-         * @methodOf com.airspott.api.ClubSetting
-         *
-         * @description
-         *
-         * Count instances of the model matched by where from the data source.
-         *
-         * @param {Object=} parameters Request parameters.
+         *  - `id` – `{*}` - PersistedModel id
          *
          *  - `where` – `{object=}` - Criteria to match model instances
          *
@@ -3487,19 +2900,20 @@ module.factory(
          *
          *  - `count` – `{number=}` - 
          */
-        "count": {
-          url: urlBase + "/ClubSettings/count",
-          method: "GET"
-        },
+        R.planningEntries.count = function() {
+          var TargetResource = $injector.get("PlanningEntry");
+          var action = TargetResource["::count::Club::planningEntries"];
+          return action.apply(R, arguments);
+        };
 
         /**
          * @ngdoc method
-         * @name com.airspott.api.ClubSetting#prototype$updateAttributes
-         * @methodOf com.airspott.api.ClubSetting
+         * @name com.airspott.api.Club.planningEntries#create
+         * @methodOf com.airspott.api.Club.planningEntries
          *
          * @description
          *
-         * Update attributes for a model instance and persist it into the data source.
+         * Creates a new instance in planningEntries of this model.
          *
          * @param {Object=} parameters Request parameters.
          *
@@ -3521,31 +2935,65 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `ClubSetting` object.)
+         * This usually means the response is a `PlanningEntry` object.)
          * </em>
          */
-        "prototype$updateAttributes": {
-          url: urlBase + "/ClubSettings/:id",
-          method: "PUT"
-        },
+        R.planningEntries.create = function() {
+          var TargetResource = $injector.get("PlanningEntry");
+          var action = TargetResource["::create::Club::planningEntries"];
+          return action.apply(R, arguments);
+        };
 
         /**
          * @ngdoc method
-         * @name com.airspott.api.ClubSetting#createChangeStream
-         * @methodOf com.airspott.api.ClubSetting
+         * @name com.airspott.api.Club.planningEntries#createMany
+         * @methodOf com.airspott.api.Club.planningEntries
          *
          * @description
          *
-         * Create a change stream.
+         * Creates a new instance in planningEntries of this model.
          *
          * @param {Object=} parameters Request parameters.
          *
-         *   This method does not accept any parameters.
-         *   Supply an empty object or omit this argument altogether.
+         *  - `id` – `{*}` - PersistedModel id
          *
          * @param {Object} postData Request data.
          *
-         *  - `options` – `{object=}` - 
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `PlanningEntry` object.)
+         * </em>
+         */
+        R.planningEntries.createMany = function() {
+          var TargetResource = $injector.get("PlanningEntry");
+          var action = TargetResource["::createMany::Club::planningEntries"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Club.planningEntries#destroyAll
+         * @methodOf com.airspott.api.Club.planningEntries
+         *
+         * @description
+         *
+         * Deletes all planningEntries of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
          *
          * @param {function(Object,Object)=} successCb
          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -3557,91 +3005,97 @@ module.factory(
          *   populated with the actual data once the response is returned
          *   from the server.
          *
-         * Data properties:
-         *
-         *  - `changes` – `{ReadableStream=}` - 
+         * This method returns no data.
          */
-        "createChangeStream": {
-          url: urlBase + "/ClubSettings/change-stream",
-          method: "POST"
-        },
-
-        // INTERNAL. Use Club.clubSettings.findById() instead.
-        "::findById::Club::clubSettings": {
-          params: {
-          'fk': '@fk'
-          },
-          url: urlBase + "/Clubs/:id/clubSettings/:fk",
-          method: "GET"
-        },
-
-        // INTERNAL. Use Club.clubSettings.destroyById() instead.
-        "::destroyById::Club::clubSettings": {
-          params: {
-          'fk': '@fk'
-          },
-          url: urlBase + "/Clubs/:id/clubSettings/:fk",
-          method: "DELETE"
-        },
-
-        // INTERNAL. Use Club.clubSettings.updateById() instead.
-        "::updateById::Club::clubSettings": {
-          params: {
-          'fk': '@fk'
-          },
-          url: urlBase + "/Clubs/:id/clubSettings/:fk",
-          method: "PUT"
-        },
-
-        // INTERNAL. Use Club.clubSettings() instead.
-        "::get::Club::clubSettings": {
-          isArray: true,
-          url: urlBase + "/Clubs/:id/clubSettings",
-          method: "GET"
-        },
-
-        // INTERNAL. Use Club.clubSettings.create() instead.
-        "::create::Club::clubSettings": {
-          url: urlBase + "/Clubs/:id/clubSettings",
-          method: "POST"
-        },
-
-        // INTERNAL. Use Club.clubSettings.createMany() instead.
-        "::createMany::Club::clubSettings": {
-          isArray: true,
-          url: urlBase + "/Clubs/:id/clubSettings",
-          method: "POST"
-        },
-
-        // INTERNAL. Use Club.clubSettings.destroyAll() instead.
-        "::delete::Club::clubSettings": {
-          url: urlBase + "/Clubs/:id/clubSettings",
-          method: "DELETE"
-        },
-
-        // INTERNAL. Use Club.clubSettings.count() instead.
-        "::count::Club::clubSettings": {
-          url: urlBase + "/Clubs/:id/clubSettings/count",
-          method: "GET"
-        },
-      }
-    );
-
-
+        R.planningEntries.destroyAll = function() {
+          var TargetResource = $injector.get("PlanningEntry");
+          var action = TargetResource["::delete::Club::planningEntries"];
+          return action.apply(R, arguments);
+        };
 
         /**
          * @ngdoc method
-         * @name com.airspott.api.ClubSetting#updateOrCreate
-         * @methodOf com.airspott.api.ClubSetting
+         * @name com.airspott.api.Club.planningEntries#destroyById
+         * @methodOf com.airspott.api.Club.planningEntries
          *
          * @description
          *
-         * Update an existing model instance or insert a new one into the data source.
+         * Delete a related item by id for planningEntries.
          *
          * @param {Object=} parameters Request parameters.
          *
-         *   This method does not accept any parameters.
-         *   Supply an empty object or omit this argument altogether.
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for planningEntries
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.planningEntries.destroyById = function() {
+          var TargetResource = $injector.get("PlanningEntry");
+          var action = TargetResource["::destroyById::Club::planningEntries"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Club.planningEntries#findById
+         * @methodOf com.airspott.api.Club.planningEntries
+         *
+         * @description
+         *
+         * Find a related item by id for planningEntries.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for planningEntries
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `PlanningEntry` object.)
+         * </em>
+         */
+        R.planningEntries.findById = function() {
+          var TargetResource = $injector.get("PlanningEntry");
+          var action = TargetResource["::findById::Club::planningEntries"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Club.planningEntries#updateById
+         * @methodOf com.airspott.api.Club.planningEntries
+         *
+         * @description
+         *
+         * Update a related item by id for planningEntries.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for planningEntries
          *
          * @param {Object} postData Request data.
          *
@@ -3659,113 +3113,14 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `ClubSetting` object.)
+         * This usually means the response is a `PlanningEntry` object.)
          * </em>
          */
-        R["updateOrCreate"] = R["upsert"];
-
-        /**
-         * @ngdoc method
-         * @name com.airspott.api.ClubSetting#update
-         * @methodOf com.airspott.api.ClubSetting
-         *
-         * @description
-         *
-         * Update instances of the model matched by where from the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `where` – `{object=}` - Criteria to match model instances
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * The number of instances updated
-         */
-        R["update"] = R["updateAll"];
-
-        /**
-         * @ngdoc method
-         * @name com.airspott.api.ClubSetting#destroyById
-         * @methodOf com.airspott.api.ClubSetting
-         *
-         * @description
-         *
-         * Delete a model instance by id from the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - Model id
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `ClubSetting` object.)
-         * </em>
-         */
-        R["destroyById"] = R["deleteById"];
-
-        /**
-         * @ngdoc method
-         * @name com.airspott.api.ClubSetting#removeById
-         * @methodOf com.airspott.api.ClubSetting
-         *
-         * @description
-         *
-         * Delete a model instance by id from the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - Model id
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `ClubSetting` object.)
-         * </em>
-         */
-        R["removeById"] = R["deleteById"];
-
-
-    /**
-    * @ngdoc property
-    * @name com.airspott.api.ClubSetting#modelName
-    * @propertyOf com.airspott.api.ClubSetting
-    * @description
-    * The name of the model represented by this $resource,
-    * i.e. `ClubSetting`.
-    */
-    R.modelName = "ClubSetting";
-
+        R.planningEntries.updateById = function() {
+          var TargetResource = $injector.get("PlanningEntry");
+          var action = TargetResource["::updateById::Club::planningEntries"];
+          return action.apply(R, arguments);
+        };
 
     return R;
   }]);
@@ -9763,6 +9118,699 @@ module.factory(
         R.clubs.updateById = function() {
           var TargetResource = $injector.get("Club");
           var action = TargetResource["::updateById::Customer::clubs"];
+          return action.apply(R, arguments);
+        };
+
+    return R;
+  }]);
+
+/**
+ * @ngdoc object
+ * @name com.airspott.api.PlanningEntry
+ * @header com.airspott.api.PlanningEntry
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `PlanningEntry` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+module.factory(
+  "PlanningEntry",
+  ['LoopBackResource', 'LoopBackAuth', '$injector', function(Resource, LoopBackAuth, $injector) {
+    var R = Resource(
+      urlBase + "/PlanningEntries/:id",
+      { 'id': '@id' },
+      {
+
+        // INTERNAL. Use PlanningEntry.club() instead.
+        "prototype$__get__club": {
+          url: urlBase + "/PlanningEntries/:id/club",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.PlanningEntry#create
+         * @methodOf com.airspott.api.PlanningEntry
+         *
+         * @description
+         *
+         * Create a new instance of the model and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `PlanningEntry` object.)
+         * </em>
+         */
+        "create": {
+          url: urlBase + "/PlanningEntries",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.PlanningEntry#createMany
+         * @methodOf com.airspott.api.PlanningEntry
+         *
+         * @description
+         *
+         * Create a new instance of the model and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `PlanningEntry` object.)
+         * </em>
+         */
+        "createMany": {
+          isArray: true,
+          url: urlBase + "/PlanningEntries",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.PlanningEntry#upsert
+         * @methodOf com.airspott.api.PlanningEntry
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `PlanningEntry` object.)
+         * </em>
+         */
+        "upsert": {
+          url: urlBase + "/PlanningEntries",
+          method: "PUT"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.PlanningEntry#exists
+         * @methodOf com.airspott.api.PlanningEntry
+         *
+         * @description
+         *
+         * Check whether a model instance exists in the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `exists` – `{boolean=}` - 
+         */
+        "exists": {
+          url: urlBase + "/PlanningEntries/:id/exists",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.PlanningEntry#findById
+         * @methodOf com.airspott.api.PlanningEntry
+         *
+         * @description
+         *
+         * Find a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         *  - `filter` – `{object=}` - Filter defining fields and include
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `PlanningEntry` object.)
+         * </em>
+         */
+        "findById": {
+          url: urlBase + "/PlanningEntries/:id",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.PlanningEntry#find
+         * @methodOf com.airspott.api.PlanningEntry
+         *
+         * @description
+         *
+         * Find all instances of the model matched by filter from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `PlanningEntry` object.)
+         * </em>
+         */
+        "find": {
+          isArray: true,
+          url: urlBase + "/PlanningEntries",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.PlanningEntry#findOne
+         * @methodOf com.airspott.api.PlanningEntry
+         *
+         * @description
+         *
+         * Find first instance of the model matched by filter from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `PlanningEntry` object.)
+         * </em>
+         */
+        "findOne": {
+          url: urlBase + "/PlanningEntries/findOne",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.PlanningEntry#updateAll
+         * @methodOf com.airspott.api.PlanningEntry
+         *
+         * @description
+         *
+         * Update instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * The number of instances updated
+         */
+        "updateAll": {
+          url: urlBase + "/PlanningEntries/update",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.PlanningEntry#deleteById
+         * @methodOf com.airspott.api.PlanningEntry
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `PlanningEntry` object.)
+         * </em>
+         */
+        "deleteById": {
+          url: urlBase + "/PlanningEntries/:id",
+          method: "DELETE"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.PlanningEntry#count
+         * @methodOf com.airspott.api.PlanningEntry
+         *
+         * @description
+         *
+         * Count instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `count` – `{number=}` - 
+         */
+        "count": {
+          url: urlBase + "/PlanningEntries/count",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.PlanningEntry#prototype$updateAttributes
+         * @methodOf com.airspott.api.PlanningEntry
+         *
+         * @description
+         *
+         * Update attributes for a model instance and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `PlanningEntry` object.)
+         * </em>
+         */
+        "prototype$updateAttributes": {
+          url: urlBase + "/PlanningEntries/:id",
+          method: "PUT"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.PlanningEntry#createChangeStream
+         * @methodOf com.airspott.api.PlanningEntry
+         *
+         * @description
+         *
+         * Create a change stream.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         *  - `options` – `{object=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `changes` – `{ReadableStream=}` - 
+         */
+        "createChangeStream": {
+          url: urlBase + "/PlanningEntries/change-stream",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Club.planningEntries.findById() instead.
+        "::findById::Club::planningEntries": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/Clubs/:id/planningEntries/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Club.planningEntries.destroyById() instead.
+        "::destroyById::Club::planningEntries": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/Clubs/:id/planningEntries/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Club.planningEntries.updateById() instead.
+        "::updateById::Club::planningEntries": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/Clubs/:id/planningEntries/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Club.planningEntries() instead.
+        "::get::Club::planningEntries": {
+          isArray: true,
+          url: urlBase + "/Clubs/:id/planningEntries",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Club.planningEntries.create() instead.
+        "::create::Club::planningEntries": {
+          url: urlBase + "/Clubs/:id/planningEntries",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Club.planningEntries.createMany() instead.
+        "::createMany::Club::planningEntries": {
+          isArray: true,
+          url: urlBase + "/Clubs/:id/planningEntries",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Club.planningEntries.destroyAll() instead.
+        "::delete::Club::planningEntries": {
+          url: urlBase + "/Clubs/:id/planningEntries",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Club.planningEntries.count() instead.
+        "::count::Club::planningEntries": {
+          url: urlBase + "/Clubs/:id/planningEntries/count",
+          method: "GET"
+        },
+      }
+    );
+
+
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.PlanningEntry#updateOrCreate
+         * @methodOf com.airspott.api.PlanningEntry
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `PlanningEntry` object.)
+         * </em>
+         */
+        R["updateOrCreate"] = R["upsert"];
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.PlanningEntry#update
+         * @methodOf com.airspott.api.PlanningEntry
+         *
+         * @description
+         *
+         * Update instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * The number of instances updated
+         */
+        R["update"] = R["updateAll"];
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.PlanningEntry#destroyById
+         * @methodOf com.airspott.api.PlanningEntry
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `PlanningEntry` object.)
+         * </em>
+         */
+        R["destroyById"] = R["deleteById"];
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.PlanningEntry#removeById
+         * @methodOf com.airspott.api.PlanningEntry
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `PlanningEntry` object.)
+         * </em>
+         */
+        R["removeById"] = R["deleteById"];
+
+
+    /**
+    * @ngdoc property
+    * @name com.airspott.api.PlanningEntry#modelName
+    * @propertyOf com.airspott.api.PlanningEntry
+    * @description
+    * The name of the model represented by this $resource,
+    * i.e. `PlanningEntry`.
+    */
+    R.modelName = "PlanningEntry";
+
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.PlanningEntry#club
+         * @methodOf com.airspott.api.PlanningEntry
+         *
+         * @description
+         *
+         * Fetches belongsTo relation club.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `refresh` – `{boolean=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Club` object.)
+         * </em>
+         */
+        R.club = function() {
+          var TargetResource = $injector.get("Club");
+          var action = TargetResource["::get::PlanningEntry::club"];
           return action.apply(R, arguments);
         };
 
