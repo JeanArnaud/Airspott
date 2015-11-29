@@ -67,7 +67,14 @@ angular.module('com.airspott.club')
                         }
                     }
                 })
-            ;
 
-            $urlRouterProvider.otherwise('/club/main');
+                .state('club.settings', {
+                    url: '/settings',
+                    views: {
+                        content: {
+                            controller: 'SettingsCtrl',
+                            templateUrl: 'templates/club/settings.html'
+                        }
+                    }
+                });
         }]);

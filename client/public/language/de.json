@@ -149,7 +149,10 @@
 
     "AT": "Österreich",
     "DE": "Deutschland",
-    "CH": "Schweiz"
+    "CH": "Schweiz",
+
+
+    "SETTINGS_DESCRIPTION": "Dies sind Ihre persönlichen Einstellungen. Sie können hier Ihre E-Mail Adresse, Ihr Kennwort, Ihren Namen und/oder Firmennamen und viele weitere Einstellungen ändern. In Zukunft werden wir noch weitere Optionen zur Verfügung stellen um aus Airspott Ihr Airspott zu machen!"
 
 
 }
