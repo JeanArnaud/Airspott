@@ -47,5 +47,5 @@ angular.module('com.airspott')
                     controller: 'ClubAccountCtrl'
                 });
 
-            $urlRouterProvider.otherwise('/club/main');
+            $urlRouterProvider.otherwise('/club/login');
         }]);
