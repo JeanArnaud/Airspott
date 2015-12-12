@@ -7,6 +7,7 @@ angular.module("com.airspott.club")
 
              $rootScope.countries = ['AT', 'DE', 'CH'];
              $rootScope.saleUnits = ['DAYS', 'HOURS'];
+             $rootScope.languages = ['DE', 'EN'];
 
              //@todo check if user is an owner (club user role!)
              if (!Customer.isAuthenticated())

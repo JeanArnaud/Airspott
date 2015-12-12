@@ -32,9 +32,9 @@
 
     "EDIT_CLUB": "Club bearbeiten",
     "MY_CLUBS": "Meine Clubs",
-    "DEFAULT_PRICE_CAPACITY_DESCRIPTION": "Normalpreis: {{price | currency:'€ '}}, Standardkapazität: {{capacity}} Karten/Tag",
+    "DEFAULT_PRICE_CAPACITY_DESCRIPTION": "Preis pro Verkaufseinheit: {{price | currency:'€ '}}, Standardkapazität: {{capacity}} Karten/Tag",
 
-    "DEFAULT_PRICE": "Normalpreis",
+    "DEFAULT_PRICE": "Preis pro Verkaufseinheit",
     "TAX": "Steuer",
     "DEFAULT_CAPACITY": "Standardkapazität pro Verkaufseinheit",
     "SALE_UNIT": "Verkaufseinheit",
@@ -62,7 +62,8 @@
 
     "REPORTS_COMING_SOON": "Wir verbessern Airspott kontinuierlich. Bald finden Sie hier Angebote um detaillierte Berichte Ihrer Verkäufe zu erstellen.",
 
-    "FILE_UPLOAD_DROP_DESCRIPTION": "Bilder hierher ziehen und hinzufügen...",
+    "FILE_UPLOAD_DROP_DESCRIPTION": "Datei(en) hierher ziehen oder klicken und Datei(en) auswählen um Bilder hinzufügen...",
+    "ALLOWED_FILE_TYPES": "Airspott unterstützt folgende Formate: JPG, JPEG, PNG und SVG. Achten Sie auf eine ausreichende Bildgröße um Ihre Inhalte optimal zu präsentieren.",
 
     "MEDIA_NAME": "Name",
     "MEDIA_DESCRIPTION": "Beschreibung",
@@ -171,6 +172,20 @@
 
     "CURRENCY": "Währung",
     "AUTO_DETECTION": "Wir bestimmen diese Information automatisch",
+
+    "LOGIN_DETAILS": "Login Daten",
+    "PERSONAL_DETAILS": "Persönliche Daten",
+    "COMPANY_DETAILS": "Firma",
+    "COMPANY_NAME": "Firmenbezeichnung",
+    "UID": "UID / USt.-ID",
+    "FIRSTNAME": "Vorname",
+    "MIDDLENAME": "Weiterer Vorname",
+    "LASTNAME": "Nachname",
+
+    "LANGUAGE": "Sprache",
+    "LANG_DE": "Deutsch",
+    "LANG_EN": "English",
+
 
     "SETTINGS_DESCRIPTION": "Dies sind Ihre persönlichen Einstellungen. Sie können hier Ihre E-Mail Adresse, Ihr Kennwort, Ihren Namen und/oder Firmennamen und viele weitere Einstellungen ändern. In Zukunft werden wir noch weitere Optionen zur Verfügung stellen um aus Airspott Ihr Airspott zu machen!"
 

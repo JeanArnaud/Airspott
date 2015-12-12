@@ -132,9 +132,10 @@
                 <select ng-options="saleUnit as 'SALE_UNIT_' + saleUnit | translate for saleUnit in saleUnits"
                         ng-model="club.saleUnit"
                         class="c-select form-control"
-                        placeholder="{{'SALE_UNIT' | translate}}"
                         id="saleUnit"
                         ng-change="generateCalConfig()">
+
+                    <option value="">{{'SALE_UNIT' | translate}}</option>
                 </select>
             </div>
         </fieldset>
@@ -248,13 +249,16 @@
         <h2>{{'MEDIA' | translate}}</h2>
         <hr />
 
-        <div class="alert alert-info"
+        <div class="alert alert-info clickable"
              ngf-drop="processFiles($files)"
+             ngf-select="processFiles($files)"
              ngf-drag-over-class="'alert-danger dragover'"
              ngf-multiple="true"
-             ngf-pattern="'image/*,application/pdf'">
+             ngf-pattern="'image/jpeg,image/png,image/svg+xml'">
 
-            <div class="hide-dragover">{{'FILE_UPLOAD_DROP_DESCRIPTION' | translate}}</div>
+            <div class="hide-dragover">{{'FILE_UPLOAD_DROP_DESCRIPTION' | translate}}<br>
+                <small>{{'ALLOWED_FILE_TYPES' | translate}}</small>
+            </div>
             <div class="hide-not-dragover">{{'DROP_HERE' | translate}}</div>
 
         </div>

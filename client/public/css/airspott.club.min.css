@@ -7869,3 +7869,6 @@ h1, h2, h3 {
     width: 40%; }
   .input-group.select-input-group .form-control:first-child {
     width: 60%; }
+
+.clickable {
+  cursor: pointer; }

@@ -57,6 +57,24 @@
                        placeholder="{{'LASTNAME' | translate}}" required>
             </div>
         </div>
+
+        <div class="col-xs-12">
+            <div class="form-group">
+                <label class="sr-only" for="languageSelect">{{'LANGUAGE' | translate}}</label>
+
+
+                <select class="c-select form-control"
+                        ng-model="user.language"
+                        name="languageSelect"
+                        id="languageSelect"
+                        ng-options="language.toLowerCase() as 'LANG_' + language | translate for language in languages"
+                        required>
+
+                    <option value="">{{'LANGUAGE' | translate}}</option>
+
+                </select>
+            </div>
+        </div>
     </fieldset>
 
     <h2>{{'COMPANY_DETAILS' | translate}}</h2>
@@ -91,12 +109,14 @@
             <label for="country">{{'COUNTRY' | translate}}</label>
 
             <select class="c-select form-control"
-                    placeholder="{{'COUNTRY' | translate}}"
                     ng-model="club._address.country"
                     name="country"
                     id="country"
                     ng-options="country as country | translate for country in countries"
                     required>
+
+                <option value="">{{'COUNTRY' | translate}}</option>
+
             </select>
         </div>
     </fieldset>
@@ -105,10 +125,10 @@
 
         <div class="col-md-6">
             <div class="form-group">
-                <label class="sr-only" for="companyInput">{{'COMPANY' | translate}}</label>
+                <label class="sr-only" for="companyInput">{{'COMPANY_NAME' | translate}}</label>
                 <input type="text" ng-model="user.company" class="form-control"
                        id="companyInput"
-                       placeholder="{{'COMPANY' | translate}}" required>
+                       placeholder="{{'COMPANY_NAME' | translate}}" required>
             </div>
         </div>
 
@@ -124,7 +144,7 @@
 
     <div class="form-group">
         <button type="submit" class="btn btn-primary btn-block"
-                ng-click="saveSettings()">{{'SIGN_IN' | translate}}
+                ng-click="saveSettings()">{{'SAVE' | translate}}
         </button>
     </div>
 </form>
