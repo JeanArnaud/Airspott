@@ -16,8 +16,6 @@ angular.module('com.airspott.club').controller('AccountingCtrl', [
             $scope.tocVersion = setting.value;
         });
 
-        if (!$rootScope.ownerAccount) $scope.fullyNew = true;
-
         $scope.save = function ()
         {
             $log.log($rootScope.ownerAccount);

@@ -48,7 +48,7 @@
                 <div class="form-group">
                     <label for="commission">{{'COMMISSION' | translate}}</label>
 
-                    <div class="input-group" ng-if="ownerAccount && !fullyNew">
+                    <div class="input-group" ng-if="ownerAccount && !needsNewOwnerAccount">
                         <input id="commission" ng-value="ownerAccount.salesCommission * 100" class="form-control"
                                type="text"
                                disabled>
@@ -58,7 +58,7 @@
 
                     <input id="commission" value="{{'COMMISSION_AFTER_ACCOUNT_SETUP' | translate}}" class="form-control"
                            type="text"
-                           disabled ng-if="fullyNew || !ownerAccount">
+                           disabled ng-if="needsNewOwnerAccount || !ownerAccount">
                 </div>
             </div>
 
