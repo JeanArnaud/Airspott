@@ -1,8 +1,9 @@
-<h2>{{'WELCOME_TO_AIRSPOTT' | translate}}
-    <br>
-    <small>{{'ACCOUNT_WELCOME_SUBLINE' | translate}}</small>
-</h2>
-<hr />
+<div class="card card-white">
+    <div class="card-block">
+        <h2 class="card-title">{{'WELCOME_TO_AIRSPOTT' | translate}}</h2>
+        <h6 class="card-subtitle text-muted">{{'ACCOUNT_WELCOME_SUBLINE' | translate}}</h6>
+    </div>
+</div>
 
 <div class="card-deck-wrapper">
     <div class="card-deck">
@@ -17,7 +18,9 @@
                         <strong>{{'USER_E_MAIL' | translate}}</strong>{{'USER_E_MAIL_DATA' | translate:{email: user.email} }}
                     </li>
                     <li><strong>{{'USER_TYPE' | translate}}</strong>{{'USER_TYPE_DATA' | translate}}</li>
-                    <li ng-if="ownerAccount === false"><strong>{{'NEXT_TODO' | translate}}</strong>{{'NEXT_TODO_DATA' | translate}}</li>
+                    <li ng-if="ownerAccount === false">
+                        <strong>{{'NEXT_TODO' | translate}}</strong>{{'NEXT_TODO_DATA' | translate}}
+                    </li>
                 </ul>
             </div>
         </div>

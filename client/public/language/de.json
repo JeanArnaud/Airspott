@@ -3,7 +3,7 @@
     "MANAGE_CLUBS": "Angebote verwalten",
     "SALES": "Verkäufe",
     "REPORTS": "Berichte",
-    "ACCOUNTING": "Kommerzielles",
+    "ACCOUNTING": "Vertrag & Abrechnung",
     "SETTINGS": "Einstellungen",
     "LOGOUT": "Abmelden",
 
@@ -107,7 +107,7 @@
 
     "QUICK_ACTIONS": "Schnell zum Ziel",
     "ADD_A_CLUB": "Eine Angebot hinzufügen",
-    "VIEW_ACCOUNTING": "Kommerzielle Daten anzeigen",
+    "VIEW_ACCOUNTING": "Daten zu Verträgen & Abrechnung anzeigen",
     "REQUEST_PAYOUT": "Auszahlung beantragen",
 
     "TAKE_ACTION_NOW": "Los geht's",

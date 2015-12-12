@@ -3,234 +3,268 @@
 <form name="clubForm" class="row" ng-if="!loading">
 
     <section class="col-sm-4 col-md-3">
-        <ul class="nav nav-pills nav-stacked">
-            <li class="nav-item">
-                <a href ng-click="setActiveItem('general')" class="nav-link"
-                   ng-class="activeItem == 'general' ? 'active':''">{{'DETAILS' | translate}}</a>
-            </li>
-            <li class="nav-item">
-                <a href ng-click="setActiveItem('pricing')" class="nav-link"
-                   ng-class="activeItem == 'pricing' ? 'active':''">{{'PRICING_CAPACITIES' | translate}}</a>
-            </li>
-            <li class="nav-item">
-                <a href ng-click="setActiveItem('media')" class="nav-link"
-                   ng-class="activeItem == 'media' ? 'active':''">{{'MEDIA' | translate}}</a>
-            </li>
+        <div class="card card-white">
 
-            <li class="nav-item">
-                <a href ng-click="setActiveItem('offers')" class="nav-link"
-                   ng-class="activeItem == 'offers' ? 'active':''">{{'OFFERS' | translate}}</a>
-            </li>
+            <div class="card-block">
+                <h4 class="card-title">{{'EDIT_A_CLUB' | translate}}</h4>
+                <h6 class="card-subtitle text-muted">{{'ADD_CLUB_DESCRIPTION' | translate}}</h6>
+            </div>
 
-            <li class="nav-item">
-                <a href ng-click="setActiveItem('opening')" class="nav-link"
-                   ng-class="activeItem == 'opening' ? 'active':''">{{'OPENING_HOURS' | translate}}</a>
-            </li>
-        </ul>
+            <hr>
+
+            <div class="card-block">
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="nav-item">
+                        <a href ng-click="setActiveItem('general')" class="nav-link"
+                           ng-class="activeItem == 'general' ? 'active':''">{{'DETAILS' | translate}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href ng-click="setActiveItem('pricing')" class="nav-link"
+                           ng-class="activeItem == 'pricing' ? 'active':''">{{'PRICING_CAPACITIES' | translate}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href ng-click="setActiveItem('media')" class="nav-link"
+                           ng-class="activeItem == 'media' ? 'active':''">{{'MEDIA' | translate}}</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href ng-click="setActiveItem('offers')" class="nav-link"
+                           ng-class="activeItem == 'offers' ? 'active':''">{{'OFFERS' | translate}}</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href ng-click="setActiveItem('opening')" class="nav-link"
+                           ng-class="activeItem == 'opening' ? 'active':''">{{'OPENING_HOURS' | translate}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </section>
 
 
     <section class="col-sm-8 col-md-9" ng-hide="activeItem != 'general'">
 
-        <h2>{{'DETAILS' | translate}}</h2>
-        <hr />
-
-        <fieldset class="form-group">
-            <label for="name">{{'NAME' | translate}}</label>
-            <input type="text" ng-model="club.name" id="name" class="form-control" placeholder="{{'NAME' | translate}}">
-        </fieldset>
-
-        <fieldset class="form-group">
-            <label for="address">{{'ADDRESS' | translate}}</label>
-            <input type="text" ng-model="club._address.address" id="address" class="form-control"
-                   placeholder="{{'ADDRESS' | translate}}">
-        </fieldset>
-
-        <fieldset class="form-group">
-            <label for="address2" class="sr-only">{{'ADDRESS_2' | translate}}</label>
-            <input type="text" ng-model="club._address.address2" id="address2" class="form-control"
-                   placeholder="{{'ADDRESS_2' | translate}}">
-        </fieldset>
-
-        <fieldset class="form-group row">
-
-            <div class="col-xs-4 col-sm-4 col-md-2">
-                <label for="zip">{{'ZIP' | translate}}</label>
-                <input type="text" ng-model="club._address.zip" id="zip" class="form-control"
-                       placeholder="{{'ZIP' | translate}}" required>
+        <div class="card card-white">
+            <div class="card-block">
+                <h4 class="card-title">{{'DETAILS' | translate}}</h4>
             </div>
 
-            <div class="col-xs-8 col-sm-4 col-md-5">
-                <label for="city">{{'CITY' | translate}}</label>
-                <input type="text" ng-model="club._address.city" id="city" class="form-control"
-                       placeholder="{{'CITY' | translate}}">
+            <hr />
+
+            <div class="card-block">
+
+                <fieldset class="form-group">
+                    <label for="name">{{'NAME' | translate}}</label>
+                    <input type="text" ng-model="club.name" id="name" class="form-control"
+                           placeholder="{{'NAME' | translate}}">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label for="address">{{'ADDRESS' | translate}}</label>
+                    <input type="text" ng-model="club._address.address" id="address" class="form-control"
+                           placeholder="{{'ADDRESS' | translate}}">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label for="address2" class="sr-only">{{'ADDRESS_2' | translate}}</label>
+                    <input type="text" ng-model="club._address.address2" id="address2" class="form-control"
+                           placeholder="{{'ADDRESS_2' | translate}}">
+                </fieldset>
+
+                <fieldset class="form-group row">
+
+                    <div class="col-xs-4 col-sm-4 col-md-2">
+                        <label for="zip">{{'ZIP' | translate}}</label>
+                        <input type="text" ng-model="club._address.zip" id="zip" class="form-control"
+                               placeholder="{{'ZIP' | translate}}" required>
+                    </div>
+
+                    <div class="col-xs-8 col-sm-4 col-md-5">
+                        <label for="city">{{'CITY' | translate}}</label>
+                        <input type="text" ng-model="club._address.city" id="city" class="form-control"
+                               placeholder="{{'CITY' | translate}}">
+                    </div>
+
+                    <div class="col-xs-12 col-sm-4 col-md-5">
+                        <label for="country">{{'COUNTRY' | translate}}</label>
+
+                        <select class="c-select form-control"
+                                ng-model="club._address.country"
+                                name="country"
+                                id="country"
+                                ng-options="country as country | translate for country in countries"
+                                required>
+                            <option value="">{{'COUNTRY' | translate}}</option>
+                        </select>
+                    </div>
+
+                    <!--<div ng-messages="userForm.postalCode.$error" role="alert" multiple>-->
+                    <!--<div ng-message="required" class="my-message">You must supply a postal code.</div>-->
+                    <!--<div ng-message="pattern" class="my-message">That doesn't look like a valid postal-->
+                    <!--code.-->
+                    <!--</div>-->
+                    <!--<div ng-message="md-maxlength" class="my-message">-->
+                    <!--Don't use the long version silly...we don't need to be that specific...-->
+                    <!--</div>-->
+                    <!--</div>-->
+                </fieldset>
+
+                <fieldset class="form-group row">
+
+                    <div class="col-xs-12">
+                        <p><strong>{{'RESPONSIBLE' | translate}}</strong><br>
+
+                            {{'RESPONSIBLE_DESCRIPTION' | translate}}</p>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6">
+                        <label for="responsibleName">{{'RESPONSIBLE_NAME' | translate}}</label>
+                        <input type="text" ng-model="club.responsibleName" id="responsibleName" class="form-control"
+                               placeholder="{{'RESPONSIBLE_NAME' | translate}}" required>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6">
+                        <label for="responsibleTel">{{'RESPONSIBLE_TEL' | translate}}</label>
+                        <input type="text" ng-model="club.responsibleTel" id="responsibleTel" class="form-control"
+                               placeholder="{{'RESPONSIBLE_TEL' | translate}}" required>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label for="description">{{'DESCRIPTION' | translate}}</label>
+
+                    <text-angular ta-toolbar="editorToolbar" id="description"
+                                  placeholder="{{'DESCRIPTION' | translate}}"
+                                  ng-model="club.description"></text-angular>
+                </fieldset>
             </div>
-
-            <div class="col-xs-12 col-sm-4 col-md-5">
-                <label for="country">{{'COUNTRY' | translate}}</label>
-
-                <select class="c-select form-control"
-                        ng-model="club._address.country"
-                        name="country"
-                        id="country"
-                        ng-options="country as country | translate for country in countries"
-                        required>
-                    <option value="">{{'COUNTRY' | translate}}</option>
-                </select>
-            </div>
-
-            <!--<div ng-messages="userForm.postalCode.$error" role="alert" multiple>-->
-            <!--<div ng-message="required" class="my-message">You must supply a postal code.</div>-->
-            <!--<div ng-message="pattern" class="my-message">That doesn't look like a valid postal-->
-            <!--code.-->
-            <!--</div>-->
-            <!--<div ng-message="md-maxlength" class="my-message">-->
-            <!--Don't use the long version silly...we don't need to be that specific...-->
-            <!--</div>-->
-            <!--</div>-->
-        </fieldset>
-
-        <fieldset class="form-group row">
-
-            <div class="col-xs-12">
-                <p><strong>{{'RESPONSIBLE' | translate}}</strong><br>
-
-                    {{'RESPONSIBLE_DESCRIPTION' | translate}}</p>
-            </div>
-
-            <div class="col-xs-12 col-sm-6">
-                <label for="responsibleName">{{'RESPONSIBLE_NAME' | translate}}</label>
-                <input type="text" ng-model="club.responsibleName" id="responsibleName" class="form-control"
-                       placeholder="{{'RESPONSIBLE_NAME' | translate}}" required>
-            </div>
-
-            <div class="col-xs-12 col-sm-6">
-                <label for="responsibleTel">{{'RESPONSIBLE_TEL' | translate}}</label>
-                <input type="text" ng-model="club.responsibleTel" id="responsibleTel" class="form-control"
-                       placeholder="{{'RESPONSIBLE_TEL' | translate}}" required>
-            </div>
-        </fieldset>
-
-        <fieldset class="form-group">
-            <label for="description">{{'DESCRIPTION' | translate}}</label>
-
-            <text-angular ta-toolbar="editorToolbar" id="description" placeholder="{{'DESCRIPTION' | translate}}"
-                          ng-model="club.description"></text-angular>
-        </fieldset>
+        </div>
     </section>
 
 
     <section class="col-sm-8 col-md-9" ng-hide="activeItem != 'pricing'">
 
-        <h2>{{'PRICING_CAPACITIES' | translate}}</h2>
-        <hr />
-
-        <fieldset class="form-group row">
-            <div class="col-xs-12">
-                <label for="saleUnit">{{'SALE_UNIT' | translate}}</label>
-
-                <select ng-options="saleUnit as 'SALE_UNIT_' + saleUnit | translate for saleUnit in saleUnits"
-                        ng-model="club.saleUnit"
-                        class="c-select form-control"
-                        id="saleUnit"
-                        ng-change="generateCalConfig()">
-
-                    <option value="">{{'SALE_UNIT' | translate}}</option>
-                </select>
+        <div class="card card-white">
+            <div class="card-block">
+                <h4 class="card-title">{{'PRICING_CAPACITIES' | translate}}</h4>
             </div>
-        </fieldset>
 
-        <fieldset class="form-group row">
-            <div class="col-xs-6 col-md-4">
-                <label for="price">{{'DEFAULT_PRICE' | translate}}</label>
-                <label for="currency" class="sr-only">{{'CURRENCY' | translate}}</label>
+            <hr />
 
-                <div class="input-group select-input-group">
-                    <input type="text" ng-model="club.price" id="price" class="form-control"
-                           placeholder="{{'DEFAULT_PRICE' | translate}}" required>
+            <div class="card-block">
 
-                    <select ng-options="currency.id as currency.symbol for currency in currencies"
-                            ng-model="club.currencyId"
-                            class="c-select form-control"
-                            id="currency">
-                        <option value="">{{'CURRENCY' | translate}}</option>
-                    </select>
+                <fieldset class="form-group row">
+                    <div class="col-xs-12">
+                        <label for="saleUnit">{{'SALE_UNIT' | translate}}</label>
+
+                        <select ng-options="saleUnit as 'SALE_UNIT_' + saleUnit | translate for saleUnit in saleUnits"
+                                ng-model="club.saleUnit"
+                                class="c-select form-control"
+                                id="saleUnit"
+                                ng-change="generateCalConfig()">
+
+                            <option value="">{{'SALE_UNIT' | translate}}</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-group row">
+                    <div class="col-xs-6 col-md-4">
+                        <label for="price">{{'DEFAULT_PRICE' | translate}}</label>
+                        <label for="currency" class="sr-only">{{'CURRENCY' | translate}}</label>
+
+                        <div class="input-group select-input-group">
+                            <input type="text" ng-model="club.price" id="price" class="form-control"
+                                   placeholder="{{'DEFAULT_PRICE' | translate}}" required>
+
+                            <select ng-options="currency.id as currency.symbol for currency in currencies"
+                                    ng-model="club.currencyId"
+                                    class="c-select form-control"
+                                    id="currency">
+                                <option value="">{{'CURRENCY' | translate}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        <label for="tax">{{'TAX' | translate}}</label>
+                        <select ng-options="tax.id as tax.name + ' (' + tax.percentage + '%)' for tax in taxes"
+                                ng-model="club.taxId"
+                                class="c-select form-control"
+                                id="tax">
+                            <option value="">{{'TAX' | translate}}</option>
+                        </select>
+                    </div>
+
+                    <div class="col-xs-12 col-md-4">
+                        <label for="defaultCapacity">{{'DEFAULT_CAPACITY' | translate}}</label>
+                        <input type="text" ng-model="club.capacity" id="defaultCapacity" class="form-control"
+                               placeholder="{{'DEFAULT_CAPACITY' | translate}}" required>
+                    </div>
+
+                    <div class="col-xs-12" ng-if="club.saleUnit && club.price && club.capacity">
+                        <p>
+                            <small>{{'PRICING_CAPACITY_SUMMARY' | translate:{saleUnit: club.saleUnit, price:club.price, commission: ownerAccount.salesCommission, capacity:club.capacity} }}</small>
+                        </p>
+                    </div>
+                </fieldset>
+
+                <hr />
+
+                <h4>{{'DAY_BASED_PLANNING' | translate}}</h4>
+
+                <p ng-if="calConfig">{{'PLANNING_DESCRIPTION' | translate}}</p>
+                <p ng-if="!calConfig">{{'PLANNING_DESCRIPTION_SALE_UNIT_REQUIRED' | translate}}</p>
+                <hr ng-if="calConfig" />
+
+                <div class="modal fade" id="calendarEventModal" tabindex="-1" role="dialog"
+                     aria-labelledby="mySmallModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    <span class="sr-only">{{'CLOSE' | translate}}</span>
+                                </button>
+
+                                <h5 class="modal-title">{{'ADD_PLANNING_ENTRY' | translate}}</h5>
+                            </div>
+
+                            <div class="modal-body">
+
+                                <p ng-if="!eventInChange">{{'WHICH_PLANNING_TYPE_TO_CHANGE' | translate}}</p>
+
+                                <fieldset class="form-group" ng-if="!eventInChange || eventInChange.price">
+                                    <label for="priceInModal">{{'PRICE' | translate}}</label>
+                                    <input type="text" ng-model="modal.price" id="priceInModal" class="form-control"
+                                           placeholder="{{'PRICE_FOREACH_SALE_UNIT' | translate}}">
+                                </fieldset>
+
+                                <fieldset class="form-group" ng-if="!eventInChange || eventInChange.capacity">
+                                    <label for="capacityInModal">{{'CAPACITY' | translate}}</label>
+                                    <input type="text" ng-model="modal.capacity" id="capacityInModal"
+                                           class="form-control"
+                                           placeholder="{{'CAPACITY_FOREACH_SALE_UNIT' | translate}}">
+                                </fieldset>
+
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                        data-dismiss="modal">{{'CANCEL' | translate}}
+                                </button>
+                                <button type="button" class="btn btn-primary"
+                                        ng-click="updateCapacities()">{{'SAVE' | translate}}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-xs-6 col-md-4">
-                <label for="tax">{{'TAX' | translate}}</label>
-                <select ng-options="tax.id as tax.name + ' (' + tax.percentage + '%)' for tax in taxes"
-                        ng-model="club.taxId"
-                        class="c-select form-control"
-                        id="tax">
-                    <option value="">{{'TAX' | translate}}</option>
-                </select>
-            </div>
 
-            <div class="col-xs-12 col-md-4">
-                <label for="defaultCapacity">{{'DEFAULT_CAPACITY' | translate}}</label>
-                <input type="text" ng-model="club.capacity" id="defaultCapacity" class="form-control"
-                       placeholder="{{'DEFAULT_CAPACITY' | translate}}" required>
-            </div>
+                <div ui-calendar="calConfig.calendar" ng-model="capacityPlanningEntries" ng-if="calConfig"></div>
 
-            <div class="col-xs-12" ng-if="club.saleUnit && club.price && club.capacity">
-                <p>
-                    <small>{{'PRICING_CAPACITY_SUMMARY' | translate:{saleUnit: club.saleUnit, price:club.price, commission: ownerAccount.salesCommission, capacity:club.capacity} }}</small>
-                </p>
-            </div>
-        </fieldset>
-
-        <hr />
-
-        <h4>{{'DAY_BASED_PLANNING' | translate}}</h4>
-
-        <p ng-if="calConfig">{{'PLANNING_DESCRIPTION' | translate}}</p>
-        <p ng-if="!calConfig">{{'PLANNING_DESCRIPTION_SALE_UNIT_REQUIRED' | translate}}</p>
-        <hr ng-if="calConfig" />
-
-        <div class="modal fade" id="calendarEventModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
-             aria-hidden="true">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            <span class="sr-only">{{'CLOSE' | translate}}</span>
-                        </button>
-
-                        <h5 class="modal-title">{{'ADD_PLANNING_ENTRY' | translate}}</h5>
-                    </div>
-
-                    <div class="modal-body">
-
-                        <p ng-if="!eventInChange">{{'WHICH_PLANNING_TYPE_TO_CHANGE' | translate}}</p>
-
-                        <fieldset class="form-group" ng-if="!eventInChange || eventInChange.price">
-                            <label for="priceInModal">{{'PRICE' | translate}}</label>
-                            <input type="text" ng-model="modal.price" id="priceInModal" class="form-control"
-                                   placeholder="{{'PRICE_FOREACH_SALE_UNIT' | translate}}">
-                        </fieldset>
-
-                        <fieldset class="form-group" ng-if="!eventInChange || eventInChange.capacity">
-                            <label for="capacityInModal">{{'CAPACITY' | translate}}</label>
-                            <input type="text" ng-model="modal.capacity" id="capacityInModal" class="form-control"
-                                   placeholder="{{'CAPACITY_FOREACH_SALE_UNIT' | translate}}">
-                        </fieldset>
-
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{'CANCEL' | translate}}
-                        </button>
-                        <button type="button" class="btn btn-primary"
-                                ng-click="updateCapacities()">{{'SAVE' | translate}}
-                        </button>
-                    </div>
-                </div>
             </div>
         </div>
-
-        <div ui-calendar="calConfig.calendar" ng-model="capacityPlanningEntries" ng-if="calConfig"></div>
     </section>
 
     <style type="text/css">
@@ -246,82 +280,98 @@
     </style>
 
     <section class="col-sm-8 col-md-9" ng-hide="activeItem != 'media'">
-        <h2>{{'MEDIA' | translate}}</h2>
-        <hr />
-
-        <div class="alert alert-info clickable"
-             ngf-drop="processFiles($files)"
-             ngf-select="processFiles($files)"
-             ngf-drag-over-class="'alert-danger dragover'"
-             ngf-multiple="true"
-             ngf-pattern="'image/jpeg,image/png,image/svg+xml'">
-
-            <div class="hide-dragover">{{'FILE_UPLOAD_DROP_DESCRIPTION' | translate}}<br>
-                <small>{{'ALLOWED_FILE_TYPES' | translate}}</small>
+        <div class="card card-white">
+            <div class="card-block">
+                <h4 class="card-title">{{'MEDIA' | translate}}</h4>
             </div>
-            <div class="hide-not-dragover">{{'DROP_HERE' | translate}}</div>
 
-        </div>
+            <hr />
 
-        <div ngf-no-file-drop>
-            <h2>{{'FILE_UPLOAD_DROP_UNAVAILABLE_USE_ANOTHER_BROWSER' | translate}}</h2>
-        </div>
+            <div class="card-block">
 
-        <div class="card-columns" ng-if="media && media.length">
+                <div class="alert alert-info clickable"
+                     ngf-drop="processFiles($files)"
+                     ngf-select="processFiles($files)"
+                     ngf-drag-over-class="'alert-danger dragover'"
+                     ngf-multiple="true"
+                     ngf-pattern="'image/jpeg,image/png,image/svg+xml'">
 
-            <div class="card card-white" ng-repeat="mediaItem in media | orderBy:'':true">
-                <div style="height:12em;width:100%" class="text-center">
-                    <img class="card-img-top" ng-src="{{mediaItem.media}}" alt="{{mediaItem.name}}"
-                         style="max-height:100%;max-width:100%">
+                    <div class="hide-dragover">{{'FILE_UPLOAD_DROP_DESCRIPTION' | translate}}<br>
+                        <small>{{'ALLOWED_FILE_TYPES' | translate}}</small>
+                    </div>
+                    <div class="hide-not-dragover">{{'DROP_HERE' | translate}}</div>
+
                 </div>
 
-                <div class="card-block">
+                <div ngf-no-file-drop>
+                    <h2>{{'FILE_UPLOAD_DROP_UNAVAILABLE_USE_ANOTHER_BROWSER' | translate}}</h2>
+                </div>
 
-                    <hr />
+                <div class="card-columns" ng-if="media && media.length">
 
-                    <fieldset class="form-group">
-                        <label for="{{'mediaItemName'+$index}}">{{'MEDIA_NAME' | translate}}</label>
-                        <input type="text" ng-model="mediaItem.name" id="{{'mediaItemName'+$index}}"
-                               class="form-control" placeholder="{{'MEDIA_NAME' | translate}}" required>
-                    </fieldset>
+                    <div class="card card-white" ng-repeat="mediaItem in media | orderBy:'':true">
+                        <div style="height:12em;width:100%" class="text-center">
+                            <img class="card-img-top" ng-src="{{mediaItem.media}}" alt="{{mediaItem.name}}"
+                                 style="max-height:100%;max-width:100%">
+                        </div>
 
-                    <fieldset class="form-group">
-                        <label for="{{'mediaItemDescription'+$index}}">{{'MEDIA_DESCRIPTION' | translate}}</label>
+                        <div class="card-block">
+
+                            <hr />
+
+                            <fieldset class="form-group">
+                                <label for="{{'mediaItemName'+$index}}">{{'MEDIA_NAME' | translate}}</label>
+                                <input type="text" ng-model="mediaItem.name" id="{{'mediaItemName'+$index}}"
+                                       class="form-control" placeholder="{{'MEDIA_NAME' | translate}}" required>
+                            </fieldset>
+
+                            <fieldset class="form-group">
+                                <label for="{{'mediaItemDescription'+$index}}">{{'MEDIA_DESCRIPTION' | translate}}</label>
                         <textarea ng-model="mediaItem.description" id="{{'mediaItemDescription'+$index}}"
                                   class="form-control"
                                   placeholder="{{'MEDIA_DESCRIPTION' | translate}}"></textarea>
-                    </fieldset>
+                            </fieldset>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
-
     </section>
 
     <section class="col-sm-8 col-md-9" ng-hide="activeItem != 'offers'">
-        <h2>{{'OFFERS' | translate}}</h2>
-        <hr />
 
-        <p>{{'WHAT_DO_YOU_OFFER_DESCRIPTION' | translate}}</p>
+        <div class="card card-white">
+            <div class="card-block">
+                <h4 class="card-title">{{'OFFERS' | translate}}</h4>
+                <h6 class="card-subtitle text-muted">{{'WHAT_DO_YOU_OFFER_DESCRIPTION' | translate}}</h6>
+            </div>
 
-        <us-spinner ng-if="!offers"></us-spinner>
+            <hr />
 
-        <div class="checkbox" ng-repeat="offer in offers">
-            <label>
-                <input type="checkbox" ng-model="offer.link" value="{{offer.id}}">
-                {{offer.identifier | translate}}
-            </label>
+            <div class="card-block">
+                <us-spinner ng-if="!offers"></us-spinner>
+
+                <div class="checkbox" ng-repeat="offer in offers">
+                    <label>
+                        <input type="checkbox" ng-model="offer.link" value="{{offer.id}}">
+                        {{offer.identifier | translate}}
+                    </label>
+                </div>
+            </div>
         </div>
-
     </section>
 
     <section class="col-sm-8 col-md-9" ng-hide="activeItem != 'opening'">
-        <h2>{{'OPENING_HOURS' | translate}}</h2>
-        <hr />
+        <div class="card card-white">
+            <div class="card-block">
+                <h4 class="card-title">{{'OPENING_HOURS' | translate}}</h4>
+            </div>
 
-        <ul class="list-group">
-            <li class="list-group-item" ng-repeat="(day, openingObj) in club.openingHours">
+            <hr />
 
-                <div class="row">
+            <div class="card-block">
+                <div class="row" ng-repeat="(day, openingObj) in club.openingHours">
 
                     <div class="col-xs-12"><h4 class="list-group-item-heading">{{day | translate}}</h4></div>
 
@@ -353,10 +403,13 @@
                                         show-meridian="false"></uib-timepicker>
                     </div>
 
+                    <div class="col-xs-12">
+                        <hr>
+                    </div>
                 </div>
-            </li>
-        </ul>
+            </div>
 
+        </div>
     </section>
 
 </form>

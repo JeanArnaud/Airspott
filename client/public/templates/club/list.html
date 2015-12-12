@@ -1,15 +1,25 @@
-<div ng-if="clubsLoaded && (!clubs || !clubs.length)">
-
-    <h2>{{'NO_CLUB_ADDED' | translate}}</h2>
-    <hr />
-
-    <a href="#/club/edit/" class="btn btn-primary">{{'ADD_A_CLUB' | translate}}</a>
-</div>
-
 <us-spinner ng-if="!clubsLoaded"></us-spinner>
 
-<h2 ng-if="clubs && clubs.length">{{'MY_CLUBS' | translate}}</h2>
-<hr ng-if="clubs && clubs.length" />
+<div ng-if="clubsLoaded && (!clubs || !clubs.length)" class="card card-white">
+    <div class="card-block">
+        <h4 class="card-title">{{'NO_CLUB_ADDED' | translate}}</h4>
+        <h6 class="card-subtitle text-muted">{{'CLUB_DESCRIPTION' | translate}}</h6>
+    </div>
+
+    <hr>
+
+    <div class="card-block">
+        <a href="#/club/edit/" class="btn btn-primary btn-block">{{'ADD_A_CLUB' | translate}}</a>
+    </div>
+</div>
+
+<div ng-if="clubs && clubs.length" class="card card-white">
+    <div class="card-block">
+        <h4 class="card-title">{{'MY_CLUBS' | translate}}</h4>
+        <h6 class="card-subtitle text-muted">{{'CLUB_DESCRIPTION' | translate}}</h6>
+    </div>
+</div>
+
 <div class="card-columns" ng-if="clubs && clubs.length">
     <div class="card card-white" ng-repeat="club in clubs">
         <div class="card-block">
