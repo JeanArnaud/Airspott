@@ -7836,10 +7836,6 @@ button.toast-close-button {
 /**
  * Admin UI reset
  */
-html, body {
-  height: 100%;
-  width: 100%; }
-
 /**
  * Custom modules
  */
@@ -7860,3 +7856,11 @@ html, body {
 
 .btn, .btn-link {
   outline: 0; }
+
+.input-group.select-input-group .form-control {
+  width: 50%; }
+  .input-group.select-input-group .form-control:last-child {
+    border-left: none;
+    width: 40%; }
+  .input-group.select-input-group .form-control:first-child {
+    width: 60%; }

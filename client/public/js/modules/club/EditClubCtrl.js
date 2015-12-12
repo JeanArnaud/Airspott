@@ -1,14 +1,15 @@
 angular.module('com.airspott.club')
     .controller('EditClubCtrl',
         [
-            '$rootScope', '$stateParams', '$scope', '$log', '$translate', '$state', '$q', 'Club', 'Upload', 'Message', 'Offer', 'Customer', 'TAX', 'PlanningEntry',
+            '$rootScope', '$stateParams', '$scope', '$log', '$translate', '$state', '$q', 'Club', 'Upload', 'Message', 'Offer', 'Customer', 'TAX', 'Currency',
 
-            function ($rootScope, $stateParams, $scope, $log, $translate, $state, $q, Club, Upload, Message, Offer, Customer, TAX, PlanningEntry)
+            function ($rootScope, $stateParams, $scope, $log, $translate, $state, $q, Club, Upload, Message, Offer, Customer, TAX, Currency)
             {
                 'use strict';
 
                 $scope.taxes = TAX.find();
                 $scope.offers = Offer.find();
+                $scope.currencies = Currency.find();
                 $scope.loading = true;
                 $scope.activeItem = "general";
                 $scope.capacityPlanningEntries = [[]];
@@ -201,7 +202,7 @@ angular.module('com.airspott.club')
                     $scope.club = {
                         customerId: Customer.getCurrentId(),
                         _address: {},
-                        openingHours: {"MO": {}, "TU": {}, "WE": {}, "TH": {}, "FR": {}, "SA": {}, "SU": {}}
+                        openingHours: {"MO": {}, "TU": {}, "WE": {}, "TH": {}, "FR": {}, "SA": {}, "SU": {}, "HOLIDAY": {}}
                     };
 
                     $scope.loading = false;

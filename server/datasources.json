@@ -1,12 +1,11 @@
 {
-  "inmemory": {
-    "name": "inmemory",
-    "connector": "memory"
-  },
-  "db": {
-    "name": "db",
-    "connector": "sqlite",
-    "file_name": "./airspott.sqlite3",
-    "debug": false
-  }
+    "inmemory": {
+        "name": "inmemory",
+        "connector": "memory"
+    },
+    "db": {
+        "name": "db",
+        "connector": "mongodb",
+        "host": "test.airspott.com"
+    }
 }

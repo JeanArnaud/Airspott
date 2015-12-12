@@ -1248,6 +1248,30 @@ module.factory(
           method: "PUT"
         },
 
+        // INTERNAL. Use Club.baseCurrency() instead.
+        "prototype$__get__baseCurrency": {
+          url: urlBase + "/Clubs/:id/baseCurrency",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Club.baseCurrency.create() instead.
+        "prototype$__create__baseCurrency": {
+          url: urlBase + "/Clubs/:id/baseCurrency",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Club.baseCurrency.update() instead.
+        "prototype$__update__baseCurrency": {
+          url: urlBase + "/Clubs/:id/baseCurrency",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Club.baseCurrency.destroy() instead.
+        "prototype$__destroy__baseCurrency": {
+          url: urlBase + "/Clubs/:id/baseCurrency",
+          method: "DELETE"
+        },
+
         // INTERNAL. Use Club.media() instead.
         "prototype$__get__media": {
           isArray: true,
@@ -3119,6 +3143,201 @@ module.factory(
         R.planningEntries.updateById = function() {
           var TargetResource = $injector.get("PlanningEntry");
           var action = TargetResource["::updateById::Club::planningEntries"];
+          return action.apply(R, arguments);
+        };
+    /**
+     * @ngdoc object
+     * @name com.airspott.api.Club.baseCurrency
+     * @header com.airspott.api.Club.baseCurrency
+     * @object
+     * @description
+     *
+     * The object `Club.baseCurrency` groups methods
+     * manipulating `Currency` instances related to `Club`.
+     *
+     * Call {@link com.airspott.api.Club#baseCurrency Club.baseCurrency()}
+     * to query all related instances.
+     */
+
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Club#baseCurrency
+         * @methodOf com.airspott.api.Club
+         *
+         * @description
+         *
+         * Fetches hasOne relation baseCurrency.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `refresh` – `{boolean=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Currency` object.)
+         * </em>
+         */
+        R.baseCurrency = function() {
+          var TargetResource = $injector.get("Currency");
+          var action = TargetResource["::get::Club::baseCurrency"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Club.baseCurrency#create
+         * @methodOf com.airspott.api.Club.baseCurrency
+         *
+         * @description
+         *
+         * Creates a new instance in baseCurrency of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Currency` object.)
+         * </em>
+         */
+        R.baseCurrency.create = function() {
+          var TargetResource = $injector.get("Currency");
+          var action = TargetResource["::create::Club::baseCurrency"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Club.baseCurrency#createMany
+         * @methodOf com.airspott.api.Club.baseCurrency
+         *
+         * @description
+         *
+         * Creates a new instance in baseCurrency of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Currency` object.)
+         * </em>
+         */
+        R.baseCurrency.createMany = function() {
+          var TargetResource = $injector.get("Currency");
+          var action = TargetResource["::createMany::Club::baseCurrency"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Club.baseCurrency#destroy
+         * @methodOf com.airspott.api.Club.baseCurrency
+         *
+         * @description
+         *
+         * Deletes baseCurrency of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.baseCurrency.destroy = function() {
+          var TargetResource = $injector.get("Currency");
+          var action = TargetResource["::destroy::Club::baseCurrency"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Club.baseCurrency#update
+         * @methodOf com.airspott.api.Club.baseCurrency
+         *
+         * @description
+         *
+         * Update baseCurrency of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Currency` object.)
+         * </em>
+         */
+        R.baseCurrency.update = function() {
+          var TargetResource = $injector.get("Currency");
+          var action = TargetResource["::update::Club::baseCurrency"];
           return action.apply(R, arguments);
         };
 
@@ -9813,6 +10032,629 @@ module.factory(
           var action = TargetResource["::get::PlanningEntry::club"];
           return action.apply(R, arguments);
         };
+
+    return R;
+  }]);
+
+/**
+ * @ngdoc object
+ * @name com.airspott.api.Currency
+ * @header com.airspott.api.Currency
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `Currency` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+module.factory(
+  "Currency",
+  ['LoopBackResource', 'LoopBackAuth', '$injector', function(Resource, LoopBackAuth, $injector) {
+    var R = Resource(
+      urlBase + "/Currencies/:id",
+      { 'id': '@id' },
+      {
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Currency#create
+         * @methodOf com.airspott.api.Currency
+         *
+         * @description
+         *
+         * Create a new instance of the model and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Currency` object.)
+         * </em>
+         */
+        "create": {
+          url: urlBase + "/Currencies",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Currency#createMany
+         * @methodOf com.airspott.api.Currency
+         *
+         * @description
+         *
+         * Create a new instance of the model and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Currency` object.)
+         * </em>
+         */
+        "createMany": {
+          isArray: true,
+          url: urlBase + "/Currencies",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Currency#upsert
+         * @methodOf com.airspott.api.Currency
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Currency` object.)
+         * </em>
+         */
+        "upsert": {
+          url: urlBase + "/Currencies",
+          method: "PUT"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Currency#exists
+         * @methodOf com.airspott.api.Currency
+         *
+         * @description
+         *
+         * Check whether a model instance exists in the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `exists` – `{boolean=}` - 
+         */
+        "exists": {
+          url: urlBase + "/Currencies/:id/exists",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Currency#findById
+         * @methodOf com.airspott.api.Currency
+         *
+         * @description
+         *
+         * Find a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         *  - `filter` – `{object=}` - Filter defining fields and include
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Currency` object.)
+         * </em>
+         */
+        "findById": {
+          url: urlBase + "/Currencies/:id",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Currency#find
+         * @methodOf com.airspott.api.Currency
+         *
+         * @description
+         *
+         * Find all instances of the model matched by filter from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Currency` object.)
+         * </em>
+         */
+        "find": {
+          isArray: true,
+          url: urlBase + "/Currencies",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Currency#findOne
+         * @methodOf com.airspott.api.Currency
+         *
+         * @description
+         *
+         * Find first instance of the model matched by filter from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Currency` object.)
+         * </em>
+         */
+        "findOne": {
+          url: urlBase + "/Currencies/findOne",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Currency#updateAll
+         * @methodOf com.airspott.api.Currency
+         *
+         * @description
+         *
+         * Update instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * The number of instances updated
+         */
+        "updateAll": {
+          url: urlBase + "/Currencies/update",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Currency#deleteById
+         * @methodOf com.airspott.api.Currency
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Currency` object.)
+         * </em>
+         */
+        "deleteById": {
+          url: urlBase + "/Currencies/:id",
+          method: "DELETE"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Currency#count
+         * @methodOf com.airspott.api.Currency
+         *
+         * @description
+         *
+         * Count instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `count` – `{number=}` - 
+         */
+        "count": {
+          url: urlBase + "/Currencies/count",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Currency#prototype$updateAttributes
+         * @methodOf com.airspott.api.Currency
+         *
+         * @description
+         *
+         * Update attributes for a model instance and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Currency` object.)
+         * </em>
+         */
+        "prototype$updateAttributes": {
+          url: urlBase + "/Currencies/:id",
+          method: "PUT"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Currency#createChangeStream
+         * @methodOf com.airspott.api.Currency
+         *
+         * @description
+         *
+         * Create a change stream.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         *  - `options` – `{object=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `changes` – `{ReadableStream=}` - 
+         */
+        "createChangeStream": {
+          url: urlBase + "/Currencies/change-stream",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Club.baseCurrency() instead.
+        "::get::Club::baseCurrency": {
+          url: urlBase + "/Clubs/:id/baseCurrency",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Club.baseCurrency.create() instead.
+        "::create::Club::baseCurrency": {
+          url: urlBase + "/Clubs/:id/baseCurrency",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Club.baseCurrency.createMany() instead.
+        "::createMany::Club::baseCurrency": {
+          isArray: true,
+          url: urlBase + "/Clubs/:id/baseCurrency",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Club.baseCurrency.update() instead.
+        "::update::Club::baseCurrency": {
+          url: urlBase + "/Clubs/:id/baseCurrency",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Club.baseCurrency.destroy() instead.
+        "::destroy::Club::baseCurrency": {
+          url: urlBase + "/Clubs/:id/baseCurrency",
+          method: "DELETE"
+        },
+      }
+    );
+
+
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Currency#updateOrCreate
+         * @methodOf com.airspott.api.Currency
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Currency` object.)
+         * </em>
+         */
+        R["updateOrCreate"] = R["upsert"];
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Currency#update
+         * @methodOf com.airspott.api.Currency
+         *
+         * @description
+         *
+         * Update instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * The number of instances updated
+         */
+        R["update"] = R["updateAll"];
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Currency#destroyById
+         * @methodOf com.airspott.api.Currency
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Currency` object.)
+         * </em>
+         */
+        R["destroyById"] = R["deleteById"];
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Currency#removeById
+         * @methodOf com.airspott.api.Currency
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Currency` object.)
+         * </em>
+         */
+        R["removeById"] = R["deleteById"];
+
+
+    /**
+    * @ngdoc property
+    * @name com.airspott.api.Currency#modelName
+    * @propertyOf com.airspott.api.Currency
+    * @description
+    * The name of the model represented by this $resource,
+    * i.e. `Currency`.
+    */
+    R.modelName = "Currency";
+
 
     return R;
   }]);

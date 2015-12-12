@@ -121,16 +121,27 @@
         <fieldset class="form-group row">
             <div class="col-xs-6 col-md-4">
                 <label for="price">{{'DEFAULT_PRICE' | translate}}</label>
-                <input type="text" ng-model="club.price" id="price" class="form-control"
-                       placeholder="{{'DEFAULT_PRICE' | translate}}" required>
+                <label for="currency" class="sr-only">{{'CURRENCY' | translate}}</label>
+
+                <div class="input-group select-input-group">
+                    <input type="text" ng-model="club.price" id="price" class="form-control"
+                           placeholder="{{'DEFAULT_PRICE' | translate}}" required>
+
+                    <select ng-options="currency.id as currency.symbol for currency in currencies"
+                            ng-model="club.currencyId"
+                            class="c-select form-control"
+                            id="currency">
+                        <option value="">{{'CURRENCY' | translate}}</option>
+                    </select>
+                </div>
             </div>
             <div class="col-xs-6 col-md-4">
                 <label for="tax">{{'TAX' | translate}}</label>
                 <select ng-options="tax.id as tax.name + ' (' + tax.percentage + '%)' for tax in taxes"
                         ng-model="club.taxId"
                         class="c-select form-control"
-                        placeholder="{{'TAX' | translate}}"
                         id="tax">
+                    <option value="">{{'TAX' | translate}}</option>
                 </select>
             </div>
 
@@ -273,7 +284,7 @@
         <div class="checkbox" ng-repeat="offer in offers">
             <label>
                 <input type="checkbox" ng-model="offer.link" value="{{offer.id}}">
-                {{offer.name}}
+                {{offer.identifier | translate}}
             </label>
         </div>
 

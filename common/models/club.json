@@ -66,6 +66,11 @@
       "type": "hasMany",
       "model": "PlanningEntry",
       "foreignKey": ""
+    },
+    "baseCurrency": {
+      "type": "hasOne",
+      "model": "Currency",
+      "foreignKey": ""
     }
   },
   "acls": [

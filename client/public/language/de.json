@@ -92,6 +92,7 @@
     "FR": "Freitag",
     "SA": "Samstag",
     "SU": "Sonntag",
+    "HOLIDAY": "Feiertag",
 
     "USER_E_MAIL": "E-Mail:",
     "USER_E_MAIL_DATA": " {{email}}",
@@ -158,6 +159,7 @@
     "DE": "Deutschland",
     "CH": "Schweiz",
 
+    "CURRENCY": "Währung",
 
     "SETTINGS_DESCRIPTION": "Dies sind Ihre persönlichen Einstellungen. Sie können hier Ihre E-Mail Adresse, Ihr Kennwort, Ihren Namen und/oder Firmennamen und viele weitere Einstellungen ändern. In Zukunft werden wir noch weitere Optionen zur Verfügung stellen um aus Airspott Ihr Airspott zu machen!"
 

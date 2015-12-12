@@ -4,3 +4,127 @@
 <hr ng-if="settingsLoaded" />
 
 <p>{{'SETTINGS_DESCRIPTION' | translate}}</p>
+
+<form novalidate>
+
+    <h2>{{'LOGIN_DETAILS' | translate}}</h2>
+
+    <fieldset class="row form-group">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="sr-only" for="emailInput">{{'EMAIL' | translate}}</label>
+                <input type="email" ng-model="user.email" class="form-control" id="emailInput"
+                       placeholder="{{'EMAIL' | translate}}" required>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="sr-only" for="passwordInput">{{'PASSWORD' | translate}}</label>
+                <input type="password" ng-model="user.password" class="form-control"
+                       id="passwordInput"
+                       placeholder="{{'PASSWORD' | translate}}" required>
+            </div>
+        </div>
+    </fieldset>
+
+    <h2>{{'PERSONAL_DETAILS' | translate}}</h2>
+
+    <fieldset class="row form-group">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="sr-only" for="firstnameInput">{{'FIRSTNAME' | translate}}</label>
+                <input type="text" ng-model="user.firstname" class="form-control"
+                       id="firstnameInput"
+                       placeholder="{{'FIRSTNAME' | translate}}" required>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="sr-only" for="middlenameInput">{{'MIDDLENAME' | translate}}</label>
+                <input type="text" ng-model="user.middlename" class="form-control"
+                       id="middlenameInput"
+                       placeholder="{{'MIDDLENAME' | translate}}" required>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="sr-only" for="lastnameInput">{{'LASTNAME' | translate}}</label>
+                <input type="text" ng-model="user.lastname" class="form-control"
+                       id="lastnameInput"
+                       placeholder="{{'LASTNAME' | translate}}" required>
+            </div>
+        </div>
+    </fieldset>
+
+    <h2>{{'COMPANY_DETAILS' | translate}}</h2>
+
+    <fieldset class="form-group">
+        <label for="address">{{'ADDRESS' | translate}}</label>
+        <input type="text" ng-model="club._address.address" id="address" class="form-control"
+               placeholder="{{'ADDRESS' | translate}}">
+    </fieldset>
+
+    <fieldset class="form-group">
+        <label for="address2" class="sr-only">{{'ADDRESS_2' | translate}}</label>
+        <input type="text" ng-model="club._address.address2" id="address2" class="form-control"
+               placeholder="{{'ADDRESS_2' | translate}}">
+    </fieldset>
+
+    <fieldset class="row form-group">
+
+        <div class="col-xs-4 col-sm-4 col-md-2">
+            <label for="zip">{{'ZIP' | translate}}</label>
+            <input type="text" ng-model="club._address.zip" id="zip" class="form-control"
+                   placeholder="{{'ZIP' | translate}}" required>
+        </div>
+
+        <div class="col-xs-8 col-sm-4 col-md-5">
+            <label for="city">{{'CITY' | translate}}</label>
+            <input type="text" ng-model="club._address.city" id="city" class="form-control"
+                   placeholder="{{'CITY' | translate}}">
+        </div>
+
+        <div class="col-xs-12 col-sm-4 col-md-5">
+            <label for="country">{{'COUNTRY' | translate}}</label>
+
+            <select class="c-select form-control"
+                    placeholder="{{'COUNTRY' | translate}}"
+                    ng-model="club._address.country"
+                    name="country"
+                    id="country"
+                    ng-options="country as country | translate for country in countries"
+                    required>
+            </select>
+        </div>
+    </fieldset>
+
+    <fieldset class="row form-group">
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="sr-only" for="companyInput">{{'COMPANY' | translate}}</label>
+                <input type="text" ng-model="user.company" class="form-control"
+                       id="companyInput"
+                       placeholder="{{'COMPANY' | translate}}" required>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="sr-only" for="uidInput">{{'UID' | translate}}</label>
+                <input type="text" ng-model="user.uid" class="form-control"
+                       id="uidInput"
+                       placeholder="{{'UID' | translate}}" required>
+            </div>
+        </div>
+    </fieldset>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block"
+                ng-click="saveSettings()">{{'SIGN_IN' | translate}}
+        </button>
+    </div>
+</form>

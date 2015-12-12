@@ -47,7 +47,9 @@
   },
   "Address": {
     "dataSource": "db",
-    "public": true
+    "public": true,
+    "$promise": {},
+    "$resolved": true
   },
   "TAX": {
     "dataSource": "db",
@@ -70,6 +72,10 @@
     "public": true
   },
   "PlanningEntry": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Currency": {
     "dataSource": "db",
     "public": true
   }

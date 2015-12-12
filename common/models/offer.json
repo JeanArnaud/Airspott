@@ -1,26 +1,22 @@
 {
-  "name": "Offer",
-  "base": "PersistedModel",
-  "idInjection": true,
-  "options": {
-    "validateUpsert": true
-  },
-  "properties": {
-    "name": {
-      "type": "string",
-      "required": true
+    "name": "Offer",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
     },
-    "icon": {
-      "type": "string",
-      "required": false
+    "properties": {
+        "identifier": {
+            "type": "string",
+            "required": false
+        },
+        "parent": {
+            "type": "string",
+            "required": false
+        }
     },
-    "parent": {
-      "type": "string",
-      "required": false
-    }
-  },
-  "validations": [],
-  "relations": {},
-  "acls": [],
-  "methods": {}
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
 }
