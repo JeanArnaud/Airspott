@@ -155,11 +155,22 @@
     "REGISTER_ERROR_GENERIC": "Fehler bei der Registrierung: Bitte versuchen Sie es erneut oder kontaktieren Sie uns, falls der Fehler weiterhin besteht.",
 
 
+    "RESPONSIBLE_NAME": "Name eines Verantwortlichen",
+    "RESPONSIBLE_TEL": "Telefonnummer des Verantwortlichen",
+    "RESPONSIBLE": "Verantwortlicher",
+    "RESPONSIBLE_DESCRIPTION": "Wir benötigen diese Information um Sie im Falle eines Problemes schnell kontaktieren zu können. Diese Information wird nicht veröffentlicht.",
+
     "AT": "Österreich",
     "DE": "Deutschland",
     "CH": "Schweiz",
 
+    "BANK_ACCOUNT": "Bankdaten",
+    "TOC_CLUB": "Geschäftsbedingungen für Anbieter",
+    "I_ACCEPT_TOC_CLUB": "Ich akzeptiere die derzeit gültigen Geschäftsbedingungen für Anbieter",
+    "DOWNLOAD_TOC": "Geschäftsbedingungen herunterladen",
+
     "CURRENCY": "Währung",
+    "AUTO_DETECTION": "Wir bestimmen diese Information automatisch",
 
     "SETTINGS_DESCRIPTION": "Dies sind Ihre persönlichen Einstellungen. Sie können hier Ihre E-Mail Adresse, Ihr Kennwort, Ihren Namen und/oder Firmennamen und viele weitere Einstellungen ändern. In Zukunft werden wir noch weitere Optionen zur Verfügung stellen um aus Airspott Ihr Airspott zu machen!"
 

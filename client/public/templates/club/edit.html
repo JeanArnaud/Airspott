@@ -70,12 +70,12 @@
                 <label for="country">{{'COUNTRY' | translate}}</label>
 
                 <select class="c-select form-control"
-                        placeholder="{{'COUNTRY' | translate}}"
                         ng-model="club._address.country"
                         name="country"
                         id="country"
                         ng-options="country as country | translate for country in countries"
                         required>
+                    <option value="">{{'COUNTRY' | translate}}</option>
                 </select>
             </div>
 
@@ -88,6 +88,27 @@
             <!--Don't use the long version silly...we don't need to be that specific...-->
             <!--</div>-->
             <!--</div>-->
+        </fieldset>
+
+        <fieldset class="form-group row">
+
+            <div class="col-xs-12">
+                <p><strong>{{'RESPONSIBLE' | translate}}</strong><br>
+
+                    {{'RESPONSIBLE_DESCRIPTION' | translate}}</p>
+            </div>
+
+            <div class="col-xs-12 col-sm-6">
+                <label for="responsibleName">{{'RESPONSIBLE_NAME' | translate}}</label>
+                <input type="text" ng-model="club.responsibleName" id="responsibleName" class="form-control"
+                       placeholder="{{'RESPONSIBLE_NAME' | translate}}" required>
+            </div>
+
+            <div class="col-xs-12 col-sm-6">
+                <label for="responsibleTel">{{'RESPONSIBLE_TEL' | translate}}</label>
+                <input type="text" ng-model="club.responsibleTel" id="responsibleTel" class="form-control"
+                       placeholder="{{'RESPONSIBLE_TEL' | translate}}" required>
+            </div>
         </fieldset>
 
         <fieldset class="form-group">
@@ -242,10 +263,9 @@
             <h2>{{'FILE_UPLOAD_DROP_UNAVAILABLE_USE_ANOTHER_BROWSER' | translate}}</h2>
         </div>
 
-        <div class="card-columns"
-             ng-if="media && media.length">
+        <div class="card-columns" ng-if="media && media.length">
 
-            <div class="card" ng-repeat="mediaItem in media | orderBy:'':true">
+            <div class="card card-white" ng-repeat="mediaItem in media | orderBy:'':true">
                 <div style="height:12em;width:100%" class="text-center">
                     <img class="card-img-top" ng-src="{{mediaItem.media}}" alt="{{mediaItem.name}}"
                          style="max-height:100%;max-width:100%">

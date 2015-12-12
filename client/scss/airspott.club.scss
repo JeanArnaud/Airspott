@@ -22,9 +22,16 @@
 //    width  : 100%;
 //}
 
+body
+{
+    background : $gray-lighter;
+}
+
 /**
  * Custom modules
  */
+@import "club/type";
+@import "club/cards";
 @import "club/login";
 
 .glyphicon

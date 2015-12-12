@@ -8,6 +8,10 @@
 </div>
 
 <form class="row">
+    <div class="col-xs-12">
+        <p><strong>{{'BANK_ACCOUNT' | translate}}</strong></p>
+    </div>
+
     <div class="col-sm-6">
         <div class="form-group">
             <label for="iban">{{'IBAN' | translate}}</label>
@@ -44,6 +48,21 @@
                    type="text"
                    disabled ng-if="fullyNew || !ownerAccount">
         </div>
+    </div>
+
+    <div class="col-xs-12">
+        <p><strong>{{'TOC_CLUB' | translate}}</strong></p>
+    </div>
+
+    <div class="col-sm-12">
+        <a href="">{{'DOWNLOAD_TOC' | translate}}</a><br>
+
+        <label for="toc">
+            <input type="checkbox" id="toc" ng-model="ownerAccount.toc" ng-true-value="'1.0.0'"
+                   ng-false-value="undefined">
+
+            {{'I_ACCEPT_TOC_CLUB' | translate}}
+        </label>
     </div>
 
     <div class="col-sm-12">

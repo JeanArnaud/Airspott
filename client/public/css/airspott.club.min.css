@@ -7836,17 +7836,22 @@ button.toast-close-button {
 /**
  * Admin UI reset
  */
+body {
+  background: #eceeef; }
+
 /**
  * Custom modules
  */
-.login {
-  background: #eceeef;
-  height: 100%; }
-  .login .card, .login .card-img-top {
-    background: #fff;
-    margin-top: -1px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0; }
+h1, h2, h3 {
+  font-weight: 400; }
+
+.card-white {
+  background: #fff; }
+
+.login .card, .login .card-img-top {
+  margin-top: -1px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0; }
 
 .glyphicon-chevron-up:before {
   content: ""; }

@@ -11,7 +11,7 @@
 <h2 ng-if="clubs && clubs.length">{{'MY_CLUBS' | translate}}</h2>
 <hr ng-if="clubs && clubs.length" />
 <div class="card-columns" ng-if="clubs && clubs.length">
-    <div class="card" ng-repeat="club in clubs">
+    <div class="card card-white" ng-repeat="club in clubs">
         <div class="card-block">
             <h4 class="card-title">{{club.name}}</h4>
 
