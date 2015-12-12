@@ -78,5 +78,9 @@
   "Currency": {
     "dataSource": "db",
     "public": true
+  },
+  "Settings": {
+    "dataSource": "db",
+    "public": true
   }
 }

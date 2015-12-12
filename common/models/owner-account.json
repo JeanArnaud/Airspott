@@ -1,31 +1,31 @@
 {
-    "name": "OwnerAccount",
-    "base": "PersistedModel",
-    "idInjection": true,
-    "options": {
-        "validateUpsert": true
+  "name": "OwnerAccount",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "iban": {
+      "type": "string",
+      "required": true
     },
-    "properties": {
-        "iban": {
-            "type": "string",
-            "required": true
-        },
-        "bic": {
-            "type": "string",
-            "required": true
-        },
-        "salesCommission": {
-            "type": "number",
-            "required": true,
-            "default": 0.2
-        },
-        "toc": {
-            "type": "string",
-            "required": true
-        }
+    "bic": {
+      "type": "string",
+      "required": true
     },
-    "validations": [],
-    "relations": {},
-    "acls": [],
-    "methods": {}
+    "salesCommission": {
+      "type": "number",
+      "required": true,
+      "default": 0.2
+    },
+    "toc": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
 }

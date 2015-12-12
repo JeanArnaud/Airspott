@@ -1,17 +1,29 @@
 angular.module('com.airspott.club')
     .controller('AccountingCtrl',
         [
-            '$rootScope', '$scope', '$state', '$translate', '$log', 'Customer', 'OwnerAccount', 'Message',
+            '$rootScope', '$scope', '$state', '$translate', '$log', 'Customer', 'OwnerAccount', 'Message', 'Settings',
 
-            function ($rootScope, $scope, $state, $translate, $log, Customer, OwnerAccount, Message)
+            function ($rootScope, $scope, $state, $translate, $log, Customer, OwnerAccount, Message, Settings)
             {
 
                 $rootScope.meta.title = "ACCOUNTING";
+                Settings.findOne({
+                    filter: {
+                        "where": {
+                            "identifier": "clubTOCVersion"
+                        }
+                    }
+                }, function (setting)
+                {
+                    $scope.tocVersion = setting.value;
+                });
 
                 if (!$rootScope.ownerAccount) $scope.fullyNew = true;
 
                 $scope.save = function ()
                 {
+
+                    $log.log($rootScope.ownerAccount);
 
                     Customer.ownerAccount({id: Customer.getCurrentId()}, function ()
                     {

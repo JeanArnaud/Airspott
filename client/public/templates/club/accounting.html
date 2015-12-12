@@ -1,74 +1,82 @@
-<h2>{{'ACCOUNTING' | translate}}</h2>
-<hr />
+<us-spinner ng-if="!tocVersion || !ownerAccount"></us-spinner>
 
-<div class="alert alert-danger" role="alert" ng-if="ownerAccount === false">
-    <strong>{{'ATTENTION' | translate}}</strong>
+<div ng-if="tocVersion && ownerAccount">
+    <h2>{{'ACCOUNTING' | translate}}</h2>
+    <hr />
 
-    <span>{{'NO_PAYOUT_CONFIGURED' | translate}}</span> <span>{{'SET_IT_UP_NOW' | translate}}</span>
-</div>
+    <div class="alert alert-danger" role="alert" ng-if="ownerAccount === false">
+        <strong>{{'ATTENTION' | translate}}</strong>
 
-<form class="row">
-    <div class="col-xs-12">
-        <p><strong>{{'BANK_ACCOUNT' | translate}}</strong></p>
+        <span>{{'NO_PAYOUT_CONFIGURED' | translate}}</span> <span>{{'SET_IT_UP_NOW' | translate}}</span>
     </div>
 
-    <div class="col-sm-6">
-        <div class="form-group">
-            <label for="iban">{{'IBAN' | translate}}</label>
-            <input id="iban" class="form-control" type="text" ng-model="ownerAccount.iban" ng-iban>
+    <form class="row">
+        <div class="col-xs-12">
+            <p><strong>{{'BANK_ACCOUNT' | translate}}</strong></p>
         </div>
-    </div>
 
-    <div class="col-sm-6">
-        <div class="form-group">
-            <label for="bic">{{'BIC_SWIFT' | translate}}</label>
-            <input id="bic" class="form-control" type="text" ng-model="ownerAccount.bic">
-        </div>
-    </div>
-
-    <div class="col-sm-6">
-        <div class="form-group">
-            <label for="bank">{{'BANK' | translate}}</label>
-            <input id="bank" class="form-control" placeholder="{{'AUTO_DETECTION' | translate}}" type="text" disabled>
-        </div>
-    </div>
-
-    <div class="col-sm-6">
-        <div class="form-group">
-            <label for="commission">{{'COMMISSION' | translate}}</label>
-
-            <div class="input-group" ng-if="ownerAccount && !fullyNew">
-                <input id="commission" ng-value="ownerAccount.salesCommission * 100" class="form-control" type="text"
-                       disabled>
-
-                <div class="input-group-addon">%</div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label for="iban">{{'IBAN' | translate}}</label>
+                <input id="iban" class="form-control" type="text" ng-model="ownerAccount.iban" ng-iban>
             </div>
-
-            <input id="commission" value="{{'COMMISSION_AFTER_ACCOUNT_SETUP' | translate}}" class="form-control"
-                   type="text"
-                   disabled ng-if="fullyNew || !ownerAccount">
         </div>
-    </div>
 
-    <div class="col-xs-12">
-        <p><strong>{{'TOC_CLUB' | translate}}</strong></p>
-    </div>
-
-    <div class="col-sm-12">
-        <a href="">{{'DOWNLOAD_TOC' | translate}}</a><br>
-
-        <label for="toc">
-            <input type="checkbox" id="toc" ng-model="ownerAccount.toc" ng-true-value="'1.0.0'"
-                   ng-false-value="undefined">
-
-            {{'I_ACCEPT_TOC_CLUB' | translate}}
-        </label>
-    </div>
-
-    <div class="col-sm-12">
-        <div class="form-group">
-            <button class="btn btn-block btn-primary-outline" ng-click="save()">{{'SAVE' | translate}}
-            </button>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label for="bic">{{'BIC_SWIFT' | translate}}</label>
+                <input id="bic" class="form-control" type="text" ng-model="ownerAccount.bic">
+            </div>
         </div>
-    </div>
-</form>
+
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label for="bank">{{'BANK' | translate}}</label>
+                <input id="bank" class="form-control" placeholder="{{'AUTO_DETECTION' | translate}}" type="text"
+                       disabled>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label for="commission">{{'COMMISSION' | translate}}</label>
+
+                <div class="input-group" ng-if="ownerAccount && !fullyNew">
+                    <input id="commission" ng-value="ownerAccount.salesCommission * 100" class="form-control"
+                           type="text"
+                           disabled>
+
+                    <div class="input-group-addon">%</div>
+                </div>
+
+                <input id="commission" value="{{'COMMISSION_AFTER_ACCOUNT_SETUP' | translate}}" class="form-control"
+                       type="text"
+                       disabled ng-if="fullyNew || !ownerAccount">
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <p><strong>{{'TOC_CLUB' | translate}}</strong></p>
+        </div>
+
+        <div class="col-sm-12">
+            <a href="">{{'DOWNLOAD_TOC' | translate}}</a><br>
+
+            {{settings}}
+
+            <label for="toc">
+                <input type="checkbox" id="toc" ng-model="ownerAccount.toc" ng-true-value="'{{tocVersion}}'"
+                       ng-false-value="undefined">
+
+                {{'I_ACCEPT_TOC_CLUB' | translate}}
+            </label>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="form-group">
+                <button class="btn btn-block btn-primary-outline" ng-click="save()">{{'SAVE' | translate}}
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

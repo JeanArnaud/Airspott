@@ -1,11 +1,11 @@
 {
-    "inmemory": {
-        "name": "inmemory",
-        "connector": "memory"
-    },
-    "db": {
-        "name": "db",
-        "connector": "mongodb",
-        "host": "test.airspott.com"
-    }
+  "inmemory": {
+    "name": "inmemory",
+    "connector": "memory"
+  },
+  "db": {
+    "host": "test.airspott.com",
+    "name": "db",
+    "connector": "mongodb"
+  }
 }
