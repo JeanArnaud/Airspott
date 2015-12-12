@@ -18,7 +18,7 @@
                         <strong>{{'USER_E_MAIL' | translate}}</strong>{{'USER_E_MAIL_DATA' | translate:{email: user.email} }}
                     </li>
                     <li><strong>{{'USER_TYPE' | translate}}</strong>{{'USER_TYPE_DATA' | translate}}</li>
-                    <li ng-if="ownerAccount === false">
+                    <li ng-if="needsNewOwnerAccount === true">
                         <strong>{{'NEXT_TODO' | translate}}</strong>{{'NEXT_TODO_DATA' | translate}}
                     </li>
                 </ul>
@@ -37,7 +37,7 @@
             </div>
         </div>
 
-        <div class="card card-danger card-inverse" ng-if="ownerAccount === false">
+        <div class="card card-danger card-inverse" ng-if="needsNewOwnerAccount === true">
             <div class="card-block">
                 <h4 class="card-title">
                     {{'ATTENTION' | translate}}

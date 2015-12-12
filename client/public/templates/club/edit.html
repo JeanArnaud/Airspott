@@ -308,7 +308,6 @@
                 </div>
 
                 <div class="card-columns" ng-if="media && media.length">
-
                     <div class="card card-white" ng-repeat="mediaItem in media | orderBy:'':true">
                         <div style="height:12em;width:100%" class="text-center">
                             <img class="card-img-top" ng-src="{{mediaItem.media}}" alt="{{mediaItem.name}}"
@@ -327,9 +326,10 @@
 
                             <fieldset class="form-group">
                                 <label for="{{'mediaItemDescription'+$index}}">{{'MEDIA_DESCRIPTION' | translate}}</label>
-                        <textarea ng-model="mediaItem.description" id="{{'mediaItemDescription'+$index}}"
-                                  class="form-control"
-                                  placeholder="{{'MEDIA_DESCRIPTION' | translate}}"></textarea>
+
+                                <textarea ng-model="mediaItem.description" id="{{'mediaItemDescription'+$index}}"
+                                          class="form-control"
+                                          placeholder="{{'MEDIA_DESCRIPTION' | translate}}"></textarea>
                             </fieldset>
                         </div>
                     </div>

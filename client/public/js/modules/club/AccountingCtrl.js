@@ -1,79 +1,78 @@
-angular.module('com.airspott.club')
-    .controller('AccountingCtrl',
-        [
-            '$rootScope', '$scope', '$state', '$translate', '$log', 'Customer', 'OwnerAccount', 'Message', 'Settings',
+angular.module('com.airspott.club').controller('AccountingCtrl', [
+    '$rootScope', '$scope', '$state', '$translate', '$log', 'Customer', 'OwnerAccount', 'Message', 'Settings',
 
-            function ($rootScope, $scope, $state, $translate, $log, Customer, OwnerAccount, Message, Settings)
+    function ($rootScope, $scope, $state, $translate, $log, Customer, OwnerAccount, Message, Settings)
+    {
+
+        $rootScope.meta.title = "ACCOUNTING";
+        Settings.findOne({
+            filter: {
+                "where": {
+                    "identifier": "clubTOCVersion"
+                }
+            }
+        }, function (setting)
+        {
+            $scope.tocVersion = setting.value;
+        });
+
+        if (!$rootScope.ownerAccount) $scope.fullyNew = true;
+
+        $scope.save = function ()
+        {
+            $log.log($rootScope.ownerAccount);
+
+            Customer.ownerAccount({id: Customer.getCurrentId()}, function ()
             {
 
-                $rootScope.meta.title = "ACCOUNTING";
-                Settings.findOne({
-                    filter: {
-                        "where": {
-                            "identifier": "clubTOCVersion"
-                        }
-                    }
-                }, function (setting)
+                OwnerAccount.upsert($scope.ownerAccount, function (ownerAccount)
                 {
-                    $scope.tocVersion = setting.value;
+
+                    $rootScope.ownerAccount = ownerAccount;
+                    $rootScope.needsNewOwnerAccount = false;
+
+                    $translate('SUCCESS_SAVING_OWNER_ACCOUNT').then(function (translation)
+                    {
+                        Message.success(translation);
+
+                        $state.go('club.main');
+                    });
+
+                }, function (err)
+                {
+                    $translate('ERROR_SAVING_OWNER_ACCOUNT').then(function (translation)
+                    {
+                        Message.error(translation);
+                    });
                 });
 
-                if (!$rootScope.ownerAccount) $scope.fullyNew = true;
-
-                $scope.save = function ()
+            }, function (err)
+            {
+                if (err.status = 404)
                 {
-
-                    $log.log($rootScope.ownerAccount);
-
-                    Customer.ownerAccount({id: Customer.getCurrentId()}, function ()
+                    Customer.ownerAccount.create({id: Customer.getCurrentId()}, $scope.ownerAccount, function (ownerAccount)
                     {
 
-                        OwnerAccount.upsert($scope.ownerAccount, function (ownerAccount)
+                        $rootScope.ownerAccount = ownerAccount;
+                        $rootScope.needsNewOwnerAccount = false;
+
+                        $translate('SUCCESS_SAVING_OWNER_ACCOUNT').then(function (translation)
                         {
+                            Message.success(translation);
 
-                            $rootScope.ownerAccount = ownerAccount;
-
-                            $translate('SUCCESS_SAVING_OWNER_ACCOUNT').then(function (translation)
-                            {
-                                Message.success(translation);
-
-                                $state.go('club.main');
-                            });
-
-                        }, function (err)
-                        {
-                            $translate('ERROR_SAVING_OWNER_ACCOUNT').then(function (translation)
-                            {
-                                Message.error(translation);
-                            });
+                            $state.go('club.main');
                         });
 
                     }, function (err)
                     {
-                        if (err.status = 404)
+                        $translate('ERROR_SAVING_OWNER_ACCOUNT').then(function (translation)
                         {
-                            Customer.ownerAccount.create({id: Customer.getCurrentId()}, $scope.ownerAccount, function (ownerAccount)
-                            {
-
-                                $rootScope.ownerAccount = ownerAccount;
-
-                                $translate('SUCCESS_SAVING_OWNER_ACCOUNT').then(function (translation)
-                                {
-                                    Message.success(translation);
-
-                                    $state.go('club.main');
-                                });
-
-                            }, function (err)
-                            {
-                                $translate('ERROR_SAVING_OWNER_ACCOUNT').then(function (translation)
-                                {
-                                    Message.error(translation);
-                                });
-                            });
-                        }
+                            Message.error(translation);
+                        });
                     });
-                };
+                }
+            });
+        };
 
-            }
-        ]);
+    }
+]);

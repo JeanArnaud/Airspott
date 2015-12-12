@@ -1,6 +1,6 @@
 <us-spinner ng-if="!tocVersion || (!ownerAccount && ownerAccount !== false)"></us-spinner>
 
-<div ng-if="tocVersion && (ownerAccount || ownerAccount === false)" class="card card-white">
+<div ng-if="tocVersion && (ownerAccount || needsNewOwnerAccount === true)" class="card card-white">
 
     <div class="card-block">
         <h4 class="card-title">{{'ACCOUNTING' | translate}}</h4>
@@ -11,7 +11,7 @@
 
     <div class="card-block">
 
-        <div class="alert alert-danger" role="alert" ng-if="ownerAccount === false">
+        <div class="alert alert-danger" role="alert" ng-if="needsNewOwnerAccount === true">
             <strong>{{'ATTENTION' | translate}}</strong>
 
             <span>{{'NO_PAYOUT_CONFIGURED' | translate}}</span> <span>{{'SET_IT_UP_NOW' | translate}}</span>

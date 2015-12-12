@@ -53,7 +53,11 @@ angular.module("com.airspott.club")
                  $rootScope.ownerAccount = ownerAccount;
              }, function (err)
              {
-                 if (err.status = 404) $rootScope.ownerAccount = false;
+                 if (err.status = 404)
+                 {
+                     $rootScope.ownerAccount = {};
+                     $rootScope.needsNewOwnerAccount = true;
+                 }
              });
 
          }]);
