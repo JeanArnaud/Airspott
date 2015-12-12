@@ -1,6 +1,6 @@
-<us-spinner ng-if="!tocVersion || !ownerAccount"></us-spinner>
+<us-spinner ng-if="!tocVersion || (!ownerAccount && ownerAccount !== false)"></us-spinner>
 
-<div ng-if="tocVersion && ownerAccount">
+<div ng-if="tocVersion && (ownerAccount || ownerAccount === false)">
     <h2>{{'ACCOUNTING' | translate}}</h2>
     <hr />
 
