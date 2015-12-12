@@ -1272,6 +1272,33 @@ module.factory(
           method: "DELETE"
         },
 
+        // INTERNAL. Use Club.additions.findById() instead.
+        "prototype$__findById__additions": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/Clubs/:id/additions/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Club.additions.destroyById() instead.
+        "prototype$__destroyById__additions": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/Clubs/:id/additions/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Club.additions.updateById() instead.
+        "prototype$__updateById__additions": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/Clubs/:id/additions/:fk",
+          method: "PUT"
+        },
+
         // INTERNAL. Use Club.media() instead.
         "prototype$__get__media": {
           isArray: true,
@@ -1344,6 +1371,31 @@ module.factory(
         // INTERNAL. Use Club.planningEntries.count() instead.
         "prototype$__count__planningEntries": {
           url: urlBase + "/Clubs/:id/planningEntries/count",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Club.additions() instead.
+        "prototype$__get__additions": {
+          isArray: true,
+          url: urlBase + "/Clubs/:id/additions",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Club.additions.create() instead.
+        "prototype$__create__additions": {
+          url: urlBase + "/Clubs/:id/additions",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Club.additions.destroyAll() instead.
+        "prototype$__delete__additions": {
+          url: urlBase + "/Clubs/:id/additions",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Club.additions.count() instead.
+        "prototype$__count__additions": {
+          url: urlBase + "/Clubs/:id/additions/count",
           method: "GET"
         },
 
@@ -3338,6 +3390,307 @@ module.factory(
         R.baseCurrency.update = function() {
           var TargetResource = $injector.get("Currency");
           var action = TargetResource["::update::Club::baseCurrency"];
+          return action.apply(R, arguments);
+        };
+    /**
+     * @ngdoc object
+     * @name com.airspott.api.Club.additions
+     * @header com.airspott.api.Club.additions
+     * @object
+     * @description
+     *
+     * The object `Club.additions` groups methods
+     * manipulating `Addition` instances related to `Club`.
+     *
+     * Call {@link com.airspott.api.Club#additions Club.additions()}
+     * to query all related instances.
+     */
+
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Club#additions
+         * @methodOf com.airspott.api.Club
+         *
+         * @description
+         *
+         * Queries additions of Club.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `filter` – `{object=}` - 
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Addition` object.)
+         * </em>
+         */
+        R.additions = function() {
+          var TargetResource = $injector.get("Addition");
+          var action = TargetResource["::get::Club::additions"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Club.additions#count
+         * @methodOf com.airspott.api.Club.additions
+         *
+         * @description
+         *
+         * Counts additions of Club.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `count` – `{number=}` - 
+         */
+        R.additions.count = function() {
+          var TargetResource = $injector.get("Addition");
+          var action = TargetResource["::count::Club::additions"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Club.additions#create
+         * @methodOf com.airspott.api.Club.additions
+         *
+         * @description
+         *
+         * Creates a new instance in additions of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Addition` object.)
+         * </em>
+         */
+        R.additions.create = function() {
+          var TargetResource = $injector.get("Addition");
+          var action = TargetResource["::create::Club::additions"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Club.additions#createMany
+         * @methodOf com.airspott.api.Club.additions
+         *
+         * @description
+         *
+         * Creates a new instance in additions of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Addition` object.)
+         * </em>
+         */
+        R.additions.createMany = function() {
+          var TargetResource = $injector.get("Addition");
+          var action = TargetResource["::createMany::Club::additions"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Club.additions#destroyAll
+         * @methodOf com.airspott.api.Club.additions
+         *
+         * @description
+         *
+         * Deletes all additions of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.additions.destroyAll = function() {
+          var TargetResource = $injector.get("Addition");
+          var action = TargetResource["::delete::Club::additions"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Club.additions#destroyById
+         * @methodOf com.airspott.api.Club.additions
+         *
+         * @description
+         *
+         * Delete a related item by id for additions.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for additions
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.additions.destroyById = function() {
+          var TargetResource = $injector.get("Addition");
+          var action = TargetResource["::destroyById::Club::additions"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Club.additions#findById
+         * @methodOf com.airspott.api.Club.additions
+         *
+         * @description
+         *
+         * Find a related item by id for additions.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for additions
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Addition` object.)
+         * </em>
+         */
+        R.additions.findById = function() {
+          var TargetResource = $injector.get("Addition");
+          var action = TargetResource["::findById::Club::additions"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Club.additions#updateById
+         * @methodOf com.airspott.api.Club.additions
+         *
+         * @description
+         *
+         * Update a related item by id for additions.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for additions
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Addition` object.)
+         * </em>
+         */
+        R.additions.updateById = function() {
+          var TargetResource = $injector.get("Addition");
+          var action = TargetResource["::updateById::Club::additions"];
           return action.apply(R, arguments);
         };
 
@@ -11246,6 +11599,657 @@ module.factory(
     * i.e. `Settings`.
     */
     R.modelName = "Settings";
+
+
+    return R;
+  }]);
+
+/**
+ * @ngdoc object
+ * @name com.airspott.api.Addition
+ * @header com.airspott.api.Addition
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `Addition` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+module.factory(
+  "Addition",
+  ['LoopBackResource', 'LoopBackAuth', '$injector', function(Resource, LoopBackAuth, $injector) {
+    var R = Resource(
+      urlBase + "/Additions/:id",
+      { 'id': '@id' },
+      {
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Addition#create
+         * @methodOf com.airspott.api.Addition
+         *
+         * @description
+         *
+         * Create a new instance of the model and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Addition` object.)
+         * </em>
+         */
+        "create": {
+          url: urlBase + "/Additions",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Addition#createMany
+         * @methodOf com.airspott.api.Addition
+         *
+         * @description
+         *
+         * Create a new instance of the model and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Addition` object.)
+         * </em>
+         */
+        "createMany": {
+          isArray: true,
+          url: urlBase + "/Additions",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Addition#upsert
+         * @methodOf com.airspott.api.Addition
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Addition` object.)
+         * </em>
+         */
+        "upsert": {
+          url: urlBase + "/Additions",
+          method: "PUT"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Addition#exists
+         * @methodOf com.airspott.api.Addition
+         *
+         * @description
+         *
+         * Check whether a model instance exists in the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `exists` – `{boolean=}` - 
+         */
+        "exists": {
+          url: urlBase + "/Additions/:id/exists",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Addition#findById
+         * @methodOf com.airspott.api.Addition
+         *
+         * @description
+         *
+         * Find a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         *  - `filter` – `{object=}` - Filter defining fields and include
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Addition` object.)
+         * </em>
+         */
+        "findById": {
+          url: urlBase + "/Additions/:id",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Addition#find
+         * @methodOf com.airspott.api.Addition
+         *
+         * @description
+         *
+         * Find all instances of the model matched by filter from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Addition` object.)
+         * </em>
+         */
+        "find": {
+          isArray: true,
+          url: urlBase + "/Additions",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Addition#findOne
+         * @methodOf com.airspott.api.Addition
+         *
+         * @description
+         *
+         * Find first instance of the model matched by filter from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Addition` object.)
+         * </em>
+         */
+        "findOne": {
+          url: urlBase + "/Additions/findOne",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Addition#updateAll
+         * @methodOf com.airspott.api.Addition
+         *
+         * @description
+         *
+         * Update instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * The number of instances updated
+         */
+        "updateAll": {
+          url: urlBase + "/Additions/update",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Addition#deleteById
+         * @methodOf com.airspott.api.Addition
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Addition` object.)
+         * </em>
+         */
+        "deleteById": {
+          url: urlBase + "/Additions/:id",
+          method: "DELETE"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Addition#count
+         * @methodOf com.airspott.api.Addition
+         *
+         * @description
+         *
+         * Count instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `count` – `{number=}` - 
+         */
+        "count": {
+          url: urlBase + "/Additions/count",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Addition#prototype$updateAttributes
+         * @methodOf com.airspott.api.Addition
+         *
+         * @description
+         *
+         * Update attributes for a model instance and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Addition` object.)
+         * </em>
+         */
+        "prototype$updateAttributes": {
+          url: urlBase + "/Additions/:id",
+          method: "PUT"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Addition#createChangeStream
+         * @methodOf com.airspott.api.Addition
+         *
+         * @description
+         *
+         * Create a change stream.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         *  - `options` – `{object=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `changes` – `{ReadableStream=}` - 
+         */
+        "createChangeStream": {
+          url: urlBase + "/Additions/change-stream",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Club.additions.findById() instead.
+        "::findById::Club::additions": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/Clubs/:id/additions/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Club.additions.destroyById() instead.
+        "::destroyById::Club::additions": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/Clubs/:id/additions/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Club.additions.updateById() instead.
+        "::updateById::Club::additions": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/Clubs/:id/additions/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Club.additions() instead.
+        "::get::Club::additions": {
+          isArray: true,
+          url: urlBase + "/Clubs/:id/additions",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Club.additions.create() instead.
+        "::create::Club::additions": {
+          url: urlBase + "/Clubs/:id/additions",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Club.additions.createMany() instead.
+        "::createMany::Club::additions": {
+          isArray: true,
+          url: urlBase + "/Clubs/:id/additions",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Club.additions.destroyAll() instead.
+        "::delete::Club::additions": {
+          url: urlBase + "/Clubs/:id/additions",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Club.additions.count() instead.
+        "::count::Club::additions": {
+          url: urlBase + "/Clubs/:id/additions/count",
+          method: "GET"
+        },
+      }
+    );
+
+
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Addition#updateOrCreate
+         * @methodOf com.airspott.api.Addition
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Addition` object.)
+         * </em>
+         */
+        R["updateOrCreate"] = R["upsert"];
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Addition#update
+         * @methodOf com.airspott.api.Addition
+         *
+         * @description
+         *
+         * Update instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * The number of instances updated
+         */
+        R["update"] = R["updateAll"];
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Addition#destroyById
+         * @methodOf com.airspott.api.Addition
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Addition` object.)
+         * </em>
+         */
+        R["destroyById"] = R["deleteById"];
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Addition#removeById
+         * @methodOf com.airspott.api.Addition
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Addition` object.)
+         * </em>
+         */
+        R["removeById"] = R["deleteById"];
+
+
+    /**
+    * @ngdoc property
+    * @name com.airspott.api.Addition#modelName
+    * @propertyOf com.airspott.api.Addition
+    * @description
+    * The name of the model represented by this $resource,
+    * i.e. `Addition`.
+    */
+    R.modelName = "Addition";
 
 
     return R;

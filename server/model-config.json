@@ -82,5 +82,9 @@
   "Settings": {
     "dataSource": "db",
     "public": true
+  },
+  "Addition": {
+    "dataSource": "db",
+    "public": true
   }
 }
