@@ -10,7 +10,12 @@ angular.module('com.airspott.club')
 
                 $scope.clubs = Customer.clubs({
                     id: Customer.getCurrentId(),
-                    filter: {include: ['address', 'media']}
+                    filter: {
+                        include: ['address', {
+                            relation: 'media',
+                            scope: {order: 'order ASC', limit: 1}
+                        }]
+                    }
                 }, function (clubs)
                 {
                     $scope.clubsLoaded = true;

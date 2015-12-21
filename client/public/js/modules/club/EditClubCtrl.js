@@ -159,7 +159,12 @@ angular.module('com.airspott.club').controller('EditClubCtrl', [
 
                 $scope.loading = false;
 
-                $scope.media = Club.media({id: club.id});
+                $scope.media = Club.media({id: club.id}, {order: 'order ASC'}, function (media)
+                {
+                    $scope.mediaRange = [];
+                    if (!media.length) return;
+                    for (var i = 0; i < media.length; i++) $scope.mediaRange.push(i + 1);
+                });
 
                 Club.planningEntries({id: club.id}, function (entries)
                 {
@@ -182,7 +187,7 @@ angular.module('com.airspott.club').controller('EditClubCtrl', [
 
                     }
 
-                    //@todo: this does not correctly render the fucking calendar!
+                    //@todo: this does not correctly render the shitty calendar!
                     $scope.capacityPlanningEntries = [entries];
                     $scope.generateCalConfig();
 
@@ -196,6 +201,7 @@ angular.module('com.airspott.club').controller('EditClubCtrl', [
         else
         {
             $scope.media = [];
+            $scope.mediaRange = [];
             $rootScope.meta.title = "ADD_CLUB";
 
             $scope.club = {
@@ -322,6 +328,20 @@ angular.module('com.airspott.club').controller('EditClubCtrl', [
             saveActionEventOff();
         });
 
+        $scope.updateMediaSortOrder = function (to, previous, hashKey)
+        {
+            previous = parseInt(previous, 10);
+
+            $log.log("previous", previous);
+
+            for (var i = 0; i < $scope.media.length; i++)
+            {
+                $log.log($scope.media[i]);
+                $log.log("order", $scope.media[i].order);
+                if ($scope.media[i].order == to && $scope.media[i].$$hashKey !== hashKey) $scope.media[i].order = previous;
+            }
+        };
+
         $scope.processFiles = function (files)
         {
             Upload.base64DataUrl(files).then(function (urls)
@@ -333,6 +353,8 @@ angular.module('com.airspott.club').controller('EditClubCtrl', [
                         description: '',
                         name: ''
                     });
+
+                    $scope.mediaRange.push($scope.media.length);
                 }
 
                 $log.log($scope.media);

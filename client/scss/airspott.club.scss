@@ -13,15 +13,6 @@
 @import "../common/lib/angular-toastr/dist/angular-toastr";
 @import "../common/lib/textAngular/dist/textAngular";
 
-/**
- * Admin UI reset
- */
-//html, body
-//{
-//    height : 100%;
-//    width  : 100%;
-//}
-
 body
 {
     background : $gray-lighter;
@@ -33,6 +24,7 @@ body
 @import "club/type";
 @import "club/cards";
 @import "club/login";
+@import "club/dragover";
 
 .glyphicon
 {

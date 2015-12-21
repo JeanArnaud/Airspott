@@ -267,27 +267,18 @@
         </div>
     </section>
 
-    <style type="text/css">
-        .dragover .hide-dragover, .hide-not-dragover
-        {
-            display : none;
-        }
-
-        .dragover .hide-not-dragover
-        {
-            display : block;
-        }
-    </style>
-
     <section class="col-sm-8 col-md-9" ng-hide="activeItem != 'media'">
         <div class="card card-white">
             <div class="card-block">
                 <h4 class="card-title">{{'MEDIA' | translate}}</h4>
+                <h6 class="card-subtitle text-muted">{{'MEDIA_DESCRIPTION_SORT_ORDER' | translate}}</h6>
             </div>
 
             <hr />
 
-            <div class="card-block">
+            <us-spinner ng-if="media && !media.length"></us-spinner>
+
+            <div class="card-block" ng-if="media && media.length">
 
                 <div class="alert alert-info clickable"
                      ngf-drop="processFiles($files)"
@@ -307,7 +298,7 @@
                     <h2>{{'FILE_UPLOAD_DROP_UNAVAILABLE_USE_ANOTHER_BROWSER' | translate}}</h2>
                 </div>
 
-                <div class="card-columns" ng-if="media && media.length">
+                <div class="card-columns" ng-if="media.length > 0">
                     <div class="card card-white" ng-repeat="mediaItem in media | orderBy:'':true">
                         <div style="height:12em;width:100%" class="text-center">
                             <img class="card-img-top" ng-src="{{mediaItem.media}}" alt="{{mediaItem.name}}"
@@ -322,6 +313,20 @@
                                 <label for="{{'mediaItemName'+$index}}">{{'MEDIA_NAME' | translate}}</label>
                                 <input type="text" ng-model="mediaItem.name" id="{{'mediaItemName'+$index}}"
                                        class="form-control" placeholder="{{'MEDIA_NAME' | translate}}" required>
+                            </fieldset>
+
+                            <fieldset class="form-group">
+                                <label for="{{'mediaItemSortOrder'+$index}}">{{'MEDIA_SORT_ORDER' | translate}}</label>
+
+                                <select class="c-select form-control"
+                                        ng-model="mediaItem.order"
+                                        name="country"
+                                        id="{{'mediaItemSortOrder'+$index}}"
+                                        ng-options="key as key for key in mediaRange"
+                                        ng-change="updateMediaSortOrder(mediaItem.order, '{{mediaItem.order}}', mediaItem.$$hashKey)"
+                                        required>
+                                    <option value="">{{'MEDIA_SORT_ORDER' | translate}}</option>
+                                </select>
                             </fieldset>
 
                             <fieldset class="form-group">
