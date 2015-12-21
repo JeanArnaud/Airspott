@@ -14,7 +14,7 @@ angular.module('com.airspott.club')
                     views: {
                         content: {
                             controller: 'ClubCtrl',
-                            templateUrl: 'templates/club/overview.html'
+                            templateUrl: 'templates/overview.html'
                         }
                     }
                 })
@@ -24,7 +24,7 @@ angular.module('com.airspott.club')
                     views: {
                         content: {
                             controller: 'ManageClubsCtrl',
-                            templateUrl: 'templates/club/list.html'
+                            templateUrl: 'templates/list.html'
                         }
                     }
                 })
@@ -34,7 +34,7 @@ angular.module('com.airspott.club')
                     views: {
                         content: {
                             controller: 'EditClubCtrl',
-                            templateUrl: 'templates/club/edit.html'
+                            templateUrl: 'templates/edit.html'
                         }
                     }
                 })
@@ -43,7 +43,7 @@ angular.module('com.airspott.club')
                     url: '/reports',
                     views: {
                         content: {
-                            templateUrl: 'templates/club/reports.html'
+                            templateUrl: 'templates/reports.html'
                         }
                     }
                 })
@@ -53,7 +53,7 @@ angular.module('com.airspott.club')
                     views: {
                         content: {
                             controller: 'AccountingCtrl',
-                            templateUrl: 'templates/club/accounting.html'
+                            templateUrl: 'templates/accounting.html'
                         }
                     }
                 })
@@ -63,7 +63,7 @@ angular.module('com.airspott.club')
                     views: {
                         content: {
                             controller: 'SalesCtrl',
-                            templateUrl: 'templates/club/sales.html'
+                            templateUrl: 'templates/sales.html'
                         }
                     }
                 })
@@ -73,7 +73,7 @@ angular.module('com.airspott.club')
                     views: {
                         content: {
                             controller: 'SettingsCtrl',
-                            templateUrl: 'templates/club/settings.html'
+                            templateUrl: 'templates/settings.html'
                         }
                     }
                 });

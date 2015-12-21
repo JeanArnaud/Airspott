@@ -28,7 +28,13 @@
         "paths": [
           "/"
         ],
-        "params": "$!../client/public"
+        "params": "$!../client/shop"
+      },
+      {
+        "paths": [
+          "/club"
+        ],
+        "params": "$!../client/club"
       },
       {
         "paths": [
