@@ -7,5 +7,24 @@
     "host": "test.airspott.com",
     "name": "db",
     "connector": "mongodb"
+  },
+  "email": {
+    "name": "email",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "smtp",
+        "host": "smtp1.5hosting.com",
+        "secure": false,
+        "port": 587,
+        "tls": {
+          "rejectUnauthorized": false
+        },
+        "auth": {
+          "user": "automatic@airspott.com",
+          "pass": "aebyVViv6p"
+        }
+      }
+    ]
   }
 }
