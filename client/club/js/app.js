@@ -1,14 +1,13 @@
 angular.module('com.airspott', [
-    'ngRoute',
+  'pascalprecht.translate',
 
-    'angularSpinner',
-    'toastr',
+  'ngRoute',
 
-    'ui.router',
-    'ui.bootstrap',
-    'pascalprecht.translate',
+  'ui.router',
+  'ui.bootstrap',
 
-    'com.airspott.api',
 
-    'com.airspott.club'
+  'com.airspott.api',
+
+  'com.airspott.club'
 ]);
