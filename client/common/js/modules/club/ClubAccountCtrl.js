@@ -14,7 +14,7 @@ angular.module('com.airspott.club')
                 {
                     Customer.login({rememberMe: $scope.rememberMe}, $scope.credentials, function ()
                     {
-                        var next = $location.nextAfterLogin || '/club/main';
+                        var next = $location.nextAfterLogin || '/main';
                         $location.nextAfterLogin = null;
                         $location.path(next);
                     }, function (err)
