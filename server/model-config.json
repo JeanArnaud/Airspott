@@ -89,5 +89,9 @@
   },
   "Email": {
     "dataSource": "email"
+  },
+  "Buyer": {
+    "dataSource": "db",
+    "public": true
   }
 }
