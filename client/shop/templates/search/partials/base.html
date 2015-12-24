@@ -1,1 +1,18 @@
-BASE SEARCH PARTIAL
+<div class="row">
+  <div class="col-sm-4">
+    <label for="baseSearchNameInput" class="sr-only"> placeholder="{{'LOCATION_NAME' | translate}}"</label>
+    <input id="baseSearchNameInput" ng-model="search.location" type="text" class="form-control"
+           placeholder="{{'LOCATION_NAME' | translate}}">
+  </div>
+  <div class="col-sm-4">
+    <label for="baseSearchDateInput" class="sr-only"> placeholder="{{'DATE' | translate}}"</label>
+    <input id="baseSearchDateInput" ng-model="search.date" type="date" class="form-control"
+           placeholder="{{'DATE' | translate}}">
+  </div>
+  <div class="col-sm-4">
+    <label for="baseSearchOffersInput" class="sr-only"> placeholder="{{'OFFERS' | translate}}"</label>
+    <select multiple class="form-control" ng-model="search.offers" id="baseSearchOffersInput">
+      <option>{{'OFFERS' | translate}}</option>
+    </select>
+  </div>
+</div>
