@@ -1,0 +1,16 @@
+/**
+ * Bootstrap
+ */
+@import "../common/lib/bootstrap/scss/bootstrap";
+/**
+ * Font Awesome
+ */
+@import "../common/lib/font-awesome/scss/font-awesome";
+
+body {
+  background: $gray-lighter;
+}
+
+.clickable {
+  cursor: pointer;
+}

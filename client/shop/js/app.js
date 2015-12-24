@@ -4,9 +4,8 @@ angular.module('com.airspott', [
   'ngRoute',
 
   'ui.router',
-  'ui.bootstrap',
 
   'com.airspott.api',
 
-  'com.airspott.main'
+  'com.airspott.shop'
 ]);
