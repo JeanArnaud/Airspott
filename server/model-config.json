@@ -93,5 +93,17 @@
   "Buyer": {
     "dataSource": "db",
     "public": true
+  },
+  "Sale": {
+    "dataSource": "db",
+    "public": true
+  },
+  "SaleProduct": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Payment": {
+    "dataSource": "db",
+    "public": true
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "Ticket",
+  "name": "Sale",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -8,22 +8,24 @@
   "properties": {
     "date": {
       "type": "date",
-      "required": true
-    },
-    "name": {
-      "type": "string",
-      "required": true
-    },
-    "email": {
-      "type": "string",
-      "required": true
+      "defaultFn": "now"
     }
   },
   "validations": [],
   "relations": {
-    "sale": {
+    "buyer": {
       "type": "belongsTo",
-      "model": "Sale",
+      "model": "Buyer",
+      "foreignKey": ""
+    },
+    "saleProducts": {
+      "type": "hasMany",
+      "model": "SaleProduct",
+      "foreignKey": ""
+    },
+    "payments": {
+      "type": "hasMany",
+      "model": "Payment",
       "foreignKey": ""
     }
   },

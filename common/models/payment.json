@@ -1,0 +1,43 @@
+{
+  "name": "Payment",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "method": {
+      "type": "string",
+      "required": true
+    },
+    "psp": {
+      "type": "string",
+      "required": true
+    },
+    "state": {
+      "type": "string",
+      "default": "open"
+    },
+    "amount": {
+      "type": {
+        "value": {
+          "type": "number",
+          "required": true
+        },
+        "precision": {
+          "type": "number",
+          "default": 2
+        },
+        "currency": {
+          "type": "string",
+          "required": true
+        }
+      },
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
