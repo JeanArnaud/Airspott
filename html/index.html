@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome to airspott.com</title>
+<link href="stylesheets/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+<link href="stylesheets/airspott.css" rel="stylesheet" type="text/css" />
+<link href="stylesheets/responsive.css" rel="stylesheet" type="text/css">
+</head>
+<!--<div class="row">
+	<div class="col-sm-6"></div>
+	<div class="col-sm-6"></div>
+	</div>-->
+<body>
+<header class="main_header">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-4"><img src="images/logo.png" class="logo"></div>
+			<div class="col-xs-7">
+				<nav class="applePie">
+<div class="menubtn">Menu Button</div>
+<ul id="nav">
+	<li><a href="#">Clubs</a></li>
+
+	<li><a href="#">Mein Benutzerkonto</a>
+			<ul>
+				<li><a href="#" title="Mein Benutzerkonto" >Mein Benutzerkonto</a></li>
+				<li ><a href="#" title="Mein Wunschzettel" >Mein Wunschzettel</a></li>
+				<li ><a href="#" title="Mein Warenkorb" class="top-link-cart">Mein Warenkorb</a></li>
+				<li ><a href="#" title="Zur Kasse" class="top-link-checkout">Zur Kasse</a></li>
+				<li><a href="#" title="Anmelden" >Anmelden</a></li>
+			</ul>
+	</li>
+
+	<li><a href="#">Deutsch</a>
+			<ul>
+				<li><a href="#" title="English" >English</a></li>
+				<li ><a href="#" title="Fran�ais" >Fran�ais</a></li>
+			</ul>
+	</li>
+<li><a href="#">W�hrung : <span class="green_text">EUR</span></a>
+				<ul>
+				<li><a href="#" title="EUR" >EUR</a></li>
+				<li ><a href="#" title="USD" >USD</a></li>
+				</ul>
+				</li>
+</ul>
+</nav>
+			</div>
+		  <div class="col-xs-1 border_left headerright">
+			<ul class="nav navbar-nav navbar-left social">
+                <li><a href="#"><i class="fa fa-lg fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-lg fa-twitter"></i></a></li>
+            </ul>
+			<span class="fa fa-shopping-cart"></span>
+			<span class="cart_no">0</span>			</div>
+		</div>
+	</div>
+</header>
+
+<div class="container-fluid">
+<div class="row">
+	<div class="col-sm-12 banner"><h1>Willkommen bei Airspott</h1><h2>Tageskarten f�r Fitness | Crossfit | Golf | Yoga</h2></div>
+	
+</div>
+</div>
+<div class="container container_float">
+
+<div class="search_box fixed" id="menu-example" data-mfx-fix-at="500" data-mfx-top-position="45">
+	<div class="row">
+		<div class="col-lg-3 whitespace"><input name="" type="text" class="textfield" placeholder="Current location, search bar"></div>
+		<div class="col-lg-2 whitespace">
+		  <table width="100%">
+			<tr>
+			  <td>Guest[s]</td>
+			  <td align="right"><img src="images/minus.jpg" alt="" id="minus" onClick = "doMinus();" /></td>
+			  <td align="right"><input name="Input" type="text" class="textfield_small" placeholder="1" value="1" id="count" /></td>
+			  <td align="right"><img src="images/plus.jpg" alt="" id="plus" onClick = "doPlus();"/></td>
+			</tr>
+		  </table>
+		</div>
+		<div class="col-lg-3 whitespace2">
+			<!--<table width="100%">
+  <tr>
+    <td><input name="" id="datepicker" type="text" class="textfield" placeholder="Check In Date"></td>
+    <td>Monday<br />
+    March</td>
+    <td><h3>21</h3></td>
+  </tr>
+</table>-->
+<table width="100%">
+  <tr>
+    <td><input name="" type="text" class="textfield datepicker" placeholder="Check In Date"></td>
+    <td style="border-left:1px solid #8b8787">&nbsp;&nbsp;</td>
+    <td><input name="Input" type="text" class="textfield datepicker" placeholder="Check Out Date"></td>
+  </tr>
+</table>
+		</div>
+		<div class="col-lg-2">
+			<table>
+  <tr>
+    <td>      <input name="radiobutton" type="radio" value="radiobutton">    </td>
+    <td class="whitetext">Fitness</td>
+  </tr>
+  <tr>
+    <td><input name="radiobutton" type="radio" value="radiobutton"></td>
+    <td class="whitetext">Golf</td>
+  </tr>
+  <tr>
+    <td><input name="radiobutton" type="radio" value="radiobutton"></td>
+    <td class="whitetext">Cross Fit</td>
+  </tr>
+  <tr>
+    <td><input name="radiobutton" type="radio" value="radiobutton"></td>
+    <td class="whitetext">Personal Trainer</td>
+  </tr>
+</table>
+		</div>
+		<div class="col-lg-1 space"><button>Search</button></div>
+	</div>
+</div>
+</div>
+
+<div class="container">
+	<div class="row gallery_margin">
+	<div class="col-sm-3 gal">
+	<div class="img_text">Best Rated <br>Clubs</div>
+	<img src="images/img1.jpg" class="img-responsive" alt="">
+	
+	</div>
+	<div class="col-sm-3 gal">
+	<div class="img_text">Most  Booked</div>
+	<img src="images/img2.jpg" class="img-responsive" alt=""></div>
+	<div class="col-sm-3 gal">
+	<div class="img_text">VIP Treatment</div>
+	<img src="images/img3.jpg" class="img-responsive" alt=""></div>
+	<div class="col-sm-3 gal">
+	<div class="img_text">New Entries</div>
+	<img src="images/img4.jpg" class="img-responsive" alt=""></div>
+	</div>
+	
+	<div class="row gallery_margin">
+	<div class="col-sm-6 gal"><div class="img_text1"><span>Fitness</span> <br> Exclusive Locations</div>
+	<img src="images/img6.jpg" class="img-responsive" alt=""></div>
+	<div class="col-sm-6 gal"><div class="img_text1">A Focus on <br> <span>Golf</span></div>
+	<img src="images/img7.jpg" class="img-responsive" alt=""></div>
+	</div>
+</div>
+
+<div class="container-fluid boxrow">
+	<div class="row ">
+		<div class="col-sm-3 box1">
+			<h3>1</h3>
+			Find a club
+		</div>
+		<div class="col-sm-3 box2">
+			<h3>2</h3>
+			Book a spot access
+		</div>
+		<div class="col-sm-3 box3">
+			<h3>3</h3>
+			Enjoy
+		</div>
+		<div class="col-sm-3 box4">
+			<h3>4</h3>
+			Review and Share
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid">
+<div class="row">
+	<div class="col-sm-12 map"></div>
+</div>
+</div>
+
+<footer>
+<div class="container">
+	<div class="row">
+	  <div class="col-sm-3 abtcontent">
+		<h1>Who we are</h1>
+			<img src="images/logo.png" class="img-responsive" alt="">
+		  <h2>Willkommen bei Airspott. Arbeit + Reise = Workout.</h2>
+			
+			<p>Lorem ipsum dolor sit amet, consectetur esteu estu adipiscing elit. Sed vitae diam metus. Doneciti creas cursus magna eget sem convallis facilisis. Vestibulum dictum nibh at ullamcorpi dormi tincidunt.</p>
+		    
+	  </div>
+		<div class="col-sm-3 ">
+		<h1>INFOMATION</h1>
+			<div class="footer_menu">
+<ul>
+<li><a href="#">ABOUT US</a></li>
+<li><a href="#">DELIVERY INFOMATION</a></li>
+<li><a href="#">PRIVACY &amp; POLICY</a></li>
+<li><a href="#">TEMRS &amp; CONDITIONS</a></li>
+<li><a href="#">MANAGE MY &amp; ADD A CLUB</a></li>
+</ul>
+</div>
+		</div>
+		<div class="col-sm-3 ">
+		<h1>MY ACCOUNT</h1>
+			<div class="footer_menu">
+<ul>
+<li><a href="#">MY ACCOUNT</a></li>
+<li><a href="#">MY CART</a></li>
+<li><a href="#">WISHLIST</a></li>
+<li><a href="#">CHECKOUT</a></li>
+</ul>
+</div>
+		</div>
+		<div class="col-sm-3">
+			<h1>Quick Enquiry</h1>
+			<table>
+  <tr>
+    <td><input name="" type="text" class="textfield_footer" placeholder="Name"></td>
+  </tr>
+  <tr>
+    <td><input name="" type="text" class="textfield_footer" placeholder="Email ID"></td>
+  </tr>
+  <tr>
+    <td><input name="" type="text" class="textfield_footer" placeholder="Contact No"></td>
+  </tr>
+  <tr>
+    <td><input name="" type="button" value="Send Enquiry" class="send_enquiry"></td>
+  </tr>
+</table>
+
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid footer_light">
+<div class="container ">
+<div class="row">
+	<div class="col-sm-6">
+		<div class="row">
+		<div class="col-lg-2 col-md-4 col-xs-6 thumb"><img src="images/mastercard.png" alt=""></div>
+		<div class="col-lg-2 col-md-4 col-xs-6 thumb"><img src="images/visa.png" alt=""></div>
+		<div class="col-lg-2 col-md-4 col-xs-6 thumb"><img src="images/amex.png" alt=""></div>
+		<div class="col-lg-2 col-md-4 col-xs-6 thumb"><img src="images/jcb.png" alt=""></div>
+		<div class="col-lg-2 col-md-4 col-xs-6 thumb"><img src="images/discover.png" alt=""></div>
+		<div class="col-lg-2 col-md-4 col-xs-6 thumb"><img src="images/paypa.png" alt=""></div>
+		</div>
+	</div>
+	<div class="col-sm-6 copytext">
+Copyright � 2015 Airspott. All rights reserved.
+</div>
+</div>
+</div>
+</div>
+</footer>
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="js/makefixed.js"></script>
+<script>
+
+		$(document).ready(function()
+		{
+
+			/* The easy way to enable MakeFixed */
+
+			$('.fixed').makeFixed();
+
+			/* If you need something more custom, use the callback functions */
+
+			$('.fixed-with-callback').makeFixed
+			({
+				onFixed: function (el)
+				{
+					if ($(el).attr('id') == 'photo')
+					{
+						$(el).children().css
+						({
+							width: '500px'
+						});
+					}
+				},
+				onUnFixed: function (el)
+				{
+					if ($(el).attr('id') == 'photo')
+					{
+						$(el).children().css
+						({
+							width: '450px'
+						});
+					}
+				}
+			});
+		});
+	</script>
+	<script src="js/superfish.js"></script>
+<script src="js/easyaspie.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('nav').easyPie();
+    });    
+    </script>
+	  <script>
+  $(function() {
+    $( ".datepicker" ).datepicker();
+  });
+  </script>
+  
+  
+  <script>
+function doMinus(){
+	if(document.getElementById("count").value > 1)
+ document.getElementById("count").value = --document.getElementById("count").value;
+}
+
+function doPlus(){
+ document.getElementById("count").value = ++document.getElementById("count").value;
+}
+</script>
+</body>
+</html>
