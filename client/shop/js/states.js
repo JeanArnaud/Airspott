@@ -5,7 +5,7 @@ angular.module('com.airspott.shop')
 
     function ($stateProvider, $urlRouterProvider) {
       'use strict';
-
+      
       $stateProvider
 
         .state('shop', {
@@ -69,7 +69,7 @@ angular.module('com.airspott.shop')
           url: '/search',
           views: {
             content: {
-              controller: 'ShopSearchCtrl',
+              controller: 'SearchCtrl',
               templateUrl: 'templates/search/search.html'
             }
           }

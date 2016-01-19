@@ -1,5 +1,104 @@
-<div class="container">
-  <h1>{{'WELCOME' | translate}}</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 banner"><h1>Willkommen bei Airspott</h1><h2>Tageskarten f&uuml;r Fitness | Crossfit | Golf | Yoga</h2></div>
+    </div>
+</div>
+<div class="container container_float">
+    <div class="search_box fixed" id="menu-example" data-mfx-fix-at="500" data-mfx-top-position="45">
+        <div class="row">
+            <div class="col-lg-3 whitespace"><input name="" type="text" class="textfield" placeholder="Current location, search bar"></div>
+            <div class="col-lg-2 whitespace">
+                <table width="100%">
+                    <tr>
+                        <td>Guest[s]</td>
+                        <td align="right"><img src="images/minus.jpg" alt="" id="minus" onClick = "doMinus();" /></td>
+                        <td align="right"><input name="Input" type="text" class="textfield_small" placeholder="1" value="1" id="count" /></td>
+                        <td align="right"><img src="images/plus.jpg" alt="" id="plus" onClick = "doPlus();"/></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-lg-3 whitespace2">
+                <table width="100%">
+                    <tr>
+                        <td><input name="" type="text" class="textfield datepicker" placeholder="Check In Date"></td>
+                        <td style="border-left:1px solid #8b8787">&nbsp;&nbsp;</td>
+                        <td><input name="Input" type="text" class="textfield datepicker" placeholder="Check Out Date"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-lg-2">
+                <table>
+                    <tr>
+                        <td>      <input name="radiobutton" type="radio" value="radiobutton">    </td>
+                        <td class="whitetext">Fitness</td>
+                    </tr>
+                    <tr>
+                        <td><input name="radiobutton" type="radio" value="radiobutton"></td>
+                        <td class="whitetext">Golf</td>
+                    </tr>
+                    <tr>
+                        <td><input name="radiobutton" type="radio" value="radiobutton"></td>
+                        <td class="whitetext">Cross Fit</td>
+                    </tr>
+                    <tr>
+                        <td><input name="radiobutton" type="radio" value="radiobutton"></td>
+                        <td class="whitetext">Personal Trainer</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-lg-1 space"><button ng-click="search()">Search</button></div>
+        </div>
+    </div>
+</div>
 
-  <ng-include src="'templates/search/partials/base.html'"></ng-include>
+<div class="container">
+    <div class="row gallery_margin">
+        <div class="col-sm-3 gal">
+            <div class="img_text">Best Rated <br>Clubs</div>
+            <img src="images/img1.jpg" class="img-responsive" alt="">
+        </div>
+        <div class="col-sm-3 gal">
+            <div class="img_text">Most  Booked</div>
+            <img src="images/img2.jpg" class="img-responsive" alt=""></div>
+        <div class="col-sm-3 gal">
+            <div class="img_text">VIP Treatment</div>
+            <img src="images/img3.jpg" class="img-responsive" alt=""></div>
+        <div class="col-sm-3 gal">
+            <div class="img_text">New Entries</div>
+            <img src="images/img4.jpg" class="img-responsive" alt=""></div>
+    </div>
+
+    <div class="row gallery_margin">
+        <div class="col-sm-6 gal"><div class="img_text1"><span>Fitness</span> <br> Exclusive Locations</div>
+            <img src="images/img6.jpg" class="img-responsive" alt=""></div>
+        <div class="col-sm-6 gal"><div class="img_text1">A Focus on <br> <span>Golf</span></div>
+            <img src="images/img7.jpg" class="img-responsive" alt=""></div>
+    </div>
+</div>
+
+<div class="container-fluid boxrow">
+    <div class="row ">
+        <div class="col-sm-3 box1">
+            <h3>1</h3>
+            Find a club
+        </div>
+        <div class="col-sm-3 box2">
+            <h3>2</h3>
+            Book a spot access
+        </div>
+        <div class="col-sm-3 box3">
+            <h3>3</h3>
+            Enjoy
+        </div>
+        <div class="col-sm-3 box4">
+            <h3>4</h3>
+            Review and Share
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 map"></div>
+    </div>
 </div>

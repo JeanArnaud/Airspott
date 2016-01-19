@@ -1,16 +1,9 @@
-angular.module("com.airspott")
-    .controller("AppCtrl",
-        ["$rootScope",
+angular.module("com.airspott").controller("AppCtrl", ["$rootScope", function ($rootScope){
 
-         function ($rootScope)
-         {
+    $rootScope.meta = {
+        title: 'APP_NAME'
+    };
 
-             $rootScope.meta = {
-                 title: 'APP_NAME'
-             };
+    $rootScope.countries = ['AT', 'DE', 'CH'];
 
-             $rootScope.countries = ['AT', 'DE', 'CH'];
-
-         }
-
-        ]);
+}]);

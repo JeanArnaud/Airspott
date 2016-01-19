@@ -1,7 +1,5 @@
-angular.module('com.airspott.shop',
-  [
+angular.module('com.airspott.shop',  [
     'angularSpinner',
-
     'com.airspott.shop.main',
     'com.airspott.shop.search',
     'com.airspott.shop.account',
