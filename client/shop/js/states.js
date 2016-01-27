@@ -72,7 +72,8 @@ angular.module('com.airspott.shop')
               controller: 'SearchCtrl',
               templateUrl: 'templates/search/search.html'
             }
-          }
+          },
+          data: ''
         })
 
       ;

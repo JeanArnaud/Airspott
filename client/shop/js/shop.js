@@ -5,4 +5,19 @@ angular.module('com.airspott.shop',  [
     'com.airspott.shop.account',
     'com.airspott.shop.product',
     'com.airspott.shop.cart'
-  ]);
+  ]).directive('datepicker', function ($parse) {
+    return function (scope, element, attrs, controller) {
+        var ngModel = $parse(attrs.ngModel);
+        $(function(){
+            element.datepicker({
+               dateFormat: 'dd-mm-yy',
+               onSelect:function (dateText, inst) {
+                    scope.$apply(function(scope){
+                        // Change binded variable
+                        ngModel.assign(scope, dateText);
+                    });
+               }
+            });
+        });
+    }
+});
