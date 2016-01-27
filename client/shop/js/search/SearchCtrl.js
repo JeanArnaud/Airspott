@@ -10,16 +10,24 @@ angular.module('com.airspott.shop.search').controller('SearchCtrl', ["$rootScope
     
     $scope.search = function(obj){
         
-        console.log(obj);        
+        console.log(obj);
         
-        Club.find({where: {and: [{location: obj.location}, {guests: obj.guests}, {checkin: obj.checkin}, {checkout: obj.checkout}, {fit_type: obj.fit_type}]}}, 
-            function (err, clubs) {                    
-                $state.get('shop.search').data = clubs;
-                $state.go('shop.search');                        
-        });       
+        Club.find({filter: {where: {and: [
+                            {location: obj.location},
+                            {guests: obj.guests},
+                            {checkin: obj.checkin},
+                            {checkout: obj.checkout},
+                            {fit_type: obj.fit_type}
+                        ]}}
+            }, function (clubs){
+                $state.get('shop.search').data = clubs; 
+                $state.go('shop.search');
+            }, function (err){
+                throw err; // do whatever necessary with the error object
+            });
     }
     
-    $scope.doMinus = function(obj){            
+    $scope.doMinus = function(obj){
             
         if(obj.guests > 1)
             --obj.guests;
