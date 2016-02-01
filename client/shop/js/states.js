@@ -73,7 +73,8 @@ angular.module('com.airspott.shop')
               templateUrl: 'templates/search/search.html'
             }
           },
-          data: ''
+          data: '',
+          search_obj: '',
         })
 
       ;

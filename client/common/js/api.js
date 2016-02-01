@@ -1,7 +1,7 @@
 (function (window, angular, undefined) {
     'use strict';
 
-    var urlBase = "/api";
+    var urlBase = "http://test.airspott.com/api";
     var authHeader = 'authorization';
 
     function getHost(url) {

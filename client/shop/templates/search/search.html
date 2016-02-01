@@ -18,7 +18,7 @@
             <form method="POST" ng-submit="search(obj)">
                 <div class="sectiontop">
                     <div>                    
-                        <input name="" type="text" placeholder="Current location, search bar">
+                        <input name="location" ng-model="obj.location" type="text" placeholder="Current location, search bar">
                         <span class="search_btn"><input name="" type="button" class="button"></span>
                     </div>
                     <div>
@@ -46,31 +46,31 @@
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                         <tr>
                             <td> 
-                                <input ng-model="obj.fit_type" value="Fitness" type="checkbox" name="1" id="1" class="css-checkbox" />
+                                <input ng-model="obj.fit_type[0]" value="Fitness" type="checkbox" name="1" id="1" class="css-checkbox" />
                                 <label for="1" class="css-label lable">Free Parking</label>
                             </td>
                             <td>
-                                <input ng-model="obj.fit_type" value="Cardio" type="checkbox" name="2" id="2" class="css-checkbox" />
+                                <input ng-model="obj.fit_type[1]" value="Cardio" type="checkbox" name="2" id="2" class="css-checkbox" />
                                 <label for="2" class="css-label lable">Cardio</label>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <input ng-model="obj.fit_type" value="Showers" type="checkbox" name="3" id="3" class="css-checkbox" />
+                                <input ng-model="obj.fit_type[2]" value="Showers" type="checkbox" name="3" id="3" class="css-checkbox" />
                                 <label for="3" class="css-label lable">Showers</label>
                             </td>
                             <td>
-                                <input ng-model="obj.fit_type" value="Dumbells" type="checkbox" name="4" id="4" class="css-checkbox"/>
+                                <input ng-model="obj.fit_type[3]" value="Dumbells" type="checkbox" name="4" id="4" class="css-checkbox"/>
                                 <label for="4" class="css-label lable">Dumbells</label>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <input ng-model="obj.fit_type" value="Sauna" type="checkbox" name="5" id="5" class="css-checkbox"/>
+                                <input ng-model="obj.fit_type[4]" value="Sauna" type="checkbox" name="5" id="5" class="css-checkbox"/>
                                 <label for="5" class="css-label lable">Sauna</label>
                             </td>
                             <td>
-                                <input ng-model="obj.fit_type" value="Lockers" type="checkbox" name="6" id="6" class="css-checkbox"/>
+                                <input ng-model="obj.fit_type[5]" value="Lockers" type="checkbox" name="6" id="6" class="css-checkbox"/>
                                 <label for="6" class="css-label lable">Lockers</label>
                             </td>
                         </tr>
@@ -82,13 +82,18 @@
             </form>
         </div>
         <div class="col-sm-9">
-            <div class="row search_result_box">
-                <div class="col-sm-3 nopadding"><img src="images/search_img1.jpg" alt="" class="img-responsive"></div>
+            <div class="row" ng-if="(clubs.count())">
+                <div class="col-sm-12">No records found!</div>
+            </div>
+            <div class="row search_result_box" ng-repeat="club in clubs">
+                <div class="col-sm-3 nopadding">
+                    <img src="images/search_img1.jpg" alt="" class="img-responsive">
+                </div>
                 <div class="col-sm-9">
-                    <div class="container-fluid">
+                    <div class="container-fluid">                        
                         <div class="row">
                             <div class="col-sm-12 spaceheight">
-                                <h1>Chris Gym</h1>
+                                <h1>{{club.name}}</h1>
                                 <h2>Main Street 1</h2>
                             </div>
                             <div class="col-sm-9"><table border="0" cellspacing="0" cellpadding="0">
@@ -103,120 +108,12 @@
                                 <p>Rating: 4</p>
                             </div>
                             <div class="col-sm-3">
-                                <h3>$ 10</h3>
+                                <h3>$ {{club.price}}</h3>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row search_result_box">
-                <div class="col-sm-3 nopadding"><img src="images/search_img1.jpg" alt="" class="img-responsive"></div>
-                <div class="col-sm-9">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-sm-12 spaceheight">
-                                <h1>Chris Gym</h1>
-                                <h2>Main Street 1</h2>
-                            </div>
-                            <div class="col-sm-9"><table border="0" cellspacing="0" cellpadding="0">
-                                    <tr>
-                                        <td><img src="images/rating_drk.jpg" alt="" class="rating_img"></td>
-                                        <td><img src="images/rating_drk.jpg" alt="" class="rating_img"></td>
-                                        <td><img src="images/rating_drk.jpg" alt="" class="rating_img"></td>
-                                        <td><img src="images/rating_drk.jpg" alt="" class="rating_img"></td>
-                                        <td><img src="images/rating_lgt.jpg" alt="" class="rating_img"></td>
-                                    </tr>
-                                </table>
-                                <p>Rating: 4</p>
-                            </div>
-                            <div class="col-sm-3">
-                                <h3>$ 10</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row search_result_box">
-                <div class="col-sm-3 nopadding"><img src="images/search_img1.jpg" alt="" class="img-responsive"></div>
-                <div class="col-sm-9">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-sm-12 spaceheight">
-                                <h1>Chris Gym</h1>
-                                <h2>Main Street 1</h2>
-                            </div>
-                            <div class="col-sm-9"><table border="0" cellspacing="0" cellpadding="0">
-                                    <tr>
-                                        <td><img src="images/rating_drk.jpg" alt="" class="rating_img"></td>
-                                        <td><img src="images/rating_drk.jpg" alt="" class="rating_img"></td>
-                                        <td><img src="images/rating_drk.jpg" alt="" class="rating_img"></td>
-                                        <td><img src="images/rating_drk.jpg" alt="" class="rating_img"></td>
-                                        <td><img src="images/rating_lgt.jpg" alt="" class="rating_img"></td>
-                                    </tr>
-                                </table>
-                                <p>Rating: 4</p>
-                            </div>
-                            <div class="col-sm-3">
-                                <h3>$ 10</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row search_result_box">
-                <div class="col-sm-3 nopadding"><img src="images/search_img1.jpg" alt="" class="img-responsive"></div>
-                <div class="col-sm-9">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-sm-12 spaceheight">
-                                <h1>Chris Gym</h1>
-                                <h2>Main Street 1</h2>
-                            </div>
-                            <div class="col-sm-9"><table border="0" cellspacing="0" cellpadding="0">
-                                    <tr>
-                                        <td><img src="images/rating_drk.jpg" alt="" class="rating_img"></td>
-                                        <td><img src="images/rating_drk.jpg" alt="" class="rating_img"></td>
-                                        <td><img src="images/rating_drk.jpg" alt="" class="rating_img"></td>
-                                        <td><img src="images/rating_drk.jpg" alt="" class="rating_img"></td>
-                                        <td><img src="images/rating_lgt.jpg" alt="" class="rating_img"></td>
-                                    </tr>
-                                </table>
-                                <p>Rating: 4</p>
-                            </div>
-                            <div class="col-sm-3">
-                                <h3>$ 10</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row search_result_box">
-                <div class="col-sm-3 nopadding"><img src="images/search_img1.jpg" alt="" class="img-responsive"></div>
-                <div class="col-sm-9">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-sm-12 spaceheight">
-                                <h1>Chris Gym</h1>
-                                <h2>Main Street 1</h2>
-                            </div>
-                            <div class="col-sm-9"><table border="0" cellspacing="0" cellpadding="0">
-                                    <tr>
-                                        <td><img src="images/rating_drk.jpg" alt="" class="rating_img"></td>
-                                        <td><img src="images/rating_drk.jpg" alt="" class="rating_img"></td>
-                                        <td><img src="images/rating_drk.jpg" alt="" class="rating_img"></td>
-                                        <td><img src="images/rating_drk.jpg" alt="" class="rating_img"></td>
-                                        <td><img src="images/rating_lgt.jpg" alt="" class="rating_img"></td>
-                                    </tr>
-                                </table>
-                                <p>Rating: 4</p>
-                            </div>
-                            <div class="col-sm-3">
-                                <h3>$ 10</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </div>            
         </div>
     </div>
 </div>

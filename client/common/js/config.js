@@ -1,9 +1,9 @@
 angular.module('com.airspott')
     .config([
 
-        '$translateProvider', '$httpProvider',
+        '$translateProvider', '$httpProvider', 'LoopBackResourceProvider',
 
-        function ($translateProvider, $httpProvider)
+        function ($translateProvider, $httpProvider, LoopBackResourceProvider)
         {
             $translateProvider.useStaticFilesLoader({
                 prefix: 'language/',
@@ -14,6 +14,8 @@ angular.module('com.airspott')
             $translateProvider.fallbackLanguage('en');
 
             $translateProvider.useSanitizeValueStrategy('escaped');
+            
+            //LoopBackResourceProvider.setUrlBase('http://test.airspott.com/');
 
 
             $httpProvider.interceptors.push(function ($q, $location, LoopBackAuth)
