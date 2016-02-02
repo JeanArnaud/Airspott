@@ -45,26 +45,6 @@ angular.module('com.airspott.shop')
           }
         })
 
-        .state('shop.cart', {
-          url: '/cart',
-          views: {
-            content: {
-              controller: 'ShopCartCtrl',
-              templateUrl: 'templates/cart/cart.html'
-            }
-          }
-        })
-
-        .state('shop.product', {
-          url: '/product',
-          views: {
-            content: {
-              controller: 'ShopProductCtrl',
-              templateUrl: 'templates/product/product.html'
-            }
-          }
-        })
-
         .state('shop.search', {
           url: '/search',
           views: {
@@ -73,9 +53,7 @@ angular.module('com.airspott.shop')
               templateUrl: 'templates/search/search.html'
             }
           }
-        })
-
-      ;
+        });
 
       $urlRouterProvider.otherwise('/');
 

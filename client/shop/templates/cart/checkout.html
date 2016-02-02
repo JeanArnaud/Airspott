@@ -1,0 +1,16 @@
+<header>
+  <ul class="nav nav-pills">
+    <li ng-class="checkoutStep === 0 ? 'active' : ''">{{'CART' | translate}}</li>
+    <li ng-class="checkoutStep === 1 ? 'active' : ''">{{'DETAILS' | translate}}</li>
+    <li ng-class="checkoutStep === 2 ? 'active' : ''">{{'PAYMENT' | translate}}</li>
+  </ul>
+</header>
+
+<main>
+  <section ng-if="checkoutStep === 0">1</section>
+  <section ng-if="checkoutStep === 1">2</section>
+  <section ng-if="checkoutStep === 2">3</section>
+  <section ng-if="checkoutStep === 3">4</section>
+</main>
+
+<button ng-click="next()">{{'NEXT' | translate}}</button>
