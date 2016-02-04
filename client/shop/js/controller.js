@@ -4,7 +4,7 @@ angular.module("com.airspott.shop").controller("ShopAppCtrl", ["$rootScope", '$s
         $rootScope.countries = ['AT', 'DE', 'CH'];
         $rootScope.saleUnits = ['DAYS', 'HOURS'];
         $rootScope.languages = ['DE', 'EN'];
-        $scope.obj = {};
+        $scope.search_obj = {};
 
         $rootScope.meta = {
           title: 'APP_NAME'
@@ -34,15 +34,15 @@ angular.module("com.airspott.shop").controller("ShopAppCtrl", ["$rootScope", '$s
           $state.go(state, params);
         };
         
-        $scope.search = function(obj){
+        /*$scope.search = function(obj){
             
             Club.find({where: {and: [{location: obj.location}, {guests: obj.guests}, {checkin: obj.checkin}, {checkout: obj.checkout}, {fit_type: obj.fit_type}]}}, 
                 function (clubs, err) {                    
                     $state.get('shop.search').data = JSON.stringify(clubs);
-                    $state.get('shop.search').search_obj = JSON.stringify(obj);                    
+                    $state.get('shop.search').search_obj = JSON.stringify(obj);
                     $state.go('shop.search');
             });
-        }
+        }*/
         
         $scope.doMinus = function(obj){            
             

@@ -2,30 +2,26 @@ angular.module('com.airspott.shop.search').controller('SearchCtrl', ["$rootScope
     function ($rootScope, $scope, $state, Club) {
 
     $rootScope.meta.title = "SEARCH";
-    $scope.obj = {};    
+    $scope.obj = {};
+    $scope.search_obj.fit_type = [];
     
     $scope.$on('$viewContentLoaded', function(event) {        
-        if($state.current.data)
-        {
-            $scope.clubs = JSON.parse($state.current.data);
-            $scope.obj = JSON.parse($state.current.search_obj);
-            $scope.obj.fit_type = [];
-        }
-        else
-            $scope.clubs = {};
+        
     });
     
-    $scope.search = function(obj){
+    $scope.search = function(search_obj){
         
         Club.find({where: {and: [
-                            {location: obj.location},
-                            {guests: obj.guests},
-                            {checkin: obj.checkin},
-                            {checkout: obj.checkout},
-                            {fit_type: obj.fit_type}
+                            {location: search_obj.location},
+                            {guests: search_obj.guests},
+                            {checkin: search_obj.checkin},
+                            {checkout: search_obj.checkout},
+                            {fit_type: search_obj.fit_type}
                         ]}
             }, function (clubs){
-                $scope.clubs = clubs;
+                $rootScope.clubs = clubs;
+                $rootScope.obj = search_obj;
+                $state.go('shop.search');
             }, function (err){
                 throw err; // do whatever necessary with the error object
             });

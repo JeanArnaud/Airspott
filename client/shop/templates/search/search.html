@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12 banner_heading">
-                        <h1>Fitness</h1>
+                        <h1>{{ 'Fitness' | translate}}</h1>
                     </div>
                 </div>
             </div>
@@ -15,26 +15,26 @@
 <div class="container wrapper_content">
     <div class="row">        
         <div class="col-sm-3 border_box">
-            <form method="POST" ng-submit="search(obj)">
+            <form method="POST" ng-submit="search(search_obj)">
                 <div class="sectiontop">
                     <div>                    
-                        <input name="location" ng-model="obj.location" type="text" placeholder="Current location, search bar">
+                        <input name="location" ng-model="search_obj.location" type="text" placeholder="{{ 'Current location, search bar' | translate}}">
                         <span class="search_btn"><input name="" type="button" class="button"></span>
                     </div>
                     <div>
                         <table width="100%">
                             <tr>
-                                <td width="70%" class="leftspace">Guest[s]</td>
-                                <td width="2%" align="right"><img src="images/minus.jpg" alt="" id="minus" ng-click="doMinus(obj)" /></td>
-                                <td width="14%" align="right"><input name="guests" ng-init="obj.guests = 1" ng-model="obj.guests" type="text" class="textfield_small" /></td>
-                                <td width="14%" align="left"><img src="images/plus.jpg" alt="" id="plus" ng-click="doPlus(obj)"/></td>
+                                <td width="70%" class="leftspace">{{ 'Guest[s]' | translate}}</td>
+                                <td width="2%" align="right"><img src="images/minus.jpg" alt="" id="minus" ng-click="doMinus(search_obj)" /></td>
+                                <td width="14%" align="right"><input name="guests" ng-init="search_obj.guests = 1" ng-model="search_obj.guests" type="text" class="textfield_small" /></td>
+                                <td width="14%" align="left"><img src="images/plus.jpg" alt="" id="plus" ng-click="doPlus(search_obj)"/></td>
                             </tr>
                         </table>
                     </div>
                     <div>
                         <table width="100%">
                             <tr>
-                                <td><input name="checkin" ng-model="obj.checkin" type="text" class="textfield" placeholder="Check In Date" datepicker /></td>
+                                <td><input name="checkin" ng-model="search_obj.checkin" type="text" class="textfield" placeholder="{{ 'Check In Date' | translate}}" datepicker /></td>
                                 <!-- <td>Monday<br />March
                                 </td>
                                 <td><h3>21</h3></td> -->
@@ -46,44 +46,44 @@
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                         <tr>
                             <td> 
-                                <input ng-model="obj.fit_type[0]" value="Fitness" type="checkbox" name="1" id="1" class="css-checkbox" />
-                                <label for="1" class="css-label lable">Free Parking</label>
+                                <input ng-model="search_obj.fit_type[0]" value="Fitness" type="checkbox" name="1" id="1" class="css-checkbox" />
+                                <label for="1" class="css-label lable">{{ 'Free Parking' | translate}}</label>
                             </td>
                             <td>
-                                <input ng-model="obj.fit_type[1]" value="Cardio" type="checkbox" name="2" id="2" class="css-checkbox" />
-                                <label for="2" class="css-label lable">Cardio</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input ng-model="obj.fit_type[2]" value="Showers" type="checkbox" name="3" id="3" class="css-checkbox" />
-                                <label for="3" class="css-label lable">Showers</label>
-                            </td>
-                            <td>
-                                <input ng-model="obj.fit_type[3]" value="Dumbells" type="checkbox" name="4" id="4" class="css-checkbox"/>
-                                <label for="4" class="css-label lable">Dumbells</label>
+                                <input ng-model="search_obj.fit_type[1]" value="Cardio" type="checkbox" name="2" id="2" class="css-checkbox" />
+                                <label for="2" class="css-label lable">{{ 'Cardio' | translate}}</label>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <input ng-model="obj.fit_type[4]" value="Sauna" type="checkbox" name="5" id="5" class="css-checkbox"/>
-                                <label for="5" class="css-label lable">Sauna</label>
+                                <input ng-model="search_obj.fit_type[2]" value="Showers" type="checkbox" name="3" id="3" class="css-checkbox" />
+                                <label for="3" class="css-label lable">{{ 'Showers' | translate}}</label>
                             </td>
                             <td>
-                                <input ng-model="obj.fit_type[5]" value="Lockers" type="checkbox" name="6" id="6" class="css-checkbox"/>
-                                <label for="6" class="css-label lable">Lockers</label>
+                                <input ng-model="search_obj.fit_type[3]" value="Dumbells" type="checkbox" name="4" id="4" class="css-checkbox"/>
+                                <label for="4" class="css-label lable">{{ 'Dumbells' | translate}}</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input ng-model="search_obj.fit_type[4]" value="Sauna" type="checkbox" name="5" id="5" class="css-checkbox"/>
+                                <label for="5" class="css-label lable">{{ 'Sauna' | translate}}</label>
+                            </td>
+                            <td>
+                                <input ng-model="search_obj.fit_type[5]" value="Lockers" type="checkbox" name="6" id="6" class="css-checkbox"/>
+                                <label for="6" class="css-label lable">{{ 'Lockers' | translate}}</label>
                             </td>
                         </tr>
                     </table>                
                     <br>
-                    <a href="#"><img src="images/arrow.jpg" alt=""> Show more Categories</a>&nbsp;
-                    <button type="submit">Search</button>
+                    <a href="#"><img src="images/arrow.jpg" alt=""> {{ 'Show more Categories' | translate}}</a>&nbsp;
+                    <button type="submit">{{'Search' | translate}}</button>
                 </div>
             </form>
         </div>
         <div class="col-sm-9">
             <div class="row" ng-if="(clubs.count())">
-                <div class="col-sm-12">No records found!</div>
+                <div class="col-sm-12">{{ 'No records found!' | translate}}</div>
             </div>
             <div class="row search_result_box" ng-repeat="club in clubs">
                 <div class="col-sm-3 nopadding">
@@ -94,9 +94,9 @@
                         <div class="row">
                             <div class="col-sm-12 spaceheight">
                                 <h1>{{club.name}}</h1>
-                                <h2>Main Street 1</h2>
+                                <h2>{{ 'Main Street 1' | translate}}</h2>
                             </div>
-                            <div class="col-sm-9"><table border="0" cellspacing="0" cellpadding="0">
+                            <div class="col-sm-8"><table border="0" cellspacing="0" cellpadding="0">
                                     <tr>
                                         <td><img src="images/rating_drk.jpg" alt="" class="rating_img"></td>
                                         <td><img src="images/rating_drk.jpg" alt="" class="rating_img"></td>
@@ -105,10 +105,10 @@
                                         <td><img src="images/rating_lgt.jpg" alt="" class="rating_img"></td>
                                     </tr>
                                 </table>
-                                <p>Rating: 4</p>
+                                <p>{{ 'Rating:' | translate}} 4</p>
                             </div>
-                            <div class="col-sm-3">
-                                <h3>$ {{club.price}}</h3>
+                            <div class="col-sm-4">
+                                <h3>$ {{ club.price | number : 2}}</h3>
                             </div>
                         </div>
                     </div>
