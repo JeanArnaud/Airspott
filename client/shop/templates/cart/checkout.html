@@ -1,16 +1,29 @@
-<header>
+<header class="container margin margin-sm-bottom">
   <ul class="nav nav-pills">
-    <li ng-class="checkoutStep === 0 ? 'active' : ''">{{'CART' | translate}}</li>
-    <li ng-class="checkoutStep === 1 ? 'active' : ''">{{'DETAILS' | translate}}</li>
-    <li ng-class="checkoutStep === 2 ? 'active' : ''">{{'PAYMENT' | translate}}</li>
+    <li class="nav-item">
+      <a class="nav-link" ng-class="checkoutStep === 0 ? 'active' : ''">{{'CART' | translate}}</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" ng-class="checkoutStep === 1 ? 'active' : ''">{{'DETAILS' | translate}}</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" ng-class="checkoutStep === 2 ? 'active' : ''">{{'PAYMENT' | translate}}</a>
+    </li>
   </ul>
 </header>
 
-<main>
-  <section ng-if="checkoutStep === 0">1</section>
-  <section ng-if="checkoutStep === 1">2</section>
-  <section ng-if="checkoutStep === 2">3</section>
-  <section ng-if="checkoutStep === 3">4</section>
+<main class="container">
+  <section class="card" ng-if="checkoutStep === 0">1</section>
+  <section class="card" ng-if="checkoutStep === 1">2</section>
+  <section class="card" ng-if="checkoutStep === 2">3</section>
+
+  <section class="card padding padding-large-top" ng-if="checkoutStep === 3">
+    <div ng-if="checkoutStep > 2" class="success-header">
+      <i class="fa fa-check-circle"></i>
+
+      {{'THANK_YOU_CHECKOUT' | translate}}
+    </div>
+  </section>
 </main>
 
 <button ng-click="next()">{{'NEXT' | translate}}</button>

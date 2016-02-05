@@ -402,7 +402,8 @@ output {
   display: none !important; }
 
 h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
+.h1,
+.success-header, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.5rem;
   font-family: inherit;
   font-weight: 500;
@@ -427,7 +428,7 @@ h5 {
 h6 {
   font-size: 1rem; }
 
-.h1 {
+.h1, .success-header {
   font-size: 2.5rem; }
 
 .h2 {
@@ -4573,8 +4574,8 @@ a.bg-danger:focus, a.bg-danger:hover {
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url("../fonts/fontawesome-webfont.eot?v=4.5.0");
-  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.5.0") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2?v=4.5.0") format("woff2"), url("../fonts/fontawesome-webfont.woff?v=4.5.0") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.5.0") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.5.0#fontawesomeregular") format("svg");
+  src: url("../common/lib/font-awesome/fonts/fontawesome-webfont.eot?v=4.5.0");
+  src: url("../common/lib/font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.5.0") format("embedded-opentype"), url("../common/lib/font-awesome/fonts/fontawesome-webfont.woff2?v=4.5.0") format("woff2"), url("../common/lib/font-awesome/fonts/fontawesome-webfont.woff?v=4.5.0") format("woff"), url("../common/lib/font-awesome/fonts/fontawesome-webfont.ttf?v=4.5.0") format("truetype"), url("../common/lib/font-awesome/fonts/fontawesome-webfont.svg?v=4.5.0#fontawesomeregular") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -6647,5 +6648,20 @@ a.bg-danger:focus, a.bg-danger:hover {
 body {
   background: #eceeef; }
 
+.padding {
+  padding: 1rem; }
+  .padding .padding-lg-top {
+    padding-top: 5rem; }
+
+.margin .margin-sm-bottom {
+  margin-bottom: 2rem; }
+
 .clickable {
   cursor: pointer; }
+
+.success-header {
+  text-align: center; }
+  .success-header i {
+    color: #5cb85c;
+    font-size: 15rem;
+    display: block; }
