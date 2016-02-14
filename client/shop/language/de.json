@@ -1,0 +1,206 @@
+{
+    "HOME": "Dashboard",
+    "MANAGE_CLUBS": "Angebote",
+    "SALES": "Verkäufe",
+    "REPORTS": "Berichte",
+    "ACCOUNTING": "Vertrag & Abrechnung",
+    "SETTINGS": "Einstellungen",
+    "LOGOUT": "Abmelden",
+
+    "CLUB_LOGIN": "Login für Anbieter",
+    "OVERVIEW_CLUB": "Übersicht",
+    "ADD_CLUB": "Angebot hinzufügen",
+    "MANAGE_MY_CLUBS": "Angebot verwalten",
+    "CLUB_SALES": "Verkäufe",
+    "CLUB_SETTINGS": "Einstellungen",
+
+    "APP_NAME": "Airspott",
+
+    "COPYRIGHT_FOOTER": "Made with ♥ by Airspott in Vienna. © 2015 Airspott GmbH.",
+
+    "WELCOME_TO_AIRSPOTT": "Willkommen bei Airspott!",
+    "ACCOUNT_WELCOME_SUBLINE": "Hier können Sie Ihre Angebote verwalten.",
+
+    "ADD": "Hinzufügen",
+    "SAVE": "Speichern",
+    "CANCEL": "Abbrechen",
+
+    "NO_CLUB_ADDED": "Wir kennen noch keines Ihrer Angebot",
+    "NO_SALES_YET": "Wir konnten noch keines Ihrer Angebote verkaufen",
+    "SALES_DESCRIPTION": "Hier zeigen wir Ihre verkauften Tickets an.",
+    "REFINE_YOUR_CLUBS": "Lassen Sie uns Ihre Angebot optimieren",
+    "NEED_HELP": "Können wir Ihnen dabei helfen?",
+
+    "ACCOUNTING_DESCRIPTION":"Wir benötigen diese Daten um Ihr Geld auszahlen und Ihre Angebote zu verkaufen. Wir bitten Sie diese Informationen mit Sorgfalt auszufüllen und versichern sorgfältig damit umzugehen.",
+
+    "REPORTS_DESCRIPTION": "Wir berichten, was Sie verkauft haben und wo Sie Optimierungen vornehmen können.",
+
+    "EDIT_CLUB": "Angebot bearbeiten",
+    "MY_CLUBS": "Meine Angebote",
+    "CLUB_DESCRIPTION":"Unsere Verbindung sind Ihre Angebote. Erstellen und Verwalten Sie diese.",
+    "DEFAULT_PRICE_CAPACITY_DESCRIPTION": "Preis pro Verkaufseinheit: {{price | currency:'€ '}}, Standardkapazität: {{capacity}} Karten/Tag",
+
+    "EDIT_A_CLUB": "Angebot anlegen/bearbeiten",
+    "ADD_CLUB_DESCRIPTION": "Wir zeigen dieses neue Angebot oder Änderungen sofort auf Airspott an.",
+
+    "DEFAULT_PRICE": "Preis pro Verkaufseinheit",
+    "TAX": "Steuer",
+    "DEFAULT_CAPACITY": "Standardkapazität pro Verkaufseinheit",
+    "SALE_UNIT": "Verkaufseinheit",
+
+    "SALE_UNIT_HOURS": "Stunden",
+    "SALE_UNIT_DAYS": "Tage",
+
+    "SALE_UNIT_SINGULAR_DAYS": "Tag",
+    "SALE_UNIT_SINGULAR_HOURS": "Stunde",
+
+    "ADD_PLANNING_ENTRY": "Planungseintrag hinzufügen",
+    "WHICH_PLANNING_TYPE_TO_CHANGE": "Wir verkaufen maximal die Standardkapazität Ihres Angebot pro Zeiteinheit zum Standardpreis pro Verkaufseinheit. Geben Sie Daten zur Detailplanung ein und Sie können einzelne oder alle zeitbasierte Änderungen dazu planen:",
+    "PRICE": "Preis:",
+    "PRICE_FOREACH_SALE_UNIT": "Preis pro Verkaufseinheit",
+    "CAPACITY": "Kapazität",
+    "CAPACITY_FOREACH_SALE_UNIT": "Kapazität pro Verkaufseinheit",
+
+    "ADDRESS_SHORT": "{{address}}, {{zip}} {{city}}, {{country | translate}}",
+
+    "DAY_BASED_PLANNING": "Kapazitätsplanung pro Verkaufseinheit",
+    "PLANNING_DESCRIPTION": "Kapazitäten und Preise für Zeiträume festlegen",
+
+    "NEXT_TODO_DATA": " Auszahlungskonto hinzufügen",
+    "USER_TYPE_DATA": " Verkäufer",
+
+    "REPORTS_COMING_SOON": "Wir verbessern Airspott kontinuierlich. Bald finden Sie hier Angebote um detaillierte Berichte Ihrer Verkäufe zu erstellen.",
+
+    "FILE_UPLOAD_DROP_DESCRIPTION": "Datei(en) hierher ziehen oder klicken und Datei(en) auswählen um Bilder hinzufügen...",
+    "ALLOWED_FILE_TYPES": "Wir unterstützen folgende Formate: JPG, JPEG, PNG und SVG. Achten Sie auf eine ausreichende Bildgröße um Ihre Inhalte optimal zu präsentieren.",
+
+    "MEDIA_NAME": "Name",
+    "MEDIA_DESCRIPTION": "Beschreibung",
+
+    "NAME": "Name",
+    "ADDRESS": "Adresse",
+    "ADDRESS_2": "Weitere Adresszeile",
+    "ZIP": "PLZ",
+    "CITY": "Ort",
+    "COUNTRY": "Land",
+    "DESCRIPTION": "Beschreibung",
+
+    "DETAILS": "Allgemeine Details",
+    "PRICING_CAPACITIES": "Preise & Verfügbarkeiten",
+    "MEDIA": "Bilder",
+    "OFFERS": "Angebote",
+    "WHAT_DO_YOU_OFFER_DESCRIPTION": "Welche Angebote dürfen wir Ihrem Angebot zuordnen? Als Club/Studio: welche Angebote und Einrichtungen sind für den Kunden nutzbar? Als Trainer: welche Arten von Hilfestellung können Sie anbieten?",
+    "OPENING_HOURS": "Öffnungszeiten",
+    "OPEN_FROM": "Öffnet um",
+    "OPEN_TO": "Schließt um",
+    "BREAK_FROM": "Pause ab",
+    "BREAK_TO": "Pause bis",
+    "MO": "Montag",
+    "TU": "Dienstag",
+    "WE": "Mittwoch",
+    "TH": "Donnerstag",
+    "FR": "Freitag",
+    "SA": "Samstag",
+    "SU": "Sonntag",
+    "HOLIDAY": "Feiertag",
+
+    "USER_E_MAIL": "E-Mail:",
+    "USER_E_MAIL_DATA": " {{email}}",
+
+
+    "AT_A_GLANCE": "Auf einen Blick...",
+    "USER_TYPE": "Kontotyp",
+    "BALANCE": "Guthaben",
+    "PENDING_PAYOUT": "Laufende Auszahlung",
+    "NEXT_TODO": "Ihre nächsten Schritte",
+
+    "QUICK_ACTIONS": "Schnell zum Ziel",
+    "ADD_A_CLUB": "Ein Angebot hinzufügen",
+    "VIEW_ACCOUNTING": "Daten zu Verträgen & Abrechnung anzeigen",
+    "REQUEST_PAYOUT": "Auszahlung beantragen",
+
+    "TAKE_ACTION_NOW": "Los geht's",
+    "ATTENTION": "Achtung",
+    "NO_PAYOUT_CONFIGURED": "Wir können möglicherweise keine Zahlungen an Sie leisten, da wir kein Konto kennen.",
+
+    "PRICING_CAPACITY_SUMMARY": "Pro {{'SALE_UNIT_SINGULAR_'+saleUnit | translate}} verkaufen wir maximal {{capacity}} {{capacity == 1 ? 'Ticket' : 'Tickets' }} zu je {{price | currency:'€ '}} verkauft. Wir berechnen dafür eine Provision i.H.v. {{commission*100}}% ({{price * commission | currency:'€ '}}).",
+
+    "PLANNING_DESCRIPTION_SALE_UNIT_REQUIRED": "Bevor wir eine detaillierte Planung vornehmen können, müssen Sie die Verkaufseinheit festlegen.",
+
+    "CREATE_CLUB_SUCCESS_MESSAGE": "Vielen Dank! Ihr Angebot wurde hinzugefügt.",
+    "GENERIC_ERROR_CLUB_CREATE": "Wir konnten Ihr Angebot nicht speichern. Kontrollieren Sie alle Pflichtfelder um fortzufahren.",
+    "GENERIC_ERROR_CLUB_MEDIA_ENCODE": "Mindestens ein Bild konnte nicht gespeichert werden.",
+    "GENERIC_ERROR_CLUB_CREATE_MEDIA_NOT_SAVED": "Mindestens ein Bild konnte nicht gespeichert werden.",
+
+    "DROP_HERE": "Datei(en) jetzt fallen lassen...",
+
+    "EMAIL": "E-Mail Adresse",
+    "PASSWORD": "Passwort",
+    "LOGIN": "Einloggen",
+    "LOGIN_AS_A_SELLER": "Als Anbieter einloggen",
+    "LOGIN_SELLER_DESCRIPTION_CLUB": "Loggen Sie sich als Anbieter ein und verwalten Sie Ihre Angebote und Verkäufe.",
+    "SIGN_IN": "Einloggen",
+    "REMEMBER_ME": "Eingeloggt bleiben...",
+    "BACK_TO_LOGIN": "Zurück zum Login",
+
+    "SET_IT_UP_NOW": "Jetzt einrichten!",
+
+    "IBAN": "IBAN",
+    "BIC_SWIFT": "BIC/SWIFT",
+    "BANK": "Kreditinstitut",
+    "COMMISSION": "Ihre Verkaufsprovision",
+    "COMMISSION_AFTER_ACCOUNT_SETUP": "Wir bestimmen das nach der Einrichtung...",
+    "SUCCESS_SAVING_OWNER_ACCOUNT": "Wir haben das Konto gespeichert.",
+    "ERROR_SAVING_OWNER_ACCOUNT": "Achtung: wir konnten das Auszahlungskonto nicht speichern. Bitte prüfen Sie die eingegebenen Daten. Die IBAN muss korrekt sein.",
+
+
+    "REGISTER": "Registrierung",
+    "REGISTER_AS_A_SELLER": "Als Anbieter registrieren",
+    "REGISTER_DESCRIPTION_SELLER": "Möchten Sie Ihre Produkte über Airspott anbieten? Die Registrierung dauert nur wenige Augenblicke. Lernen wir uns jetzt kennen!",
+
+    "LOGIN_ERROR_GENERIC": "Wir konnten Sie leider nicht einloggen. Prüfen Sie Ihre Anmeldedaten.",
+
+    "REGISTER_SUCCESS": "Vielen Dank! Sie erhalten in Kürze eine E-Mail. Klicken Sie auf den Link und bestätigen Sie Ihre E-Mail Adresse, danach können wir sofort starten.",
+    "REGISTER_ERROR_INVALID_DATA": "Wir konnten Sie nicht registrieren: Bitte überprüfen Sie die eingegebenen Daten auf Vollständigkeit.",
+    "REGISTER_ERROR_GENERIC": "Wir konnten Sie nicht registrieren: Bitte versuchen Sie es erneut oder kontaktieren Sie uns, falls der Fehler weiterhin besteht.",
+
+    "RESPONSIBLE_NAME": "Name eines Verantwortlichen",
+    "RESPONSIBLE_TEL": "Telefonnummer des Verantwortlichen",
+    "RESPONSIBLE": "Verantwortlicher",
+    "RESPONSIBLE_DESCRIPTION": "Wir benötigen diese Information um Sie im Falle eines Problemes schnell kontaktieren zu können. Diese Information wird nicht veröffentlicht.",
+
+    "AT": "Österreich",
+    "DE": "Deutschland",
+    "CH": "Schweiz",
+
+    "BANK_ACCOUNT": "Bankdaten",
+    "TOC_CLUB": "Geschäftsbedingungen für Anbieter",
+    "I_ACCEPT_TOC_CLUB": "Ich akzeptiere die derzeit gültigen Geschäftsbedingungen für Anbieter",
+    "DOWNLOAD_TOC": "Geschäftsbedingungen herunterladen",
+
+    "CURRENCY": "Währung",
+    "AUTO_DETECTION": "Wir bestimmen diese Information automatisch",
+
+    "LOGIN_DETAILS": "Login Daten",
+    "PERSONAL_DETAILS": "Persönliche Daten",
+    "COMPANY_DETAILS": "Firma",
+    "COMPANY_NAME": "Firmenbezeichnung",
+    "UID": "UID / USt.-ID",
+    "FIRSTNAME": "Vorname",
+    "MIDDLENAME": "Weiterer Vorname",
+    "LASTNAME": "Nachname",
+
+    "LANGUAGE": "Sprache",
+    "LANG_DE": "Deutsch",
+    "LANG_EN": "English",
+
+    "MEDIA_SORT_ORDER": "Reihenfolge",
+    "MEDIA_DESCRIPTION_SORT_ORDER": "Verwalten Sie Bilder Ihres Angebots. Wir verwenden das erste Bild der Sortierung (Reihenfolge) als Standard-Bild.",
+
+    "JUST_ONE_STEP": "Gleich geschafft:",
+    "ACCEPT_PRIVACY_POLICY": "Mit dem Klick auf Registrieren akzeptieren Sie unsere Datenschutzbestimmungen. Hier klicken um die Bedingungen anzuzeigen.",
+
+    "SETTINGS_DESCRIPTION": "Dies sind Ihre persönlichen Einstellungen. Sie können hier Ihre E-Mail Adresse, Ihr Kennwort, Ihren Namen und/oder Firmennamen und viele weitere Einstellungen ändern. In Zukunft werden wir noch weitere Optionen zur Verfügung stellen, damit wir uns besser kennenlernen!"
+
+
+}

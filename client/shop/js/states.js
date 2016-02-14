@@ -49,10 +49,12 @@ angular.module('com.airspott.shop')
           url: '/search',
           views: {
             content: {
-              controller: 'ShopSearchCtrl',
+              controller: 'SearchCtrl',
               templateUrl: 'templates/search/search.html'
             }
-          }
+          },
+          data: '',
+          search_obj: ''
         });
 
       $urlRouterProvider.otherwise('/');

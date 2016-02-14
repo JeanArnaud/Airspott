@@ -1,0 +1,18 @@
+/* CSS Document */
+@media (min-width:320px)and (max-width:768px) {
+.gallery_margin .gal{ margin-top:30px;}
+footer h1{color:#b8b8b8; font-size:20px; text-transform:uppercase; padding:0 0 10px 0; margin:30px 0 15px 0; border-bottom:solid 1px #b8b8b8;}
+.headerright{ display:none}
+}
+
+
+@media (min-width:320px)and (max-width:1280px) {
+.search_box{background: #7f7f7f; margin: 30px auto 0 auto !important; padding: 10px 40px; position: static; top:; width: 100%; z-index: 10;}
+
+}
+@media (min-width:320px)and (max-width:640px) {
+.banner{ background:url(../images/banner1.jpg) no-repeat center top; background-size:cover; height:300px; width:100%}
+.map{ background:url(../images/map.jpg) no-repeat center top; background-size:cover; height:300px; width:100%}
+.copytext{ color:#616161; font-size:12px; text-transform:uppercase; text-align:center; padding-top:20px;}
+.search_box{background: #7f7f7f; margin: 30px auto 0 auto !important; padding: 10px 20px; position: static; top:; width: 100%; z-index: 10;}
+}
