@@ -1,62 +1,63 @@
 angular.module('com.airspott.shop')
-  .config([
+    .config([
 
-    '$stateProvider', '$urlRouterProvider',
+        '$stateProvider', '$urlRouterProvider',
 
-    function ($stateProvider, $urlRouterProvider) {
-      'use strict';
+        function ($stateProvider, $urlRouterProvider) {
+            'use strict';
 
-      $stateProvider
+            $stateProvider
 
-        .state('shop', {
-          url: '',
-          abstract: true,
-          templateUrl: 'templates/app.html',
-          controller: 'ShopAppCtrl'
-        })
+                .state('shop', {
+                    url: '',
+                    abstract: true,
+                    templateUrl: 'templates/app.html',
+                    controller: 'ShopAppCtrl'
+                })
 
-        .state('shop.login', {
-          url: '/login',
-          views: {
-            content: {
-              templateUrl: 'templates/account/login.html',
-              controller: 'ShopAccountCtrl'
-            }
-          }
-        })
+                .state('shop.login', {
+                    url: '/login',
+                    views: {
+                        content: {
+                            templateUrl: 'templates/account/login.html',
+                            controller: 'ShopAccountCtrl'
+                        }
+                    }
+                })
 
-        .state('shop.register', {
-          url: '/register',
-          views: {
-            content: {
-              templateUrl: 'templates/account/register.html',
-              controller: 'ShopAccountCtrl'
-            }
-          }
-        })
+                .state('shop.register', {
+                    url: '/register',
+                    views: {
+                        content: {
+                            templateUrl: 'templates/account/register.html',
+                            controller: 'ShopAccountCtrl'
+                        }
+                    }
+                })
 
-        .state('shop.main', {
-          url: '/',
-          views: {
-            content: {
-              controller: 'ShopMainCtrl',
-              templateUrl: 'templates/main/frontpage.html'
-            }
-          }
-        })
+                .state('shop.main', {
+                    url: '/',
+                    views: {
+                        content: {
+                            controller: 'ShopMainCtrl',
+                            templateUrl: 'templates/main/frontpage.html'
+                        }
+                    }
+                })
 
-        .state('shop.search', {
-          url: '/search',
-          views: {
-            content: {
-              controller: 'SearchCtrl',
-              templateUrl: 'templates/search/search.html'
-            }
-          },
-          data: '',
-          search_obj: ''
-        });
+                .state('shop.search', {
+                    url: '/search',
+                    params: {
+                        query: false
+                    },
+                    views: {
+                        content: {
+                            controller: 'SearchCtrl',
+                            templateUrl: 'templates/search/search.html'
+                        }
+                    }
+                });
 
-      $urlRouterProvider.otherwise('/');
+            $urlRouterProvider.otherwise('/');
 
-    }]);
+        }]);

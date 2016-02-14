@@ -1,7 +1,7 @@
 (function (window, angular, undefined) {
     'use strict';
 
-    var urlBase = "http://test.airspott.com/api";
+    var urlBase = "http://localhost:3000/api";
     var authHeader = 'authorization';
 
     function getHost(url) {
@@ -414,7 +414,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `exists` – `{boolean=}` - 
+                         *  - `exists` – `{boolean=}` -
                          */
                         "exists": {
                             url: urlBase + "/Clubs/:id/exists",
@@ -609,7 +609,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `count` – `{number=}` - 
+                         *  - `count` – `{number=}` -
                          */
                         "count": {
                             url: urlBase + "/Clubs/count",
@@ -667,7 +667,7 @@
                          *
                          * @param {Object} postData Request data.
                          *
-                         *  - `options` – `{object=}` - 
+                         *  - `options` – `{object=}` -
                          *
                          * @param {function(Object,Object)=} successCb
                          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -681,7 +681,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `changes` – `{ReadableStream=}` - 
+                         *  - `changes` – `{ReadableStream=}` -
                          */
                         "createChangeStream": {
                             url: urlBase + "/Clubs/change-stream",
@@ -913,7 +913,7 @@
                      *
                      *  - `id` – `{*}` - PersistedModel id
                      *
-                     *  - `refresh` – `{boolean=}` - 
+                     *  - `refresh` – `{boolean=}` -
                      *
                      * @param {function(Object,Object)=} successCb
                      *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -1094,7 +1094,7 @@
                      *
                      *  - `id` – `{*}` - PersistedModel id
                      *
-                     *  - `refresh` – `{boolean=}` - 
+                     *  - `refresh` – `{boolean=}` -
                      *
                      * @param {function(Object,Object)=} successCb
                      *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -1144,7 +1144,7 @@
                      *
                      *  - `id` – `{*}` - PersistedModel id
                      *
-                     *  - `filter` – `{object=}` - 
+                     *  - `filter` – `{object=}` -
                      *
                      * @param {function(Array.<Object>,Object)=} successCb
                      *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -1194,7 +1194,7 @@
                      *
                      * Data properties:
                      *
-                     *  - `count` – `{number=}` - 
+                     *  - `count` – `{number=}` -
                      */
                     R.media.count = function () {
                         var TargetResource = $injector.get("Media");
@@ -1445,7 +1445,7 @@
                      *
                      *  - `id` – `{*}` - PersistedModel id
                      *
-                     *  - `filter` – `{object=}` - 
+                     *  - `filter` – `{object=}` -
                      *
                      * @param {function(Array.<Object>,Object)=} successCb
                      *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -1495,7 +1495,7 @@
                      *
                      * Data properties:
                      *
-                     *  - `count` – `{number=}` - 
+                     *  - `count` – `{number=}` -
                      */
                     R.offers.count = function () {
                         var TargetResource = $injector.get("Offer");
@@ -1732,7 +1732,7 @@
                      *
                      *  - `id` – `{*}` - PersistedModel id
                      *
-                     *  - `refresh` – `{boolean=}` - 
+                     *  - `refresh` – `{boolean=}` -
                      *
                      * @param {function(Object,Object)=} successCb
                      *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -1782,7 +1782,7 @@
                      *
                      *  - `id` – `{*}` - PersistedModel id
                      *
-                     *  - `filter` – `{object=}` - 
+                     *  - `filter` – `{object=}` -
                      *
                      * @param {function(Array.<Object>,Object)=} successCb
                      *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -1832,7 +1832,7 @@
                      *
                      * Data properties:
                      *
-                     *  - `count` – `{number=}` - 
+                     *  - `count` – `{number=}` -
                      */
                     R.planningEntries.count = function () {
                         var TargetResource = $injector.get("PlanningEntry");
@@ -2083,7 +2083,7 @@
                      *
                      *  - `id` – `{*}` - PersistedModel id
                      *
-                     *  - `refresh` – `{boolean=}` - 
+                     *  - `refresh` – `{boolean=}` -
                      *
                      * @param {function(Object,Object)=} successCb
                      *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -2278,7 +2278,7 @@
                      *
                      *  - `id` – `{*}` - PersistedModel id
                      *
-                     *  - `filter` – `{object=}` - 
+                     *  - `filter` – `{object=}` -
                      *
                      * @param {function(Array.<Object>,Object)=} successCb
                      *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -2328,7 +2328,7 @@
                      *
                      * Data properties:
                      *
-                     *  - `count` – `{number=}` - 
+                     *  - `count` – `{number=}` -
                      */
                     R.additions.count = function () {
                         var TargetResource = $injector.get("Addition");
@@ -2721,7 +2721,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `exists` – `{boolean=}` - 
+                         *  - `exists` – `{boolean=}` -
                          */
                         "exists": {
                             url: urlBase + "/Tickets/:id/exists",
@@ -2916,7 +2916,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `count` – `{number=}` - 
+                         *  - `count` – `{number=}` -
                          */
                         "count": {
                             url: urlBase + "/Tickets/count",
@@ -2974,7 +2974,7 @@
                          *
                          * @param {Object} postData Request data.
                          *
-                         *  - `options` – `{object=}` - 
+                         *  - `options` – `{object=}` -
                          *
                          * @param {function(Object,Object)=} successCb
                          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -2988,7 +2988,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `changes` – `{ReadableStream=}` - 
+                         *  - `changes` – `{ReadableStream=}` -
                          */
                         "createChangeStream": {
                             url: urlBase + "/Tickets/change-stream",
@@ -3150,7 +3150,7 @@
                      *
                      *  - `id` – `{*}` - PersistedModel id
                      *
-                     *  - `refresh` – `{boolean=}` - 
+                     *  - `refresh` – `{boolean=}` -
                      *
                      * @param {function(Object,Object)=} successCb
                      *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -3337,7 +3337,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `exists` – `{boolean=}` - 
+                         *  - `exists` – `{boolean=}` -
                          */
                         "exists": {
                             url: urlBase + "/Ratings/:id/exists",
@@ -3532,7 +3532,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `count` – `{number=}` - 
+                         *  - `count` – `{number=}` -
                          */
                         "count": {
                             url: urlBase + "/Ratings/count",
@@ -3590,7 +3590,7 @@
                          *
                          * @param {Object} postData Request data.
                          *
-                         *  - `options` – `{object=}` - 
+                         *  - `options` – `{object=}` -
                          *
                          * @param {function(Object,Object)=} successCb
                          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -3604,7 +3604,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `changes` – `{ReadableStream=}` - 
+                         *  - `changes` – `{ReadableStream=}` -
                          */
                         "createChangeStream": {
                             url: urlBase + "/Ratings/change-stream",
@@ -3917,7 +3917,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `exists` – `{boolean=}` - 
+                         *  - `exists` – `{boolean=}` -
                          */
                         "exists": {
                             url: urlBase + "/Addresses/:id/exists",
@@ -4112,7 +4112,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `count` – `{number=}` - 
+                         *  - `count` – `{number=}` -
                          */
                         "count": {
                             url: urlBase + "/Addresses/count",
@@ -4170,7 +4170,7 @@
                          *
                          * @param {Object} postData Request data.
                          *
-                         *  - `options` – `{object=}` - 
+                         *  - `options` – `{object=}` -
                          *
                          * @param {function(Object,Object)=} successCb
                          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -4184,7 +4184,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `changes` – `{ReadableStream=}` - 
+                         *  - `changes` – `{ReadableStream=}` -
                          */
                         "createChangeStream": {
                             url: urlBase + "/Addresses/change-stream",
@@ -4523,7 +4523,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `exists` – `{boolean=}` - 
+                         *  - `exists` – `{boolean=}` -
                          */
                         "exists": {
                             url: urlBase + "/TAXes/:id/exists",
@@ -4718,7 +4718,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `count` – `{number=}` - 
+                         *  - `count` – `{number=}` -
                          */
                         "count": {
                             url: urlBase + "/TAXes/count",
@@ -4776,7 +4776,7 @@
                          *
                          * @param {Object} postData Request data.
                          *
-                         *  - `options` – `{object=}` - 
+                         *  - `options` – `{object=}` -
                          *
                          * @param {function(Object,Object)=} successCb
                          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -4790,7 +4790,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `changes` – `{ReadableStream=}` - 
+                         *  - `changes` – `{ReadableStream=}` -
                          */
                         "createChangeStream": {
                             url: urlBase + "/TAXes/change-stream",
@@ -5108,7 +5108,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `exists` – `{boolean=}` - 
+                         *  - `exists` – `{boolean=}` -
                          */
                         "exists": {
                             url: urlBase + "/Media/:id/exists",
@@ -5303,7 +5303,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `count` – `{number=}` - 
+                         *  - `count` – `{number=}` -
                          */
                         "count": {
                             url: urlBase + "/Media/count",
@@ -5361,7 +5361,7 @@
                          *
                          * @param {Object} postData Request data.
                          *
-                         *  - `options` – `{object=}` - 
+                         *  - `options` – `{object=}` -
                          *
                          * @param {function(Object,Object)=} successCb
                          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -5375,7 +5375,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `changes` – `{ReadableStream=}` - 
+                         *  - `changes` – `{ReadableStream=}` -
                          */
                         "createChangeStream": {
                             url: urlBase + "/Media/change-stream",
@@ -5739,7 +5739,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `exists` – `{boolean=}` - 
+                         *  - `exists` – `{boolean=}` -
                          */
                         "exists": {
                             url: urlBase + "/Offers/:id/exists",
@@ -5934,7 +5934,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `count` – `{number=}` - 
+                         *  - `count` – `{number=}` -
                          */
                         "count": {
                             url: urlBase + "/Offers/count",
@@ -5992,7 +5992,7 @@
                          *
                          * @param {Object} postData Request data.
                          *
-                         *  - `options` – `{object=}` - 
+                         *  - `options` – `{object=}` -
                          *
                          * @param {function(Object,Object)=} successCb
                          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -6006,7 +6006,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `changes` – `{ReadableStream=}` - 
+                         *  - `changes` – `{ReadableStream=}` -
                          */
                         "createChangeStream": {
                             url: urlBase + "/Offers/change-stream",
@@ -6370,7 +6370,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `exists` – `{boolean=}` - 
+                         *  - `exists` – `{boolean=}` -
                          */
                         "exists": {
                             url: urlBase + "/OwnerAccounts/:id/exists",
@@ -6565,7 +6565,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `count` – `{number=}` - 
+                         *  - `count` – `{number=}` -
                          */
                         "count": {
                             url: urlBase + "/OwnerAccounts/count",
@@ -6623,7 +6623,7 @@
                          *
                          * @param {Object} postData Request data.
                          *
-                         *  - `options` – `{object=}` - 
+                         *  - `options` – `{object=}` -
                          *
                          * @param {function(Object,Object)=} successCb
                          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -6637,7 +6637,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `changes` – `{ReadableStream=}` - 
+                         *  - `changes` – `{ReadableStream=}` -
                          */
                         "createChangeStream": {
                             url: urlBase + "/OwnerAccounts/change-stream",
@@ -7008,7 +7008,7 @@
                          *
                          *  - `id` – `{*}` - User id
                          *
-                         *  - `filter` – `{object=}` - 
+                         *  - `filter` – `{object=}` -
                          *
                          * @param {function(Array.<Object>,Object)=} successCb
                          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -7122,7 +7122,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `count` – `{number=}` - 
+                         *  - `count` – `{number=}` -
                          */
                         "prototype$__count__accessTokens": {
                             url: urlBase + "/Customers/:id/accessTokens/count",
@@ -7286,7 +7286,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `exists` – `{boolean=}` - 
+                         *  - `exists` – `{boolean=}` -
                          */
                         "exists": {
                             url: urlBase + "/Customers/:id/exists",
@@ -7481,7 +7481,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `count` – `{number=}` - 
+                         *  - `count` – `{number=}` -
                          */
                         "count": {
                             url: urlBase + "/Customers/count",
@@ -7539,7 +7539,7 @@
                          *
                          * @param {Object} postData Request data.
                          *
-                         *  - `options` – `{object=}` - 
+                         *  - `options` – `{object=}` -
                          *
                          * @param {function(Object,Object)=} successCb
                          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -7553,7 +7553,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `changes` – `{ReadableStream=}` - 
+                         *  - `changes` – `{ReadableStream=}` -
                          */
                         "createChangeStream": {
                             url: urlBase + "/Customers/change-stream",
@@ -7593,9 +7593,9 @@
                          *
                          * The response body contains properties of the AccessToken created on login.
                          * Depending on the value of `include` parameter, the body may contain additional properties:
-                         * 
+                         *
                          *   - `user` - `{User}` - Data of the currently logged in user. (`include=user`)
-                         * 
+                         *
                          *
                          */
                         "login": {
@@ -7666,11 +7666,11 @@
                          *
                          * @param {Object=} parameters Request parameters.
                          *
-                         *  - `uid` – `{string}` - 
+                         *  - `uid` – `{string}` -
                          *
-                         *  - `token` – `{string}` - 
+                         *  - `token` – `{string}` -
                          *
-                         *  - `redirect` – `{string=}` - 
+                         *  - `redirect` – `{string=}` -
                          *
                          * @param {function(Object,Object)=} successCb
                          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -7982,7 +7982,7 @@
                      *
                      *  - `id` – `{*}` - User id
                      *
-                     *  - `refresh` – `{boolean=}` - 
+                     *  - `refresh` – `{boolean=}` -
                      *
                      * @param {function(Object,Object)=} successCb
                      *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -8177,7 +8177,7 @@
                      *
                      *  - `id` – `{*}` - User id
                      *
-                     *  - `filter` – `{object=}` - 
+                     *  - `filter` – `{object=}` -
                      *
                      * @param {function(Array.<Object>,Object)=} successCb
                      *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -8227,7 +8227,7 @@
                      *
                      * Data properties:
                      *
-                     *  - `count` – `{number=}` - 
+                     *  - `count` – `{number=}` -
                      */
                     R.clubs.count = function () {
                         var TargetResource = $injector.get("Club");
@@ -8620,7 +8620,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `exists` – `{boolean=}` - 
+                         *  - `exists` – `{boolean=}` -
                          */
                         "exists": {
                             url: urlBase + "/PlanningEntries/:id/exists",
@@ -8815,7 +8815,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `count` – `{number=}` - 
+                         *  - `count` – `{number=}` -
                          */
                         "count": {
                             url: urlBase + "/PlanningEntries/count",
@@ -8873,7 +8873,7 @@
                          *
                          * @param {Object} postData Request data.
                          *
-                         *  - `options` – `{object=}` - 
+                         *  - `options` – `{object=}` -
                          *
                          * @param {function(Object,Object)=} successCb
                          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -8887,7 +8887,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `changes` – `{ReadableStream=}` - 
+                         *  - `changes` – `{ReadableStream=}` -
                          */
                         "createChangeStream": {
                             url: urlBase + "/PlanningEntries/change-stream",
@@ -9100,7 +9100,7 @@
                      *
                      *  - `id` – `{*}` - PersistedModel id
                      *
-                     *  - `refresh` – `{boolean=}` - 
+                     *  - `refresh` – `{boolean=}` -
                      *
                      * @param {function(Object,Object)=} successCb
                      *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -9287,7 +9287,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `exists` – `{boolean=}` - 
+                         *  - `exists` – `{boolean=}` -
                          */
                         "exists": {
                             url: urlBase + "/Currencies/:id/exists",
@@ -9482,7 +9482,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `count` – `{number=}` - 
+                         *  - `count` – `{number=}` -
                          */
                         "count": {
                             url: urlBase + "/Currencies/count",
@@ -9540,7 +9540,7 @@
                          *
                          * @param {Object} postData Request data.
                          *
-                         *  - `options` – `{object=}` - 
+                         *  - `options` – `{object=}` -
                          *
                          * @param {function(Object,Object)=} successCb
                          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -9554,7 +9554,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `changes` – `{ReadableStream=}` - 
+                         *  - `changes` – `{ReadableStream=}` -
                          */
                         "createChangeStream": {
                             url: urlBase + "/Currencies/change-stream",
@@ -9893,7 +9893,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `exists` – `{boolean=}` - 
+                         *  - `exists` – `{boolean=}` -
                          */
                         "exists": {
                             url: urlBase + "/Settings/:id/exists",
@@ -10088,7 +10088,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `count` – `{number=}` - 
+                         *  - `count` – `{number=}` -
                          */
                         "count": {
                             url: urlBase + "/Settings/count",
@@ -10146,7 +10146,7 @@
                          *
                          * @param {Object} postData Request data.
                          *
-                         *  - `options` – `{object=}` - 
+                         *  - `options` – `{object=}` -
                          *
                          * @param {function(Object,Object)=} successCb
                          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -10160,7 +10160,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `changes` – `{ReadableStream=}` - 
+                         *  - `changes` – `{ReadableStream=}` -
                          */
                         "createChangeStream": {
                             url: urlBase + "/Settings/change-stream",
@@ -10473,7 +10473,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `exists` – `{boolean=}` - 
+                         *  - `exists` – `{boolean=}` -
                          */
                         "exists": {
                             url: urlBase + "/Additions/:id/exists",
@@ -10668,7 +10668,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `count` – `{number=}` - 
+                         *  - `count` – `{number=}` -
                          */
                         "count": {
                             url: urlBase + "/Additions/count",
@@ -10726,7 +10726,7 @@
                          *
                          * @param {Object} postData Request data.
                          *
-                         *  - `options` – `{object=}` - 
+                         *  - `options` – `{object=}` -
                          *
                          * @param {function(Object,Object)=} successCb
                          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -10740,7 +10740,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `changes` – `{ReadableStream=}` - 
+                         *  - `changes` – `{ReadableStream=}` -
                          */
                         "createChangeStream": {
                             url: urlBase + "/Additions/change-stream",
@@ -11136,7 +11136,7 @@
                          *
                          *  - `id` – `{*}` - User id
                          *
-                         *  - `filter` – `{object=}` - 
+                         *  - `filter` – `{object=}` -
                          *
                          * @param {function(Array.<Object>,Object)=} successCb
                          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -11250,7 +11250,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `count` – `{number=}` - 
+                         *  - `count` – `{number=}` -
                          */
                         "prototype$__count__accessTokens": {
                             url: urlBase + "/Buyers/:id/accessTokens/count",
@@ -11393,7 +11393,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `exists` – `{boolean=}` - 
+                         *  - `exists` – `{boolean=}` -
                          */
                         "exists": {
                             url: urlBase + "/Buyers/:id/exists",
@@ -11588,7 +11588,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `count` – `{number=}` - 
+                         *  - `count` – `{number=}` -
                          */
                         "count": {
                             url: urlBase + "/Buyers/count",
@@ -11646,7 +11646,7 @@
                          *
                          * @param {Object} postData Request data.
                          *
-                         *  - `options` – `{object=}` - 
+                         *  - `options` – `{object=}` -
                          *
                          * @param {function(Object,Object)=} successCb
                          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -11660,7 +11660,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `changes` – `{ReadableStream=}` - 
+                         *  - `changes` – `{ReadableStream=}` -
                          */
                         "createChangeStream": {
                             url: urlBase + "/Buyers/change-stream",
@@ -11700,9 +11700,9 @@
                          *
                          * The response body contains properties of the AccessToken created on login.
                          * Depending on the value of `include` parameter, the body may contain additional properties:
-                         * 
+                         *
                          *   - `user` - `{User}` - Data of the currently logged in user. (`include=user`)
-                         * 
+                         *
                          *
                          */
                         "login": {
@@ -11773,11 +11773,11 @@
                          *
                          * @param {Object=} parameters Request parameters.
                          *
-                         *  - `uid` – `{string}` - 
+                         *  - `uid` – `{string}` -
                          *
-                         *  - `token` – `{string}` - 
+                         *  - `token` – `{string}` -
                          *
-                         *  - `redirect` – `{string=}` - 
+                         *  - `redirect` – `{string=}` -
                          *
                          * @param {function(Object,Object)=} successCb
                          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -12316,7 +12316,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `exists` – `{boolean=}` - 
+                         *  - `exists` – `{boolean=}` -
                          */
                         "exists": {
                             url: urlBase + "/Sales/:id/exists",
@@ -12511,7 +12511,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `count` – `{number=}` - 
+                         *  - `count` – `{number=}` -
                          */
                         "count": {
                             url: urlBase + "/Sales/count",
@@ -12569,7 +12569,7 @@
                          *
                          * @param {Object} postData Request data.
                          *
-                         *  - `options` – `{object=}` - 
+                         *  - `options` – `{object=}` -
                          *
                          * @param {function(Object,Object)=} successCb
                          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -12583,7 +12583,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `changes` – `{ReadableStream=}` - 
+                         *  - `changes` – `{ReadableStream=}` -
                          */
                         "createChangeStream": {
                             url: urlBase + "/Sales/change-stream",
@@ -12750,7 +12750,7 @@
                      *
                      *  - `id` – `{*}` - PersistedModel id
                      *
-                     *  - `refresh` – `{boolean=}` - 
+                     *  - `refresh` – `{boolean=}` -
                      *
                      * @param {function(Object,Object)=} successCb
                      *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -12800,7 +12800,7 @@
                      *
                      *  - `id` – `{*}` - PersistedModel id
                      *
-                     *  - `filter` – `{object=}` - 
+                     *  - `filter` – `{object=}` -
                      *
                      * @param {function(Array.<Object>,Object)=} successCb
                      *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -12850,7 +12850,7 @@
                      *
                      * Data properties:
                      *
-                     *  - `count` – `{number=}` - 
+                     *  - `count` – `{number=}` -
                      */
                     R.saleProducts.count = function () {
                         var TargetResource = $injector.get("SaleProduct");
@@ -13101,7 +13101,7 @@
                      *
                      *  - `id` – `{*}` - PersistedModel id
                      *
-                     *  - `filter` – `{object=}` - 
+                     *  - `filter` – `{object=}` -
                      *
                      * @param {function(Array.<Object>,Object)=} successCb
                      *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -13151,7 +13151,7 @@
                      *
                      * Data properties:
                      *
-                     *  - `count` – `{number=}` - 
+                     *  - `count` – `{number=}` -
                      */
                     R.payments.count = function () {
                         var TargetResource = $injector.get("Payment");
@@ -13548,7 +13548,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `exists` – `{boolean=}` - 
+                         *  - `exists` – `{boolean=}` -
                          */
                         "exists": {
                             url: urlBase + "/SaleProducts/:id/exists",
@@ -13743,7 +13743,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `count` – `{number=}` - 
+                         *  - `count` – `{number=}` -
                          */
                         "count": {
                             url: urlBase + "/SaleProducts/count",
@@ -13801,7 +13801,7 @@
                          *
                          * @param {Object} postData Request data.
                          *
-                         *  - `options` – `{object=}` - 
+                         *  - `options` – `{object=}` -
                          *
                          * @param {function(Object,Object)=} successCb
                          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -13815,7 +13815,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `changes` – `{ReadableStream=}` - 
+                         *  - `changes` – `{ReadableStream=}` -
                          */
                         "createChangeStream": {
                             url: urlBase + "/SaleProducts/change-stream",
@@ -14028,7 +14028,7 @@
                      *
                      *  - `id` – `{*}` - PersistedModel id
                      *
-                     *  - `refresh` – `{boolean=}` - 
+                     *  - `refresh` – `{boolean=}` -
                      *
                      * @param {function(Object,Object)=} successCb
                      *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -14215,7 +14215,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `exists` – `{boolean=}` - 
+                         *  - `exists` – `{boolean=}` -
                          */
                         "exists": {
                             url: urlBase + "/Payments/:id/exists",
@@ -14410,7 +14410,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `count` – `{number=}` - 
+                         *  - `count` – `{number=}` -
                          */
                         "count": {
                             url: urlBase + "/Payments/count",
@@ -14468,7 +14468,7 @@
                          *
                          * @param {Object} postData Request data.
                          *
-                         *  - `options` – `{object=}` - 
+                         *  - `options` – `{object=}` -
                          *
                          * @param {function(Object,Object)=} successCb
                          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -14482,7 +14482,7 @@
                          *
                          * Data properties:
                          *
-                         *  - `changes` – `{ReadableStream=}` - 
+                         *  - `changes` – `{ReadableStream=}` -
                          */
                         "createChangeStream": {
                             url: urlBase + "/Payments/change-stream",

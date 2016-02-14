@@ -31,13 +31,13 @@
     "REFINE_YOUR_CLUBS": "Lassen Sie uns Ihre Angebot optimieren",
     "NEED_HELP": "Können wir Ihnen dabei helfen?",
 
-    "ACCOUNTING_DESCRIPTION":"Wir benötigen diese Daten um Ihr Geld auszahlen und Ihre Angebote zu verkaufen. Wir bitten Sie diese Informationen mit Sorgfalt auszufüllen und versichern sorgfältig damit umzugehen.",
+    "ACCOUNTING_DESCRIPTION": "Wir benötigen diese Daten um Ihr Geld auszahlen und Ihre Angebote zu verkaufen. Wir bitten Sie diese Informationen mit Sorgfalt auszufüllen und versichern sorgfältig damit umzugehen.",
 
     "REPORTS_DESCRIPTION": "Wir berichten, was Sie verkauft haben und wo Sie Optimierungen vornehmen können.",
 
     "EDIT_CLUB": "Angebot bearbeiten",
     "MY_CLUBS": "Meine Angebote",
-    "CLUB_DESCRIPTION":"Unsere Verbindung sind Ihre Angebote. Erstellen und Verwalten Sie diese.",
+    "CLUB_DESCRIPTION": "Unsere Verbindung sind Ihre Angebote. Erstellen und Verwalten Sie diese.",
     "DEFAULT_PRICE_CAPACITY_DESCRIPTION": "Preis pro Verkaufseinheit: {{price | currency:'€ '}}, Standardkapazität: {{capacity}} Karten/Tag",
 
     "EDIT_A_CLUB": "Angebot anlegen/bearbeiten",
@@ -88,7 +88,6 @@
     "DETAILS": "Allgemeine Details",
     "PRICING_CAPACITIES": "Preise & Verfügbarkeiten",
     "MEDIA": "Bilder",
-    "OFFERS": "Angebote",
     "WHAT_DO_YOU_OFFER_DESCRIPTION": "Welche Angebote dürfen wir Ihrem Angebot zuordnen? Als Club/Studio: welche Angebote und Einrichtungen sind für den Kunden nutzbar? Als Trainer: welche Arten von Hilfestellung können Sie anbieten?",
     "OPENING_HOURS": "Öffnungszeiten",
     "OPEN_FROM": "Öffnet um",
@@ -200,7 +199,36 @@
     "JUST_ONE_STEP": "Gleich geschafft:",
     "ACCEPT_PRIVACY_POLICY": "Mit dem Klick auf Registrieren akzeptieren Sie unsere Datenschutzbestimmungen. Hier klicken um die Bedingungen anzuzeigen.",
 
-    "SETTINGS_DESCRIPTION": "Dies sind Ihre persönlichen Einstellungen. Sie können hier Ihre E-Mail Adresse, Ihr Kennwort, Ihren Namen und/oder Firmennamen und viele weitere Einstellungen ändern. In Zukunft werden wir noch weitere Optionen zur Verfügung stellen, damit wir uns besser kennenlernen!"
+    "SETTINGS_DESCRIPTION": "Dies sind Ihre persönlichen Einstellungen. Sie können hier Ihre E-Mail Adresse, Ihr Kennwort, Ihren Namen und/oder Firmennamen und viele weitere Einstellungen ändern. In Zukunft werden wir noch weitere Optionen zur Verfügung stellen, damit wir uns besser kennenlernen!",
 
+    "OFFERS": {
+        "OFFERS": "Offers",
+
+        "FREE_PARKING": "Free parking",
+        "SAUNA": "Sauna",
+        "LOCKERS": "Lockers",
+        "POOL": "Pool",
+        "SHOWERS": "Showers",
+        "CARDIO": "Cardio",
+        "GOLF": "Golf",
+        "SWIMMING": "Swimming"
+    },
+
+    "SEARCH": {
+        "SEARCH": "Find",
+
+        "BOX_HEADLINE": "Find activities",
+        "TELL_US_WHAT_YOU_SEARCH_FOR": "Tell us how you wanna be active:",
+        "QUERY": "Where or what are you looking for?",
+        "HIDE_EXTENDED": "Less options",
+        "SHOW_EXTENDED": "More options",
+        "SHOW_EXTENDED_OFFERS": "Show more offers"
+    },
+
+    "LANGUAGES": {
+        "ENGLISH": "English",
+        "FRENCH": "Français",
+        "GERMAN": "Deutsch"
+    }
 
 }

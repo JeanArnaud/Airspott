@@ -1,22 +1,33 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-12 banner"><h1>{{'Willkommen bei Airspott' | translate}}</h1><h2>{{'Tageskarten f&uuml;r Fitness | Crossfit | Golf | Yoga' | translate}}</h2></div>
+        <div class="col-sm-12 banner">
+            <h1>{{'MAIN.WELCOME_HEADLINE' | translate}}
+                <br>
+                <small>{{'MAIN.WELCOME_SUBLINE' | translate}}</small>
+            </h1>
+        </div>
     </div>
 </div>
+
 <div class="container container_float" ng-controller="SearchCtrl">
     <div class="search_box fixed" id="menu-example" data-mfx-fix-at="500" data-mfx-top-position="45">
         <div class="row">
             <form method="POST" ng-submit="search(search_obj)">
                 <div class="col-lg-3 whitespace">
-                    <input name="location" ng-model="search_obj.location" type="text" class="textfield" placeholder="{{'Current location, search bar' | translate}}">
+                    <input name="location" ng-model="search_obj.location" type="text" class="textfield"
+                           placeholder="{{'Current location, search bar' | translate}}">
                 </div>
                 <div class="col-lg-2 whitespace">
                     <table width="100%">
                         <tr>
                             <td>{{'Guest[s]' | translate}}</td>
-                            <td align="right"><img src="images/minus.jpg" alt="" id="minus" ng-click="doMinus(search_obj)" /></td>
-                            <td align="right"><input name="guests" ng-init="search_obj.guests = 1" ng-model="search_obj.guests" type="text" class="textfield_small" /></td>
-                            <td align="right"><img src="images/plus.jpg" alt="" id="plus" ng-click="doPlus(search_obj)" /></td>
+                            <td align="right"><img src="images/minus.jpg" alt="" id="minus"
+                                                   ng-click="doMinus(search_obj)"/></td>
+                            <td align="right"><input name="guests" ng-init="search_obj.guests = 1"
+                                                     ng-model="search_obj.guests" type="text" class="textfield_small"/>
+                            </td>
+                            <td align="right"><img src="images/plus.jpg" alt="" id="plus"
+                                                   ng-click="doPlus(search_obj)"/></td>
                         </tr>
                     </table>
                 </div>
@@ -24,10 +35,14 @@
                     <table width="100%">
                         <tr>
                             <td>
-                                <input name="checkin" ng-model="search_obj.checkin" type="text" class="textfield datepicker" placeholder="{{'Check In Date' | translate}}" datepicker>
+                                <input name="checkin" ng-model="search_obj.checkin" type="text"
+                                       class="textfield datepicker" placeholder="{{'Check In Date' | translate}}"
+                                       datepicker>
                             </td>
                             <td style="border-left:1px solid #8b8787">&nbsp;&nbsp;</td>
-                            <td><input name="checkout" ng-model="search_obj.checkout" type="text" class="textfield datepicker" placeholder="{{'Check Out Date' | translate}}" datepicker></td>
+                            <td><input name="checkout" ng-model="search_obj.checkout" type="text"
+                                       class="textfield datepicker" placeholder="{{'Check Out Date' | translate}}"
+                                       datepicker></td>
                         </tr>
                     </table>
                 </div>
@@ -42,16 +57,21 @@
                             <td class="whitetext">{{'Golf' | translate}}</td>
                         </tr>
                         <tr>
-                            <td><input name="fit_type" type="radio" ng-model="search_obj.fit_type" value="Cross Fit"></td>
+                            <td><input name="fit_type" type="radio" ng-model="search_obj.fit_type" value="Cross Fit">
+                            </td>
                             <td class="whitetext">{{'Cross Fit' | translate}}</td>
                         </tr>
                         <tr>
-                            <td><input name="fit_type" type="radio" ng-model="search_obj.fit_type" value="Personal Trainer"></td>
+                            <td><input name="fit_type" type="radio" ng-model="search_obj.fit_type"
+                                       value="Personal Trainer"></td>
                             <td class="whitetext">{{'Personal Trainer' | translate}}</td>
                         </tr>
                     </table>
                 </div>
-                <div class="col-lg-1 space"><button type="submit">{{'Search' | translate}}</button></div>
+                <div class="col-lg-1 space">
+                    <a class="btn btn-primary" ui-sref="shop.search({query: searchQuery })">
+                        {{'SEARCH' | translate}}</a>
+                </div>
             </form>
         </div>
     </div>
@@ -60,11 +80,11 @@
 <div class="container">
     <div class="row gallery_margin">
         <div class="col-sm-3 gal">
-            <div class="img_text">{{'Best Rated <br>Clubs' | translate}}</div>
+            <div class="img_text">{{'Best Rated Clubs' | translate}}</div>
             <img src="images/img1.jpg" class="img-responsive" alt="">
         </div>
         <div class="col-sm-3 gal">
-            <div class="img_text">{{'Most  Booked' | translate}}</div>
+            <div class="img_text">{{'Most Booked' | translate}}</div>
             <img src="images/img2.jpg" class="img-responsive" alt=""></div>
         <div class="col-sm-3 gal">
             <div class="img_text">{{'VIP Treatment' | translate}}</div>
@@ -75,9 +95,12 @@
     </div>
 
     <div class="row gallery_margin">
-        <div class="col-sm-6 gal"><div class="img_text1"><span>{{'Fitness' | translate}}</span> <br> {{'Exclusive Locations' | translate}}</div>
+        <div class="col-sm-6 gal">
+            <div class="img_text1"><span>{{'Fitness' | translate}}</span> <br> {{'Exclusive Locations' | translate}}
+            </div>
             <img src="images/img6.jpg" class="img-responsive" alt=""></div>
-        <div class="col-sm-6 gal"><div class="img_text1">{{'A Focus on ' | translate}}<br> <span>{{'Golf' | translate}}</span></div>
+        <div class="col-sm-6 gal">
+            <div class="img_text1">{{'A Focus on ' | translate}}<br> <span>{{'Golf' | translate}}</span></div>
             <img src="images/img7.jpg" class="img-responsive" alt=""></div>
     </div>
 </div>
@@ -86,19 +109,19 @@
     <div class="row ">
         <div class="col-sm-3 box1">
             <h3>1</h3>
-            {{'Find a club' | translate}}
+            {{'MAIN.STEPS.FIND_A_CLUB' | translate}}
         </div>
         <div class="col-sm-3 box2">
             <h3>2</h3>
-            {{'Book a spot access' | translate}}
+            {{'MAIN.STEPS.BOOK_A_SPOT' | translate}}
         </div>
         <div class="col-sm-3 box3">
             <h3>3</h3>
-            {{'Enjoy' | translate}}
+            {{'MAIN.STEPS.ENJOY' | translate}}
         </div>
         <div class="col-sm-3 box4">
             <h3>4</h3>
-            {{'Review and Share' | translate}}
+            {{'MAIN.STEPS.SHARE_AND_REVIEW' | translate}}
         </div>
     </div>
 </div>
