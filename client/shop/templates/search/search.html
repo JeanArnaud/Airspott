@@ -49,7 +49,9 @@
                             <label class="control-label">{{'OFFERS' | translate}}</label>
                         </div>
 
-                        <div class="col-xs-6" ng-repeat="offer in offers">
+                        <div class="col-xs-6"
+                             ng-if="$index < 6 || extendedOffers"
+                             ng-repeat="offer in offers">
                             <div class="checkbox">
                                 <label>
                                     <input type="checkbox" ng-false-value="null" ng-model="query.offers[offer.id]">
