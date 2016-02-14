@@ -14,16 +14,24 @@
 
 <div class="container wrapper_content">
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-lg-3 col-sm-4">
             <div class="well well-sm">
 
                 <h4>{{'SEARCH.BOX_HEADLINE' | translate}}<br>
                     <small>{{'SEARCH.TELL_US_WHAT_YOU_SEARCH_FOR' | translate}}</small>
                 </h4>
 
-                <hr>
+                <button class="btn btn-default btn-xs visible-xs" ng-if="!collapsed" ng-click="toggleCollapsed()">
+                    {{'SEARCH.COLLAPSE' | translate}} <i class="fa fa-chevron-up"></i>
+                </button>
 
-                <form>
+                <button class="btn btn-default btn-xs visible-xs" ng-if="collapsed" ng-click="toggleCollapsed()">
+                    {{'SEARCH.UNCOLLAPSE' | translate}} <i class="fa fa-chevron-down"></i>
+                </button>
+
+                <form ng-hide="collapsed">
+                    <hr>
+
                     <section class="form-group">
                         <label class="control-label" for="query">
                             {{'SEARCH.QUERY' | translate}}
@@ -60,7 +68,7 @@
                             </div>
                         </div>
 
-                        <div class="col-xs-6 col-xs-offset-6">
+                        <div class="col-xs-12">
                             <button ng-if="!extendedOffers" class="btn btn-default btn-xs btn-block"
                                     ng-click="toggleExtendedOffers()">
                                 {{'SEARCH.SHOW_EXTENDED_OFFERS' | translate}}
@@ -134,7 +142,7 @@
         </div>
 
 
-        <div class="col-sm-8">
+        <div class="col-lg-9 col-sm-8">
 
             <div class="alert alert-info" ng-if="clubs === undefined">
                 {{'SEARCH.NO_SEARCH_YET' | translate}}
@@ -148,40 +156,43 @@
                 {{'SEARCH.NO_RESULT_FOR_THE_SEARCH' | translate}}
             </div>
 
+            <section class="well">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <img src="images/search_img1.jpg" alt="" class="img-responsive">
+                    </div>
 
-            <div class="row" ng-if="(clubs.count())">
-                <div class="col-sm-12">{{ 'No records found!' | translate}}</div>
-            </div>
-            <div class="row search_result_box" ng-repeat="club in clubs">
-                <div class="col-sm-3 nopadding">
-                    <img src="images/search_img1.jpg" alt="" class="img-responsive">
-                </div>
-                <div class="col-sm-9">
-                    <div class="container-fluid">
+                    <div class="col-sm-9">
                         <div class="row">
-                            <div class="col-sm-12 spaceheight">
-                                <h1>{{club.name}}</h1>
-                                <h2>{{ 'Main Street 1' | translate}}</h2>
+                            <div class="col-sm-12">
+                                <h1>{{club.name}}<br>
+                                    <small>{{ club.address }}</small>
+                                </h1>
                             </div>
+
                             <div class="col-sm-8">
-                                <table border="0" cellspacing="0" cellpadding="0">
-                                    <tr>
-                                        <td><img src="images/rating_drk.jpg" alt="" class="rating_img"></td>
-                                        <td><img src="images/rating_drk.jpg" alt="" class="rating_img"></td>
-                                        <td><img src="images/rating_drk.jpg" alt="" class="rating_img"></td>
-                                        <td><img src="images/rating_drk.jpg" alt="" class="rating_img"></td>
-                                        <td><img src="images/rating_lgt.jpg" alt="" class="rating_img"></td>
-                                    </tr>
-                                </table>
+
+                                {{club.description}}
+
+                                <div>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-half-empty"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </div>
+
                                 <p>{{ 'Rating:' | translate}} 4</p>
                             </div>
                             <div class="col-sm-4">
-                                <h3>$ {{ club.price | number : 2}}</h3>
+                                <!--<h3>{{ club.price | currency}}</h3>-->
+                                <h3>{{ 122.03 | currency}}</h3>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
+
         </div>
     </div>
 </div>

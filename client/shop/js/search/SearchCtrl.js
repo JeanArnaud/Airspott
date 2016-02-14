@@ -8,12 +8,17 @@ angular.module('com.airspott.shop.search').controller('SearchCtrl', [
 
         $scope.extendedSearch = false;
         $scope.extendedOffers = false;
+        $scope.collapsed = false;
 
         $scope.query = {
             freeText: '',
             guestAmount: 1,
             date: new Date(),
             offers: {}
+        };
+
+        $scope.toggleCollapsed = function () {
+            $scope.collapsed = !$scope.collapsed;
         };
 
         $scope.toggleExtendedSearch = function () {

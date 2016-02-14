@@ -201,6 +201,18 @@
 
     "SETTINGS_DESCRIPTION": "Dies sind Ihre persönlichen Einstellungen. Sie können hier Ihre E-Mail Adresse, Ihr Kennwort, Ihren Namen und/oder Firmennamen und viele weitere Einstellungen ändern. In Zukunft werden wir noch weitere Optionen zur Verfügung stellen, damit wir uns besser kennenlernen!",
 
+    "MAIN": {
+        "WELCOME_HEADLINE": "Welcome to Airspott!",
+        "WELCOME_SUBLINE": "Cardio | Fitness | Golf",
+
+        "STEPS": {
+            "FIND_A_CLUB": "Find a club",
+            "BOOK_A_SPOT": "Book a spot",
+            "ENJOY": "Enjoy!",
+            "SHARE_AND_REVIEW": "Share and review"
+        }
+    },
+
     "OFFERS": {
         "OFFERS": "Offers",
 
@@ -222,7 +234,10 @@
         "QUERY": "Where or what are you looking for?",
         "HIDE_EXTENDED": "Less options",
         "SHOW_EXTENDED": "More options",
-        "SHOW_EXTENDED_OFFERS": "Show more offers"
+        "SHOW_EXTENDED_OFFERS": "Show all offers",
+
+        "COLLAPSE": "Collapse",
+        "UNCOLLAPSE": "Uncollapse"
     },
 
     "LANGUAGES": {
