@@ -1,10 +1,11 @@
 angular.module('com.airspott.shop.search').controller('SearchCtrl', [
-    "$rootScope", "$scope", "$state", "$log", "Club", "Offer",
-    function ($rootScope, $scope, $state, $log, Club, Offer) {
+    "$rootScope", "$scope", "$state", "$log", "Club", "Offer", "Currency",
+    function ($rootScope, $scope, $state, $log, Club, Offer, Currency) {
 
         $rootScope.meta.title = "SEARCH";
 
         $scope.offers = Offer.find();
+        $scope.currencies = Currency.find();
 
         $scope.extendedSearch = false;
         $scope.extendedOffers = false;
@@ -29,11 +30,30 @@ angular.module('com.airspott.shop.search').controller('SearchCtrl', [
             $scope.extendedOffers = !$scope.extendedOffers;
         };
 
+        $scope.instantAddToCart = function (offerId) {
+
+            alert(offerId);
+
+        };
+
         $scope.search = function () {
 
-            $scope.clubs = Club.find();
+            $scope.clubs = Club.find({
+                filter: {
+                    include: ['address', 'baseCurrency', {
+                        relation: 'media',
+                        scope: {
+                            order: 'order ASC'
+                            // TODO: ,  limit: 1
+                        }
+                    }
+                    ]
+                }
+            }, function (clubs) {
+                $log.log(clubs);
+            });
 
-            $log.log($scope.clubs);
+
 
 
             //Club.find({

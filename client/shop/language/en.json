@@ -201,6 +201,10 @@
 
     "SETTINGS_DESCRIPTION": "Dies sind Ihre persönlichen Einstellungen. Sie können hier Ihre E-Mail Adresse, Ihr Kennwort, Ihren Namen und/oder Firmennamen und viele weitere Einstellungen ändern. In Zukunft werden wir noch weitere Optionen zur Verfügung stellen, damit wir uns besser kennenlernen!",
 
+    "GENERIC": {
+        "ADDRESS_FORMAT": "{{address.address}}, {{address.zip}} {{address.country | translate}}"
+    },
+
     "MAIN": {
         "WELCOME_HEADLINE": "Welcome to Airspott!",
         "WELCOME_SUBLINE": "Cardio | Fitness | Golf",
@@ -223,7 +227,10 @@
         "SHOWERS": "Showers",
         "CARDIO": "Cardio",
         "GOLF": "Golf",
-        "SWIMMING": "Swimming"
+        "SWIMMING": "Swimming",
+        "FITNESS": "Fitness",
+        "CROSSFIT": "Crossfit",
+        "YOGA": "Yoga"
     },
 
     "SEARCH": {
