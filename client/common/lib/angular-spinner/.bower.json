@@ -17,15 +17,14 @@
     "type": "git",
     "url": "git://github.com/urish/angular-spinner.git"
   },
-  "version": "0.8.0",
-  "_release": "0.8.0",
+  "version": "0.8.1",
+  "_release": "0.8.1",
   "_resolution": {
     "type": "version",
-    "tag": "0.8.0",
-    "commit": "d2e36c571a0c051c4f80f436bb15547d51e3c89b"
+    "tag": "0.8.1",
+    "commit": "6cbf56991eb21756597ca675bbde804db136cbb5"
   },
   "_source": "git://github.com/urish/angular-spinner.git",
   "_target": "~0.8.0",
-  "_originalSource": "angular-spinner",
-  "_direct": true
+  "_originalSource": "angular-spinner"
 }

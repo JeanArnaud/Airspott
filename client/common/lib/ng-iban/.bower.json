@@ -37,6 +37,5 @@
   },
   "_source": "git://github.com/mmjmanders/ng-iban.git",
   "_target": "~0.4.0",
-  "_originalSource": "ng-iban",
-  "_direct": true
+  "_originalSource": "ng-iban"
 }
