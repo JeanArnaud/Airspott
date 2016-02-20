@@ -36,7 +36,8 @@ module.exports = function (Club) {
             returns: {arg: 'clubs', type: 'array', root: true},
             http: {
                 verb: "GET"
-            }
+            },
+            description: "Query clubs for bookable resources"
         }
     );
 
