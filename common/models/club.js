@@ -1,5 +1,14 @@
 module.exports = function (Club) {
 
+    /**
+     * Query clubs for bookable resources and return prepared Club instances
+     *
+     * @param {String} query param (looking up locations and club names)
+     * @param {Number} [amount=1]
+     * @param {Date} [date]
+     * @param {Array} [offers]
+     * @param {Function} cb
+     */
     Club.search = function (query, amount, date, offers, cb) {
         query = (function (query) {
             query = query.replace(/ /g, '(.*)');
