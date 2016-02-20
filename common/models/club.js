@@ -1,12 +1,16 @@
 module.exports = function (Club) {
 
     Club.search = function (query, amount, date, offers, cb) {
-        query = new RegExp('.*' + query + '.*', "i");
+        query = (function (query) {
+            query = query.replace(/ /g, '(.*)');
+            query = '.*' + query + '.*';
+
+            return new RegExp(query, "i");
+        })(query);
+
         amount = amount || 1;
         date = date || new Date();
         offers = offers || [];
-
-        console.log(arguments);
 
         var whereFilter = {
             //or: {name: {like: query}}

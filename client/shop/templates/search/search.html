@@ -38,7 +38,7 @@
                         </label>
 
                         <div class="input-group">
-                            <input type="text" ng-model="query.freeText" class="form-control" id="query"
+                            <input type="text" ng-model="query.query" class="form-control" id="query"
                                    placeholder="{{'SEARCH.QUERY' | translate}}"/>
 
                             <div class="input-group-btn">
@@ -87,7 +87,8 @@
                             <i class="fa fa-chevron-down"></i>
                         </button>
 
-                        <button ng-if="extendedSearch" class="btn btn-link btn-block" ng-click="toggle('extendedSearch')">
+                        <button ng-if="extendedSearch" class="btn btn-link btn-block"
+                                ng-click="toggle('extendedSearch')">
                             {{'SEARCH.HIDE_EXTENDED' | translate}}
 
                             <i class="fa fa-chevron-up"></i>
@@ -100,21 +101,21 @@
                         <hr>
 
                         <section class="form-group">
-                            <label for="guestAmount">{{'GUESTS' | translate}}</label>
+                            <label for="amount">{{'GUESTS' | translate}}</label>
 
                             <div class="input-group">
                                 <div class="input-group-btn">
-                                    <button class="btn btn-default" ng-click="decrementObjKey('query', 'guestAmount')">
+                                    <button class="btn btn-default" ng-click="decrementObjKey('query', 'amount')">
                                         <i class="fa fa-minus"></i>
                                     </button>
                                 </div>
 
-                                <input type="number" ng-model="query.guestAmount" class="form-control text-center"
-                                       id="guestAmount"
+                                <input type="number" ng-model="query.amount" class="form-control text-center"
+                                       id="amount"
                                        placeholder="{{'SEARCH.GUEST_AMOUNT' | translate}}"/>
 
                                 <div class="input-group-btn">
-                                    <button class="btn btn-default" ng-click="incrementObjKey('query', 'guestAmount')">
+                                    <button class="btn btn-default" ng-click="incrementObjKey('query', 'amount')">
                                         <i class="fa fa-plus"></i>
                                     </button>
                                 </div>
@@ -156,8 +157,13 @@
                 {{'SEARCH.NO_RESULT_FOR_THE_SEARCH' | translate}}
             </div>
 
+            <div class="alert alert-danger" ng-if="searchError">
+                {{'SEARCH.ERROR' | translate:{err:searchError} }}
+            </div>
+
             <section class="well cursor-pointer" style="cursor:pointer"
                      ng-repeat="club in clubs"
+                     ng-if="!searchError"
                      ui-sref="shop.productDetails({productId:club.id})">
 
                 <div class="row">
@@ -178,7 +184,8 @@
                     <div class="col-sm-2 text-right">
                         <h4>{{ club.price | currency:club.currency:2}}</h4>
 
-                        <button class="btn btn-primary" ng-click="instantAddToCart(club.id)">{{'BUY' | translate}}</button>
+                        <button class="btn btn-primary" ng-click="instantAddToCart(club.id)">{{'BUY' | translate}}
+                        </button>
                     </div>
 
                 </div>

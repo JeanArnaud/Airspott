@@ -6,8 +6,8 @@ angular.module('com.airspott.shop.main')
             $rootScope.meta.title = "WELCOME";
 
             $scope.searchQuery = {
-                freeText: "",
-                guestAmount: 1,
+                query: '',
+                amount: 1,
                 date: new Date(),
                 offers: {}
             };

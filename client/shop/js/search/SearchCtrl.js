@@ -12,8 +12,8 @@ angular.module('com.airspott.shop.search').controller('SearchCtrl', [
         $scope.collapsed = false;
 
         $scope.query = {
-            freeText: '',
-            guestAmount: 1,
+            query: '',
+            amount: 1,
             date: new Date(),
             offers: {}
         };
@@ -27,44 +27,11 @@ angular.module('com.airspott.shop.search').controller('SearchCtrl', [
         };
 
         $scope.search = function () {
+            $scope.clubs = Club.search($scope.query);
 
-            $scope.clubs = Club.find({
-                filter: {
-                    include: ['address', 'baseCurrency', {
-                        relation: 'media',
-                        scope: {
-                            order: 'order ASC'
-                            // TODO: ,  limit: 1
-                        }
-                    }
-                    ]
-                }
-            }, function (clubs) {
-                $log.log(clubs);
+            $scope.clubs.$promise.catch(function (err) {
+                $scope.searchError = err;
             });
-
-
-            //Club.find({
-            //    where: {
-            //        and: [
-            //            {location: $scope.query.freeText},
-            //            {guestAmount: $scope.query.guestAmount},
-            //            {date: $scope.query.date},
-            //            {offers: $scope.query.offers}
-            //        ]
-            //    }
-            //}, function (clubs) {
-            //
-            //
-            //
-            //    //$rootScope.clubs = clubs;
-            //    //$rootScope.obj = search_obj;
-            //    //$state.go('shop.search');
-            //}, function (err) {
-            //    throw err; // do whatever necessary with the error object
-            //});
-
-
         };
 
         $scope.incrementObjKey = function (obj, key) {
