@@ -1,0 +1,46 @@
+/**
+ * Bootstrap
+ */
+@import "../common/lib/bootstrap/scss/bootstrap";
+
+/**
+ * Font Awesome
+ */
+$fa-font-path: "../common/lib/font-awesome/fonts" !default;
+@import "../common/lib/font-awesome/scss/font-awesome";
+
+body {
+  background: $gray-lighter;
+}
+
+.padding {
+  padding: 1rem;
+
+  .padding-lg-top {
+    padding-top: 5rem;
+  }
+}
+
+.margin {
+  .margin-sm-bottom {
+    margin-bottom: 2rem;
+  }
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.success-header {
+  @extend .h1;
+
+  text-align: center;
+
+  i {
+    color: $brand-success;
+
+    font-size: 15rem;
+
+    display: block;
+  }
+}

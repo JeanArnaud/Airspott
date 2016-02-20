@@ -22,7 +22,7 @@ nav ul, nav ul ul {
 	}
 nav ul a {
 	display: block;
-	text-decoration: none; background:url(../images/menu_arrow.png) no-repeat right 19px; margin:0 5px; padding:15px 15px !important;
+	text-decoration: none; background:url(../img/menu_arrow.png) no-repeat right 19px; margin:0 5px; padding:15px 15px !important;
 	}
 nav ul a:hover, a:focus {text-decoration: none; color:#b8b8b8}
 /* all list items */
@@ -125,7 +125,7 @@ nav ul li {
 
 nav ul li:hover{
 	color: #666;
-	background: none; 
+	background: none;
 	}
 nav ul li ul a{
 	border-bottom:1px solid #848484;
@@ -227,7 +227,7 @@ nav ul li ul {
 		background: none;
 		}
 	.menubtn{
-		background: #333 url('../images/menuicon.png')  no-repeat right top;
+		background: #333 url('../img/menuicon.png')  no-repeat right top;
 		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
  		filter: alpha(opacity=60);
  		-khtml-opacity: 0.6;
