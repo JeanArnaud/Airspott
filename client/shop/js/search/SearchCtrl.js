@@ -18,22 +18,12 @@ angular.module('com.airspott.shop.search').controller('SearchCtrl', [
             offers: {}
         };
 
-        $scope.toggleCollapsed = function () {
-            $scope.collapsed = !$scope.collapsed;
-        };
-
-        $scope.toggleExtendedSearch = function () {
-            $scope.extendedSearch = !$scope.extendedSearch;
-        };
-
-        $scope.toggleExtendedOffers = function () {
-            $scope.extendedOffers = !$scope.extendedOffers;
+        $scope.toggle = function (scopeVar) {
+            $scope[scopeVar] = !$scope[scopeVar];
         };
 
         $scope.instantAddToCart = function (offerId) {
-
             alert(offerId);
-
         };
 
         $scope.search = function () {
@@ -52,8 +42,6 @@ angular.module('com.airspott.shop.search').controller('SearchCtrl', [
             }, function (clubs) {
                 $log.log(clubs);
             });
-
-
 
 
             //Club.find({
