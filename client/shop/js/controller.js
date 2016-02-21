@@ -1,47 +1,42 @@
-angular.module("com.airspott.shop").controller("ShopAppCtrl", ["$rootScope", '$scope', '$state', '$log', 'Buyer', 'Club',
-  function ($rootScope, $scope, $state, $log, Buyer, Club) {
+angular.module("com.airspott.shop").controller("ShopAppCtrl", ["$rootScope", '$scope', '$state', '$log', '$translate', 'Buyer', 'Club',
+    function ($rootScope, $scope, $state, $log, $translate, Buyer, Club) {
 
-    $rootScope.countries = ['AT', 'DE', 'CH'];
-    $rootScope.saleUnits = ['DAYS', 'HOURS'];
-    $rootScope.languages = ['DE', 'EN'];
-    $scope.search_obj = {};
+        $rootScope.countries = ['AT', 'DE', 'CH'];
+        $rootScope.saleUnits = ['DAYS', 'HOURS'];
+        $rootScope.languages = ['DE', 'EN'];
+        $scope.search_obj = {};
 
-    $rootScope.meta = {
-      title: 'APP_NAME'
-    };
+        $rootScope.meta = {
+            title: 'APP_NAME'
+        };
 
-    /*if (!Buyer.isAuthenticated()) {
-     $rootScope.user = Buyer.getCurrent(function (user) {
+        $scope.changeLanguage = function (lang) {
+            alert(lang);
+            $translate.use(lang);
+        };
 
-     }, function (err) {
+        /*if (!Buyer.isAuthenticated()) {
+         $rootScope.user = Buyer.getCurrent(function (user) {
 
-     });
+         }, function (err) {
 
-     return;
-     }*/
+         });
 
-    $rootScope.meta = {
-      title: 'APP_NAME'
-    };
+         return;
+         }*/
 
-    $scope.logout = function () {
-      Buyer.logout(function () {
-        $state.go('shop.logout');
-      });
-    };
+        $rootScope.meta = {
+            title: 'APP_NAME'
+        };
 
-    $scope.transitTo = function (state, params) {
-      $state.go(state, params);
-    };
+        $scope.logout = function () {
+            Buyer.logout(function () {
+                $state.go('shop.logout');
+            });
+        };
 
-    /*$scope.search = function(obj){
+        $scope.transitTo = function (state, params) {
+            $state.go(state, params);
+        };
 
-     Club.find({where: {and: [{location: obj.location}, {guests: obj.guests}, {checkin: obj.checkin}, {checkout: obj.checkout}, {fit_type: obj.fit_type}]}},
-     function (clubs, err) {
-     $state.get('shop.search').data = JSON.stringify(clubs);
-     $state.get('shop.search').search_obj = JSON.stringify(obj);
-     $state.go('shop.search');
-     });
-     }*/
-
-  }]);
+    }]);

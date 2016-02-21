@@ -1,0 +1,18 @@
+.well {
+    border-radius: 0;
+
+    &.well-dark-transparent {
+        background: rgba(red($header_background), green($header_background), blue($header_background), $header_opacity);
+        color: #fff;
+        border: none;
+
+        hr {
+            opacity: $header_opacity;
+        }
+    }
+
+    .well-header {
+        margin-bottom: 10px;
+        font-size: $font-size-base*1.1;
+    }
+}

@@ -1,55 +1,55 @@
 {
-    "initial:before": {
-        "loopback#favicon": {
-            "params": "client/common/img/favicon.png"
-        }
-    },
-    "initial": {
-        "compression": {},
-        "cors": {
-            "params": {
-                "origin": true,
-                "credentials": true,
-                "maxAge": 86400
-            }
-        }
-    },
-    "session": {},
-    "auth": {},
-    "parse": {},
-    "routes": {
-        "loopback#rest": {
-            "paths": [
-                "${restApiRoot}"
-            ]
-        }
-    },
-    "files": {
-        "loopback#static": [
-            {
-                "paths": [
-                    "/"
-                ],
-                "params": "$!../client/shop"
-            },
-            {
-                "paths": [
-                    "/club"
-                ],
-                "params": "$!../client/club"
-            },
-            {
-                "paths": [
-                    "/common"
-                ],
-                "params": "$!../client/common"
-            }
-        ]
-    },
-    "final": {
-        "loopback#urlNotFound": {}
-    },
-    "final:after": {
-        "loopback#errorHandler": {}
+  "initial:before": {
+    "loopback#favicon": {
+      "params": "client/common/img/favicon.png"
     }
+  },
+  "initial": {
+    "compression": {},
+    "cors": {
+      "params": {
+        "origin": true,
+        "credentials": true,
+        "maxAge": 86400
+      }
+    }
+  },
+  "session": {},
+  "auth": {},
+  "parse": {},
+  "routes": {
+    "loopback#rest": {
+      "paths": [
+        "${restApiRoot}"
+      ]
+    }
+  },
+  "files": {
+    "loopback#static": [
+      {
+        "paths": [
+          "/"
+        ],
+        "params": "$!../client/shop"
+      },
+      {
+        "paths": [
+          "/club"
+        ],
+        "params": "$!../client/club"
+      },
+      {
+        "paths": [
+          "/common"
+        ],
+        "params": "$!../client/common"
+      }
+    ]
+  },
+  "final": {
+    "loopback#urlNotFound": {}
+  },
+  "final:after": {
+    "loopback#errorHandler": {}
+  }
 }

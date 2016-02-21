@@ -1,0 +1,29 @@
+{
+    "name": "Content",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
+    },
+    "properties": {
+        "timestamp": {
+            "type": "date",
+            "defaultFn": "now"
+        }
+    },
+    "validations": [],
+    "relations": {
+        "title": {
+            "type": "embedsOne",
+            "model": "Translatable",
+            "foreignKey": ""
+        },
+        "content": {
+            "type": "embedsOne",
+            "model": "Translatable",
+            "foreignKey": ""
+        }
+    },
+    "acls": [],
+    "methods": {}
+}

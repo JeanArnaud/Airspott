@@ -30,12 +30,13 @@
                         </ul>
                     </li>
 
-                    <li><a href="#" title="{{'LANGUAGES.GERMAN' | translate}}">{{'LANGUAGES.GERMAN' | translate}}</a>
+                    <li>
+                        <a>{{'LANGUAGES.LANGUAGE' | translate}}</a>
+
                         <ul>
-                            <li><a href="#" title="{{'LANGUAGES.ENGLISH'| translate}}">{{'LANGUAGES.ENGLISH'|
-                                translate}}</a></li>
-                            <li><a href="#" title="{{'LANGUAGES.FRENCH'| translate}}">{{'LANGUAGES.FRENCH'|
-                                translate}}</a></li>
+                            <li><a ng-click="changeLanguage('de')" title="{{'LANGUAGES.GERMAN'| translate}}">{{'LANGUAGES.GERMAN'| translate}}</a></li>
+                            <li><a ng-click="changeLanguage('en')" title="{{'LANGUAGES.ENGLISH'| translate}}">{{'LANGUAGES.ENGLISH'| translate}}</a></li>
+                            <li><a ng-click="changeLanguage('fr')" title="{{'LANGUAGES.FRENCH'| translate}}">{{'LANGUAGES.FRENCH'| translate}}</a></li>
                         </ul>
                     </li>
 

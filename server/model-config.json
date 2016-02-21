@@ -105,5 +105,13 @@
   "Payment": {
     "dataSource": "db",
     "public": true
+  },
+  "Content": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Translatable": {
+    "dataSource": "db",
+    "public": true
   }
 }

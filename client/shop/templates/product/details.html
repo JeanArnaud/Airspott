@@ -1,1 +1,72 @@
-Product details
+<section class="product">
+    <header
+        ng-style="{'background-image':'url('+ (product.media.length ? product.media[0].media : 'img/NO_IMAGE.svg') +')'}">
+
+        <div class="container">
+
+            <h1 class="text-bottom">{{product.name}}</h1>
+
+            <div class="row">
+                <div class="col-sm-offset-8 col-sm-4">
+                    <div class="well well-sm well-dark-transparent">
+                        <div class="well-header row">
+                            <div class="col-xs-6"><strong>{{'GET_IT_NOW' | translate: {product: product} }}</strong>
+                            </div>
+                            <div class="col-xs-6 text-right"><strong>{{product.price | currency:'€ '}}</strong></div>
+                        </div>
+
+                        <form>
+                            <div class="row form-group">
+                                <div class=" col-sm-6">
+                                    <label for="amount">{{'GUEST_AMOUNT' | translate}}</label>
+                                    <input type="number" id="amount" name="amount"
+                                           placeholder="{{'GUEST_AMOUNT' | translate}}" class="form-control">
+                                </div>
+
+                                <div class=" col-sm-6">
+                                    <label for="date">{{'DATE' | translate}}</label>
+                                    <input type="date" id="date" name="date" placeholder="{{'DATE' | translate}}"
+                                           class="form-control">
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <button class="btn btn-primary btn-block">{{'BUY_NOW' | translate}}</button>
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="well well-sm">
+                    <h4>{{'DESCRIPTION' | translate}}</h4>
+
+                    <p ng-bind-html="product.description"></p>
+                </div>
+            </div>
+
+            <div class="col-xs-6">
+                <div class="well well-sm">
+                    <h4>{{'ADDRESS' | translate}}</h4>
+
+                    <p>{{'ADDRESS_SHORT' |translate: product.address }}</p>
+                </div>
+            </div>
+
+            <div class="col-xs-6">
+                <div class="well well-sm">
+                    <h4>{{'OPENING_HOURS' | translate}}</h4>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+</section>

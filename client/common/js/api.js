@@ -47,6 +47,33 @@ module.factory(
       { 'id': '@id' },
       {
 
+        // INTERNAL. Use Club.ratings.findById() instead.
+        "prototype$__findById__ratings": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/Clubs/:id/ratings/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Club.ratings.destroyById() instead.
+        "prototype$__destroyById__ratings": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/Clubs/:id/ratings/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Club.ratings.updateById() instead.
+        "prototype$__updateById__ratings": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/Clubs/:id/ratings/:fk",
+          method: "PUT"
+        },
+
         // INTERNAL. Use Club.address() instead.
         "prototype$__get__address": {
           url: urlBase + "/Clubs/:id/address",
@@ -213,6 +240,31 @@ module.factory(
           },
           url: urlBase + "/Clubs/:id/additions/:fk",
           method: "PUT"
+        },
+
+        // INTERNAL. Use Club.ratings() instead.
+        "prototype$__get__ratings": {
+          isArray: true,
+          url: urlBase + "/Clubs/:id/ratings",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Club.ratings.create() instead.
+        "prototype$__create__ratings": {
+          url: urlBase + "/Clubs/:id/ratings",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Club.ratings.destroyAll() instead.
+        "prototype$__delete__ratings": {
+          url: urlBase + "/Clubs/:id/ratings",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Club.ratings.count() instead.
+        "prototype$__count__ratings": {
+          url: urlBase + "/Clubs/:id/ratings/count",
+          method: "GET"
         },
 
         // INTERNAL. Use Club.media() instead.
@@ -744,9 +796,7 @@ module.factory(
          *
          * @description
          *
-         * <em>
-         * (The remote method definition does not provide any description.)
-         * </em>
+         * Query clubs for bookable resources
          *
          * @param {Object=} parameters Request parameters.
          *
@@ -985,6 +1035,307 @@ module.factory(
     */
     R.modelName = "Club";
 
+    /**
+     * @ngdoc object
+     * @name com.airspott.api.Club.ratings
+     * @header com.airspott.api.Club.ratings
+     * @object
+     * @description
+     *
+     * The object `Club.ratings` groups methods
+     * manipulating `Rating` instances related to `Club`.
+     *
+     * Call {@link com.airspott.api.Club#ratings Club.ratings()}
+     * to query all related instances.
+     */
+
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Club#ratings
+         * @methodOf com.airspott.api.Club
+         *
+         * @description
+         *
+         * Queries ratings of Club.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `filter` – `{object=}` - 
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Rating` object.)
+         * </em>
+         */
+        R.ratings = function() {
+          var TargetResource = $injector.get("Rating");
+          var action = TargetResource["::get::Club::ratings"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Club.ratings#count
+         * @methodOf com.airspott.api.Club.ratings
+         *
+         * @description
+         *
+         * Counts ratings of Club.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `count` – `{number=}` - 
+         */
+        R.ratings.count = function() {
+          var TargetResource = $injector.get("Rating");
+          var action = TargetResource["::count::Club::ratings"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Club.ratings#create
+         * @methodOf com.airspott.api.Club.ratings
+         *
+         * @description
+         *
+         * Creates a new instance in ratings of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Rating` object.)
+         * </em>
+         */
+        R.ratings.create = function() {
+          var TargetResource = $injector.get("Rating");
+          var action = TargetResource["::create::Club::ratings"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Club.ratings#createMany
+         * @methodOf com.airspott.api.Club.ratings
+         *
+         * @description
+         *
+         * Creates a new instance in ratings of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Rating` object.)
+         * </em>
+         */
+        R.ratings.createMany = function() {
+          var TargetResource = $injector.get("Rating");
+          var action = TargetResource["::createMany::Club::ratings"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Club.ratings#destroyAll
+         * @methodOf com.airspott.api.Club.ratings
+         *
+         * @description
+         *
+         * Deletes all ratings of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.ratings.destroyAll = function() {
+          var TargetResource = $injector.get("Rating");
+          var action = TargetResource["::delete::Club::ratings"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Club.ratings#destroyById
+         * @methodOf com.airspott.api.Club.ratings
+         *
+         * @description
+         *
+         * Delete a related item by id for ratings.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for ratings
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.ratings.destroyById = function() {
+          var TargetResource = $injector.get("Rating");
+          var action = TargetResource["::destroyById::Club::ratings"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Club.ratings#findById
+         * @methodOf com.airspott.api.Club.ratings
+         *
+         * @description
+         *
+         * Find a related item by id for ratings.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for ratings
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Rating` object.)
+         * </em>
+         */
+        R.ratings.findById = function() {
+          var TargetResource = $injector.get("Rating");
+          var action = TargetResource["::findById::Club::ratings"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Club.ratings#updateById
+         * @methodOf com.airspott.api.Club.ratings
+         *
+         * @description
+         *
+         * Update a related item by id for ratings.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for ratings
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Rating` object.)
+         * </em>
+         */
+        R.ratings.updateById = function() {
+          var TargetResource = $injector.get("Rating");
+          var action = TargetResource["::updateById::Club::ratings"];
+          return action.apply(R, arguments);
+        };
     /**
      * @ngdoc object
      * @name com.airspott.api.Club.address
@@ -3734,6 +4085,65 @@ module.factory(
         "createChangeStream": {
           url: urlBase + "/Ratings/change-stream",
           method: "POST"
+        },
+
+        // INTERNAL. Use Club.ratings.findById() instead.
+        "::findById::Club::ratings": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/Clubs/:id/ratings/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Club.ratings.destroyById() instead.
+        "::destroyById::Club::ratings": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/Clubs/:id/ratings/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Club.ratings.updateById() instead.
+        "::updateById::Club::ratings": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/Clubs/:id/ratings/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Club.ratings() instead.
+        "::get::Club::ratings": {
+          isArray: true,
+          url: urlBase + "/Clubs/:id/ratings",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Club.ratings.create() instead.
+        "::create::Club::ratings": {
+          url: urlBase + "/Clubs/:id/ratings",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Club.ratings.createMany() instead.
+        "::createMany::Club::ratings": {
+          isArray: true,
+          url: urlBase + "/Clubs/:id/ratings",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Club.ratings.destroyAll() instead.
+        "::delete::Club::ratings": {
+          url: urlBase + "/Clubs/:id/ratings",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Club.ratings.count() instead.
+        "::count::Club::ratings": {
+          url: urlBase + "/Clubs/:id/ratings/count",
+          method: "GET"
         },
       }
     );
@@ -15091,6 +15501,1690 @@ module.factory(
     * i.e. `Payment`.
     */
     R.modelName = "Payment";
+
+
+    return R;
+  }]);
+
+/**
+ * @ngdoc object
+ * @name com.airspott.api.Content
+ * @header com.airspott.api.Content
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `Content` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+module.factory(
+  "Content",
+  ['LoopBackResource', 'LoopBackAuth', '$injector', function(Resource, LoopBackAuth, $injector) {
+    var R = Resource(
+      urlBase + "/Contents/:id",
+      { 'id': '@id' },
+      {
+
+        // INTERNAL. Use Content.title() instead.
+        "prototype$__get__title": {
+          url: urlBase + "/Contents/:id/title",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Content.title.create() instead.
+        "prototype$__create__title": {
+          url: urlBase + "/Contents/:id/title",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Content.title.update() instead.
+        "prototype$__update__title": {
+          url: urlBase + "/Contents/:id/title",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Content.title.destroy() instead.
+        "prototype$__destroy__title": {
+          url: urlBase + "/Contents/:id/title",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Content.content() instead.
+        "prototype$__get__content": {
+          url: urlBase + "/Contents/:id/content",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Content.content.create() instead.
+        "prototype$__create__content": {
+          url: urlBase + "/Contents/:id/content",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Content.content.update() instead.
+        "prototype$__update__content": {
+          url: urlBase + "/Contents/:id/content",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Content.content.destroy() instead.
+        "prototype$__destroy__content": {
+          url: urlBase + "/Contents/:id/content",
+          method: "DELETE"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Content#create
+         * @methodOf com.airspott.api.Content
+         *
+         * @description
+         *
+         * Create a new instance of the model and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Content` object.)
+         * </em>
+         */
+        "create": {
+          url: urlBase + "/Contents",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Content#createMany
+         * @methodOf com.airspott.api.Content
+         *
+         * @description
+         *
+         * Create a new instance of the model and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Content` object.)
+         * </em>
+         */
+        "createMany": {
+          isArray: true,
+          url: urlBase + "/Contents",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Content#upsert
+         * @methodOf com.airspott.api.Content
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Content` object.)
+         * </em>
+         */
+        "upsert": {
+          url: urlBase + "/Contents",
+          method: "PUT"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Content#exists
+         * @methodOf com.airspott.api.Content
+         *
+         * @description
+         *
+         * Check whether a model instance exists in the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `exists` – `{boolean=}` - 
+         */
+        "exists": {
+          url: urlBase + "/Contents/:id/exists",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Content#findById
+         * @methodOf com.airspott.api.Content
+         *
+         * @description
+         *
+         * Find a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         *  - `filter` – `{object=}` - Filter defining fields and include
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Content` object.)
+         * </em>
+         */
+        "findById": {
+          url: urlBase + "/Contents/:id",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Content#find
+         * @methodOf com.airspott.api.Content
+         *
+         * @description
+         *
+         * Find all instances of the model matched by filter from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Content` object.)
+         * </em>
+         */
+        "find": {
+          isArray: true,
+          url: urlBase + "/Contents",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Content#findOne
+         * @methodOf com.airspott.api.Content
+         *
+         * @description
+         *
+         * Find first instance of the model matched by filter from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Content` object.)
+         * </em>
+         */
+        "findOne": {
+          url: urlBase + "/Contents/findOne",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Content#updateAll
+         * @methodOf com.airspott.api.Content
+         *
+         * @description
+         *
+         * Update instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * The number of instances updated
+         */
+        "updateAll": {
+          url: urlBase + "/Contents/update",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Content#deleteById
+         * @methodOf com.airspott.api.Content
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Content` object.)
+         * </em>
+         */
+        "deleteById": {
+          url: urlBase + "/Contents/:id",
+          method: "DELETE"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Content#count
+         * @methodOf com.airspott.api.Content
+         *
+         * @description
+         *
+         * Count instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `count` – `{number=}` - 
+         */
+        "count": {
+          url: urlBase + "/Contents/count",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Content#prototype$updateAttributes
+         * @methodOf com.airspott.api.Content
+         *
+         * @description
+         *
+         * Update attributes for a model instance and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Content` object.)
+         * </em>
+         */
+        "prototype$updateAttributes": {
+          url: urlBase + "/Contents/:id",
+          method: "PUT"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Content#createChangeStream
+         * @methodOf com.airspott.api.Content
+         *
+         * @description
+         *
+         * Create a change stream.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         *  - `options` – `{object=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `changes` – `{ReadableStream=}` - 
+         */
+        "createChangeStream": {
+          url: urlBase + "/Contents/change-stream",
+          method: "POST"
+        },
+      }
+    );
+
+
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Content#updateOrCreate
+         * @methodOf com.airspott.api.Content
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Content` object.)
+         * </em>
+         */
+        R["updateOrCreate"] = R["upsert"];
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Content#update
+         * @methodOf com.airspott.api.Content
+         *
+         * @description
+         *
+         * Update instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * The number of instances updated
+         */
+        R["update"] = R["updateAll"];
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Content#destroyById
+         * @methodOf com.airspott.api.Content
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Content` object.)
+         * </em>
+         */
+        R["destroyById"] = R["deleteById"];
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Content#removeById
+         * @methodOf com.airspott.api.Content
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Content` object.)
+         * </em>
+         */
+        R["removeById"] = R["deleteById"];
+
+
+    /**
+    * @ngdoc property
+    * @name com.airspott.api.Content#modelName
+    * @propertyOf com.airspott.api.Content
+    * @description
+    * The name of the model represented by this $resource,
+    * i.e. `Content`.
+    */
+    R.modelName = "Content";
+
+    /**
+     * @ngdoc object
+     * @name com.airspott.api.Content.title
+     * @header com.airspott.api.Content.title
+     * @object
+     * @description
+     *
+     * The object `Content.title` groups methods
+     * manipulating `Translatable` instances related to `Content`.
+     *
+     * Call {@link com.airspott.api.Content#title Content.title()}
+     * to query all related instances.
+     */
+
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Content#title
+         * @methodOf com.airspott.api.Content
+         *
+         * @description
+         *
+         * Fetches hasOne relation title.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `refresh` – `{boolean=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Translatable` object.)
+         * </em>
+         */
+        R.title = function() {
+          var TargetResource = $injector.get("Translatable");
+          var action = TargetResource["::get::Content::title"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Content.title#create
+         * @methodOf com.airspott.api.Content.title
+         *
+         * @description
+         *
+         * Creates a new instance in title of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Translatable` object.)
+         * </em>
+         */
+        R.title.create = function() {
+          var TargetResource = $injector.get("Translatable");
+          var action = TargetResource["::create::Content::title"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Content.title#createMany
+         * @methodOf com.airspott.api.Content.title
+         *
+         * @description
+         *
+         * Creates a new instance in title of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Translatable` object.)
+         * </em>
+         */
+        R.title.createMany = function() {
+          var TargetResource = $injector.get("Translatable");
+          var action = TargetResource["::createMany::Content::title"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Content.title#destroy
+         * @methodOf com.airspott.api.Content.title
+         *
+         * @description
+         *
+         * Deletes title of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.title.destroy = function() {
+          var TargetResource = $injector.get("Translatable");
+          var action = TargetResource["::destroy::Content::title"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Content.title#update
+         * @methodOf com.airspott.api.Content.title
+         *
+         * @description
+         *
+         * Update title of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Translatable` object.)
+         * </em>
+         */
+        R.title.update = function() {
+          var TargetResource = $injector.get("Translatable");
+          var action = TargetResource["::update::Content::title"];
+          return action.apply(R, arguments);
+        };
+    /**
+     * @ngdoc object
+     * @name com.airspott.api.Content.content
+     * @header com.airspott.api.Content.content
+     * @object
+     * @description
+     *
+     * The object `Content.content` groups methods
+     * manipulating `Translatable` instances related to `Content`.
+     *
+     * Call {@link com.airspott.api.Content#content Content.content()}
+     * to query all related instances.
+     */
+
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Content#content
+         * @methodOf com.airspott.api.Content
+         *
+         * @description
+         *
+         * Fetches hasOne relation content.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `refresh` – `{boolean=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Translatable` object.)
+         * </em>
+         */
+        R.content = function() {
+          var TargetResource = $injector.get("Translatable");
+          var action = TargetResource["::get::Content::content"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Content.content#create
+         * @methodOf com.airspott.api.Content.content
+         *
+         * @description
+         *
+         * Creates a new instance in content of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Translatable` object.)
+         * </em>
+         */
+        R.content.create = function() {
+          var TargetResource = $injector.get("Translatable");
+          var action = TargetResource["::create::Content::content"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Content.content#createMany
+         * @methodOf com.airspott.api.Content.content
+         *
+         * @description
+         *
+         * Creates a new instance in content of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Translatable` object.)
+         * </em>
+         */
+        R.content.createMany = function() {
+          var TargetResource = $injector.get("Translatable");
+          var action = TargetResource["::createMany::Content::content"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Content.content#destroy
+         * @methodOf com.airspott.api.Content.content
+         *
+         * @description
+         *
+         * Deletes content of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.content.destroy = function() {
+          var TargetResource = $injector.get("Translatable");
+          var action = TargetResource["::destroy::Content::content"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Content.content#update
+         * @methodOf com.airspott.api.Content.content
+         *
+         * @description
+         *
+         * Update content of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Translatable` object.)
+         * </em>
+         */
+        R.content.update = function() {
+          var TargetResource = $injector.get("Translatable");
+          var action = TargetResource["::update::Content::content"];
+          return action.apply(R, arguments);
+        };
+
+    return R;
+  }]);
+
+/**
+ * @ngdoc object
+ * @name com.airspott.api.Translatable
+ * @header com.airspott.api.Translatable
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `Translatable` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+module.factory(
+  "Translatable",
+  ['LoopBackResource', 'LoopBackAuth', '$injector', function(Resource, LoopBackAuth, $injector) {
+    var R = Resource(
+      urlBase + "/Translatables/:id",
+      { 'id': '@id' },
+      {
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Translatable#create
+         * @methodOf com.airspott.api.Translatable
+         *
+         * @description
+         *
+         * Create a new instance of the model and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Translatable` object.)
+         * </em>
+         */
+        "create": {
+          url: urlBase + "/Translatables",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Translatable#createMany
+         * @methodOf com.airspott.api.Translatable
+         *
+         * @description
+         *
+         * Create a new instance of the model and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Translatable` object.)
+         * </em>
+         */
+        "createMany": {
+          isArray: true,
+          url: urlBase + "/Translatables",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Translatable#upsert
+         * @methodOf com.airspott.api.Translatable
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Translatable` object.)
+         * </em>
+         */
+        "upsert": {
+          url: urlBase + "/Translatables",
+          method: "PUT"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Translatable#exists
+         * @methodOf com.airspott.api.Translatable
+         *
+         * @description
+         *
+         * Check whether a model instance exists in the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `exists` – `{boolean=}` - 
+         */
+        "exists": {
+          url: urlBase + "/Translatables/:id/exists",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Translatable#findById
+         * @methodOf com.airspott.api.Translatable
+         *
+         * @description
+         *
+         * Find a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         *  - `filter` – `{object=}` - Filter defining fields and include
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Translatable` object.)
+         * </em>
+         */
+        "findById": {
+          url: urlBase + "/Translatables/:id",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Translatable#find
+         * @methodOf com.airspott.api.Translatable
+         *
+         * @description
+         *
+         * Find all instances of the model matched by filter from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Translatable` object.)
+         * </em>
+         */
+        "find": {
+          isArray: true,
+          url: urlBase + "/Translatables",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Translatable#findOne
+         * @methodOf com.airspott.api.Translatable
+         *
+         * @description
+         *
+         * Find first instance of the model matched by filter from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Translatable` object.)
+         * </em>
+         */
+        "findOne": {
+          url: urlBase + "/Translatables/findOne",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Translatable#updateAll
+         * @methodOf com.airspott.api.Translatable
+         *
+         * @description
+         *
+         * Update instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * The number of instances updated
+         */
+        "updateAll": {
+          url: urlBase + "/Translatables/update",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Translatable#deleteById
+         * @methodOf com.airspott.api.Translatable
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Translatable` object.)
+         * </em>
+         */
+        "deleteById": {
+          url: urlBase + "/Translatables/:id",
+          method: "DELETE"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Translatable#count
+         * @methodOf com.airspott.api.Translatable
+         *
+         * @description
+         *
+         * Count instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `count` – `{number=}` - 
+         */
+        "count": {
+          url: urlBase + "/Translatables/count",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Translatable#prototype$updateAttributes
+         * @methodOf com.airspott.api.Translatable
+         *
+         * @description
+         *
+         * Update attributes for a model instance and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Translatable` object.)
+         * </em>
+         */
+        "prototype$updateAttributes": {
+          url: urlBase + "/Translatables/:id",
+          method: "PUT"
+        },
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Translatable#createChangeStream
+         * @methodOf com.airspott.api.Translatable
+         *
+         * @description
+         *
+         * Create a change stream.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         *  - `options` – `{object=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `changes` – `{ReadableStream=}` - 
+         */
+        "createChangeStream": {
+          url: urlBase + "/Translatables/change-stream",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Content.title() instead.
+        "::get::Content::title": {
+          url: urlBase + "/Contents/:id/title",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Content.title.create() instead.
+        "::create::Content::title": {
+          url: urlBase + "/Contents/:id/title",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Content.title.createMany() instead.
+        "::createMany::Content::title": {
+          isArray: true,
+          url: urlBase + "/Contents/:id/title",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Content.title.update() instead.
+        "::update::Content::title": {
+          url: urlBase + "/Contents/:id/title",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Content.title.destroy() instead.
+        "::destroy::Content::title": {
+          url: urlBase + "/Contents/:id/title",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Content.content() instead.
+        "::get::Content::content": {
+          url: urlBase + "/Contents/:id/content",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Content.content.create() instead.
+        "::create::Content::content": {
+          url: urlBase + "/Contents/:id/content",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Content.content.createMany() instead.
+        "::createMany::Content::content": {
+          isArray: true,
+          url: urlBase + "/Contents/:id/content",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Content.content.update() instead.
+        "::update::Content::content": {
+          url: urlBase + "/Contents/:id/content",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Content.content.destroy() instead.
+        "::destroy::Content::content": {
+          url: urlBase + "/Contents/:id/content",
+          method: "DELETE"
+        },
+      }
+    );
+
+
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Translatable#updateOrCreate
+         * @methodOf com.airspott.api.Translatable
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Translatable` object.)
+         * </em>
+         */
+        R["updateOrCreate"] = R["upsert"];
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Translatable#update
+         * @methodOf com.airspott.api.Translatable
+         *
+         * @description
+         *
+         * Update instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * The number of instances updated
+         */
+        R["update"] = R["updateAll"];
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Translatable#destroyById
+         * @methodOf com.airspott.api.Translatable
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Translatable` object.)
+         * </em>
+         */
+        R["destroyById"] = R["deleteById"];
+
+        /**
+         * @ngdoc method
+         * @name com.airspott.api.Translatable#removeById
+         * @methodOf com.airspott.api.Translatable
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Translatable` object.)
+         * </em>
+         */
+        R["removeById"] = R["deleteById"];
+
+
+    /**
+    * @ngdoc property
+    * @name com.airspott.api.Translatable#modelName
+    * @propertyOf com.airspott.api.Translatable
+    * @description
+    * The name of the model represented by this $resource,
+    * i.e. `Translatable`.
+    */
+    R.modelName = "Translatable";
 
 
     return R;
