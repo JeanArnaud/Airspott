@@ -35,8 +35,7 @@ body {
 }
 
 .main_header {
-    background: $header_background;
-    opacity: $header_opacity;
+    background: rgba(red($header_background), green($header_background), blue($header_background), $header_opacity);
     border-bottom: 1px solid #ebebeb;
     position: fixed;
     width: $full_width;
@@ -73,6 +72,19 @@ body {
     }
 }
 
+.checkout {
+    header {
+        padding-top: $main_header_height;
+        background-size: cover;
+        //background: no-repeat center;
+        //height: 300px;
+        width: 100%;
+        position: relative;
+        color: #fff;
+        margin-bottom: 10px;
+    }
+}
+
 .banner h1 {
     font-size: 50px;
     color: $blk_color;
@@ -92,13 +104,11 @@ body {
 }
 
 .main_menu {
-    padding: 0;
     margin: 0;
     list-style-type: none;
     float: right;
     font-size: 11px;
     text-transform: uppercase;
-    padding-top: 5px;
     letter-spacing: 1px;
     padding: 15px 0;
 }

@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "Ink": "git://github.com/zurb/ink.git",
+    "braintree": "^1.35.1",
     "compression": "^1.0.3",
     "cors": "^2.5.2",
     "gulp": "^3.9.0",

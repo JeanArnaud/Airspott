@@ -5845,8 +5845,7 @@ body {
   padding: 0; }
 
 .main_header {
-  background: #272727;
-  opacity: 0.8;
+  background: rgba(39, 39, 39, 0.8);
   border-bottom: 1px solid #ebebeb;
   position: fixed;
   width: 100%;
@@ -5875,6 +5874,14 @@ body {
   color: #fff;
   margin-bottom: 10px; }
 
+.checkout header {
+  padding-top: 50px;
+  background-size: cover;
+  width: 100%;
+  position: relative;
+  color: #fff;
+  margin-bottom: 10px; }
+
 .banner h1 {
   font-size: 50px;
   color: #000;
@@ -5892,13 +5899,11 @@ body {
   font-weight: 400; }
 
 .main_menu {
-  padding: 0;
   margin: 0;
   list-style-type: none;
   float: right;
   font-size: 11px;
   text-transform: uppercase;
-  padding-top: 5px;
   letter-spacing: 1px;
   padding: 15px 0; }
 
