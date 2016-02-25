@@ -1,0 +1,26 @@
+.form-control {
+    border-radius: 0;
+    background: transparent;
+
+    //border: none;
+    border: 2px solid $gray;
+    padding: 5px;
+
+    box-shadow: none;
+
+    &:hover, &:focus, &:active {
+        box-shadow: none;
+        border-color: $gray;
+    }
+
+    &:focus
+    {
+        border-color:transparent;
+        border-bottom-color: $second_color;
+    }
+}
+
+.input-group .form-control {
+    border-left: none;
+    border-right: none;
+}

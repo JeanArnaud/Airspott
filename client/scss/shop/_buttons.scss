@@ -1,0 +1,35 @@
+.btn {
+
+    transition: border .20s ease;
+
+    outline: none;
+    border: none;
+    border-bottom: 2px solid $gray;
+    border-radius: 0;
+    background: $gray;
+    color: #fff;
+
+    box-shadow: none;
+
+    text-decoration: none;
+
+    &:hover {
+        border-bottom-color: $second_color;
+        background: $gray;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    &:active, &:focus, &:active:hover, &:focus:hover {
+        border-bottom-color: $gray;
+        transform: translate(0, 2px);
+        background: $gray;
+        color: #fff;
+    }
+}
+
+.input-group .btn {
+    &:active, &:focus, &:active:hover, &:focus:hover {
+        transform: translate(0, 0);
+    }
+}

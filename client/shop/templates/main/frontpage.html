@@ -38,6 +38,8 @@
 
                                 <input type="number" ng-model="searchQuery.amount" class="form-control text-center"
                                        id="amount"
+                                       max="6"
+                                       min="1"
                                        placeholder="{{'SEARCH.GUEST_AMOUNT' | translate}}"/>
 
                                 <div class="input-group-btn">
@@ -82,7 +84,8 @@
 
                     <div class="col-lg-1 space">
                         <a class="btn btn-primary btn-block btn-lg" ui-sref="shop.search({query: searchQuery })">
-                            {{'SEARCH' | translate}}</a>
+                            <i class="fa fa-search"></i>
+                        </a>
                     </div>
 
                 </div>

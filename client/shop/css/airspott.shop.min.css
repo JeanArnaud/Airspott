@@ -5821,7 +5821,9 @@ button.close {
 
 /* Variables */
 .well {
-  border-radius: 0; }
+  border-radius: 0;
+  background: #eeeeee;
+  border: none; }
   .well.well-dark-transparent {
     background: rgba(39, 39, 39, 0.8);
     color: #fff;
@@ -5831,6 +5833,47 @@ button.close {
   .well .well-header {
     margin-bottom: 10px;
     font-size: 15.4px; }
+
+.form-control {
+  border-radius: 0;
+  background: transparent;
+  border: 2px solid #555555;
+  padding: 5px;
+  box-shadow: none; }
+  .form-control:hover, .form-control:focus, .form-control:active {
+    box-shadow: none;
+    border-color: #555555; }
+  .form-control:focus {
+    border-color: transparent;
+    border-bottom-color: #389220; }
+
+.input-group .form-control {
+  border-left: none;
+  border-right: none; }
+
+.btn {
+  transition: border .20s ease;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #555555;
+  border-radius: 0;
+  background: #555555;
+  color: #fff;
+  box-shadow: none;
+  text-decoration: none; }
+  .btn:hover {
+    border-bottom-color: #389220;
+    background: #555555;
+    color: #fff;
+    text-decoration: none; }
+  .btn:active, .btn:focus, .btn:active:hover, .btn:focus:hover {
+    border-bottom-color: #555555;
+    transform: translate(0, 2px);
+    background: #555555;
+    color: #fff; }
+
+.input-group .btn:active, .input-group .btn:focus, .input-group .btn:active:hover, .input-group .btn:focus:hover {
+  transform: translate(0, 0); }
 
 /* CSS Document */
 body {

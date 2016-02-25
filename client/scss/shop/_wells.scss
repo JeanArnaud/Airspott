@@ -1,5 +1,7 @@
 .well {
     border-radius: 0;
+    background: $gray-lighter;
+    border: none;
 
     &.well-dark-transparent {
         background: rgba(red($header_background), green($header_background), blue($header_background), $header_opacity);
