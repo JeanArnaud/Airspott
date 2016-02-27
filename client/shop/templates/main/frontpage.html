@@ -1,179 +1,185 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-12 banner">
+<section class="main">
+
+    <header>
+        <div class="container">
             <h1>{{'MAIN.WELCOME_HEADLINE' | translate}}
                 <br>
                 <small>{{'MAIN.WELCOME_SUBLINE' | translate}}</small>
             </h1>
         </div>
-    </div>
-</div>
+    </header>
 
-<div class="search-bar" ng-controller="SearchCtrl" ng-class="{fixed:shallAffixSearch}" id="searchBar">
-    <div class="container">
-        <div class="well well-sm">
-            <form>
-                <div class="row">
-                    <div class="col-lg-3">
-                        <section class="form-group">
-                            <label for="query">{{'SEARCH.QUERY' | translate}}</label>
+    <main>
 
-                            <div class="input-group">
-                                <input id="query" ng-model="searchQuery.query" type="text"
-                                       class="form-control"
-                                       placeholder="{{'SEARCH.QUERY_PLACEHOLDER' | translate}}">
+        <div class="search-bar" ng-controller="SearchCtrl" ng-class="{fixed:shallAffixSearch}" id="searchBar">
+            <div class="container">
+                <div class="well well-sm">
+                    <form>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <section class="form-group">
+                                    <label for="query">{{'SEARCH.QUERY' | translate}}</label>
 
-                                <div class="input-group-btn">
-                                    <button class="btn btn-default"
-                                            ng-disabled="location == 'LOCATING'"
-                                            ng-click="locate()">
-                                        <i class="fa fa-location-arrow"></i>
-                                    </button>
-                                </div>
+                                    <div class="input-group">
+                                        <input id="query" ng-model="searchQuery.query" type="text"
+                                               class="form-control"
+                                               placeholder="{{'SEARCH.QUERY_PLACEHOLDER' | translate}}">
+
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-default"
+                                                    ng-disabled="location == 'LOCATING'"
+                                                    ng-click="locate()">
+                                                <i class="fa fa-location-arrow"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </section>
                             </div>
 
-                        </section>
-                    </div>
+                            <div class="col-lg-2">
+                                <section class="form-group">
+                                    <label for="amount">{{'GUESTS' | translate}}</label>
 
-                    <div class="col-lg-2">
-                        <section class="form-group">
-                            <label for="amount">{{'GUESTS' | translate}}</label>
+                                    <div class="input-group">
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-default"
+                                                    ng-click="decrementObjKey('searchQuery', 'amount')">
+                                                <i class="fa fa-minus"></i>
+                                            </button>
+                                        </div>
 
-                            <div class="input-group">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-default"
-                                            ng-click="decrementObjKey('searchQuery', 'amount')">
-                                        <i class="fa fa-minus"></i>
-                                    </button>
-                                </div>
+                                        <input type="number" ng-model="searchQuery.amount" class="form-control text-center"
+                                               id="amount"
+                                               max="6"
+                                               min="1"
+                                               placeholder="{{'SEARCH.GUEST_AMOUNT' | translate}}"/>
 
-                                <input type="number" ng-model="searchQuery.amount" class="form-control text-center"
-                                       id="amount"
-                                       max="6"
-                                       min="1"
-                                       placeholder="{{'SEARCH.GUEST_AMOUNT' | translate}}"/>
-
-                                <div class="input-group-btn">
-                                    <button class="btn btn-default"
-                                            ng-click="incrementObjKey('searchQuery', 'amount')">
-                                        <i class="fa fa-plus"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-
-                    <div class="col-lg-3">
-                        <section class="form-group">
-                            <label class="control-label" for="date">{{'DATE' | translate}}</label>
-
-                            <input type="date" class="form-control" id="date" ng-model="searchQuery.date"
-                                   placeholder="{{'DATE' | translate}}">
-                        </section>
-                    </div>
-
-
-                    <div class="col-lg-3">
-
-
-                        <section class="form-group row">
-                            <div class="col-xs-12">
-                                <label class="control-label">{{'OFFERS' | translate}}</label>
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-default"
+                                                    ng-click="incrementObjKey('searchQuery', 'amount')">
+                                                <i class="fa fa-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </section>
                             </div>
 
-                            <div class="col-xs-12">
-                                <am-multiselect multiple="true"
-                                                ms-selected="{{'SEARCH.OFFERS_SELECTED' | translate:{amount: searchQuery.offers.length} }}"
-                                                ng-model="searchQuery.offers"
-                                                ms-header="{{'SEARCH.SELECT_OFFERS' | translate}}"
-                                                options="offer.id as 'OFFERS.' + offer.identifier | translate for offer in offers"
-                                                template-url="templates/multiselect.tmpl.html">
-                                </am-multiselect>
+                            <div class="col-lg-3">
+                                <section class="form-group">
+                                    <label class="control-label" for="date">{{'DATE' | translate}}</label>
+
+                                    <input type="date" class="form-control" id="date" ng-model="searchQuery.date"
+                                           placeholder="{{'DATE' | translate}}">
+                                </section>
                             </div>
 
-                            <!--<div class="col-xs-6" ng-repeat="offer in offers |limitTo:4">-->
+
+                            <div class="col-lg-3">
 
 
-                            <!--<div class="checkbox">-->
-                            <!--<label>-->
-                            <!--<input type="checkbox" ng-false-value="null"-->
-                            <!--ng-model="searchQuery.offers[offer.id]">-->
-                            <!--{{'OFFERS.' + offer.identifier | translate}}-->
-                            <!--</label>-->
-                            <!--</div>-->
-                            <!--</div>-->
-                        </section>
-                    </div>
+                                <section class="form-group row">
+                                    <div class="col-xs-12">
+                                        <label class="control-label">{{'OFFERS' | translate}}</label>
+                                    </div>
 
-                    <div class="col-lg-1 space">
+                                    <div class="col-xs-12">
+                                        <am-multiselect multiple="true"
+                                                        ms-selected="{{'SEARCH.OFFERS_SELECTED' | translate:{amount: searchQuery.offers.length} }}"
+                                                        ng-model="searchQuery.offers"
+                                                        ms-header="{{'SEARCH.SELECT_OFFERS' | translate}}"
+                                                        options="offer.id as 'OFFERS.' + offer.identifier | translate for offer in offers"
+                                                        template-url="templates/multiselect.tmpl.html">
+                                        </am-multiselect>
+                                    </div>
 
-                        <label>&nbsp;</label>
+                                    <!--<div class="col-xs-6" ng-repeat="offer in offers |limitTo:4">-->
 
-                        <a class="btn btn-primary btn-block" ui-sref="shop.search({query: searchQuery })">
-                            <i class="fa fa-search"></i>
-                        </a>
-                    </div>
 
+                                    <!--<div class="checkbox">-->
+                                    <!--<label>-->
+                                    <!--<input type="checkbox" ng-false-value="null"-->
+                                    <!--ng-model="searchQuery.offers[offer.id]">-->
+                                    <!--{{'OFFERS.' + offer.identifier | translate}}-->
+                                    <!--</label>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                </section>
+                            </div>
+
+                            <div class="col-lg-1 space">
+
+                                <label>&nbsp;</label>
+
+                                <a class="btn btn-primary btn-block" ui-sref="shop.search({query: searchQuery })">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </form>
                 </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<div class="container">
-
-    <div class="row gallery_margin">
-        <div class="col-sm-3 gal">
-            <div class="img_text">{{'Best Rated Clubs' | translate}}</div>
-            <img src="img/img1.jpg" class="img-responsive" alt="">
-        </div>
-        <div class="col-sm-3 gal">
-            <div class="img_text">{{'Most Booked' | translate}}</div>
-            <img src="img/img2.jpg" class="img-responsive" alt=""></div>
-        <div class="col-sm-3 gal">
-            <div class="img_text">{{'VIP Treatment' | translate}}</div>
-            <img src="img/img3.jpg" class="img-responsive" alt=""></div>
-        <div class="col-sm-3 gal">
-            <div class="img_text">{{'New Entries' | translate}}</div>
-            <img src="img/img4.jpg" class="img-responsive" alt=""></div>
-    </div>
-
-    <div class="row gallery_margin">
-        <div class="col-sm-6 gal">
-            <div class="img_text1"><span>{{'Fitness' | translate}}</span> <br> {{'Exclusive Locations' | translate}}
             </div>
-            <img src="img/img6.jpg" class="img-responsive" alt=""></div>
-        <div class="col-sm-6 gal">
-            <div class="img_text1">{{'A Focus on ' | translate}}<br> <span>{{'Golf' | translate}}</span></div>
-            <img src="img/img7.jpg" class="img-responsive" alt=""></div>
-    </div>
-</div>
+        </div>
 
-<div class="container-fluid boxrow">
-    <div class="row ">
-        <div class="col-sm-3 box1">
-            <h3>1</h3>
-            {{'MAIN.STEPS.FIND_A_CLUB' | translate}}
-        </div>
-        <div class="col-sm-3 box2">
-            <h3>2</h3>
-            {{'MAIN.STEPS.BOOK_A_SPOT' | translate}}
-        </div>
-        <div class="col-sm-3 box3">
-            <h3>3</h3>
-            {{'MAIN.STEPS.ENJOY' | translate}}
-        </div>
-        <div class="col-sm-3 box4">
-            <h3>4</h3>
-            {{'MAIN.STEPS.SHARE_AND_REVIEW' | translate}}
-        </div>
-    </div>
-</div>
+        <div class="container">
 
-<!-- Begin: Map -->
-<div class="row">
-    <div class="col-xs-12 map">
-        <leaflet defaults="mapSettings.defaults" center="mapSettings.center" height="100%" width="100%"></leaflet>
-    </div>
-</div>
-<!-- End: Map -->
+            <div class="row gallery_margin">
+                <div class="col-sm-3 gal">
+                    <div class="img_text">{{'Best Rated Clubs' | translate}}</div>
+                    <img src="img/img1.jpg" class="img-responsive" alt="">
+                </div>
+                <div class="col-sm-3 gal">
+                    <div class="img_text">{{'Most Booked' | translate}}</div>
+                    <img src="img/img2.jpg" class="img-responsive" alt=""></div>
+                <div class="col-sm-3 gal">
+                    <div class="img_text">{{'VIP Treatment' | translate}}</div>
+                    <img src="img/img3.jpg" class="img-responsive" alt=""></div>
+                <div class="col-sm-3 gal">
+                    <div class="img_text">{{'New Entries' | translate}}</div>
+                    <img src="img/img4.jpg" class="img-responsive" alt=""></div>
+            </div>
+
+            <div class="row gallery_margin">
+                <div class="col-sm-6 gal">
+                    <div class="img_text1"><span>{{'Fitness' | translate}}</span> <br> {{'Exclusive Locations' | translate}}
+                    </div>
+                    <img src="img/img6.jpg" class="img-responsive" alt=""></div>
+                <div class="col-sm-6 gal">
+                    <div class="img_text1">{{'A Focus on ' | translate}}<br> <span>{{'Golf' | translate}}</span></div>
+                    <img src="img/img7.jpg" class="img-responsive" alt=""></div>
+            </div>
+        </div>
+
+        <div class="container-fluid boxrow">
+            <div class="row ">
+                <div class="col-sm-3 box1">
+                    <h3>1</h3>
+                    {{'MAIN.STEPS.FIND_A_CLUB' | translate}}
+                </div>
+                <div class="col-sm-3 box2">
+                    <h3>2</h3>
+                    {{'MAIN.STEPS.BOOK_A_SPOT' | translate}}
+                </div>
+                <div class="col-sm-3 box3">
+                    <h3>3</h3>
+                    {{'MAIN.STEPS.ENJOY' | translate}}
+                </div>
+                <div class="col-sm-3 box4">
+                    <h3>4</h3>
+                    {{'MAIN.STEPS.SHARE_AND_REVIEW' | translate}}
+                </div>
+            </div>
+        </div>
+
+        <!-- Begin: Map -->
+        <div class="row">
+            <div class="col-xs-12 map">
+                <leaflet defaults="mapSettings.defaults" center="mapSettings.center" height="100%" width="100%"></leaflet>
+            </div>
+        </div>
+        <!-- End: Map -->
+
+
+    </main>
+</section>
