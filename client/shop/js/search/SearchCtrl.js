@@ -15,7 +15,7 @@ angular.module('com.airspott.shop.search').controller('SearchCtrl', [
             query: '',
             amount: 1,
             date: new Date(),
-            offers: {}
+            offers: []
         };
 
         $scope.toggle = function (scopeVar) {

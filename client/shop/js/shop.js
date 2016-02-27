@@ -1,5 +1,6 @@
 angular.module('com.airspott.shop', [
     'ui.bootstrap',
+    'am.multiselect',
     'leaflet-directive',
     'geolocation',
     'angularSpinner',

@@ -1,20 +1,12 @@
 <section class="search">
-    <header class="container-fluid">
-        <div class="row">
-            <div class="col-sm-12 inner_banner">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12 text-right">
-                            <h1>{{'SEARCH' | translate}}</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <header>
+        <div class="container text-right">
+            <h1 class="text-bottom text-right">{{'SEARCH' | translate}}</h1>
         </div>
     </header>
 
 
-    <div class="container wrapper_content">
+    <div class="container">
         <div class="row">
             <div class="col-lg-3 col-sm-4">
                 <div class="well well-sm">
@@ -59,24 +51,13 @@
                                 <label class="control-label">{{'OFFERS' | translate}}</label>
                             </div>
 
-                            <div class="col-xs-6"
-                                 ng-if="$index < 6 || extendedOffers"
-                                 ng-repeat="offer in offers">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" ng-false-value="null" ng-model="query.offers[offer.id]">
-                                        {{'OFFERS.' + offer.identifier | translate}}
-                                    </label>
-                                </div>
-                            </div>
-
                             <div class="col-xs-12">
-                                <button ng-if="!extendedOffers" class="btn btn-default btn-xs btn-block"
-                                        ng-click="toggle('extendedOffers')">
-                                    {{'SEARCH.SHOW_EXTENDED_OFFERS' | translate}}
-
-                                    <i class="fa fa-plus pull-right"></i>
-                                </button>
+                                <am-multiselect multiple="true"
+                                                ms-selected="{{'SEARCH.OFFERS_SELECTED' | translate:{amount: searchQuery.offers.length} }}"
+                                                ng-model="searchQuery.offers" ms-header="{{'SEARCH.SELECT_OFFERS'}}"
+                                                options="offer.id as 'OFFERS.' + offer.identifier | translate for offer in offers"
+                                                template-url="templates/multiselect.tmpl.html">
+                                </am-multiselect>
                             </div>
                         </section>
 

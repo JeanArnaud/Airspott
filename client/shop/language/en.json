@@ -235,6 +235,9 @@
     "SEARCH": {
         "SEARCH": "Find",
 
+        "SELECT_OFFERS":"How do you want to be active?",
+        "OFFERS_SELECTED":"{{amount}} activies selected",
+
         "BOX_HEADLINE": "Find activities",
         "TELL_US_WHAT_YOU_SEARCH_FOR": "Tell us how you wanna be active:",
         "QUERY": "Where or what are you looking for?",

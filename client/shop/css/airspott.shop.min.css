@@ -6,6 +6,7 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 @import url(../common/lib/leaflet/dist/leaflet.css);
+@import url(../common/lib/amitava82/angular-multiselect/dist/multiselect.css);
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -5905,21 +5906,28 @@ body {
 
 .text-bottom {
   position: absolute;
-  bottom: 10px; }
+  bottom: 10px;
+  left: 15px; }
+  .text-bottom.text-right {
+    right: 15px; }
 
 .checkout header, .cart header, .search header, .product header {
   padding-top: 60px;
   background-size: cover;
+  height: 200px;
   width: 100%;
   position: relative;
   color: #fff;
   margin-bottom: 10px; }
+  .checkout header .container, .cart header .container, .search header .container, .product header .container {
+    position: relative;
+    height: 100%; }
 
 .cart header {
-  background-image: url(../img/banner1.jpg); }
+  background-image: url(../img/inner_banner.jpg); }
 
 .search header {
-  background-image: url(../img/banner1.jpg); }
+  background-image: url(../img/inner_banner.jpg); }
 
 .product header {
   height: 300px; }

@@ -9,7 +9,12 @@ angular.module('com.airspott.shop.main')
                 query: '',
                 amount: 1,
                 date: new Date(),
-                offers: {}
+                offers: []
+            };
+
+            $scope.selected = function ()
+            {
+              $log.log($scope.searchQuery);
             };
 
             $scope.offers = Offer.find();
