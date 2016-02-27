@@ -37,6 +37,32 @@ body {
     cursor: pointer;
 }
 
+.search-bar {
+
+    transition: background .6s ease;
+
+    position: absolute;
+    //top: 0;
+    top: 400px;
+    z-index: 100;
+    left: 0;
+    right: 0;
+    background: rgba(red($gray-lighter), green($gray-lighter), blue($gray-lighter), .8);
+
+    box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+
+    .well {
+        margin: 0;
+        background: transparent;
+    }
+
+    &.fixed {
+        position: fixed;
+        top: 50px;
+        background: rgba(red($gray-lighter), green($gray-lighter), blue($gray-lighter), .95);
+    }
+}
+
 .popover {
     color: $text-color;
 

@@ -9,113 +9,119 @@
     </div>
 </div>
 
-<div class="container container_float" ng-controller="SearchCtrl">
-    <div class="well well-sm">
-        <form>
+<div class="search-bar" ng-controller="SearchCtrl" ng-class="{fixed:shallAffixSearch}" id="searchBar">
+    <div class="container">
+        <div class="well well-sm">
+            <form>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <section class="form-group">
+                            <label for="query">{{'SEARCH.QUERY' | translate}}</label>
 
-            <div class="row">
-                <div class="col-lg-3">
-                    <section class="form-group">
-                        <label for="query">{{'SEARCH.QUERY' | translate}}</label>
+                            <div class="input-group">
+                                <input id="query" ng-model="searchQuery.query" type="text"
+                                       class="form-control"
+                                       placeholder="{{'SEARCH.QUERY_PLACEHOLDER' | translate}}">
 
-                        <div class="input-group">
-                            <input id="query" ng-model="searchQuery.query" type="text"
-                                   class="form-control"
-                                   placeholder="{{'SEARCH.QUERY_PLACEHOLDER' | translate}}">
-
-                            <div class="input-group-btn">
-                                <button class="btn btn-default"
-                                        ng-disabled="location == 'LOCATING'"
-                                        ng-click="locate()">
-                                    <i class="fa fa-location-arrow"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                    </section>
-                </div>
-
-                <div class="col-lg-2">
-                    <section class="form-group">
-                        <label for="amount">{{'GUESTS' | translate}}</label>
-
-                        <div class="input-group">
-                            <div class="input-group-btn">
-                                <button class="btn btn-default"
-                                        ng-click="decrementObjKey('searchQuery', 'amount')">
-                                    <i class="fa fa-minus"></i>
-                                </button>
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default"
+                                            ng-disabled="location == 'LOCATING'"
+                                            ng-click="locate()">
+                                        <i class="fa fa-location-arrow"></i>
+                                    </button>
+                                </div>
                             </div>
 
-                            <input type="number" ng-model="searchQuery.amount" class="form-control text-center"
-                                   id="amount"
-                                   max="6"
-                                   min="1"
-                                   placeholder="{{'SEARCH.GUEST_AMOUNT' | translate}}"/>
+                        </section>
+                    </div>
 
-                            <div class="input-group-btn">
-                                <button class="btn btn-default"
-                                        ng-click="incrementObjKey('searchQuery', 'amount')">
-                                    <i class="fa fa-plus"></i>
-                                </button>
+                    <div class="col-lg-2">
+                        <section class="form-group">
+                            <label for="amount">{{'GUESTS' | translate}}</label>
+
+                            <div class="input-group">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default"
+                                            ng-click="decrementObjKey('searchQuery', 'amount')">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                </div>
+
+                                <input type="number" ng-model="searchQuery.amount" class="form-control text-center"
+                                       id="amount"
+                                       max="6"
+                                       min="1"
+                                       placeholder="{{'SEARCH.GUEST_AMOUNT' | translate}}"/>
+
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default"
+                                            ng-click="incrementObjKey('searchQuery', 'amount')">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    </section>
+                        </section>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <section class="form-group">
+                            <label class="control-label" for="date">{{'DATE' | translate}}</label>
+
+                            <input type="date" class="form-control" id="date" ng-model="searchQuery.date"
+                                   placeholder="{{'DATE' | translate}}">
+                        </section>
+                    </div>
+
+
+                    <div class="col-lg-3">
+
+
+                        <section class="form-group row">
+                            <div class="col-xs-12">
+                                <label class="control-label">{{'OFFERS' | translate}}</label>
+                            </div>
+
+                            <div class="col-xs-12">
+                                <am-multiselect multiple="true"
+                                                ms-selected="{{'SEARCH.OFFERS_SELECTED' | translate:{amount: searchQuery.offers.length} }}"
+                                                ng-model="searchQuery.offers"
+                                                ms-header="{{'SEARCH.SELECT_OFFERS' | translate}}"
+                                                options="offer.id as 'OFFERS.' + offer.identifier | translate for offer in offers"
+                                                template-url="templates/multiselect.tmpl.html">
+                                </am-multiselect>
+                            </div>
+
+                            <!--<div class="col-xs-6" ng-repeat="offer in offers |limitTo:4">-->
+
+
+                            <!--<div class="checkbox">-->
+                            <!--<label>-->
+                            <!--<input type="checkbox" ng-false-value="null"-->
+                            <!--ng-model="searchQuery.offers[offer.id]">-->
+                            <!--{{'OFFERS.' + offer.identifier | translate}}-->
+                            <!--</label>-->
+                            <!--</div>-->
+                            <!--</div>-->
+                        </section>
+                    </div>
+
+                    <div class="col-lg-1 space">
+
+                        <label>&nbsp;</label>
+
+                        <a class="btn btn-primary btn-block" ui-sref="shop.search({query: searchQuery })">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </div>
+
                 </div>
-
-                <div class="col-lg-3">
-                    <section class="form-group">
-                        <label class="control-label" for="date">{{'DATE' | translate}}</label>
-
-                        <input type="date" class="form-control" id="date" ng-model="searchQuery.date"
-                               placeholder="{{'DATE' | translate}}">
-                    </section>
-                </div>
-
-
-                <div class="col-lg-3">
-
-
-                    <section class="form-group row">
-                        <div class="col-xs-12">
-                            <label class="control-label">{{'OFFERS' | translate}}</label>
-                        </div>
-
-                        <div class="col-xs-12">
-                            <am-multiselect multiple="true"
-                                            ms-selected="{{'SEARCH.OFFERS_SELECTED' | translate:{amount: searchQuery.offers.length} }}"
-                                            ng-model="searchQuery.offers" ms-header="{{'SEARCH.SELECT_OFFERS' | translate}}"
-                                            options="offer.id as 'OFFERS.' + offer.identifier | translate for offer in offers"
-                                            template-url="templates/multiselect.tmpl.html">
-                            </am-multiselect>
-                        </div>
-
-                        <!--<div class="col-xs-6" ng-repeat="offer in offers |limitTo:4">-->
-
-
-                        <!--<div class="checkbox">-->
-                        <!--<label>-->
-                        <!--<input type="checkbox" ng-false-value="null"-->
-                        <!--ng-model="searchQuery.offers[offer.id]">-->
-                        <!--{{'OFFERS.' + offer.identifier | translate}}-->
-                        <!--</label>-->
-                        <!--</div>-->
-                        <!--</div>-->
-                    </section>
-                </div>
-
-                <div class="col-lg-1 space">
-                    <a class="btn btn-primary btn-block btn-lg" ui-sref="shop.search({query: searchQuery })">
-                        <i class="fa fa-search"></i>
-                    </a>
-                </div>
-
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </div>
 
 <div class="container">
+
     <div class="row gallery_margin">
         <div class="col-sm-3 gal">
             <div class="img_text">{{'Best Rated Clubs' | translate}}</div>

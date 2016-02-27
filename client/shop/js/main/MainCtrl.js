@@ -1,7 +1,7 @@
 angular.module('com.airspott.shop.main')
     .controller('ShopMainCtrl', [
-        "$rootScope", "$scope", "$log", "geolocation", "Offer",
-        function ($rootScope, $scope, $log, Geolocation, Offer) {
+        "$rootScope", "$scope", "$log", "$window", "geolocation", "Offer",
+        function ($rootScope, $scope, $log, $window, Geolocation, Offer) {
 
             $rootScope.meta.title = "WELCOME";
 
@@ -12,9 +12,19 @@ angular.module('com.airspott.shop.main')
                 offers: []
             };
 
-            $scope.selected = function ()
-            {
-              $log.log($scope.searchQuery);
+            $scope.shallAffixSearch = false;
+
+            var searchBar = $window.document.getElementById('searchBar'),
+                headerBar = $window.document.getElementById('headerBar');
+
+
+            $window.onscroll = function () {
+
+                var scrollPos = document.body.scrollTop || document.documentElement.scrollTop || 0;
+
+                $scope.shallAffixSearch = scrollPos > 350;
+
+                $scope.$digest();
             };
 
             $scope.offers = Offer.find();

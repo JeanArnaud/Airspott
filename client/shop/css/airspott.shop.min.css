@@ -5892,6 +5892,23 @@ body {
 .cursor-pointer {
   cursor: pointer; }
 
+.search-bar {
+  transition: background .6s ease;
+  position: absolute;
+  top: 400px;
+  z-index: 100;
+  left: 0;
+  right: 0;
+  background: rgba(238, 238, 238, 0.8);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); }
+  .search-bar .well {
+    margin: 0;
+    background: transparent; }
+  .search-bar.fixed {
+    position: fixed;
+    top: 50px;
+    background: rgba(238, 238, 238, 0.95); }
+
 .popover {
   color: #555555; }
   .popover .popover-title {

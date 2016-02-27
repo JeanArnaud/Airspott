@@ -43,6 +43,6 @@
     "angular-animate": "^1.5.0",
     "angularjs-geolocation": "^0.1.1",
     "angular-leaflet-directive": "^0.10.0",
-    "amitava82/angular-multiselect": "amitava82-angular-multiselect#^1.1.0"
+    "angular-bootstrap-affix": "^0.2.2"
   }
 }
