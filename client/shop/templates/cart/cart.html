@@ -1,0 +1,59 @@
+<section class="cart">
+
+    <header>
+        <div class="container text-right">
+            <h1>{{'CART.HEADLINE' | translate: {amount: cart.amount} }}</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="alert alert-info" ng-if="!cart.length">
+            {{'CART.EMPTY' | translate}}
+        </div>
+
+        <div class="well" ng-repeat="club in cart">
+
+            <div class="row">
+                <div class="col-sm-2">
+                    <img ng-src="{{club.media[0].media || 'img/NO_IMAGE.svg'}}"
+                         alt="{{'IMAGE_OF_CLUB_ALT' | translate:{name:club.name} }}"
+                         class="img-responsive">
+                </div>
+
+                <div class="col-sm-8">
+                    <h4>{{club.name}}<br>
+                        <small>{{ 'GENERIC.ADDRESS_FORMAT' | translate:{address: club.address} }}</small>
+                    </h4>
+
+                    <div ng-bind-html="club.description"></div>
+                </div>
+
+                <div class="col-sm-2 text-right">
+                    <h4>{{ club.price * club.amount | currency:club.currency:2}}<br>
+                        <small>{{ 'CART.AMOUNT_SINGLE_PRICE' | translate:{amount: club.amount, price: club.price,
+                            currency:club.currency} }}
+                        </small>
+                    </h4>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row" ng-if="cart.length">
+            <div class="col-sm-4 col-md-3">
+                <a href="#/" class="btn btn-secondary btn-block">{{'CART.SHOP_MORE' | translate}}</a>
+            </div>
+            <div class="col-sm-4 col-sm-offset-4 col-md-3 col-md-offset-6">
+                <a href="#/cart/checkout" class="btn btn-primary btn-block">{{'CART.CHECKOUT_NOW' | translate}}</a>
+            </div>
+        </div>
+
+        <div class="row" ng-if="!cart.length">
+            <div class="col-xs-12">
+                <a href="#/" class="btn btn-primary btn-block btn-lg">{{'CART.GET_SHOPPING' | translate}}</a>
+            </div>
+        </div>
+    </div>
+
+
+</section>

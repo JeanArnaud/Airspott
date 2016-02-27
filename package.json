@@ -11,6 +11,7 @@
     "compression": "^1.0.3",
     "cors": "^2.5.2",
     "gulp": "^3.9.0",
+    "gulp-exec": "^2.1.2",
     "gulp-minify-css": "^1.2.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.1.0",
@@ -18,9 +19,12 @@
     "loopback": "^2.25.0",
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^2.1.0",
+    "loopback-component-passport": "^2.0.0",
     "loopback-connector-mongodb": "^1.13.1",
     "loopback-connector-sqlite": "^1.1.0",
     "loopback-datasource-juggler": "^2.41.1",
+    "passport-facebook": "^2.1.0",
+    "passport-twitter": "^1.0.4",
     "serve-favicon": "^2.0.1"
   },
   "devDependencies": {

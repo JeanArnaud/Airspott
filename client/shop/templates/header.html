@@ -1,61 +1,51 @@
-<div class="container">
-    <div class="row">
-        <div class="col-xs-4"><a href="#/"><img src="img/logo.png" class="logo"></a></div>
-        <div class="col-xs-7">
-            <nav class="applePie">
-                <div class="menubtn">{{'MAIN_MENU' | translate}}</div>
-                <ul id="nav">
-                    <li><a href="/club">{{'SELLER_CENTRAL' | translate}}</a></li>
-
-                    <li>
-                        <a href="#">{{'Mein Benutzerkonto' | translate}}</a>
-                        <ul>
-                            <li><a href="#" title="{{'Mein Benutzerkonto' | translate}}">
-                                {{'Mein Benutzerkonto' | translate}}</a></li>
-                            <li>
-                                <a href="#" title="{{'Mein Wunschzettel' | translate}}">
-                                    {{'Mein Wunschzettel' | translate}}</a></li>
-                            <li>
-                                <a href="#" title="{{'Mein Warenkorb' | translate}}" class="top-link-cart">
-                                    {{'Mein Warenkorb' | translate}}</a>
-                            </li>
-                            <li>
-                                <a href="#" title="{{'Zur Kasse' | translate}}" class="top-link-checkout">
-                                    {{'Zur Kasse' | translate}}</a>
-                            </li>
-                            <li>
-                                <a href="#" title="{{'Anmelden' | translate}}">
-                                    {{'Anmelden' | translate}}
-                                </a></li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a>{{'LANGUAGES.LANGUAGE' | translate}}</a>
-
-                        <ul>
-                            <li><a ng-click="changeLanguage('de')" title="{{'LANGUAGES.GERMAN'| translate}}">{{'LANGUAGES.GERMAN'| translate}}</a></li>
-                            <li><a ng-click="changeLanguage('en')" title="{{'LANGUAGES.ENGLISH'| translate}}">{{'LANGUAGES.ENGLISH'| translate}}</a></li>
-                            <li><a ng-click="changeLanguage('fr')" title="{{'LANGUAGES.FRENCH'| translate}}">{{'LANGUAGES.FRENCH'| translate}}</a></li>
-                        </ul>
-                    </li>
-
-                    <li><a href="#">{{'CURRENCY' | translate}} : <span class="green_text">EUR</span></a>
-                        <ul>
-                            <li><a href="#" title="EUR">EUR</a></li>
-                            <li><a href="#" title="USD">USD</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#/">
+                <img alt="{{'AIRSPOTT' | translate}}" src="img/logo.png" style="max-height:100%;">
+            </a>
         </div>
-        <div class="col-xs-1 border_left headerright">
-            <ul class="nav navbar-nav navbar-left social">
-                <li><a href="#"><i class="fa fa-lg fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fa fa-lg fa-twitter"></i></a></li>
+
+        <div>
+            <ul class="nav navbar-nav navbar-right">
+
+                <li class="dropdown" uib-dropdown>
+                    <a role="button" class="dropdown-toggle" uib-dropdown-toggle aria-haspopup="true"
+                       aria-expanded="false">
+                        {{'LANGUAGE' | translate}} <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li ng-repeat="language in languages">
+                            <a ng-click="changeLanguage(language.toLowerCase())"
+                               title="{{'LANGUAGES.' + language |  translate}}">
+                                {{'LANGUAGES.' + language | translate}}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="dropdown" uib-dropdown>
+                    <a role="button" class="dropdown-toggle" uib-dropdown-toggle aria-haspopup="true"
+                       aria-expanded="false">
+                        {{'CURRENCY.CURRENCY' | translate: {current:currentCurrency} }} <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li ng-repeat="currency in currencies">
+                            <a ng-click="currentCurrency = currency" title="{{'CURRENCIES.EUR'| translate}}">
+                                {{currency}}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li><a href="/club">{{'SELLER_CENTRAL' | translate}}</a></li>
+                <li class="navbar-divider"></li>
+                <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                <li class="navbar-divider"></li>
+                <li><a href="#/cart"><i class="fa fa-shopping-cart"></i> <span class="badge">{{cart.length}}</span> </a></li>
             </ul>
-            <span class="fa fa-shopping-cart"></span>
-            <span class="cart_no">0</span>
         </div>
     </div>
-</div>
+</nav>

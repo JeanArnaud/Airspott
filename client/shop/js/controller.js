@@ -1,18 +1,29 @@
-angular.module("com.airspott.shop").controller("ShopAppCtrl", ["$rootScope", '$scope', '$state', '$log', '$translate', 'Buyer', 'Club',
-    function ($rootScope, $scope, $state, $log, $translate, Buyer, Club) {
+angular.module("com.airspott.shop").controller("ShopAppCtrl", [
+    "$rootScope", '$scope', '$state', '$log', '$translate', 'Buyer',
+
+    function ($rootScope, $scope, $state, $log, $translate, Buyer) {
 
         $rootScope.countries = ['AT', 'DE', 'CH'];
         $rootScope.saleUnits = ['DAYS', 'HOURS'];
+
         $rootScope.languages = ['DE', 'EN'];
-        $scope.search_obj = {};
+
+        $rootScope.currentCurrency = 'EUR';
+        $rootScope.currencies = ['EUR', 'USD', 'CHF'];
+
 
         $rootScope.meta = {
             title: 'APP_NAME'
         };
 
         $scope.changeLanguage = function (lang) {
-            alert(lang);
             $translate.use(lang);
+        };
+
+        $rootScope.cart = [];
+
+        $rootScope.addToCart = function (item) {
+            $rootScope.cart.push(item);
         };
 
         /*if (!Buyer.isAuthenticated()) {

@@ -29,6 +29,9 @@
 }
 
 .input-group .btn {
+
+    border-top: 1px solid transparent;
+
     &:active, &:focus, &:active:hover, &:focus:hover {
         transform: translate(0, 0);
     }

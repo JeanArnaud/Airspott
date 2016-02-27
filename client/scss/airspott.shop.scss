@@ -1,4 +1,5 @@
 @import "../common/lib/bootstrap-3/assets/stylesheets/bootstrap";
+@import "../common/lib/leaflet/dist/leaflet.css";
 
 /* Variables */
 $font_body: 'Open Sans', sans-serif;
@@ -14,7 +15,7 @@ $bold: 700;
 $semi_bold: 600;
 $normal_bold: 400;
 
-$main_header_height: 50px;
+$main_header_height: 60px;
 
 @import "shop/wells";
 @import "shop/forms";
@@ -61,20 +62,7 @@ body {
     bottom: 10px;
 }
 
-.product {
-    header {
-        padding-top: $main_header_height;
-        background-size: cover;
-        //background: no-repeat center;
-        height: 300px;
-        width: 100%;
-        position: relative;
-        color: #fff;
-        margin-bottom: 10px;
-    }
-}
-
-.checkout {
+.checkout, .cart, .search, .product {
     header {
         padding-top: $main_header_height;
         background-size: cover;
@@ -85,6 +73,27 @@ body {
         color: #fff;
         margin-bottom: 10px;
     }
+}
+
+.cart header {
+    background-image: url(../img/banner1.jpg);
+}
+
+.search header {
+    background-image: url(../img/banner1.jpg);
+}
+
+.product header {
+    height: 300px;
+}
+
+.navbar a {
+    cursor: pointer;
+}
+
+.navbar .navbar-divider {
+    height: floor($navbar-height - $navbar-margin-bottom);
+    margin: floor($navbar-margin-bottom / 2) 9px;
 }
 
 .banner h1 {
@@ -113,75 +122,44 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 15px 0;
-}
 
-.main_menu li {
-    float: left;
-    background: url(../img/menu_arrow.png) no-repeat right 5px;
-}
+    /* Submenu */
+    .main_menu ul {
+        position: absolute;
+        left: -9999px;
+        top: -9999px;
+        list-style-type: none;
+        z-index: 1000000000
+    }
 
-.main_menu li a {
-    text-decoration: none;
-    padding: 5px 15px;
-    margin-left: 5px;
-    color: $body_color;
-}
+    .main_menu li:hover {
+        position: relative;
+    }
 
-.main_menu li a span {
-    color: $second_color
-}
+    .main_menu li:hover ul {
+        left: 0;
+        top: 20px;
+        background: $header_background;
+        padding: 0;
+    }
 
-.main_menu li a.white {
-    text-decoration: none;
-    padding: 5px 10px;
-    color: $white_color;
-}
+    .main_menu li:hover ul li a {
+        padding: 9px 20px;
+        display: block;
+        width: 200px;
+        text-indent: 0;
+        margin-left: 0;
+        background-color: $header_background;
+        border: none;
+        border-bottom: 1px solid #858585
+    }
 
-.main_menu li a.white:hover {
-    color: $second_color;
-}
-
-.main_menu li a:hover {
-    border-color: #F60;
-    color: $body_color
-}
-
-/* Submenu */
-.main_menu ul {
-    position: absolute;
-    left: -9999px;
-    top: -9999px;
-    list-style-type: none;
-    z-index: 1000000000
-}
-
-.main_menu li:hover {
-    position: relative;
-}
-
-.main_menu li:hover ul {
-    left: 0;
-    top: 20px;
-    background: $header_background;
-    padding: 0;
-}
-
-.main_menu li:hover ul li a {
-    padding: 9px 20px;
-    display: block;
-    width: 200px;
-    text-indent: 0;
-    margin-left: 0;
-    background-color: $header_background;
-    border: none;
-    border-bottom: 1px solid #858585
-}
-
-.main_menu li:hover ul li a:hover {
-    background: $header_background;
-    border: none;
-    border-bottom: 1px solid #858585;
-    color: $second_color;
+    .main_menu li:hover ul li a:hover {
+        background: $header_background;
+        border: none;
+        border-bottom: 1px solid #858585;
+        color: $second_color;
+    }
 }
 
 .footer_menu ul {
@@ -208,94 +186,8 @@ body {
     color: $body_color;
 }
 
-.search_box {
-    background: #7f7f7f;
-    margin: 0 auto !important;
-    padding: 10px 40px;
-    position: absolute;
-    top: 540px;
-    width: 1140px;
-    z-index: 9;
-}
-
-.search_box .textfield {
-    padding: 5px 10px;
-    border: 0;
-    font-style: italic;
-    color: #202020;
-    width: $full_width;
-    font-size: 13px;
-}
-
-.search_box .textfield_small {
-    width: 20px;
-    border: none;
-    text-align: $center_text;
-    font-style: normal;
-    font-size: 20px;
-}
-
-.search_box .whitespace {
-    padding: 10px 10px;
-    border: solid 1px #9f9f9f;
-    color: #202020;
-    background: $white_color;
-    margin: 17px 15px;
-}
-
-.search_box .whitespace2 {
-    padding: 3px 10px;
-    border: solid 1px #9f9f9f;
-    color: #202020;
-    background: $white_color;
-    margin: 17px 15px;
-}
-
-.search_box table {
-    width: 98%;
-    padding: 0
-}
-
-.search_box table tr td {
-    font-size: 15px;
-    line-height: normal;
-    padding: 0
-}
-
-.search_box table tr td h3 {
-    font-size: 25px;
-    font-weight: $semi_bold;
-    line-height: 17px;
-    padding: 0;
-    margin: 0
-}
-
-.search_box button {
-    background: $white_color;
-    border: 0;
-    color: $blk_color;
-    font-size: 17px;
-    padding: 14px 15px;
-    margin-top: 17px;
-}
-
-.search_box .whitetext {
-    font-size: 14px;
-    font-weight: $semi_bold;
-    color: $white_color;
-    padding-left: 5px;
-}
-
-.search_box .space {
-    padding: 0;
-}
-
 .gallery_margin {
     margin-top: 30px;
-}
-
-.search_box .datepicker {
-    padding: 13px 10px
 }
 
 .boxrow {
@@ -335,9 +227,7 @@ body {
 }
 
 .map {
-    background: url(../img/map.jpg) no-repeat center top;
-    background-size: cover;
-    height: 650px;
+    height: 350px;
 }
 
 footer {
@@ -491,178 +381,8 @@ span.fa {
     display: none;
 }
 
-nav {
-    font-size: 11px;
-    display: block;
-    position: relative;
-    z-index: 9999;
-    text-transform: uppercase;
-    float: right;
-}
-
-nav span {
-    display: none;
-}
-
-/* all lists */
-nav ul, nav ul ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    line-height: 1;
-    position: relative;
-}
-
-nav ul a {
-    display: block;
-    text-decoration: none;
-    background: url(../img/menu_arrow.png) no-repeat right 19px;
-    margin: 0 5px;
-    padding: 15px 15px !important;
-}
-
-nav ul a:hover, a:focus {
-    text-decoration: none;
-    color: $body_color
-}
-
-/* all list items */
-nav ul li {
-    float: left;
-    -webkit-transition: background-color 0.7s ease;
-    -moz-transition: background-color 0.7s ease;
-    -o-transition: background-color 0.7s ease;
-    -ms-transition: background-color 0.7s ease;
-    transition: background-color 0.7s ease;
-}
-
-nav ul li:last-child {
-    border: none;
-}
-
-/* second-level lists */
-nav ul li ul {
-    position: absolute;
-    width: 170px;
-    left: -999em; /* using left instead of display to hide menus because display: none isn't read by screen readers */
-}
-
-nav ul li ul li {
-    width: 170px;
-}
-
-nav ul ul li,
-nav ul ul ul li,
-nav ul ul ul ul li {
-    border-right: none;
-}
-
-nav ul li a.sf-with-ul:after {
-    display: inline-block;
-    *float: right; /*IE7 Fix*/
-    position: relative;
-    top: 0em;
-    right: -0.3em;
-}
-
-nav ul li.sfHover a.sf-with-ul:after {
-    -moz-transform: rotate(90deg);
-    -webkit-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    transform: rotate(90deg);
-}
-
-nav ul li.sfHover li a.sf-with-ul:after {
-    -moz-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-}
-
-nav ul li a.sf-with-ul:only-child:after {
-    content: ''; /* if only child, delete arrow */
-}
-
-nav ul li ul a {
-    padding: 0.5em 1.5em;
-    background: none;
-    margin-top: -1px; /*to offset bottom border*/
-}
-
-nav ul li ul li:last-child a {
-    border-bottom: none;
-}
-
-/* third-and-above-level lists */
-nav ul li ul ul {
-    margin: -2em 0 0 12em; /* negative margin calculated by li padding plus line height*/
-}
-
-nav ul li:hover ul ul,
-nav ul li:hover ul ul ul,
-nav ul li.sfhover ul ul,
-nav ul li.sfhover ul ul ul {
-    left: -999em;
-}
-
-nav ul li:hover ul,
-nav ul li li:hover ul,
-nav ul li li li:hover ul,
-nav ul li.sfhover ul,
-nav ul li li.sfhover ul,
-nav ul li li li.sfhover ul { /* lists nested under hovered list items */
-    left: auto;
-}
-
-/*UNIVERSAL PADDING*/
-nav ul a,
-nav ul li a,
-nav ul li ul a {
-    padding: 15px 10px;
-}
-
 /*----------------------------------
-	COLORS
------------------------------------*/
-nav {
-    background: none;
-}
-
-nav ul a {
-    color: $body_color;
-}
-
-/*Top Nav borders*/
-nav ul li {
-    border-right: 0 solid #ccc;
-}
-
-.green_text {
-    color: $second_color;
-    display: inline
-}
-
-nav ul li:hover {
-    color: #666;
-    background: none;
-}
-
-nav ul li ul a {
-    border-bottom: 1px solid #848484;
-}
-
-nav ul li ul a:hover, a:focus {
-    color: $second_color
-}
-
-nav ul li ul {
-    background: $header_background;
-}
-
-/*----------------------------------
-	MEDIA QUERY
+    MEDIA QUERY
 -----------------------------------*/
 @media screen and (max-width: 800px) {
     .menubtn {
@@ -878,15 +598,6 @@ nav ul li ul {
         text-transform: uppercase;
         text-align: center;
         padding-top: 20px;
-    }
-    .search_box {
-        background: #7f7f7f;
-        margin: 30px auto 0 auto !important;
-        padding: 10px 20px;
-        position: static;
-        //top:;
-        width: 100%;
-        z-index: 10;
     }
     .banner_heading h1 {
         text-align: right;

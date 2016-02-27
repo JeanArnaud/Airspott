@@ -13,14 +13,8 @@
         border-color: $gray;
     }
 
-    &:focus
-    {
-        border-color:transparent;
+    &:focus {
+        border-color: transparent;
         border-bottom-color: $second_color;
     }
-}
-
-.input-group .form-control {
-    border-left: none;
-    border-right: none;
 }

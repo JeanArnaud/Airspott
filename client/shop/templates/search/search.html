@@ -1,196 +1,199 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-12 inner_banner">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12 banner_heading">
-                        <h1>{{'SEARCH' | translate}}</h1>
+<section class="search">
+    <header class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 inner_banner">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 text-right">
+                            <h1>{{'SEARCH' | translate}}</h1>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </header>
 
-<div class="container wrapper_content">
-    <div class="row">
-        <div class="col-lg-3 col-sm-4">
-            <div class="well well-sm">
 
-                <h4>{{'SEARCH.BOX_HEADLINE' | translate}}<br>
-                    <small>{{'SEARCH.TELL_US_WHAT_YOU_SEARCH_FOR' | translate}}</small>
-                </h4>
+    <div class="container wrapper_content">
+        <div class="row">
+            <div class="col-lg-3 col-sm-4">
+                <div class="well well-sm">
 
-                <button class="btn btn-default btn-xs visible-xs" ng-if="!collapsed" ng-click="toggle('collapsed')">
-                    {{'SEARCH.COLLAPSE' | translate}} <i class="fa fa-chevron-up"></i>
-                </button>
+                    <h4>{{'SEARCH.BOX_HEADLINE' | translate}}<br>
+                        <small>{{'SEARCH.TELL_US_WHAT_YOU_SEARCH_FOR' | translate}}</small>
+                    </h4>
 
-                <button class="btn btn-default btn-xs visible-xs" ng-if="collapsed" ng-click="toggle('collapsed')">
-                    {{'SEARCH.UNCOLLAPSE' | translate}} <i class="fa fa-chevron-down"></i>
-                </button>
+                    <button class="btn btn-default btn-xs visible-xs" ng-if="!collapsed" ng-click="toggle('collapsed')">
+                        {{'SEARCH.COLLAPSE' | translate}} <i class="fa fa-chevron-up pull-right"></i>
+                    </button>
 
-                <form ng-hide="collapsed">
-                    <hr>
+                    <button class="btn btn-default btn-xs visible-xs" ng-if="collapsed" ng-click="toggle('collapsed')">
+                        {{'SEARCH.UNCOLLAPSE' | translate}} <i class="fa fa-chevron-down pull-right"></i>
+                    </button>
 
-                    <section class="form-group">
-                        <label class="control-label" for="query">
-                            {{'SEARCH.QUERY' | translate}}
-                        </label>
-
-                        <div class="input-group">
-                            <input type="text" ng-model="query.query" class="form-control" id="query"
-                                   placeholder="{{'SEARCH.QUERY' | translate}}"/>
-
-                            <div class="input-group-btn">
-                                <button class="btn"
-                                        ng-class="!extendedSearch ? 'btn-primary': 'btn-default'"
-                                        ng-disabled="clubs && !clubs.$resolved"
-                                        ng-click="search()">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section class="form-group row">
-                        <div class="col-xs-12">
-                            <label class="control-label">{{'OFFERS' | translate}}</label>
-                        </div>
-
-                        <div class="col-xs-6"
-                             ng-if="$index < 6 || extendedOffers"
-                             ng-repeat="offer in offers">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" ng-false-value="null" ng-model="query.offers[offer.id]">
-                                    {{'OFFERS.' + offer.identifier | translate}}
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="col-xs-12">
-                            <button ng-if="!extendedOffers" class="btn btn-default btn-xs btn-block"
-                                    ng-click="toggle('extendedOffers')">
-                                {{'SEARCH.SHOW_EXTENDED_OFFERS' | translate}}
-
-                                <i class="fa fa-plus"></i>
-                            </button>
-                        </div>
-                    </section>
-
-                    <section>
-
-                        <button ng-if="!extendedSearch" class="btn btn-link btn-block"
-                                ng-click="toggle('extendedSearch')">
-                            {{'SEARCH.SHOW_EXTENDED' | translate}}
-
-                            <i class="fa fa-chevron-down"></i>
-                        </button>
-
-                        <button ng-if="extendedSearch" class="btn btn-link btn-block"
-                                ng-click="toggle('extendedSearch')">
-                            {{'SEARCH.HIDE_EXTENDED' | translate}}
-
-                            <i class="fa fa-chevron-up"></i>
-                        </button>
-
-                    </section>
-
-                    <div ng-if="extendedSearch">
-
+                    <form ng-hide="collapsed">
                         <hr>
 
                         <section class="form-group">
-                            <label for="amount">{{'GUESTS' | translate}}</label>
+                            <label class="control-label" for="query">
+                                {{'SEARCH.QUERY' | translate}}
+                            </label>
 
                             <div class="input-group">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-default" ng-click="decrementObjKey('query', 'amount')">
-                                        <i class="fa fa-minus"></i>
-                                    </button>
-                                </div>
-
-                                <input type="number" ng-model="query.amount" class="form-control text-center"
-                                       id="amount"
-                                       placeholder="{{'SEARCH.GUEST_AMOUNT' | translate}}"/>
+                                <input type="text" ng-model="query.query" class="form-control" id="query"
+                                       placeholder="{{'SEARCH.QUERY' | translate}}"/>
 
                                 <div class="input-group-btn">
-                                    <button class="btn btn-default" ng-click="incrementObjKey('query', 'amount')">
-                                        <i class="fa fa-plus"></i>
+                                    <button class="btn"
+                                            ng-class="!extendedSearch ? 'btn-primary': 'btn-default'"
+                                            ng-disabled="clubs && !clubs.$resolved"
+                                            ng-click="search()">
+                                        <i class="fa fa-search"></i>
                                     </button>
                                 </div>
                             </div>
                         </section>
 
-                        <section class="form-group">
-                            <label class="control-label" for="date">{{'DATE' | translate}}</label>
+                        <section class="form-group row">
+                            <div class="col-xs-12">
+                                <label class="control-label">{{'OFFERS' | translate}}</label>
+                            </div>
 
-                            <input type="date" class="form-control" id="date" ng-model="query.date"
-                                   placeholder="{{'DATE' | translate}}">
+                            <div class="col-xs-6"
+                                 ng-if="$index < 6 || extendedOffers"
+                                 ng-repeat="offer in offers">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" ng-false-value="null" ng-model="query.offers[offer.id]">
+                                        {{'OFFERS.' + offer.identifier | translate}}
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12">
+                                <button ng-if="!extendedOffers" class="btn btn-default btn-xs btn-block"
+                                        ng-click="toggle('extendedOffers')">
+                                    {{'SEARCH.SHOW_EXTENDED_OFFERS' | translate}}
+
+                                    <i class="fa fa-plus pull-right"></i>
+                                </button>
+                            </div>
                         </section>
 
-                        <button class="btn btn-primary btn-block"
-                                ng-click="search()"
-                                ng-disabled="clubs && !clubs.$resolved">
-                            <i class="fa fa-search"></i><br>{{'SEARCH.SEARCH' | translate}}
-                        </button>
+                        <section>
 
-                    </div>
+                            <button ng-if="!extendedSearch" class="btn btn-link btn-block"
+                                    ng-click="toggle('extendedSearch')">
+                                {{'SEARCH.SHOW_EXTENDED' | translate}}
 
-                </form>
+                                <i class="fa fa-chevron-down pull-right"></i>
+                            </button>
 
-            </div>
-        </div>
+                            <button ng-if="extendedSearch" class="btn btn-link btn-block"
+                                    ng-click="toggle('extendedSearch')">
+                                {{'SEARCH.HIDE_EXTENDED' | translate}}
 
+                                <i class="fa fa-chevron-up pull-right"></i>
+                            </button>
 
-        <div class="col-lg-9 col-sm-8">
+                        </section>
 
-            <div class="alert alert-info" ng-if="clubs === undefined">
-                {{'SEARCH.NO_SEARCH_YET' | translate}}
-            </div>
+                        <div ng-if="extendedSearch">
 
-            <div class="alert alert-warning" ng-if="clubs.$resolved === false">
-                {{'SEARCH.SEARCH_IN_PROGRESS' | translate}}
-            </div>
+                            <hr>
 
-            <div class="alert alert-warning" ng-if="clubs.$resolved !== false && clubs.length === 0">
-                {{'SEARCH.NO_RESULT_FOR_THE_SEARCH' | translate}}
-            </div>
+                            <section class="form-group">
+                                <label for="amount">{{'GUESTS' | translate}}</label>
 
-            <div class="alert alert-danger" ng-if="searchError">
-                {{'SEARCH.ERROR' | translate:{err:searchError} }}
-            </div>
+                                <div class="input-group">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-default" ng-click="decrementObjKey('query', 'amount')">
+                                            <i class="fa fa-minus"></i>
+                                        </button>
+                                    </div>
 
-            <section class="well cursor-pointer" style="cursor:pointer"
-                     ng-repeat="club in clubs"
-                     ng-if="!searchError"
-                     ui-sref="shop.productDetails({productId:club.id})">
+                                    <input type="number" ng-model="query.amount" class="form-control text-center"
+                                           id="amount"
+                                           placeholder="{{'SEARCH.GUEST_AMOUNT' | translate}}"/>
 
-                <div class="row">
-                    <div class="col-sm-3">
-                        <img ng-src="{{club.media[0].media || 'img/NO_IMAGE.svg'}}"
-                             alt="{{'IMAGE_OF_CLUB_ALT' | translate:{name:club.name} }}"
-                             class="img-responsive">
-                    </div>
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-default" ng-click="incrementObjKey('query', 'amount')">
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </section>
 
-                    <div class="col-sm-7">
-                        <h4>{{club.name}}<br>
-                            <small>{{ 'GENERIC.ADDRESS_FORMAT' | translate:{address: club.address} }}</small>
-                        </h4>
+                            <section class="form-group">
+                                <label class="control-label" for="date">{{'DATE' | translate}}</label>
 
-                        <div ng-bind-html="club.description"></div>
-                    </div>
+                                <input type="date" class="form-control" id="date" ng-model="query.date"
+                                       placeholder="{{'DATE' | translate}}">
+                            </section>
 
-                    <div class="col-sm-2 text-right">
-                        <h4>{{ club.price | currency:club.currency:2}}</h4>
+                            <button class="btn btn-primary btn-block"
+                                    ng-click="search()"
+                                    ng-disabled="clubs && !clubs.$resolved">
+                                <i class="fa fa-search"></i><br>{{'SEARCH.SEARCH' | translate}}
+                            </button>
 
-                        <button class="btn btn-primary" ng-click="instantAddToCart(club.id)">{{'BUY' | translate}}
-                        </button>
-                    </div>
+                        </div>
+
+                    </form>
 
                 </div>
-            </section>
+            </div>
 
+
+            <div class="col-lg-9 col-sm-8">
+
+                <div class="alert alert-info" ng-if="clubs === undefined">
+                    {{'SEARCH.NO_SEARCH_YET' | translate}}
+                </div>
+
+                <div class="alert alert-warning" ng-if="clubs.$resolved === false">
+                    {{'SEARCH.SEARCH_IN_PROGRESS' | translate}}
+                </div>
+
+                <div class="alert alert-warning" ng-if="clubs.$resolved !== false && clubs.length === 0">
+                    {{'SEARCH.NO_RESULT_FOR_THE_SEARCH' | translate}}
+                </div>
+
+                <div class="alert alert-danger" ng-if="searchError">
+                    {{'SEARCH.ERROR' | translate:{err:searchError} }}
+                </div>
+
+                <section class="well cursor-pointer" style="cursor:pointer"
+                         ng-repeat="club in clubs"
+                         ng-if="!searchError"
+                         ui-sref="shop.productDetails({productId:club.id})">
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <img ng-src="{{club.media[0].media || 'img/NO_IMAGE.svg'}}"
+                                 alt="{{'IMAGE_OF_CLUB_ALT' | translate:{name:club.name} }}"
+                                 class="img-responsive">
+                        </div>
+
+                        <div class="col-sm-7">
+                            <h4>{{club.name}}<br>
+                                <small>{{ 'GENERIC.ADDRESS_FORMAT' | translate:{address: club.address} }}</small>
+                            </h4>
+
+                            <div ng-bind-html="club.description"></div>
+                        </div>
+
+                        <div class="col-sm-2 text-right">
+                            <h4>{{ club.price | currency:club.currency:2}}</h4>
+
+                            <button class="btn btn-primary" ng-click="instantAddToCart(club.id)">{{'BUY' | translate}}
+                            </button>
+                        </div>
+
+                    </div>
+                </section>
+
+            </div>
         </div>
     </div>
-</div>
+</section>

@@ -10,7 +10,8 @@
                 <div class="col-sm-offset-8 col-sm-4">
                     <div class="well well-sm well-dark-transparent">
                         <div class="well-header row">
-                            <div class="col-xs-6"><strong>{{'GET_IT_NOW' | translate: {product: product} }}</strong>
+                            <div class="col-xs-6">
+                                <strong>{{'GET_IT_NOW' | translate: {name: product.name} }}</strong>
                             </div>
                             <div class="col-xs-6 text-right"><strong>{{product.price | currency:'€ '}}</strong></div>
                         </div>
@@ -19,7 +20,7 @@
                             <div class="row form-group">
                                 <div class=" col-sm-6">
                                     <label for="amount">{{'GUEST_AMOUNT' | translate}}</label>
-                                    <input type="number" id="amount" name="amount"
+                                    <input type="number" id="amount" name="amount" ng-model="cartItem.amount"
                                            placeholder="{{'GUEST_AMOUNT' | translate}}" class="form-control">
                                 </div>
 
@@ -32,7 +33,9 @@
 
                             <hr>
 
-                            <button class="btn btn-primary btn-block">{{'BUY_NOW' | translate}}</button>
+                            <button class="btn btn-primary btn-block" ng-click="addToCart()">{{'BUY_NOW' |
+                                translate}}
+                            </button>
                         </form>
                     </div>
 

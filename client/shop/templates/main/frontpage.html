@@ -18,9 +18,21 @@
                     <div class="col-lg-3">
                         <section class="form-group">
                             <label for="query">{{'SEARCH.QUERY' | translate}}</label>
-                            <input id="query" ng-model="searchQuery.query" type="text"
-                                   class="form-control"
-                                   placeholder="{{'Current location, search bar' | translate}}">
+
+                            <div class="input-group">
+                                <input id="query" ng-model="searchQuery.query" type="text"
+                                       class="form-control"
+                                       placeholder="{{'SEARCH.QUERY_PLACEHOLDER' | translate}}">
+
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default"
+                                            ng-disabled="location == 'LOCATING'"
+                                            ng-click="locate()">
+                                        <i class="fa fa-location-arrow"></i>
+                                    </button>
+                                </div>
+                            </div>
+
                         </section>
                     </div>
 
@@ -143,8 +155,10 @@
     </div>
 </div>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-12 map"></div>
+<!-- Begin: Map -->
+<div class="row">
+    <div class="col-xs-12 map">
+        <leaflet defaults="mapSettings.defaults" center="mapSettings.center" height="100%" width="100%"></leaflet>
     </div>
 </div>
+<!-- End: Map -->
