@@ -10,27 +10,27 @@
             {{'CART.EMPTY' | translate}}
         </div>
 
-        <div class="well" ng-repeat="club in cart">
+        <div class="well" ng-repeat="item in cart">
 
             <div class="row">
                 <div class="col-sm-2">
-                    <img ng-src="{{club.media[0].media || 'img/NO_IMAGE.svg'}}"
-                         alt="{{'IMAGE_OF_CLUB_ALT' | translate:{name:club.name} }}"
+                    <img ng-src="{{item.product.media[0].media || 'img/NO_IMAGE.svg'}}"
+                         alt="{{'IMAGE_OF_CLUB_ALT' | translate:{name:item.product.name} }}"
                          class="img-responsive">
                 </div>
 
                 <div class="col-sm-8">
-                    <h4>{{club.name}}<br>
-                        <small>{{ 'GENERIC.ADDRESS_FORMAT' | translate:{address: club.address} }}</small>
+                    <h4>{{item.product.name}}<br>
+                        <small>{{ 'GENERIC.ADDRESS_FORMAT' | translate:{address: item.product.address} }}</small>
                     </h4>
 
-                    <div ng-bind-html="club.description"></div>
+                    <div ng-bind-html="item.product.description"></div>
                 </div>
 
                 <div class="col-sm-2 text-right">
-                    <h4>{{ club.price * club.amount | currency:club.currency:2}}<br>
-                        <small>{{ 'CART.AMOUNT_SINGLE_PRICE' | translate:{amount: club.amount, price: club.price,
-                            currency:club.currency} }}
+                    <h4>{{ item.product.price * item.product.amount | currency:item.product.currency:2}}<br>
+                        <small>{{ 'CART.SINGLE_PRICE' | translate:{price: item.product.price,
+                            currency:item.product.currency} }}
                         </small>
                     </h4>
                 </div>

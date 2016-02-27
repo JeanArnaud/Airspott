@@ -18,9 +18,23 @@ angular.module('com.airspott.shop.product').controller('ProductDetailsCtrl', [
         });
 
         $scope.addToCart = function () {
-            var cartItem = angular.extend({}, $scope.cartItem, $scope.product);
 
-            $rootScope.addToCart(cartItem);
+            var guid = function () {
+                function s4() {
+                    return Math.floor((1 + Math.random()) * 0x10000)
+                        .toString(16)
+                        .substring(1);
+                }
+
+                return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+                    s4() + '-' + s4() + s4() + s4();
+            };
+
+            for (var i = $scope.cartItem.amount; i > 0; i--) {
+                var cartItem = angular.extend({pseudoID: guid()}, {product: $scope.product});
+
+                $rootScope.addToCart(cartItem);
+            }
 
             $state.go('shop.cart');
         };
