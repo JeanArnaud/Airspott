@@ -2,21 +2,24 @@
 
     <header>
         <div class="container">
-            <ul class="nav nav-tabs nav-justified">
-                <li class="nav-item" ng-class="checkoutStep === 0 ? 'active' : ''">
-                    <a class="nav-link">{{'CART' | translate}}</a>
-                </li>
-                <li class="nav-item" ng-class="checkoutStep === 1 ? 'active' : ''">
-                    <a class="nav-link">{{'DETAILS' | translate}}</a>
-                </li>
-                <li class="nav-item" ng-class="checkoutStep === 2 ? 'active' : ''">
-                    <a class="nav-link">{{'PAYMENT' | translate}}</a>
-                </li>
-            </ul>
+            <h1 class="text-bottom text-right">{{'CART.CHECKOUT' | translate}}</h1>
         </div>
     </header>
 
     <main class="container">
+        <ul class="nav nav-tabs nav-justified">
+            <li class="nav-item" ng-class="checkoutStep === 0 ? 'active' : ''">
+                <a class="nav-link">{{'CART' | translate}}</a>
+            </li>
+            <li class="nav-item" ng-class="checkoutStep === 1 ? 'active' : ''">
+                <a class="nav-link">{{'DETAILS' | translate}}</a>
+            </li>
+            <li class="nav-item" ng-class="checkoutStep === 2 ? 'active' : ''">
+                <a class="nav-link">{{'PAYMENT' | translate}}</a>
+            </li>
+        </ul>
+
+
         <section class="well well-sm" ng-if="checkoutStep === 0">
 
 
@@ -77,7 +80,9 @@
                 </div>
 
                 <div class="col-xs-6 col-xs-offset-3 col-sm-offset-5 col-sm-2">
-                    <button class="btn btn-primary btn-block" ng-click="getContents()">{{'GET_YOUR_PURCHASE' | translate}}</button>
+                    <button class="btn btn-primary btn-block" ng-click="getContents()">{{'GET_YOUR_PURCHASE' |
+                        translate}}
+                    </button>
                 </div>
             </div>
         </section>
