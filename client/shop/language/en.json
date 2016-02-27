@@ -16,7 +16,10 @@
 
     "APP_NAME": "Airspott",
 
-    "COPYRIGHT_FOOTER": "Made with ♥ by Airspott in Vienna. © 2015 Airspott GmbH.",
+    "GLOBAL": {
+        "COPYRIGHT": "Made with ♥ by Airspott in Vienna. © 2016 Airspott GmbH.",
+        "SELLER_CENTRAL": "Sell with Airspott"
+    },
 
     "WELCOME_TO_AIRSPOTT": "Willkommen bei Airspott!",
     "ACCOUNT_WELCOME_SUBLINE": "Hier können Sie Ihre Angebote verwalten.",
@@ -30,6 +33,15 @@
     "SALES_DESCRIPTION": "Hier zeigen wir Ihre verkauften Tickets an.",
     "REFINE_YOUR_CLUBS": "Lassen Sie uns Ihre Angebot optimieren",
     "NEED_HELP": "Können wir Ihnen dabei helfen?",
+
+    "PRODUCT": {
+        "ADD_IDENTITIES": "Wer besucht uns?",
+        "PERSON_N": "Person {{personNo}}",
+        "PERSON_NAME": "Vor- & Nachname",
+        "PERSON_EMAIL_MANDATORY": "E-Mail",
+        "PERSON_EMAIL_OPTIONAL": "E-Mail (optional)",
+        "ADD_TO_CART": "Zum Warenkorb"
+    },
 
     "ACCOUNTING_DESCRIPTION": "Wir benötigen diese Daten um Ihr Geld auszahlen und Ihre Angebote zu verkaufen. Wir bitten Sie diese Informationen mit Sorgfalt auszufüllen und versichern sorgfältig damit umzugehen.",
 
@@ -201,7 +213,20 @@
     "SETTINGS_DESCRIPTION": "Dies sind Ihre persönlichen Einstellungen. Sie können hier Ihre E-Mail Adresse, Ihr Kennwort, Ihren Namen und/oder Firmennamen und viele weitere Einstellungen ändern. In Zukunft werden wir noch weitere Optionen zur Verfügung stellen, damit wir uns besser kennenlernen!",
 
     "GENERIC": {
-        "ADDRESS_FORMAT": "{{address.address}}, {{address.zip}} {{address.country | translate}}"
+        "ADDRESS_FORMAT": "{{address.address}}, {{address.zip}} {{address.country | translate}}",
+        "NEXT": "Weiter"
+    },
+
+    "CART": {
+        "SHOP_MORE": "Weitere Angebote entdecken",
+        "FULL_VALUE": "Gesamtbetrag: {{fullValue}}",
+        "TAX_DESCRIPTION": "Dieser Betrag inkludiert beinhaltet {{taxPercentage}}% Steuern ({{taxValue}}).",
+        "CHECKOUT_NOW": "Jetzt bezahlen",
+        "SINGLE_PRICE": "{{price | currency:currency+' '}}",
+        "GET_SHOPPING": "Jetzt neue Angebote entdecken",
+        "EMPTY": "Ihr Warenkorb enthält noch keine Angebote. Entdecken Sie unsere Clubs noch heute!",
+        "ITEM_OWNER": "Mit diesem Pass kann {{name}} {{venue_name}} besuchen. {{(email ? 'CART.ITEM_OWNER_EMAIL_SET' : '') | translate: {email:email} }} ",
+        "ITEM_OWNER_EMAIL_SET": "Der Pass wird per E-Mail an {{email}} gesendet."
     },
 
     "MAIN": {
@@ -235,8 +260,8 @@
     "SEARCH": {
         "SEARCH": "Find",
 
-        "SELECT_OFFERS":"How do you want to be active?",
-        "OFFERS_SELECTED":"{{amount}} activies selected",
+        "SELECT_OFFERS": "How do you want to be active?",
+        "OFFERS_SELECTED": "{{amount}} activies selected",
 
         "BOX_HEADLINE": "Find activities",
         "TELL_US_WHAT_YOU_SEARCH_FOR": "Tell us how you wanna be active:",

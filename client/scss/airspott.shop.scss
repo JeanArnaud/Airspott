@@ -1,10 +1,11 @@
 @import "../common/lib/bootstrap-3/assets/stylesheets/bootstrap";
 @import "../common/lib/leaflet/dist/leaflet.css";
 @import "../common/lib/amitava82/angular-multiselect/dist/multiselect.css";
+@import "../common/lib/angular-bootstrap/ui-bootstrap-csp.css";
 
 /* Variables */
 $font_body: 'Open Sans', sans-serif;
-$body_color: #b8b8b8;
+$text-color: $gray;
 $header_background: #272727;
 $header_opacity: .8;
 $full_width: 100%;
@@ -29,21 +30,35 @@ body {
     font-family: $font_body;
     font-weight: $normal_bold;
     line-height: normal;
-    color: $body_color
+    color: $text-color
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.popover {
+    color: $text-color;
+
+    .popover-title {
+        border-bottom: 1px solid $text-color;
+        background: #fff;
+        color: $text-color;
+    }
+}
+
+[uib-popover-template-popup].popover {
+    display: block !important;
+}
+
+.product-identities-popup-inner {
+    width: $popover-max-width - 14px * 2;
 }
 
 .creditcards {
     @extend h2;
     margin: 0;
     padding: 0;
-}
-
-.main_header {
-    background: rgba(red($header_background), green($header_background), blue($header_background), $header_opacity);
-    border-bottom: 1px solid #ebebeb;
-    position: fixed;
-    width: $full_width;
-    z-index: 10
 }
 
 .main_header .logo {
@@ -151,31 +166,6 @@ body {
     .main_menu li:hover {
         position: relative;
     }
-
-    .main_menu li:hover ul {
-        left: 0;
-        top: 20px;
-        background: $header_background;
-        padding: 0;
-    }
-
-    .main_menu li:hover ul li a {
-        padding: 9px 20px;
-        display: block;
-        width: 200px;
-        text-indent: 0;
-        margin-left: 0;
-        background-color: $header_background;
-        border: none;
-        border-bottom: 1px solid #858585
-    }
-
-    .main_menu li:hover ul li a:hover {
-        background: $header_background;
-        border: none;
-        border-bottom: 1px solid #858585;
-        color: $second_color;
-    }
 }
 
 .footer_menu ul {
@@ -195,11 +185,11 @@ body {
 }
 
 .footer_menu ul li a:visited {
-    color: $body_color;
+    color: $text-color;
 }
 
 .footer_menu ul li a:hover, .footer_menu ul li .current {
-    color: $body_color;
+    color: $text-color;
 }
 
 .gallery_margin {
@@ -253,12 +243,12 @@ footer {
 }
 
 footer h1 {
-    color: $body_color;
+    color: $text-color;
     font-size: 20px;
     text-transform: uppercase;
     padding: 0 0 10px 0;
     margin: 0 0 15px 0;
-    border-bottom: solid 1px $body_color
+    border-bottom: solid 1px $text-color
 }
 
 .abtcontent p {
@@ -290,7 +280,7 @@ footer table {
     padding: 5px;
     background: #303030;
     border: solid 1px #4b4b4b;
-    color: $body_color;
+    color: $text-color;
     font-size: 16px;
     margin-bottom: 15px;
 }

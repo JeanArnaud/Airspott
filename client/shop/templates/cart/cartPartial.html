@@ -1,0 +1,42 @@
+<div class="well" ng-repeat="item in cart">
+
+    <div class="row">
+        <div class="col-sm-2">
+            <img ng-src="{{item.product.media[0].media || 'img/NO_IMAGE.svg'}}"
+                 alt="{{'IMAGE_OF_CLUB_ALT' | translate:{name:item.product.name} }}"
+                 class="img-responsive">
+        </div>
+
+        <div class="col-sm-8">
+            <h4>{{item.product.name}}<br>
+                <small>{{ 'GENERIC.ADDRESS_FORMAT' | translate:{address: item.product.address} }}</small>
+            </h4>
+
+            <p>{{'CART.ITEM_OWNER' | translate:{name: item.name, email:item.email, venue_name:item.product.name}
+                }}</p>
+
+            <!--<div ng-bind-html="item.product.description"></div>-->
+        </div>
+
+        <div class="col-sm-2 text-right">
+            <h4>{{ item.product.price * item.product.amount | currency:item.product.currency:2}}<br>
+                <small>{{ 'CART.SINGLE_PRICE' | translate:{price: item.product.price,
+                    currency:currentCurrency} }}
+                </small>
+            </h4>
+        </div>
+
+    </div>
+</div>
+
+<hr>
+
+<div class="well" ng-if="cart.length">
+    <div class="row">
+        <div class="col-sm-12 text-right">
+            <h4>{{ 'CART.FULL_VALUE' | translate: {fullValue: fullCartValue() } }}<br>
+                <small>{{ 'CART.TAX_DESCRIPTION' | translate:{taxPercentage:0,taxValue:0} }}</small>
+            </h4>
+        </div>
+    </div>
+</div>

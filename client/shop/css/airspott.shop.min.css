@@ -7,6 +7,7 @@
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 @import url(../common/lib/leaflet/dist/leaflet.css);
 @import url(../common/lib/amitava82/angular-multiselect/dist/multiselect.css);
+@import url(../common/lib/angular-bootstrap/ui-bootstrap-csp.css);
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -5826,6 +5827,8 @@ button.close {
   border-radius: 0;
   background: #eeeeee;
   border: none; }
+  .well hr {
+    border-color: rgba(85, 85, 85, 0.1); }
   .well.well-dark-transparent {
     background: rgba(39, 39, 39, 0.8);
     color: #fff;
@@ -5835,6 +5838,9 @@ button.close {
   .well .well-header {
     margin-bottom: 10px;
     font-size: 15.4px; }
+  .well .well {
+    background: #fff;
+    color: #555555; }
 
 .form-control {
   border-radius: 0;
@@ -5881,18 +5887,27 @@ body {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
   line-height: normal;
-  color: #b8b8b8; }
+  color: #555555; }
+
+.cursor-pointer {
+  cursor: pointer; }
+
+.popover {
+  color: #555555; }
+  .popover .popover-title {
+    border-bottom: 1px solid #555555;
+    background: #fff;
+    color: #555555; }
+
+[uib-popover-template-popup].popover {
+  display: block !important; }
+
+.product-identities-popup-inner {
+  width: 248px; }
 
 .creditcards {
   margin: 0;
   padding: 0; }
-
-.main_header {
-  background: rgba(39, 39, 39, 0.8);
-  border-bottom: 1px solid #ebebeb;
-  position: fixed;
-  width: 100%;
-  z-index: 10; }
 
 .main_header .logo {
   height: 25px;
@@ -5975,25 +5990,6 @@ body {
     z-index: 1000000000; }
   .main_menu .main_menu li:hover {
     position: relative; }
-  .main_menu .main_menu li:hover ul {
-    left: 0;
-    top: 20px;
-    background: #272727;
-    padding: 0; }
-  .main_menu .main_menu li:hover ul li a {
-    padding: 9px 20px;
-    display: block;
-    width: 200px;
-    text-indent: 0;
-    margin-left: 0;
-    background-color: #272727;
-    border: none;
-    border-bottom: 1px solid #858585; }
-  .main_menu .main_menu li:hover ul li a:hover {
-    background: #272727;
-    border: none;
-    border-bottom: 1px solid #858585;
-    color: #389220; }
 
 .footer_menu ul {
   margin: 0;
@@ -6010,10 +6006,10 @@ body {
   background: url(../img/footer_arrow.png) no-repeat left 16px; }
 
 .footer_menu ul li a:visited {
-  color: #b8b8b8; }
+  color: #555555; }
 
 .footer_menu ul li a:hover, .footer_menu ul li .current {
-  color: #b8b8b8; }
+  color: #555555; }
 
 .gallery_margin {
   margin-top: 30px; }
@@ -6058,12 +6054,12 @@ footer {
   margin-top: 30px; }
 
 footer h1 {
-  color: #b8b8b8;
+  color: #555555;
   font-size: 20px;
   text-transform: uppercase;
   padding: 0 0 10px 0;
   margin: 0 0 15px 0;
-  border-bottom: solid 1px #b8b8b8; }
+  border-bottom: solid 1px #555555; }
 
 .abtcontent p {
   font-size: 14px;
@@ -6089,7 +6085,7 @@ footer table {
   padding: 5px;
   background: #303030;
   border: solid 1px #4b4b4b;
-  color: #b8b8b8;
+  color: #555555;
   font-size: 16px;
   margin-bottom: 15px; }
 

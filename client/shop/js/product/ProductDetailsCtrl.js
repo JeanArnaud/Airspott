@@ -7,7 +7,8 @@ angular.module('com.airspott.shop.product').controller('ProductDetailsCtrl', [
         $rootScope.meta.title = "PRODUCT_DETAILS";
 
         $scope.cartItem = {
-            amount: 1
+            amount: 1,
+            persons: [{name: null, email: null}]
         };
 
         $scope.product = Club.findById({
@@ -17,8 +18,30 @@ angular.module('com.airspott.shop.product').controller('ProductDetailsCtrl', [
             }
         });
 
-        $scope.addToCart = function () {
+        $scope.changeAmount = function () {
 
+            var diff = $scope.cartItem.amount - $scope.cartItem.persons.length;
+
+            if (diff > 0) {
+                while (diff--) {
+                    $scope.cartItem.persons.push({name: null, email: null});
+                }
+            }
+            else if (diff < 0) {
+                diff = diff * -1;
+
+                while (diff--) {
+                    $scope.cartItem.persons.pop();
+                }
+            }
+
+        };
+
+        $scope.getNumber = function (number) {
+            return new Array(number);
+        };
+
+        $scope.addToCart = function () {
             var guid = function () {
                 function s4() {
                     return Math.floor((1 + Math.random()) * 0x10000)
@@ -30,8 +53,8 @@ angular.module('com.airspott.shop.product').controller('ProductDetailsCtrl', [
                     s4() + '-' + s4() + s4() + s4();
             };
 
-            for (var i = $scope.cartItem.amount; i > 0; i--) {
-                var cartItem = angular.extend({pseudoID: guid()}, {product: $scope.product});
+            for (var i = 0; i < $scope.cartItem.persons.length; i++) {
+                var cartItem = angular.extend({pseudoID: guid()}, $scope.cartItem.persons[i], {product: $scope.product});
 
                 $rootScope.addToCart(cartItem);
             }

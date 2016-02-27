@@ -8,13 +8,13 @@
 
     <main class="container">
         <ul class="nav nav-tabs nav-justified">
-            <li class="nav-item" ng-class="checkoutStep === 0 ? 'active' : ''">
+            <li class="nav-item cursor-pointer" ng-click="checkoutStep = 0" ng-class="checkoutStep === 0 ? 'active' : ''">
                 <a class="nav-link">{{'CART' | translate}}</a>
             </li>
-            <li class="nav-item" ng-class="checkoutStep === 1 ? 'active' : ''">
+            <li class="nav-item cursor-pointer" ng-click="checkoutStep = 1" ng-class="checkoutStep === 1 ? 'active' : ''">
                 <a class="nav-link">{{'DETAILS' | translate}}</a>
             </li>
-            <li class="nav-item" ng-class="checkoutStep === 2 ? 'active' : ''">
+            <li class="nav-item cursor-pointer" ng-click="checkoutStep = 2" ng-class="checkoutStep === 2 ? 'active' : ''">
                 <a class="nav-link">{{'PAYMENT' | translate}}</a>
             </li>
         </ul>
@@ -24,12 +24,14 @@
 
 
             <div class="row">
+                <div class="col-xs-12" data-ng-include="'templates/cart/cartPartial.html'"></div>
+
                 <div class="col-xs-12">
                     <hr>
                 </div>
 
                 <div class="col-xs-6 col-xs-offset-3 col-sm-offset-5 col-sm-2">
-                    <button class="btn btn-primary btn-block" ng-click="next()">{{'NEXT' | translate}}</button>
+                    <button class="btn btn-primary btn-block" ng-click="next()">{{'GENERIC.NEXT' | translate}}</button>
                 </div>
             </div>
         </section>
@@ -42,7 +44,7 @@
                 </div>
 
                 <div class="col-xs-6 col-xs-offset-3 col-sm-offset-5 col-sm-2">
-                    <button class="btn btn-primary btn-block" ng-click="initiatePayment()">{{'NEXT' | translate}}
+                    <button class="btn btn-primary btn-block" ng-click="initiatePayment()">{{'GENERIC.NEXT' | translate}}
                     </button>
                 </div>
             </div>
@@ -61,7 +63,7 @@
                     </div>
 
                     <div class="col-xs-6 col-xs-offset-3 col-sm-offset-5 col-sm-2">
-                        <button class="btn btn-primary btn-block" type="submit">{{'NEXT' | translate}}</button>
+                        <button class="btn btn-primary btn-block" type="submit">{{'GENERIC.NEXT' | translate}}</button>
                     </div>
                 </div>
             </form>

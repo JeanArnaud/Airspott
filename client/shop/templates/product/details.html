@@ -20,7 +20,11 @@
                             <div class="row form-group">
                                 <div class=" col-sm-6">
                                     <label for="amount">{{'GUEST_AMOUNT' | translate}}</label>
-                                    <input type="number" id="amount" name="amount" ng-model="cartItem.amount"
+                                    <input type="number"
+                                           min="1"
+                                           max="4"
+                                           ng-change="changeAmount()" id="amount" name="amount"
+                                           ng-model="cartItem.amount"
                                            placeholder="{{'GUEST_AMOUNT' | translate}}" class="form-control">
                                 </div>
 
@@ -33,9 +37,14 @@
 
                             <hr>
 
-                            <button class="btn btn-primary btn-block" ng-click="addToCart()">{{'BUY_NOW' |
-                                translate}}
+                            <button class="btn btn-primary btn-block"
+                                    uib-popover-template="'templates/product/clientNamePopover.html'"
+                                    popover-placement="auto bottom"
+                                    popover-title="{{'PRODUCT.ADD_IDENTITIES' | translate}}">
+                                {{'BUY_NOW' | translate}}
                             </button>
+
+
                         </form>
                     </div>
 

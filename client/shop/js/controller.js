@@ -11,7 +11,6 @@ angular.module("com.airspott.shop").controller("ShopAppCtrl", [
         $rootScope.currentCurrency = 'EUR';
         $rootScope.currencies = ['EUR', 'USD', 'CHF'];
 
-
         $rootScope.meta = {
             title: 'APP_NAME'
         };
@@ -21,8 +20,21 @@ angular.module("com.airspott.shop").controller("ShopAppCtrl", [
         };
 
         $rootScope.cart = [];
+        $rootScope.fullCartValue = function () {
+            var val = 0;
+
+            for (var i = 0; i < $rootScope.cart.length; i++) {
+                val += $rootScope.cart[i].product.price;
+            }
+
+            return val;
+
+        };
 
         $rootScope.addToCart = function (item) {
+
+            $log.log(item);
+
             $rootScope.cart.push(item);
         };
 

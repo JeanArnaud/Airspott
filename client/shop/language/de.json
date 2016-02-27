@@ -16,7 +16,10 @@
 
     "APP_NAME": "Airspott",
 
-    "COPYRIGHT_FOOTER": "Made with ♥ by Airspott in Vienna. © 2015 Airspott GmbH.",
+    "GLOBAL": {
+        "COPYRIGHT": "Made with ♥ by Airspott in Vienna. © 2016 Airspott GmbH.",
+        "SELLER_CENTRAL": "Sell with Airspott"
+    },
 
     "WELCOME_TO_AIRSPOTT": "Willkommen bei Airspott!",
     "ACCOUNT_WELCOME_SUBLINE": "Hier können Sie Ihre Angebote verwalten.",
@@ -153,6 +156,15 @@
     "SUCCESS_SAVING_OWNER_ACCOUNT": "Wir haben das Konto gespeichert.",
     "ERROR_SAVING_OWNER_ACCOUNT": "Achtung: wir konnten das Auszahlungskonto nicht speichern. Bitte prüfen Sie die eingegebenen Daten. Die IBAN muss korrekt sein.",
 
+
+    "PRODUCT": {
+        "ADD_IDENTITIES": "Wer besucht uns?",
+        "PERSON_N": "Person {{personNo}}",
+        "PERSON_NAME": "Vor- & Nachname",
+        "PERSON_EMAIL_MANDATORY": "E-Mail",
+        "PERSON_EMAIL_OPTIONAL": "E-Mail (optional)",
+        "ADD_TO_CART": "Zum Warenkorb"
+    },
 
     "REGISTER": "Registrierung",
     "REGISTER_AS_A_SELLER": "Als Anbieter registrieren",
