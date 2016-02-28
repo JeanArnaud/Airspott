@@ -6,9 +6,25 @@ module.exports = function (Ticket) {
 
     Ticket.observe('before save', function (ctx, next) {
 
-        // TODO: Generate unique Ticket IDs
+        if (ctx.isNewInstance) {
+            require('crypto').randomBytes(10, function (ex, buf) {
+                var token = buf.toString('hex').toUpperCase();
 
-        next();
+                console.log("upsert ids");
+
+                ctx.instance.number = token.substr(0, 12);
+                ctx.instance.code = token.substr(14, 6);
+
+                next();
+
+            });
+        }
+        else {
+            delete ctx.data.number;
+            delete ctx.data.code;
+            console.log(ctx.data);
+            next();
+        }
     });
 
     Ticket.print = function (format, ticketId, res, cb) {

@@ -17,6 +17,7 @@
     "gulp-sass": "^2.1.0",
     "jshint": "^2.8.0",
     "librsvg": "^0.6.1",
+    "license-key": "^0.2.1",
     "loopback": "^2.25.0",
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^2.1.0",
