@@ -5,9 +5,10 @@ var Rsvg = require('librsvg').Rsvg,
 /**
  * PDF Ticket printer exporting a ticket to PDF from Svg template
  * @constructor
+ * @class PDFPrinter
  * @implements TicketPrinter
  */
-function PDF() {
+function PDFPrinter() {
 
     this.print = function () {
         var svg = new Rsvg(),
@@ -21,7 +22,7 @@ function PDF() {
             }).data);
         });
 
-        fs.createReadStream('./server/assets/ticket.svg').pipe(svg);
+        fs.createReadStream('./server/templates/ticket/default.svg').pipe(svg);
 
         return deferred.promise;
     };
@@ -30,4 +31,4 @@ function PDF() {
 
 }
 
-module.exports = PDF;
+module.exports = PDFPrinter;
