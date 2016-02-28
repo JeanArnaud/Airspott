@@ -6,6 +6,8 @@ module.exports = function (Ticket) {
 
     Ticket.observe('before save', function (ctx, next) {
 
+        // TODO: Generate unique Ticket IDs
+
         next();
     });
 
@@ -40,9 +42,5 @@ module.exports = function (Ticket) {
             description: "Print a ticket (default: PDF)"
         }
     );
-
-    Ticket.observe('', function (ctx, next) {
-
-    });
 
 };
