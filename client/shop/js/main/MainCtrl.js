@@ -1,7 +1,7 @@
 angular.module('com.airspott.shop.main')
     .controller('ShopMainCtrl', [
-        "$rootScope", "$scope", "$log", "$window", "geolocation", "Offer",
-        function ($rootScope, $scope, $log, $window, Geolocation, Offer) {
+        "$rootScope", "$scope", "$log", "$window", "$translate", "geolocation", "Offer",
+        function ($rootScope, $scope, $log, $window, $translate, Geolocation, Offer) {
 
             $rootScope.meta.title = "WELCOME";
 
@@ -16,7 +16,6 @@ angular.module('com.airspott.shop.main')
 
             var searchBar = $window.document.getElementById('searchBar'),
                 headerBar = $window.document.getElementById('headerBar');
-
 
             $window.onscroll = function () {
 
@@ -34,6 +33,18 @@ angular.module('com.airspott.shop.main')
 
                 Geolocation.getLocation().then(function (location) {
                     $scope.location = location;
+
+                    $translate('GLOBAL.CURRENT_LOCATION').then(function (translation) {
+
+                        $scope.mapSettings.markers.currentLocation = {
+                            lat: location.coords.latitude,
+                            lng: location.coords.longitude,
+                            focus: true,
+                            message: translation,
+                            draggable: false
+                        };
+
+                    });
 
                     $scope.mapSettings.center.lat = location.coords.latitude;
                     $scope.mapSettings.center.lon = location.coords.longitude;
@@ -54,7 +65,8 @@ angular.module('com.airspott.shop.main')
                 },
                 defaults: {
                     scrollWheelZoom: false
-                }
+                },
+                markers: {}
             };
 
         }]);

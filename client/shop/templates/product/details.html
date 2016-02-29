@@ -56,7 +56,7 @@
 
     <main class="container">
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-6">
                 <div class="well well-sm">
                     <h4>{{'DESCRIPTION' | translate}}</h4>
 
@@ -66,15 +66,17 @@
 
             <div class="col-xs-6">
                 <div class="well well-sm">
-                    <h4>{{'ADDRESS' | translate}}</h4>
-
-                    <p>{{'ADDRESS_SHORT' |translate: product.address }}</p>
+                    <h4>{{'OPENING_HOURS' | translate}}</h4>
                 </div>
             </div>
 
             <div class="col-xs-6">
                 <div class="well well-sm">
-                    <h4>{{'OPENING_HOURS' | translate}}</h4>
+                    <h4>{{'ADDRESS' | translate}}</h4>
+
+                    <p>{{'ADDRESS_SHORT' |translate: product.address }}</p>
+
+                    <leaflet ng-if="mapSettings" center="mapSettings.center" markers="mapSettings.markers" height="250px" width="100%"></leaflet>
                 </div>
             </div>
         </div>

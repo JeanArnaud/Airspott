@@ -16,6 +16,23 @@ angular.module('com.airspott.shop.product').controller('ProductDetailsCtrl', [
             filter: {
                 include: ['address', 'media']
             }
+        }, function (product) {
+            $scope.mapSettings = {
+                center: {
+                    lat: product.address.latLon.lat,
+                    lng: product.address.latLon.lng,
+                    zoom: 12
+                },
+                markers: {
+                    main: {
+                        lat: product.address.latLon.lat,
+                        lng: product.address.latLon.lng,
+                        focus: true,
+                        message: product.name,
+                        draggable: false
+                    }
+                }
+            };
         });
 
         $scope.changeAmount = function () {
