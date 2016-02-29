@@ -4,7 +4,7 @@ angular.module('com.airspott.shop.search').controller('SearchCtrl', [
 
         $rootScope.meta.title = "SEARCH";
 
-        $scope.offers = Offer.find();
+        $scope.offers = Offer.find({filter:{where: {offerId:{exists: false}}}});
         $scope.currencies = Currency.find();
 
         $scope.extendedSearch = false;

@@ -26,8 +26,6 @@ angular.module('com.airspott.shop.main')
                 $scope.$digest();
             };
 
-            $scope.offers = Offer.find();
-
             $scope.locate = function () {
                 $scope.location = "LOCATING";
 
