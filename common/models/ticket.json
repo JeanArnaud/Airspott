@@ -1,38 +1,38 @@
 {
-    "name": "Ticket",
-    "base": "PersistedModel",
-    "idInjection": true,
-    "options": {
-        "validateUpsert": true
+  "name": "Ticket",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "date": {
+      "type": "date",
+      "required": true
     },
-    "properties": {
-        "date": {
-            "type": "date",
-            "required": true
-        },
-        "name": {
-            "type": "string",
-            "required": true
-        },
-        "email": {
-            "type": "string",
-            "required": true
-        },
-        "number": {
-            "type": "string"
-        },
-        "code": {
-            "type": "string"
-        }
+    "name": {
+      "type": "string",
+      "required": true
     },
-    "validations": [],
-    "relations": {
-        "sale": {
-            "type": "belongsTo",
-            "model": "Sale",
-            "foreignKey": ""
-        }
+    "email": {
+      "type": "string",
+      "required": true
     },
-    "acls": [],
-    "methods": {}
+    "number": {
+      "type": "string"
+    },
+    "code": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "sale": {
+      "type": "belongsTo",
+      "model": "Sale",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
 }

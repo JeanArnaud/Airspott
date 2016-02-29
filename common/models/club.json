@@ -1,96 +1,96 @@
 {
-    "name": "Club",
-    "base": "PersistedModel",
-    "idInjection": true,
-    "options": {
-        "validateUpsert": true
+  "name": "Club",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
     },
-    "properties": {
-        "name": {
-            "type": "string",
-            "required": true
-        },
-        "description": {
-            "type": "string"
-        },
-        "price": {
-            "type": "number",
-            "required": true
-        },
-        "capacity": {
-            "type": "number",
-            "required": true
-        },
-        "openingHours": {
-            "type": "object",
-            "required": false
-        },
-        "saleUnit": {
-            "type": "string",
-            "required": true
-        },
-        "responsibleName": {
-            "type": "string",
-            "required": true
-        },
-        "responsibleTel": {
-            "type": "string",
-            "required": true
-        }
+    "description": {
+      "type": "string"
     },
-    "validations": [],
-    "relations": {
-        "address": {
-            "type": "embedsOne",
-            "model": "Address",
-            "foreignKey": ""
-        },
-        "clubSettings": {
-            "type": "hasMany",
-            "model": "ClubSetting",
-            "foreignKey": ""
-        },
-        "media": {
-            "type": "hasMany",
-            "model": "Media",
-            "foreignKey": ""
-        },
-        "offers": {
-            "type": "hasMany",
-            "model": "Offer",
-            "foreignKey": ""
-        },
-        "ratings": {
-            "type": "hasMany",
-            "model": "Rating",
-            "foreignKey": ""
-        },
-        "customer": {
-            "type": "belongsTo",
-            "model": "Customer",
-            "foreignKey": ""
-        },
-        "tax": {
-            "type": "belongsTo",
-            "model": "TAX",
-            "foreignKey": ""
-        },
-        "planningEntries": {
-            "type": "hasMany",
-            "model": "PlanningEntry",
-            "foreignKey": ""
-        },
-        "additions": {
-            "type": "hasMany",
-            "model": "Addition",
-            "foreignKey": ""
-        },
-        "baseCurrency": {
-            "type": "hasOne",
-            "model": "Currency",
-            "foreignKey": ""
-        }
+    "price": {
+      "type": "number",
+      "required": true
     },
-    "acls": [],
-    "methods": {}
+    "capacity": {
+      "type": "number",
+      "required": true
+    },
+    "openingHours": {
+      "type": "object",
+      "required": false
+    },
+    "saleUnit": {
+      "type": "string",
+      "required": true
+    },
+    "responsibleName": {
+      "type": "string",
+      "required": true
+    },
+    "responsibleTel": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "address": {
+      "type": "embedsOne",
+      "model": "Address",
+      "foreignKey": ""
+    },
+    "clubSettings": {
+      "type": "hasMany",
+      "model": "ClubSetting",
+      "foreignKey": ""
+    },
+    "media": {
+      "type": "hasMany",
+      "model": "Media",
+      "foreignKey": ""
+    },
+    "offers": {
+      "type": "hasMany",
+      "model": "Offer",
+      "foreignKey": ""
+    },
+    "ratings": {
+      "type": "hasMany",
+      "model": "Rating",
+      "foreignKey": ""
+    },
+    "customer": {
+      "type": "belongsTo",
+      "model": "Customer",
+      "foreignKey": ""
+    },
+    "tax": {
+      "type": "belongsTo",
+      "model": "TAX",
+      "foreignKey": ""
+    },
+    "planningEntries": {
+      "type": "hasMany",
+      "model": "PlanningEntry",
+      "foreignKey": ""
+    },
+    "additions": {
+      "type": "hasMany",
+      "model": "Addition",
+      "foreignKey": ""
+    },
+    "baseCurrency": {
+      "type": "hasOne",
+      "model": "Currency",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
 }

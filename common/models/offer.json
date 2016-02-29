@@ -16,7 +16,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "suboffers": {
+      "type": "hasMany",
+      "model": "Offer",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }
