@@ -1,4 +1,23 @@
+var nominatim = require('nominatim');
+
 module.exports = function (Club) {
+
+    Club.observe('before save', function (ctx, next) {
+        var data = ctx.isNewInstance ? ctx.instance._address : ctx.data._address;
+
+        nominatim.search({
+            q: data.address + ", " + data.zip + " " + data.city + ", " + data.country
+        }, function (err, opts, results) {
+            if (err) return next(err);
+
+            if (results.length) {
+                data.latLon = {lat: results[0].lat, lng: results[0].lon};
+            }
+
+            next();
+        });
+    });
+
 
     /**
      * Query clubs for bookable resources and return prepared Club instances

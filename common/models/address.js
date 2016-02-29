@@ -1,6 +1,7 @@
 var nominatim = require('nominatim');
 
 module.exports = function (Address) {
+
     Address.observe('before save', function (ctx, next) {
         var data = ctx.isNewInstance ? ctx.instance : ctx.data;
 
@@ -16,4 +17,5 @@ module.exports = function (Address) {
             next();
         });
     });
+
 };
