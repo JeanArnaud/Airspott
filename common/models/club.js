@@ -70,7 +70,7 @@ module.exports = function (Club) {
                 },
                 {arg: 'offers', type: 'array', description: "Array of offerIds [offerId, offerId] from Offers endpoint"}
             ],
-            returns: {arg: 'clubs', type: 'array', root: true},
+            returns: {arg: 'clubs', type: '[Club]', root: true},
             http: {
                 verb: "GET"
             },
