@@ -56,10 +56,19 @@ module.exports = function (Club) {
         'search',
         {
             accepts: [
-                {arg: 'query', type: 'string', required: true},
-                {arg: 'amount', type: 'number'},
-                {arg: 'date', type: 'date'},
-                {arg: 'offers', type: 'array'}
+                {
+                    arg: 'query',
+                    type: 'string',
+                    required: true,
+                    description: "Query param, either String with venue name and/or [lat,lon] array with geocoords"
+                },
+                {arg: 'amount', type: 'number', description: "Pass amount to be bookable / free for date"},
+                {
+                    arg: 'date',
+                    type: 'date',
+                    description: "Date for when the pass shall be valid and capacities be free"
+                },
+                {arg: 'offers', type: 'array', description: "Array of offerIds [offerId, offerId] from Offers endpoint"}
             ],
             returns: {arg: 'clubs', type: 'array', root: true},
             http: {
