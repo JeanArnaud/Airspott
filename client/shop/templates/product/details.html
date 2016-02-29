@@ -10,10 +10,10 @@
                 <div class="col-sm-offset-8 col-sm-4">
                     <div class="well well-sm well-dark-transparent">
                         <div class="well-header row">
-                            <div class="col-xs-6">
+                            <div class="col-sm-6">
                                 <strong>{{'GET_IT_NOW' | translate: {name: product.name} }}</strong>
                             </div>
-                            <div class="col-xs-6 text-right"><strong>{{product.price | currency:'€ '}}</strong></div>
+                            <div class="col-sm-6 text-right"><strong>{{product.price | currency:'€ '}}</strong></div>
                         </div>
 
                         <form>
@@ -56,7 +56,7 @@
 
     <main class="container">
         <div class="row">
-            <div class="col-xs-6">
+            <div class="col-sm-6">
                 <div class="well well-sm">
                     <h4>{{'DESCRIPTION' | translate}}</h4>
 
@@ -64,19 +64,36 @@
                 </div>
             </div>
 
-            <div class="col-xs-6">
+            <div class="col-sm-6">
                 <div class="well well-sm">
                     <h4>{{'OPENING_HOURS' | translate}}</h4>
                 </div>
             </div>
+        </div>
 
-            <div class="col-xs-6">
+        <div class="row">
+            <div class="col-sm-6">
                 <div class="well well-sm">
                     <h4>{{'ADDRESS' | translate}}</h4>
 
                     <p>{{'ADDRESS_SHORT' |translate: product.address }}</p>
 
-                    <leaflet ng-if="mapSettings" center="mapSettings.center" markers="mapSettings.markers" height="250px" width="100%"></leaflet>
+                    <leaflet ng-if="mapSettings" center="mapSettings.center" markers="mapSettings.markers"
+                             height="250px" width="100%"></leaflet>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="well well-sm">
+                    <h4>{{'PRODUCT.MORE_MEDIA' | translate}}</h4>
+
+                    <div class="row">
+                        <div class="col-xs-6 col-md-3" ng-repeat="media in product.media">
+                            <a class="thumbnail cursor-pointer" ng-click="openImageModal(media)">
+                                <img ng-src="{{media.media}}" alt="{{media.description}}">
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

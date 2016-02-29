@@ -1,8 +1,8 @@
 angular.module('com.airspott.shop.product').controller('ProductDetailsCtrl', [
 
-    "$rootScope", "$scope", "$state", "$log", "Club",
+    "$rootScope", "$scope", "$state", "$log", "$uibModal", "Club",
 
-    function ($rootScope, $scope, $state, $log, Club) {
+    function ($rootScope, $scope, $state, $log, $uibModal, Club) {
 
         $rootScope.meta.title = "PRODUCT_DETAILS";
 
@@ -34,6 +34,24 @@ angular.module('com.airspott.shop.product').controller('ProductDetailsCtrl', [
                 }
             };
         });
+
+        $scope.openImageModal = function (media) {
+            $log.log(media);
+
+            $uibModal.open({
+                animation: true,
+                size: "md",
+                templateUrl: 'templates/product/mediaModal.html',
+                controller: ["$scope", "$uibModalInstance", function ($scope, $uibModalInstance) {
+                    $scope.close = function () {
+                        $uibModalInstance.close();
+                    };
+
+                    $scope.media = media;
+                }]
+            });
+        };
+
 
         $scope.changeAmount = function () {
 
