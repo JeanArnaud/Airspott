@@ -14,7 +14,6 @@ module.exports = function (Ticket) {
                 ctx.instance.code = token.substr(14, 6);
 
                 next();
-
             });
         }
         else {
