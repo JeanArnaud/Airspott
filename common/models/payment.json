@@ -1,43 +1,51 @@
 {
-  "name": "Payment",
-  "base": "PersistedModel",
-  "idInjection": true,
-  "options": {
-    "validateUpsert": true
-  },
-  "properties": {
-    "method": {
-      "type": "string",
-      "required": true
+    "name": "Payment",
+    "base": "PersistedModel",
+    "description": "A Payment abstracts a payment by amount, PSP, payment method and so on and keeps track of states and state changes",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
     },
-    "psp": {
-      "type": "string",
-      "required": true
-    },
-    "state": {
-      "type": "string",
-      "default": "open"
-    },
-    "amount": {
-      "type": {
-        "value": {
-          "type": "number",
-          "required": true
+    "properties": {
+        "method": {
+            "type": "string",
+            "required": true,
+            "description": "The payment method (MasterCard, PayPal, VISA, ...)"
         },
-        "precision": {
-          "type": "number",
-          "default": 2
+        "psp": {
+            "type": "string",
+            "required": true,
+            "description": "The PSP used for the payment (and/or method, may vary)"
         },
-        "currency": {
-          "type": "string",
-          "required": true
+        "state": {
+            "type": "string",
+            "default": "open",
+            "description": "The Payments current state"
+        },
+        "amount": {
+            "type": {
+                "value": {
+                    "type": "number",
+                    "required": true,
+                    "description": "The real value in full 10s"
+                },
+                "precision": {
+                    "type": "number",
+                    "default": 2,
+                    "description": "The precision to calculate the cents for"
+                },
+                "currency": {
+                    "type": "string",
+                    "required": true,
+                    "description": "The currency as a string"
+                }
+            },
+            "required": true,
+            "description": "The amount object for the payment"
         }
-      },
-      "required": true
-    }
-  },
-  "validations": [],
-  "relations": {},
-  "acls": [],
-  "methods": {}
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
 }

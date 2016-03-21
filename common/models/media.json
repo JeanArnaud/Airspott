@@ -1,30 +1,35 @@
 {
-  "name": "Media",
-  "base": "PersistedModel",
-  "idInjection": true,
-  "options": {
-    "validateUpsert": true
-  },
-  "properties": {
-    "name": {
-      "type": "string",
-      "required": false
+    "name": "Media",
+    "base": "PersistedModel",
+    "description": "A media is a URL or a base64 encoded image holding media entries for entities (Clubs)",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
     },
-    "description": {
-      "type": "string",
-      "required": false
+    "properties": {
+        "name": {
+            "type": "string",
+            "required": false,
+            "description": "The name of the media"
+        },
+        "description": {
+            "type": "string",
+            "required": false,
+            "description": "An additional description for the Media"
+        },
+        "media": {
+            "type": "string",
+            "required": true,
+            "description": "The media itself (URL or base64 encoded media)"
+        },
+        "order": {
+            "type": "number",
+            "required": false,
+            "description": "The sort order (numeric) for the media"
+        }
     },
-    "media": {
-      "type": "string",
-      "required": true
-    },
-    "order": {
-      "type": "number",
-      "required": false
-    }
-  },
-  "validations": [],
-  "relations": {},
-  "acls": [],
-  "methods": {}
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
 }

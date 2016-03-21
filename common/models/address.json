@@ -1,46 +1,55 @@
 {
-  "name": "Address",
-  "base": "PersistedModel",
-  "idInjection": true,
-  "options": {
-    "validateUpsert": true
-  },
-  "properties": {
-    "address": {
-      "type": "string",
-      "required": false
+    "name": "Address",
+    "base": "PersistedModel",
+    "description": "An address is a mixin model that may be included in various other models through embedsOne relations which abstracts a physical address and may hold its geocoords",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
     },
-    "address2": {
-      "type": "string",
-      "required": false
+    "properties": {
+        "address": {
+            "type": "string",
+            "required": false,
+            "description": "The address string (street + number)"
+        },
+        "address2": {
+            "type": "string",
+            "required": false,
+            "description": "An additional address line if necessary"
+        },
+        "zip": {
+            "type": "string",
+            "required": false,
+            "description": "The ZIP for the city"
+        },
+        "city": {
+            "type": "string",
+            "required": false,
+            "description": "The city where address is located"
+        },
+        "country": {
+            "type": "string",
+            "required": false,
+            "description": "The addresses country"
+        },
+        "phone": {
+            "type": "string",
+            "required": false,
+            "description": "A phone number if required for an address"
+        },
+        "phone2": {
+            "type": "string",
+            "required": false,
+            "description": "An additional phone number"
+        },
+        "latLon": {
+            "type": "geopoint",
+            "required": false,
+            "description": "A geopoint ({lat:lat,lon:lon}) object that describes geographical position of the address"
+        }
     },
-    "zip": {
-      "type": "string",
-      "required": false
-    },
-    "city": {
-      "type": "string",
-      "required": false
-    },
-    "country": {
-      "type": "string",
-      "required": false
-    },
-    "phone": {
-      "type": "string",
-      "required": false
-    },
-    "phone2": {
-      "type": "string",
-      "required": false
-    },
-    "latLon": {
-      "type": "geopoint",
-      "required": false
-    }
-  },
-  "validations": [],
-  "relations": {},
-  "acls": [],
-  "methods": {}
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
 }

@@ -1,21 +1,24 @@
 {
-  "name": "Rating",
-  "base": "PersistedModel",
-  "idInjection": true,
-  "options": {
-    "validateUpsert": true
-  },
-  "properties": {
-    "rating": {
-      "type": "number",
-      "required": true
+    "name": "Rating",
+    "base": "PersistedModel",
+    "description": "Each Club may get ratings from Buyers",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
     },
-    "comment": {
-      "type": "string"
-    }
-  },
-  "validations": [],
-  "relations": {},
-  "acls": [],
-  "methods": {}
+    "properties": {
+        "rating": {
+            "type": "number",
+            "required": true,
+            "description": "The Rating in a numeric scheme"
+        },
+        "comment": {
+            "type": "string",
+            "description": "A comment for the Rating"
+        }
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
 }

@@ -1,22 +1,25 @@
 {
-  "name": "Addition",
-  "base": "PersistedModel",
-  "idInjection": true,
-  "options": {
-    "validateUpsert": true
-  },
-  "properties": {
-    "name": {
-      "type": "string",
-      "required": true
+    "name": "Addition",
+    "base": "PersistedModel",
+    "description": "An addition is a costly addition to a product which extends the product but is none itself (e.g. an additional towel for a pass)",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
     },
-    "price": {
-      "type": "number",
-      "required": true
-    }
-  },
-  "validations": [],
-  "relations": {},
-  "acls": [],
-  "methods": {}
+    "properties": {
+        "name": {
+            "type": "string",
+            "required": true,
+            "description": "This is the name of the addition"
+        },
+        "price": {
+            "type": "number",
+            "required": true,
+            "description": "This is the price point of the addition"
+        }
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
 }

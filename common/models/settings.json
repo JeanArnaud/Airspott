@@ -1,22 +1,25 @@
 {
-  "name": "Settings",
-  "base": "PersistedModel",
-  "idInjection": true,
-  "options": {
-    "validateUpsert": true
-  },
-  "properties": {
-    "identifier": {
-      "type": "string",
-      "required": true
+    "name": "Settings",
+    "base": "PersistedModel",
+    "description": "A generic Settings model to save options in and get options for the app out. Functions as a kind-of a registry.",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
     },
-    "value": {
-      "type": "string",
-      "required": true
-    }
-  },
-  "validations": [],
-  "relations": {},
-  "acls": [],
-  "methods": {}
+    "properties": {
+        "identifier": {
+            "type": "string",
+            "required": true,
+            "description": "The Setting identifier"
+        },
+        "value": {
+            "type": "string",
+            "required": true,
+            "description": "The Setting value"
+        }
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
 }

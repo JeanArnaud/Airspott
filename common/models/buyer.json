@@ -1,14 +1,15 @@
 {
-  "name": "Buyer",
-  "base": "User",
-  "idInjection": true,
-  "options": {
-    "validateUpsert": true,
-    "emailVerificationRequired": false
-  },
-  "properties": {},
-  "validations": [],
-  "relations": {},
-  "acls": [],
-  "methods": {}
+    "name": "Buyer",
+    "base": "User",
+    "description": "A buyer is a shop customer that abstracts from User and may hold custom profile information. It is the actual customer that buys things in the shop",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true,
+        "emailVerificationRequired": false
+    },
+    "properties": {},
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
 }

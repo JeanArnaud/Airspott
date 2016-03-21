@@ -1,26 +1,30 @@
 {
-  "name": "TAX",
-  "base": "PersistedModel",
-  "idInjection": true,
-  "options": {
-    "validateUpsert": true
-  },
-  "properties": {
-    "name": {
-      "type": "string",
-      "required": true
+    "name": "TAX",
+    "base": "PersistedModel",
+    "description": "The TAX model represents all TAX values available for Clubs",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
     },
-    "percentage": {
-      "type": "number",
-      "required": true
+    "properties": {
+        "name": {
+            "type": "string",
+            "required": true,
+            "description": "The TAXes name"
+        },
+        "percentage": {
+            "type": "number",
+            "required": true,
+            "description": "The TAXes percentage"
+        },
+        "including": {
+            "type": "boolean",
+            "required": true,
+            "description": "The TAXes calculation type (including:true means brutto, including:false means netto for the price)"
+        }
     },
-    "including": {
-      "type": "boolean",
-      "required": true
-    }
-  },
-  "validations": [],
-  "relations": {},
-  "acls": [],
-  "methods": {}
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
 }

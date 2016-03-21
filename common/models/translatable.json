@@ -1,18 +1,20 @@
 {
-  "name": "Translatable",
-  "base": "PersistedModel",
-  "idInjection": true,
-  "options": {
-    "validateUpsert": true
-  },
-  "properties": {
-    "translations": {
-      "type": "object",
-      "required": true
-    }
-  },
-  "validations": [],
-  "relations": {},
-  "acls": [],
-  "methods": {}
+    "name": "Translatable",
+    "base": "PersistedModel",
+    "description": "A Translatable abstracts content translations and may be extended from.",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
+    },
+    "properties": {
+        "translations": {
+            "type": "object",
+            "required": true,
+            "description": "All available translations"
+        }
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
 }

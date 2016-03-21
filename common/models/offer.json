@@ -1,28 +1,32 @@
 {
-  "name": "Offer",
-  "base": "PersistedModel",
-  "idInjection": true,
-  "options": {
-    "validateUpsert": true
-  },
-  "properties": {
-    "identifier": {
-      "type": "string",
-      "required": false
+    "name": "Offer",
+    "base": "PersistedModel",
+    "description": "An Offer represents kind-of categories for things a Club offers (like Cardio, Gold, and so on)",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
     },
-    "parent": {
-      "type": "string",
-      "required": false
-    }
-  },
-  "validations": [],
-  "relations": {
-    "suboffers": {
-      "type": "hasMany",
-      "model": "Offer",
-      "foreignKey": ""
-    }
-  },
-  "acls": [],
-  "methods": {}
+    "properties": {
+        "identifier": {
+            "type": "string",
+            "required": false,
+            "description": "The identifier of the Offer which needs to be translated elsewhere"
+        },
+        "parent": {
+            "type": "string",
+            "required": false,
+            "description": "The parent Offer"
+        }
+    },
+    "validations": [],
+    "relations": {
+        "suboffers": {
+            "type": "hasMany",
+            "model": "Offer",
+            "foreignKey": "",
+            "description": "Each Offer may hold various additional Offers to be able to have a tree of Offers"
+        }
+    },
+    "acls": [],
+    "methods": {}
 }

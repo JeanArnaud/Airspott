@@ -1,31 +1,36 @@
 {
-  "name": "OwnerAccount",
-  "base": "PersistedModel",
-  "idInjection": true,
-  "options": {
-    "validateUpsert": true
-  },
-  "properties": {
-    "iban": {
-      "type": "string",
-      "required": true
+    "name": "OwnerAccount",
+    "base": "PersistedModel",
+    "description": "Each Customer has one OwnerAccount which holds commercial details",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
     },
-    "bic": {
-      "type": "string",
-      "required": true
+    "properties": {
+        "iban": {
+            "type": "string",
+            "required": true,
+            "description": "The IBAN of the OwnerAccount to payout"
+        },
+        "bic": {
+            "type": "string",
+            "required": true,
+            "description": "The BIC of the OwnerAccount to payout"
+        },
+        "salesCommission": {
+            "type": "number",
+            "required": true,
+            "default": 0.2,
+            "description": "The Customers commission"
+        },
+        "toc": {
+            "type": "string",
+            "required": true,
+            "description": "The TOC version accepted by the Customer"
+        }
     },
-    "salesCommission": {
-      "type": "number",
-      "required": true,
-      "default": 0.2
-    },
-    "toc": {
-      "type": "string",
-      "required": true
-    }
-  },
-  "validations": [],
-  "relations": {},
-  "acls": [],
-  "methods": {}
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
 }

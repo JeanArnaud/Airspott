@@ -1,96 +1,115 @@
 {
-  "name": "Club",
-  "base": "PersistedModel",
-  "idInjection": true,
-  "options": {
-    "validateUpsert": true
-  },
-  "properties": {
-    "name": {
-      "type": "string",
-      "required": true
+    "name": "Club",
+    "base": "PersistedModel",
+    "description": "A club is the base sale entity and may be referred to as 'Product', too. It is the central thing that may be bought by Buyers and sold by Customers.",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
     },
-    "description": {
-      "type": "string"
+    "properties": {
+        "name": {
+            "type": "string",
+            "required": true,
+            "description":"The name of the club / product / saleEntity"
+        },
+        "description": {
+            "type": "string",
+            "description":"A description HTML content for the club"
+        },
+        "price": {
+            "type": "number",
+            "required": true,
+            "description":"The default price tag for the club (may be overwritten by a calendar entry for a time span)"
+        },
+        "capacity": {
+            "type": "number",
+            "required": true,
+            "description":"The default capacity for the club (may be overwritten by a calendar entry for a time span)"
+        },
+        "openingHours": {
+            "type": "object",
+            "required": false,
+            "description":"An object holding opening hours (format: TODO)"
+        },
+        "saleUnit": {
+            "type": "string",
+            "required": true,
+            "description":"The sale unit (either DAY or HOUR, refer this as an ENUM)"
+        },
+        "responsibleName": {
+            "type": "string",
+            "required": true,
+            "description":"The name of a club representative (may not be shown to Buyer!)"
+        },
+        "responsibleTel": {
+            "type": "string",
+            "required": true,
+            "description":"The phone number of a club representative (may not be shown to Buyer!)"
+        }
     },
-    "price": {
-      "type": "number",
-      "required": true
+    "validations": [],
+    "relations": {
+        "address": {
+            "type": "embedsOne",
+            "model": "Address",
+            "foreignKey": "",
+            "description":"The address of the clubs location"
+        },
+        "clubSettings": {
+            "type": "hasMany",
+            "model": "ClubSetting",
+            "foreignKey": "",
+            "description":"Each club has club settings"
+        },
+        "media": {
+            "type": "hasMany",
+            "model": "Media",
+            "foreignKey": "",
+            "description":"Each club has various media which is related through this relation"
+        },
+        "offers": {
+            "type": "hasMany",
+            "model": "Offer",
+            "foreignKey": "",
+            "description":"Each club must have one or more offers that a customer may use"
+        },
+        "ratings": {
+            "type": "hasMany",
+            "model": "Rating",
+            "foreignKey": "",
+            "description":"A Buyer can post a club rating which is held by the club"
+        },
+        "customer": {
+            "type": "belongsTo",
+            "model": "Customer",
+            "foreignKey": "",
+            "description":"Each Club is created by a Customer (the 'Club Owner') and belongs to this user entity"
+        },
+        "tax": {
+            "type": "belongsTo",
+            "model": "TAX",
+            "foreignKey": "",
+            "description":"Each Club has exactly one VAT which is referred to as TAX"
+        },
+        "planningEntries": {
+            "type": "hasMany",
+            "model": "PlanningEntry",
+            "foreignKey": "",
+            "description":"Each Club has planningEntries which overwrite default price and capacity for time spans"
+        },
+        "additions": {
+            "type": "hasMany",
+            "model": "Addition",
+            "foreignKey": "",
+            "description":"Each Club may offer costly additions to a stay (= a Ticket/Pass)"
+        },
+        "baseCurrency": {
+            "type": "hasOne",
+            "model": "Currency",
+            "foreignKey": "",
+            "description":"Each Club has a base Currency it is created and sold in (and payed out in)"
+        }
     },
-    "capacity": {
-      "type": "number",
-      "required": true
-    },
-    "openingHours": {
-      "type": "object",
-      "required": false
-    },
-    "saleUnit": {
-      "type": "string",
-      "required": true
-    },
-    "responsibleName": {
-      "type": "string",
-      "required": true
-    },
-    "responsibleTel": {
-      "type": "string",
-      "required": true
-    }
-  },
-  "validations": [],
-  "relations": {
-    "address": {
-      "type": "embedsOne",
-      "model": "Address",
-      "foreignKey": ""
-    },
-    "clubSettings": {
-      "type": "hasMany",
-      "model": "ClubSetting",
-      "foreignKey": ""
-    },
-    "media": {
-      "type": "hasMany",
-      "model": "Media",
-      "foreignKey": ""
-    },
-    "offers": {
-      "type": "hasMany",
-      "model": "Offer",
-      "foreignKey": ""
-    },
-    "ratings": {
-      "type": "hasMany",
-      "model": "Rating",
-      "foreignKey": ""
-    },
-    "customer": {
-      "type": "belongsTo",
-      "model": "Customer",
-      "foreignKey": ""
-    },
-    "tax": {
-      "type": "belongsTo",
-      "model": "TAX",
-      "foreignKey": ""
-    },
-    "planningEntries": {
-      "type": "hasMany",
-      "model": "PlanningEntry",
-      "foreignKey": ""
-    },
-    "additions": {
-      "type": "hasMany",
-      "model": "Addition",
-      "foreignKey": ""
-    },
-    "baseCurrency": {
-      "type": "hasOne",
-      "model": "Currency",
-      "foreignKey": ""
-    }
-  },
-  "acls": [],
-  "methods": {}
+    "acls": [],
+    "methods": {}
 }

@@ -1,36 +1,42 @@
 {
-  "name": "PlanningEntry",
-  "base": "PersistedModel",
-  "idInjection": true,
-  "options": {
-    "validateUpsert": true
-  },
-  "properties": {
-    "price": {
-      "type": "number",
-      "required": false
+    "name": "PlanningEntry",
+    "base": "PersistedModel",
+    "description": "A PlanningEntry represents an override for a time span for capacity and/or price",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
     },
-    "capacity": {
-      "type": "number",
-      "required": false
+    "properties": {
+        "price": {
+            "type": "number",
+            "required": false,
+            "description": "The price change for the time span"
+        },
+        "capacity": {
+            "type": "number",
+            "required": false,
+            "description": "The capacity change for the time span"
+        },
+        "start": {
+            "type": "date",
+            "required": true,
+            "description": "The time spans start"
+        },
+        "end": {
+            "type": "date",
+            "required": true,
+            "description": "The time spans end"
+        }
     },
-    "start": {
-      "type": "date",
-      "required": true
+    "validations": [],
+    "relations": {
+        "club": {
+            "type": "belongsTo",
+            "model": "Club",
+            "foreignKey": "",
+            "description": "A planningEntry belongs to one club"
+        }
     },
-    "end": {
-      "type": "date",
-      "required": true
-    }
-  },
-  "validations": [],
-  "relations": {
-    "club": {
-      "type": "belongsTo",
-      "model": "Club",
-      "foreignKey": ""
-    }
-  },
-  "acls": [],
-  "methods": {}
+    "acls": [],
+    "methods": {}
 }

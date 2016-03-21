@@ -1,32 +1,35 @@
 {
-  "name": "Customer",
-  "base": "User",
-  "idInjection": true,
-  "options": {
-    "validateUpsert": true,
-    "emailVerificationRequired": false
-  },
-  "properties": {},
-  "validations": [],
-  "relations": {
-    "ownerAccount": {
-      "type": "hasOne",
-      "model": "OwnerAccount",
-      "foreignKey": ""
+    "name": "Customer",
+    "base": "User",
+    "description": "A Customer is a seller in Airspott that may sell and create Clubs. It cannot buy (buying is only possible by Buyers)",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true,
+        "emailVerificationRequired": false
     },
-    "clubs": {
-      "type": "hasMany",
-      "model": "Club",
-      "foreignKey": ""
-    }
-  },
-  "acls": [
-    {
-      "accessType": "*",
-      "principalType": "ROLE",
-      "principalId": "$owner",
-      "permission": "ALLOW"
-    }
-  ],
-  "methods": {}
+    "properties": {},
+    "validations": [],
+    "relations": {
+        "ownerAccount": {
+            "type": "hasOne",
+            "model": "OwnerAccount",
+            "foreignKey": "",
+            "description":"A Customer owns own OwnerAccount which holds commercial details"
+        },
+        "clubs": {
+            "type": "hasMany",
+            "model": "Club",
+            "foreignKey": "",
+            "description":"A Customer holds one or many Clubs he created"
+        }
+    },
+    "acls": [
+        {
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$owner",
+            "permission": "ALLOW"
+        }
+    ],
+    "methods": {}
 }
