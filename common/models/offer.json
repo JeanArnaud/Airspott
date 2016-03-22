@@ -1,7 +1,7 @@
 {
     "name": "Offer",
     "base": "PersistedModel",
-    "description": "An Offer represents kind-of categories for things a Club offers (like Cardio, Gold, and so on)",
+    "description": "An Offer represents kind-of categories (activities) for things a Club offers (like Cardio, Gold, and so on)",
     "idInjection": true,
     "options": {
         "validateUpsert": true
