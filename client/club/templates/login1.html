@@ -1,0 +1,48 @@
+<h1>Custom Airspott Login</h1>
+<div class="login">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-offset-4 col-sm-4">
+
+                <div class="card card-white">
+                    <img class="card-img-top" src="img/LOGIN_REGISTER_HEADER.svg" alt="{{'REGISTER' | translate}}"
+                         style="width:100%;max-width:100%">
+
+                    <div class="card-block">
+                        <h4 class="card-title">{{'LOGIN_AS_A_SELLER' | translate}}</h4>
+
+                        <p class="card-text">{{'LOGIN_SELLER_DESCRIPTION_CLUB' | translate}}</p>
+
+                        <form novalidate>
+                            <div class="form-group">
+                                <label class="sr-only" for="emailInput">{{'EMAIL' | translate}}</label>
+                                <input type="email" ng-model="credentials.email" class="form-control" id="emailInput"
+                                       placeholder="{{'EMAIL' | translate}}" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="sr-only" for="passwordInput">{{'PASSWORD' | translate}}</label>
+                                <input type="password" ng-model="credentials.password" class="form-control"
+                                       id="passwordInput"
+                                       placeholder="{{'PASSWORD' | translate}}" required>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="rememberMe"> {{'REMEMBER_ME' | translate}}
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block"
+                                    ng-click="login()">{{'SIGN_IN' | translate}}
+                            </button>
+
+                            <a class="btn btn-secondary-outline btn-block"
+                               ui-sref="sellerRegister1">{{'REGISTER_AS_A_SELLER' | translate}}
+                            </a>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

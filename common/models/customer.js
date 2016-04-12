@@ -9,7 +9,6 @@ module.exports = function (Customer) {
       from: 'noreply@airspott.com',
       subject: 'Thanks for registering.',
       template: path.resolve(__dirname, '../../server/templates/email/customer-activation.ejs'),
-      redirect: "#",
       user: user
     };
 

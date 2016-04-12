@@ -4,7 +4,8 @@
     "connector": "memory"
   },
   "db": {
-    "host": "test.airspott.com",
+    "host": "0.0.0.0",
+    "port" : 27017,
     "name": "db",
     "connector": "mongodb"
   },

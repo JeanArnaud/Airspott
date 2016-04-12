@@ -1,0 +1,63 @@
+<header>
+  <nav class='navbar navbar-default'>
+    <a class='navbar-brand' href='javascript:;' ui-sref='club-new.main'>
+      <img width="81" height="21" class="logo" alt="Flatty" src="assets/images/logo.svg" />
+      <!-- <img width="21" height="21" class="logo-xs" alt="Flatty" src="assets/images/logo_xs.svg" /> -->
+      <h3 style="color:white">Airspott</h3>
+    </a>
+    <a class='toggle-nav btn pull-left' href='javascript:;'>
+      <i class='icon-reorder'></i>
+    </a>
+    <ul class='nav'>
+      <li class='dropdown dark user-menu'>
+        <a class='dropdown-toggle' data-toggle='dropdown' href='javascript:;'>
+          <img width="23" height="23" alt="Mila Kunis" src="assets/images/avatar.jpg" />
+          <span class='user-name'>Mila Kunis</span>
+          <b class='caret'></b>
+        </a>
+        <ul class='dropdown-menu'>
+          <li>
+            <a href='user_profile.html'>
+              <i class='icon-user'></i>
+              Profile
+            </a>
+          </li>
+          <li>
+            <a href='user_profile.html'>
+              <i class='icon-cog'></i>
+              Settings
+            </a>
+          </li>
+          <li class='divider'></li>
+          <li>
+            <a href='javascript:;' ng-click="logout()">
+              <i class='icon-signout'></i>
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+<div id='wrapper'>
+  <div id='main-nav-bg'></div>
+  <nav id='main-nav'>
+    <div class='navigation'>
+      <ul class='nav nav-stacked'>
+        <li class='active'>
+          <a href='javascript:;' ui-sref='club-new.main'>
+            <i class='icon-dashboard'></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class=''>
+                  <a  href="javascript:;" ui-sref='club-new.manage-activity' ><i class='icon-edit'></i>
+          <span>Manage Activities</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div ui-view="content"></div>
+</div>

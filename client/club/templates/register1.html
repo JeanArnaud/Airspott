@@ -1,0 +1,54 @@
+<div class="login">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-offset-4 col-sm-4">
+
+                <div class="card card-white">
+                    <img class="card-img-top" src="img/LOGIN_REGISTER_HEADER.svg" alt="{{'REGISTER' | translate}}"
+                         style="width:100%;max-width:100%">
+
+                    <div class="card-block">
+                        <h4 class="card-title">{{'REGISTER_AS_A_SELLER' | translate}}</h4>
+
+                        <p class="card-text">{{'REGISTER_DESCRIPTION_SELLER' | translate}}</p>
+
+                        <form novalidate>
+                            <div class="form-group">
+                                <label class="sr-only" for="emailInput">{{'EMAIL' | translate}}</label>
+                                <input type="email" ng-model="register.email" class="form-control" id="emailInput"
+                                       placeholder="{{'EMAIL' | translate}}" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="sr-only" for="passwordInput">{{'PASSWORD' | translate}}</label>
+                                <input type="password" ng-model="register.password" class="form-control"
+                                       id="passwordInput"
+                                       placeholder="{{'PASSWORD' | translate}}" required>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <p>
+                                        <small>
+                                            <strong>{{'JUST_ONE_STEP' | translate}}</strong><br>
+                                            <a href="" target="_blank">{{'ACCEPT_PRIVACY_POLICY' | translate}}</a>
+                                        </small>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block"
+                                    ng-click="registerNow()">{{'REGISTER' | translate}}
+                            </button>
+
+                            <a class="btn btn-secondary-outline btn-block"
+                               ui-sref="clubLogin">{{'BACK_TO_LOGIN' | translate}}
+                            </a>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -69,7 +69,10 @@
   },
   "Customer": {
     "dataSource": "db",
-    "public": true
+    "public": true,
+    "options": {
+      "emailVerificationRequired": true
+    }
   },
   "PlanningEntry": {
     "dataSource": "db",

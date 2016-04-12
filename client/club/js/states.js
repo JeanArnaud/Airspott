@@ -14,13 +14,28 @@ angular.module('com.airspott.club')
           templateUrl: 'templates/app.html',
           controller: 'ClubAppCtrl'
         })
-
+        // Custom Changes
+        .state('club1', {
+          url: '',
+          abstract: true,
+          templateUrl: 'templates/app.html',
+          controller: 'ClubAppCtrl'
+        })
+        .state('club1Login', {
+          url: '/login1',
+          templateUrl: 'templates/login1.html',
+          controller: 'mylogin'
+        })
         .state('clubLogin', {
           url: '/login',
           templateUrl: 'templates/login.html',
           controller: 'ClubAccountCtrl'
         })
-
+        .state('sellerRegister1', {
+          url: '/register1',
+          templateUrl: 'templates/register1.html',
+          controller: 'mylogin'
+        })
         .state('sellerRegister', {
           url: '/register',
           templateUrl: 'templates/register.html',
@@ -96,6 +111,6 @@ angular.module('com.airspott.club')
           }
         });
 
-      $urlRouterProvider.otherwise('/login');
+      $urlRouterProvider.otherwise('/login1');
 
     }]);

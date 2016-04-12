@@ -1,0 +1,60 @@
+<div class='middle-container'>
+      <div class='middle-row'>
+        <div class='middle-wrapper'>
+          <div class='login-container-header'>
+            <div class='container'>
+              <div class='row'>
+                <div class='col-sm-12'>
+                  <div class='text-center'>
+                    <h3 style="color:white">Airspott</h3>
+                    <!-- <img width="121" height="31" src="assets/images/logo_lg.svg" /> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='login-container'>
+            <div class='container'>
+              <div class='row'>
+                <div class='col-sm-4 col-sm-offset-4'>
+                  <h1 class='text-center title'>Sign up</h1>
+                  <form name='register' novalidate="">
+                    <div class='form-group'>
+                      <div class='controls with-icon-over-input'>
+                        <input value="" ng-model="fd.email" placeholder="E-mail" class="form-control" name="email" type="email" />
+                        <i class='icon-user text-muted'></i>
+                      </div>
+                    </div>
+                    <div class='form-group'>
+                      <div class='controls with-icon-over-input'>
+                        <input value="" ng-model="fd.password" placeholder="Password" class="form-control" name="password" type="password" />
+                        <i class='icon-lock text-muted'></i>
+                      </div>
+                    </div>
+                    <div class='checkbox'>
+                      <label for='agreement'>
+                        <input id='agreement' ng-model='agreement' name='agreement' type='checkbox'>
+                        I accept
+                        <a class='text-contrast' href='javascript:;'>user agreements</a>
+                      </label>
+                    </div>
+                    <button type='submit' ng-click='registerNow()' class='btn btn-block'>Sign up</button>
+                  </form>
+                  <div class="text-center" >
+                    <div class="alert alert-danger regerr" style="margin-top:1em;display:none"></div>
+                    <div class="alert alert-success regsuc" style="margin-top:1em;display:none"></div>
+                  </div>
+                  <div class='text-center'>
+                    <hr class='hr-normal'>
+                    <a href='javascript:;' ui-sref="clubLogin" >
+                      <i class='icon-chevron-left'></i>
+                      Go back to sign in
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

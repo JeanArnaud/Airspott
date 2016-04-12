@@ -1,6 +1,6 @@
 (function(window, angular, undefined) {'use strict';
 
-var urlBase = "http://test.airspott.com/api";
+var urlBase = "http://localhost:8000/api";
 var authHeader = 'authorization';
 
 function getHost(url) {
