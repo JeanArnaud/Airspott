@@ -6,7 +6,7 @@ angular.module('com.airspott.club')
         function ($rootScope, $scope, $location)
         {
 
-            $rootScope.meta.title = "OVERVIEW_CLUB";
+            $rootScope.meta.title = "MANAGE_CLUB";
             $scope.activeLink = function(data)
             {
             	if($location.path() == data)

@@ -1,8 +1,8 @@
 angular.module("com.airspott.club")
     .controller("ClubAppCtrl",
-        ["$rootScope", '$scope', '$state', '$log', 'Customer',
+        ["$rootScope", '$scope', '$state', '$log', 'Customer', '$location',
 
-         function ($rootScope, $scope, $state, $log, Customer)
+         function ($rootScope, $scope, $state, $log, Customer, $location)
          {
 
              $rootScope.countries = ['AT', 'DE', 'CH'];
@@ -18,9 +18,20 @@ angular.module("com.airspott.club")
              }
 
              $rootScope.meta = {
-                 title: 'APP_NAME'
+                 title: 'Airspott'
              };
 
+             $scope.activeLink = function(name)
+             {
+                    if($location.path() == name)
+                    {
+                        return 'active';
+                    }
+                    else
+                    {
+                        return '';
+                    }
+             }
              $scope.bottomBarAction = function (action)
              {
                  $rootScope.$broadcast(action + 'Action');

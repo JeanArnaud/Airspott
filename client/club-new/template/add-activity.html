@@ -1,39 +1,61 @@
 <section id='content'>
-  <div class="continer" >
-      <div class="row">
-        <div class="col-xs-12">
-            <div class="modal-dialog">
-              <!-- Modal content-->
-              <form ng-submit="addActivity()">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h4 class="modal-title">Add New Activity</h4>
-                </div>
-                <div class="modal-body">
-                  <div class="row">
-                   <div class="col-xs-6">
-                       <div class="form-group">
-                           <label>Activity Name : </label>
-                           <input ng-model='newActivity.identifier' class="form-control" required=""/>
-                       </div>
-                       <div class="form-group">
-                           <label>Parent Activity: </label>
-                           <select ng-model='newActivity.offerId' class="form-control parent">
+  <div class='container'>
+    <div class='row' id='content-wrapper'>
+      <div class='col-xs-12'>
+
+        <div class='page-header page-header-with-buttons'>
+          <h1 class='pull-left'>
+            <i class='icon-plus'></i>
+            <span>Add new Activity</span>
+          </h1>
+          <div class='pull-right'>
+
+          </div>
+        </div>
+        <div class='box'>
+            <div class='box-header' style="background-color:grey">
+                <div class="title" style="color:white">Add Activity</div>
+            </div>
+            <div class="box-content">
+                <form class="form form-horizontal" ng-submit="addActivity()">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Activity Name : </label>
+                        <div class="col-md-5">
+                            <input ng-model='newActivity.identifier' class="form-control" required=""/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-md-2 control-label">Parent Activity: </label>
+                        <div class="col-md-5">
+                          <select ng-model='newActivity.offerId' class="form-control parent">
                              <option value=''></option>
                              <option ng-repeat='x in offers'  value='{{x.id}}'>{{x.identifier}}</option>
-                           </select>
-                       </div>
-                   </div>
-                 </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="submit" class="btn btn-primary" >Submit</button>
-                  <button type="button" class="btn btn-warning" ui-sref='club-new.manage-activity'>Cancel</button>
-                </div>
-              </div>
-            </form>
+                          </select>
+                        </div>
+                    </div>
+                    <div class="form-actions form-actions-padding-sm">
+                      <div class="row">
+                        <div class="col-md-10 col-md-offset-2">
+                            <button type="submit" class="btn btn-default" >Submit</button>
+                            <button type="button" class="btn btn-default" ui-sref='club-new.manage-activity'>Cancel</button>
+                        </div>
+                      </div>
+                    </div>
+                </form>
             </div>
         </div>
+    </div>
+    <footer id='footer'>
+      <div class='footer-wrapper'>
+        <div class='row'>
+          <div class='col-sm-6 text'>
+            Copyright © 2013 Airsott
+          </div>
+          <div class='col-sm-6 buttons'>
+
+          </div>
+        </div>
       </div>
+    </footer>
   </div>
 </section>

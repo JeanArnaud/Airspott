@@ -6,7 +6,7 @@ module.exports = function (Customer) {
     var options = {
       type: 'email',
       to: user.email,
-      from: 'noreply@airspott.com',
+      from: 'test.narolainfotech@gmail.com',
       subject: 'Thanks for registering.',
       template: path.resolve(__dirname, '../../server/templates/email/customer-activation.ejs'),
       user: user
