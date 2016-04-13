@@ -78,6 +78,15 @@ angular.module('com.airspott.club')
             }
           }
         })
+        .state('club-new.general-detail',{
+          url : '/general-detail',
+          views:{
+            content : {
+              controller : 'ClubCtrl',
+              templateUrl: 'template/general-detail.html'
+            }
+          }
+        })
 
         // .state('sellerRegister1', {
         //   url: '/register1',

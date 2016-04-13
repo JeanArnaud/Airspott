@@ -1,6 +1,6 @@
 (function(window, angular, undefined) {'use strict';
 
-var urlBase = "http://localhost:8000/api";
+var urlBase = "http://"+location.host+"/api";
 var authHeader = 'authorization';
 
 function getHost(url) {
@@ -9,6 +9,8 @@ function getHost(url) {
 }
 
 var urlBaseHost = getHost(urlBase) || location.host;
+
+console.log('Host name  =  '+ location.host);
 
 /**
  * @ngdoc overview
