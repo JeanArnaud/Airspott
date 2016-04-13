@@ -1,0 +1,39 @@
+<section id='content'>
+  <div class="continer" >
+      <div class="row">
+        <div class="col-xs-12">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <form ng-submit="addActivity()">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Add New Activity</h4>
+                </div>
+                <div class="modal-body">
+                  <div class="row">
+                   <div class="col-xs-6">
+                       <div class="form-group">
+                           <label>Activity Name : </label>
+                           <input ng-model='newActivity.identifier' class="form-control" required=""/>
+                       </div>
+                       <div class="form-group">
+                           <label>Parent Activity: </label>
+                           <select ng-model='newActivity.offerId' class="form-control parent">
+                             <option value=''></option>
+                             <option ng-repeat='x in offers'  value='{{x.id}}'>{{x.identifier}}</option>
+                           </select>
+                       </div>
+                   </div>
+                 </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary" >Submit</button>
+                  <button type="button" class="btn btn-warning" ui-sref='club-new.manage-activity'>Cancel</button>
+                </div>
+              </div>
+            </form>
+            </div>
+        </div>
+      </div>
+  </div>
+</section>

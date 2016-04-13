@@ -42,6 +42,43 @@ angular.module('com.airspott.club')
             }
           }
         })
+        .state('club-new.add-activity',{
+          url : '/add-activity',
+          views : {
+            content :{
+              controller : 'ClubActivityCtrl',
+              templateUrl : 'template/add-activity.html'
+            }
+          }
+        })
+        .state('club-new.edit-activity',{
+          url : '/edit-activity/:id',
+          views : {
+            content :{
+              controller : 'ClubActivityCtrl',
+              templateUrl : 'template/edit-activity.html'
+            }
+          }
+        })
+        .state('club-new.manage-club',{
+          url : '/manage-club',
+          views:{
+            content : {
+              controller : 'ClubCtrl',
+              templateUrl: 'template/manage-club.html'
+            }
+          }
+        })
+        .state('club-new.add-new-club',{
+          url : '/manage-club',
+          views:{
+            content : {
+              controller : 'ClubCtrl',
+              templateUrl: 'template/add-new-club.html'
+            }
+          }
+        })
+
         // .state('sellerRegister1', {
         //   url: '/register1',
         //   templateUrl: 'templates/register1.html',

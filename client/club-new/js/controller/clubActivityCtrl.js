@@ -1,11 +1,19 @@
 angular.module('com.airspott.club')
-    .controller('ClubActivityCtrl', function($scope, $rootScope, Offer, $http)
+    .controller('ClubActivityCtrl', function($scope, $rootScope, Offer, $http, $state, $stateParams)
     {
         $rootScope.meta.title = 'MANAGE_ACTIVITY';
-        $scope.offers = Offer.find();
+        $scope.offers = Offer.find(function(data)
+            {
+                if(typeof($stateParams.id) != 'undefined')
+                {
+                    $scope.newActivity = $scope.offers[$stateParams.id];
+                }         
+            });
         $scope.newActivity = {};
-        $scope.pageSize=1;
+        $scope.pageSize=10;
         $scope.currentPage=1;
+
+       
         // Add new Activity
         $scope.addActivity = function()
         {
@@ -24,7 +32,8 @@ angular.module('com.airspott.club')
             {
                 $scope.offers.push(data);
                 $scope.newActivity = {};
-                $("#myModal").modal('hide');
+                $state.go('club-new.manage-activity');
+                //$("#myModal").modal('hide');
             },
             function(err)
             {
@@ -70,22 +79,12 @@ angular.module('com.airspott.club')
             }
         }
 
-        // Edit Existing Activity
-        $scope.editActivity = function(data)
-        {
-            $scope.newActivity = data;
-            $("#editModal").modal('show');
-        }
-
         // Update Existing Activity
         $scope.upateActivity = function()
         {
             $scope.newActivity.parent = $('.editparent option:selected').text();
             $scope.newActivity.$save();
-            $("#editModal").modal('hide');
-            // Offer.prototype$updateAttributes($scope.newActivity,function()
-            // {
-            //     $("#editModal").modal('hide');
-            // });
+            $state.go('club-new.manage-activity');
+            $scope.newActivity = {};
         }
     });
