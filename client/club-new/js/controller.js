@@ -20,6 +20,7 @@ angular.module("com.airspott.club")
              $rootScope.meta = {
                  title: 'Airspott'
              };
+             //$rootScope.meta.title = 'Airspott';
 
              $scope.activeLink = function(name)
              {

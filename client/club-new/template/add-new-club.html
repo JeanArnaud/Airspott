@@ -1,11 +1,395 @@
 <section id='content' ng-cloak=''>
-	<div class="continer" >
-	    <div class="row">
+	<div class="container" >
+	    <div class="row" id='content-wrapper'>
 	      <div class="col-xs-12">
-      		<ul class="nav nav-tabs">
-			  <li ><a href="#/general-detail" ng-class='activeLink("/general-detail")'>General Detail</a></li>
-			</ul>
-	      </div>
+	      		<div class='page-header page-header-with-buttons'>
+		            <h1 class='pull-left'>
+		              <i class='icon-leaf' ></i>
+		              <span>Add New Club</span>
+		            </h1>
+		            <div class='pull-right'>
+
+		            </div>
+		        </div>
+
+		       <div class="col-sm-12">
+                  <div class="box">
+                    <div class="box-content box-padding">
+                      <div class="fuelux">
+                        <div class="wizard">
+                          <ul class="steps">
+                            <li class="active" data-target="#step1">
+                              <span class="step">1</span>
+                            </li>
+                            <li data-target="#step2">
+                              <span class="step">2</span>
+                            </li>
+                            <li data-target="#step3">
+                              <span class="step">3</span>
+                            </li>
+                            <li data-target="#step4">
+                              <span class="step">4</span>
+                            </li>
+                            <li data-target="#step5">
+                              <span class="step">5</span>
+                            </li>
+                            <li data-target="#step6">
+                              <span class="step">6</span>
+                            </li>
+                          </ul>
+                          <div class="actions">
+                            <button class="btn  btn-prev"><i class="icon-arrow-left"></i>Prev
+                            </button>
+                            <button class="btn  btn-success btn-next" data-last="Finish">
+                              Next
+                              <i class="icon-arrow-right"></i>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="step-content">
+                          <hr class="hr-normal">
+                          <form class="form-horizontal" style="margin-bottom: 0;" method="post" action="#" accept-charset="UTF-8">
+                          		<input name="authenticity_token" type="hidden">
+	                          	<div class="step-pane active" id="step1">
+		                          	<div class="box">
+							            <div class='box-header' style="background-color:grey">
+							                <div class="title" style="color:white">Club Form</div>
+							            </div>
+							            <div class="box-content" >
+							            	<div class="form-group">
+					                    		<div class="col-md-6 col-md-offset-4">
+					                    			<label>Club Detail</label>
+					                    		</div>
+						                    </div>
+						                    <div class="form-group">
+						                        <label class="col-md-3 control-label">Club Name : </label>
+						                        <div class="col-md-5">
+						                            <input ng-model='clubdetail.name' class="form-control" required=""/>
+						                        </div>
+						                    </div>
+						                    <div class="form-group">
+						                        <label class="col-md-3 control-label">Full Address : </label>
+						                        <div class="col-md-5">
+						                            <textarea ng-model='clubdetail._address.address' 
+						                            class="form-control" required="">
+						                            </textarea> 
+						                        </div>
+						                    </div>
+						                    <div class="form-group">
+						                        <label class="col-md-3 control-label">Short description : </label>
+						                        <div class="col-md-5">
+						                            <textarea ng-model='clubdetail.description' 
+						                            class="form-control" required="">
+						                            </textarea> 
+						                        </div>
+						                    </div>
+						                    <div class="form-group">
+						                    	<div class="row">
+					                    			<hr style="margin-right:3em;margin-left:3em" />
+					                    		</div>
+					                    		<div class="col-md-6 col-md-offset-4">
+					                    			<label>Club's manager Detail</label>
+					                    		</div>
+						                    </div>
+
+						                    <div class="form-group">
+						                        <label class="col-md-3 control-label">Last Name : </label>
+						                        <div class="col-md-5">
+						                            <input ng-model='lname' class="form-control" required=""/>
+						                        </div>
+						                    </div>
+						                    <div class="form-group">
+						                        <label class="col-md-3 control-label">First Name : </label>
+						                        <div class="col-md-5">
+						                            <input ng-model='fname' class="form-control" required=""/>
+						                        </div>
+						                    </div>
+						                    <div class="form-group">
+						                        <label class="col-md-3 control-label">Phone Number : </label>
+						                        <div class="col-md-5">
+						                            <input ng-model='clubdetail.responsibleTel' class="form-control" required="" pattern='^[0-9]+$'/>
+						                        </div>
+						                    </div>
+						                    <div class="form-group">
+						                        <label class="col-md-3 control-label">Email : </label>
+						                        <div class="col-md-5">
+						                            <input type="email" ng-model='fd.email' class="form-control" required=""/>
+						                        </div>
+						                    </div>
+						                    <div class="form-group">
+						                        <label class="col-md-3 control-label">Password : </label>
+						                        <div class="col-md-5">
+						                            <input type="password" ng-model='fd.password' class="form-control" required=""/>
+						                        </div>
+						                    </div>
+							            </div>
+							        </div>
+	                          	</div>
+	                         	<div class="step-pane" id="step2">
+		                            <div class="box">
+							            <div class='box-header' style="background-color:grey">
+							                <div class="title" style="color:white">Opening Hours
+							                </div>
+							            </div>
+							            <div class="box-content" style="padding-left:5em">
+							            		<div class="row" ng-repeat="(day, openingObj) in clubdetail.openingHours">
+							            			<div class="form-group">
+								                      <hr style="margin-right:5em;margin-left:1em" />
+								                    </div>
+								                    <div class="col-xs-12">
+									                    <h4 class="list-group-item-heading">{{day | translate}}
+									                    </h4>
+								                    </div>
+
+								                    <div class="col-md-3 col-xs-6">
+								                        <p>{{'OPEN_FROM' | translate}}</p>
+
+								                        <uib-timepicker ng-model="openingObj.openFrom" hour-step="1" minute-step="1"
+								                                        show-meridian="false"></uib-timepicker>
+								                    </div>
+
+								                    <div class="col-md-3 col-xs-6">
+								                        <p>{{'BREAK_FROM' | translate}}</p>
+
+								                        <uib-timepicker ng-model="openingObj.breakFrom" hour-step="1" minute-step="1"
+								                                        show-meridian="false"></uib-timepicker>
+								                    </div>
+
+								                    <div class="col-md-3 col-xs-6">
+								                        <p>{{'BREAK_TO' | translate}}</p>
+
+								                        <uib-timepicker ng-model="openingObj.breakTo" hour-step="1" minute-step="1"
+								                                        show-meridian="false"></uib-timepicker>
+								                    </div>
+
+								                    <div class="col-md-3 col-xs-6">
+								                        <p>{{'OPEN_TO' | translate}}</p>
+
+								                        <uib-timepicker ng-model="openingObj.openTo" hour-step="1" minute-step="1"
+								                                        show-meridian="false"></uib-timepicker>
+								                    </div>
+
+								                    
+								                </div>
+								            </div>
+							        </div>
+	                         	</div>
+                         		<div class="step-pane" id="step3">
+		                            <div class="box">
+		                             	<div class='box-header' style="background-color:grey">
+							                <div class="title" style="color:white">Prices and availability
+							                </div>
+							            </div>
+		                             	<div class="box-content">
+		                             		<fieldset class="form-group row">
+							                    <div class="col-xs-12">
+							                        <label for="saleUnit">
+							                        	Quantity
+							                        </label>
+
+							                        <select ng-options="saleUnit as  saleUnit for saleUnit in saleUnits"
+							                                ng-model="clubdetail.saleUnit"
+							                                class="c-select form-control"
+							                                id="saleUnit"
+							                                ng-change="generateCalConfig()">
+
+							                            <option value="">Select</option>
+							                        </select>
+							                    </div>
+							                </fieldset>
+
+							                <div class="form-group">
+							                	<div class="row">
+							                		<div class="col-xs-12 col-xs-3">
+							                        <label for="price">
+							                        	Price per item
+							                        </label>
+							                        <label for="currency" class="sr-only">	
+							                         	{{'CURRENCY' | translate}}
+							                        </label>
+
+							                        <div class="input-group select-input-group col-sm-3">
+							                            <input type="text" ng-model="clubdetail.price" id="price" class="form-control"
+							                                   placeholder="{{'DEFAULT_PRICE' | translate}}" required>
+
+							                            <select ng-options="currency.id as currency.symbol for currency in currencies"
+							                                    ng-model="club.currencyId"
+							                                    class="c-select form-control"
+							                                    id="currency">
+							                                <option value="">{{'CURRENCY' | translate}}</option>
+							                            </select>
+							                        </div>
+							                    </div>
+							                	</div>
+							                	
+							                    <div class="col-xs-12 col-md-5">
+							                        <label for="defaultCapacity">
+							                        	Standard capacity per unit of sales
+							                        </label>
+							                        <input type="text" ng-model="clubdetail.capacity" id="defaultCapacity" class="form-control"
+							                         required>
+							                    </div>
+							                </div>
+							                <div class="modal fade" id="calendarEventModal" tabindex="-1" role="dialog"	aria-labelledby="mySmallModalLabel" aria-hidden="true">
+							                    <div class="modal-dialog modal-sm">
+							                        <div class="modal-content">
+							                            <div class="modal-header">
+							                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							                                    <span aria-hidden="true">&times;</span>
+							                                    <span class="sr-only">{{'CLOSE' | translate}}</span>
+							                                </button>
+
+							                                <h5 class="modal-title">{{'ADD_PLANNING_ENTRY' | translate}}</h5>
+							                            </div>
+
+							                            <div class="modal-body">
+
+							                                <p ng-if="!eventInChange">{{'WHICH_PLANNING_TYPE_TO_CHANGE' | translate}}</p>
+
+							                                <fieldset class="form-group" ng-if="!eventInChange || eventInChange.price">
+							                                    <label for="priceInModal">{{'PRICE' | translate}}</label>
+							                                    <input type="text" ng-model="modal.price" id="priceInModal" class="form-control"
+							                                           placeholder="{{'PRICE_FOREACH_SALE_UNIT' | translate}}">
+							                                </fieldset>
+
+							                                <fieldset class="form-group" ng-if="!eventInChange || eventInChange.capacity">
+							                                    <label for="capacityInModal">{{'CAPACITY' | translate}}</label>
+							                                    <input type="text" ng-model="modal.capacity" id="capacityInModal"
+							                                           class="form-control"
+							                                           placeholder="{{'CAPACITY_FOREACH_SALE_UNIT' | translate}}">
+							                                </fieldset>
+
+							                            </div>
+
+							                            <div class="modal-footer">
+							                                <button type="button" class="btn btn-secondary"
+							                                        data-dismiss="modal">{{'CANCEL' | translate}}
+							                                </button>
+							                                <button type="button" class="btn btn-primary"
+							                                        ng-click="updateCapacities()">{{'SAVE' | translate}}
+							                                </button>
+							                            </div>
+							                        </div>
+							                    </div>
+							                </div>
+
+							                 <div ui-calendar="calConfig.calendar" ng-model="capacityPlanningEntries" ng-if="calConfig">
+							                 	
+							                 </div>
+		                             	</div>
+		                            </div>
+                         		</div>
+                          		<div class="step-pane" id="step4">
+		                            <div class="box">
+		                             	<div class="box-header" style="background-color:grey">
+		                             		<div class="title" style="color:white">Activities</div>
+		                             		<div class="actions">
+		                             			<button class="btn" data-toggle='modal' data-target='#offer'>
+		                             				<i class='icon-plus'>&nbsp;Add</i>
+		                             			</button>
+		                             		</div>
+		                             	</div>
+		                             	<div class="box-content table table-responsive" >
+		                             		 <us-spinner ng-if='!offers'></us-spinner>
+		                             		<div class="checkbox" ng-repeat="offer in offers">
+							                    <label>
+							                        <input type="checkbox" ng-model="offer.link" value="{{offer.id}}">
+							                        {{offer.identifier | translate}}
+							                    </label>
+							                </div>
+		                             	</div>
+		                            </div>
+		                            <div class="modal fade" id='offer' role='dialog'>
+		                            	<div class="modal-dialog">
+
+										    <!-- Modal content-->
+										    <div class="modal-content">
+										      <div class="modal-header">
+										        <button type="button" class="close" data-dismiss="modal">&times;</button>
+										        <h4 class="modal-title">Modal Header</h4>
+										      </div>
+										      <div class="modal-body">
+										        <p>Some text in the modal.</p>
+										      </div>
+										      <div class="modal-footer">
+										        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+										      </div>
+										    </div>
+
+										</div>
+		                            </div>
+                          		</div>
+                          		<div class="step-pane" id='step5'>
+                          			<div class="box">
+                          				<div class="box-header" style="background-color:grey">
+                          					<div class="title" style="color:white">Photo uploads
+                          					</div>
+                          				</div>
+                          				<div class="box-content">
+                          					<div class="alert alert-info clickable"
+							                     ngf-drop="processFiles($files)"
+							                     ngf-select="processFiles($files)"
+							                     ngf-drag-over-class="'alert-danger dragover'"
+							                     ngf-multiple="true"
+							                     ngf-pattern="'image/jpeg,image/png,image/svg+xml'">
+							                     	<div class="hide-dragover">Drag and Drop File here or clicked to upload
+								                        <br/><small>Allow types are jpeg/png/svg.</small>
+								                    </div>
+							                </div>
+							                <div ngf-no-file-drop>
+							                    <h2>File upload is unavailable please use unother browser.</h2>
+							                </div>
+							                <div class="card-columns" ng-if="media.length > 0">
+							                	<div class="card card-white" ng-repeat="mediaItem in media | orderBy:'':true">
+							                        <div style="height:12em;width:100%" class="text-center">
+							                            <img class="card-img-top" ng-src="{{mediaItem.media}}" alt="{{mediaItem.name}}"
+							                                 style="max-height:100%;max-width:100%">
+							                        </div>
+							                        <div class="card-block">
+
+							                            <hr />
+
+							                            <fieldset class="form-group">
+							                                <label for="{{'mediaItemName'+$index}}">Image name</label>
+							                                <input type="text" ng-model="mediaItem.name" id="{{'mediaItemName'+$index}}"
+							                                       class="form-control" placeholder="Image Name" required>
+							                            </fieldset>
+							                            <fieldset class="form-group">
+							                                <label for="{{'mediaItemDescription'+$index}}">Image Description</label>
+
+							                                <textarea ng-model="mediaItem.description" id="{{'mediaItemDescription'+$index}}"
+							                                          class="form-control"
+							                                          placeholder="Image description">
+							                                </textarea>
+							                            </fieldset>
+							                        </div>
+							                    </div>
+							                </div>
+                          				</div>
+                          			</div>
+                          		</div>
+                          		<div class="step-pane" id='step6'>
+                          		</div>
+                          </form>
+                        </div>
+                    </div>
+                  </div> 
+		       </div>
+	      	</div>
 	    </div>
+	    <footer id='footer'>
+	      <div class='footer-wrapper'>
+	      	<div class="container">
+		        <div class='row'>
+		          <div class='col-sm-6 text'>
+		            Copyright © 2013 Airsott
+		          </div>
+		          <div class='col-sm-6 buttons'>
+
+		          </div>
+		        </div>
+	        </div>
+	      </div>
+	    </footer>
 	</div>
 </section>

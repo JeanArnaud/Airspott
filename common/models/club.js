@@ -18,7 +18,6 @@ module.exports = function (Club) {
         });
     });
 
-
     /**
      * Query clubs for bookable resources and return prepared Club instances
      *

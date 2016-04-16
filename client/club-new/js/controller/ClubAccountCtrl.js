@@ -5,7 +5,7 @@ angular.module('com.airspott.club')
 
             function ($rootScope, $scope, $log, $state, $location, $translate, Customer, Message)
             {
-                $scope.title = "CLUB_LOGIN";
+                //$rootScope.meta.title = "CLUB_LOGIN";
 
                 $scope.credentials = {};
                 $scope.rememberMe = true;
@@ -13,6 +13,7 @@ angular.module('com.airspott.club')
 
                 $scope.login = function ()
                 {
+                    $scope.credentials.realm = 'clubowner';
                     Customer.login({rememberMe: $scope.rememberMe}, $scope.credentials, function ()
                     {
                         var next = $location.nextAfterLogin || '/main';
@@ -40,7 +41,7 @@ angular.module('com.airspott.club')
 
                 $scope.registerNow = function ()
                 {
-
+                    $scope.fd.realm = 'clubowner';
                     Customer.create($scope.fd, function ()
                     {
                         $('.regsuc').toggle();

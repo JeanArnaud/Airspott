@@ -12,6 +12,7 @@ angular.module('com.airspott.club')
 
                 $scope.login = function ()
                 {
+                    $scope.credentials.realm = 'clubowner';
                     Customer.login({rememberMe: $scope.rememberMe}, $scope.credentials, function ()
                     {
                         var next = $location.nextAfterLogin || '/main';
@@ -30,6 +31,7 @@ angular.module('com.airspott.club')
 
                 $scope.registerNow = function ()
                 {
+                    $scope.register.realm = 'clubowner';
 
                     Customer.create($scope.register, function ()
                     {

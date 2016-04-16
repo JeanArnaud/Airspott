@@ -1,7 +1,7 @@
 angular.module("com.airspott").controller("AppCtrl", ["$rootScope", function ($rootScope){
 
     $rootScope.meta = {
-        title: 'APP_NAME'
+        title: 'Airspott'
     };
 
     $rootScope.countries = ['AT', 'DE', 'CH'];

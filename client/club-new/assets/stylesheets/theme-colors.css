@@ -12,6 +12,15 @@
   .no-mg-t-xs {
     margin-top: 0 !important; } }
 
+/************* added on 14-4-16**********/
+ /*    body.login {
+    height: auto;
+}*/
+.navbar.navbar-default.nav-right_fixed {
+  padding-right: 0;
+}
+/*********** end *********/
+
 .no-mg-t {
   margin-top: 0 !important; }
 

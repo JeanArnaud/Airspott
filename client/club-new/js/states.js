@@ -70,7 +70,7 @@ angular.module('com.airspott.club')
           }
         })
         .state('club-new.add-new-club',{
-          url : '/manage-club',
+          url : '/Add-club',
           views:{
             content : {
               controller : 'ClubCtrl',

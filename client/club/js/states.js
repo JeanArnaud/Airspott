@@ -111,6 +111,6 @@ angular.module('com.airspott.club')
           }
         });
 
-      $urlRouterProvider.otherwise('/login1');
+      $urlRouterProvider.otherwise('/login');
 
     }]);
