@@ -68,11 +68,50 @@
 						                        </div>
 						                    </div>
 						                    <div class="form-group">
-						                        <label class="col-md-3 control-label">Full Address : </label>
+						                        <label class="col-md-3 control-label">Franchise Name : </label>
+						                        <div class="col-md-5">
+						                            <input ng-model='clubdetail.franchise_name' class="form-control" />
+						                        </div>
+						                    </div>
+						                    <div class="form-group">
+						                        <label class="col-md-3 control-label">Address 1: </label>
 						                        <div class="col-md-5">
 						                            <textarea ng-model='clubdetail._address.address' 
 						                            class="form-control" required="">
 						                            </textarea> 
+						                        </div>
+						                    </div>
+						                    <div class="form-group">
+						                        <label class="col-md-3 control-label">Address 2: </label>
+						                        <div class="col-md-5">
+						                            <textarea ng-model='clubdetail._address.address2' 
+						                            class="form-control" required="">
+						                            </textarea> 
+						                        </div>
+						                    </div>
+						                    <div class="form-group">
+						                        <label class="col-md-3 control-label">Zip code : </label>
+						                        <div class="col-md-5">
+						                            <input ng-model='clubdetail._address.zip' class="form-control" required=""/>
+						                        </div>
+						                    </div>
+						                    <div class="form-group">
+						                        <label class="col-md-3 control-label">City : </label>
+						                        <div class="col-md-5">
+						                            <input ng-model='clubdetail._address.city' class="form-control" required=""/>
+						                        </div>
+						                    </div>
+						                    <div class="form-group">
+						                        <label class="col-md-3 control-label">Country : </label>
+						                        <div class="col-md-5">
+						                            <select class="c-select form-control"
+							                                ng-model="club._address.country"
+							                                name="country"
+							                                id="country"
+							                                ng-options="country as country | translate for country in countries"
+							                                required>
+							                            <option value="">Country</option>
+							                        </select>
 						                        </div>
 						                    </div>
 						                    <div class="form-group">
@@ -105,21 +144,28 @@
 						                        </div>
 						                    </div>
 						                    <div class="form-group">
+						                        <label class="col-md-3 control-label">Gender</label>
+						                        <div class="col-md-9">
+						                          <label class="radio radio-inline">
+						                            <input  type="radio" vlaue='male' ng-model='clubdetail.gender'>
+						                            Male
+						                          </label>
+						                          <label class="radio radio-inline">
+						                            <input  type="radio" value='female' ng-model='clubdetail.gender'>
+						                            Female
+						                          </label>
+						                        </div>
+						                    </div>
+						                    <div class="form-group">
 						                        <label class="col-md-3 control-label">Phone Number : </label>
 						                        <div class="col-md-5">
-						                            <input ng-model='clubdetail.responsibleTel' class="form-control" required="" pattern='^[0-9]+$'/>
+						                        	<input class="form-control" ng-model='clubdetail.responsibleTel' data-mask="+99 999 999 999" placeholder="+99 999 999 999" type="text" required="">
 						                        </div>
 						                    </div>
 						                    <div class="form-group">
 						                        <label class="col-md-3 control-label">Email : </label>
 						                        <div class="col-md-5">
 						                            <input type="email" ng-model='fd.email' class="form-control" required=""/>
-						                        </div>
-						                    </div>
-						                    <div class="form-group">
-						                        <label class="col-md-3 control-label">Password : </label>
-						                        <div class="col-md-5">
-						                            <input type="password" ng-model='fd.password' class="form-control" required=""/>
 						                        </div>
 						                    </div>
 							            </div>
@@ -177,14 +223,14 @@
                          		<div class="step-pane" id="step3">
 		                            <div class="box">
 		                             	<div class='box-header' style="background-color:grey">
-							                <div class="title" style="color:white">Prices and availability
+							                <div class="title" style="color:white">Capacities
 							                </div>
 							            </div>
 		                             	<div class="box-content">
 		                             		<fieldset class="form-group row">
 							                    <div class="col-xs-12">
 							                        <label for="saleUnit">
-							                        	Quantity
+							                        	Pass Selling Unit
 							                        </label>
 
 							                        <select ng-options="saleUnit as  saleUnit for saleUnit in saleUnits"
@@ -198,39 +244,43 @@
 							                    </div>
 							                </fieldset>
 
-							                <div class="form-group">
-							                	<div class="row">
-							                		<div class="col-xs-12 col-xs-3">
+							                <div class="form-group row">
+							                	<div class="col-md-12">
+							                		<div class="col-md-6">
+							                		<div class="">
 							                        <label for="price">
-							                        	Price per item
+							                        	Standard price per Pass
 							                        </label>
 							                        <label for="currency" class="sr-only">	
 							                         	{{'CURRENCY' | translate}}
 							                        </label>
-
-							                        <div class="input-group select-input-group col-sm-3">
-							                            <input type="text" ng-model="clubdetail.price" id="price" class="form-control"
+							                        </div>
+							                        <div class="row">
+							                        	<div class="col-md-6">
+							                            	<input type="text" ng-model="clubdetail.price" id="price" class="form-control"
 							                                   placeholder="{{'DEFAULT_PRICE' | translate}}" required>
-
-							                            <select ng-options="currency.id as currency.symbol for currency in currencies"
-							                                    ng-model="club.currencyId"
-							                                    class="c-select form-control"
-							                                    id="currency">
-							                                <option value="">{{'CURRENCY' | translate}}</option>
-							                            </select>
+							                            </div>
+							                            <div class="col-md-6">
+								                            <select ng-options="currency.id as currency.symbol for currency in currencies"
+								                                    ng-model="club.currencyId"
+								                                    class="c-select form-control"
+								                                    id="currency">
+								                                <option value="">{{'CURRENCY' | translate}}</option>
+								                            </select>
+							                            </div>
 							                        </div>
 							                    </div>
 							                	</div>
 							                	
 							                    <div class="col-xs-12 col-md-5">
 							                        <label for="defaultCapacity">
-							                        	Standard capacity per unit of sales
+							                        	Standard capacity per selling unit
 							                        </label>
 							                        <input type="text" ng-model="clubdetail.capacity" id="defaultCapacity" class="form-control"
 							                         required>
 							                    </div>
 							                </div>
-							                <div class="modal fade" id="calendarEventModal" tabindex="-1" role="dialog"	aria-labelledby="mySmallModalLabel" aria-hidden="true">
+							                <div class="modal fade" id="calendarEventModal" tabindex="-1" role="dialog"	>
 							                    <div class="modal-dialog modal-sm">
 							                        <div class="modal-content">
 							                            <div class="modal-header">
@@ -239,24 +289,32 @@
 							                                    <span class="sr-only">{{'CLOSE' | translate}}</span>
 							                                </button>
 
-							                                <h5 class="modal-title">{{'ADD_PLANNING_ENTRY' | translate}}</h5>
+							                                <h5 class="modal-title">Add Planning data</h5>
 							                            </div>
 
 							                            <div class="modal-body">
 
-							                                <p ng-if="!eventInChange">{{'WHICH_PLANNING_TYPE_TO_CHANGE' | translate}}</p>
+							                                <p ng-if="!eventInChange">We sell a maximum of the standard capacity of your offer per unit time at the standard price per unit of sales. Enter data for detailed planning and you can schedule any or all time-based changes to:</p>
 
 							                                <fieldset class="form-group" ng-if="!eventInChange || eventInChange.price">
-							                                    <label for="priceInModal">{{'PRICE' | translate}}</label>
-							                                    <input type="text" ng-model="modal.price" id="priceInModal" class="form-control"
-							                                           placeholder="{{'PRICE_FOREACH_SALE_UNIT' | translate}}">
+							                                	<div class="col-md-12">
+							                                    	<label for="priceInModal">Price</label>
+							                                    </div>
+							                                    <div class="col-md-7">
+							                                    	<input type="text" ng-model="modal.price" id="priceInModal" class="form-control"
+							                                           placeholder="Price for sale unit">
+							                                    </div>
 							                                </fieldset>
 
 							                                <fieldset class="form-group" ng-if="!eventInChange || eventInChange.capacity">
-							                                    <label for="capacityInModal">{{'CAPACITY' | translate}}</label>
-							                                    <input type="text" ng-model="modal.capacity" id="capacityInModal"
+							                                	<div class="col-md-12">
+							                                    	<label for="capacityInModal">Capacity</label>
+							                                    </div>
+							                                    <div class="col-md-7">
+							                                    	<input type="text" ng-model="modal.capacity" id="capacityInModal"
 							                                           class="form-control"
-							                                           placeholder="{{'CAPACITY_FOREACH_SALE_UNIT' | translate}}">
+							                                           placeholder="Capacity for sale unit">
+							                                    </div>
 							                                </fieldset>
 
 							                            </div>
@@ -272,10 +330,9 @@
 							                        </div>
 							                    </div>
 							                </div>
-
-							                 <div ui-calendar="calConfig.calendar" ng-model="capacityPlanningEntries" ng-if="calConfig">
-							                 	
-							                 </div>
+							                <div class="col-md-12">
+							                	 <div ui-calendar="calConfig.calendar" ng-model="capacityPlanningEntries" ng-if="calConfig"></div>
+							                </div>	 
 		                             	</div>
 		                            </div>
                          		</div>
@@ -291,9 +348,20 @@
 		                             	</div>
 		                             	<div class="box-content table table-responsive" >
 		                             		 <us-spinner ng-if='!offers'></us-spinner>
-		                             		<div class="checkbox" ng-repeat="offer in offers">
+		                             		 <div class="row">
+		                             		 	<div class="col-md-6"></div>
+		                             		 	<div class="col-md-6 text-right">
+		                             		 		<label>
+						                                <input placeholder="Search" ng-model='search' class="form-control input-sm" style="width: 200px;" aria-controls="DataTables_Table_1" type="text">
+						                            </label>
+		                             		 	</div>
+		                             		 </div>
+		                             		 <div class="col-md-12">
+		                             		 	<hr/>
+		                             		 </div>
+		                             		<div class="checkbox" ng-repeat="offer in offers | filter : search" ng-if='!offer.offerId'>
 							                    <label>
-							                        <input type="checkbox" ng-model="offer.link" value="{{offer.id}}">
+							                        <input type="checkbox" class="activity" ng-model="offer.link" value="{{offer.id}}" >
 							                        {{offer.identifier | translate}}
 							                    </label>
 							                </div>
@@ -303,19 +371,44 @@
 		                            	<div class="modal-dialog">
 
 										    <!-- Modal content-->
-										    <div class="modal-content">
-										      <div class="modal-header">
-										        <button type="button" class="close" data-dismiss="modal">&times;</button>
-										        <h4 class="modal-title">Modal Header</h4>
-										      </div>
-										      <div class="modal-body">
-										        <p>Some text in the modal.</p>
-										      </div>
-										      <div class="modal-footer">
-										        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-										      </div>
-										    </div>
-
+										      <form method="post" id='activity' name='activity'>
+											    <div class="modal-content">
+											      <div class="modal-header">
+											        <button type="button" class="close" data-dismiss="modal">&times;</button>
+											        <h4 class="modal-title">Add New Activity</h4>
+											      </div>
+												      <div class="modal-body">
+												        <div class="form-group">
+												        	<label class="control-label col-md-3">Name</label>
+												        	<div class="col-md-6">
+												        		<input  class="form-control" ng-model='newoffer.identifier' required/>
+												        	</div>
+												        	<div style="color:red">
+												        		{{nameerr}}
+												        	</div>
+												        </div>
+												        <div class="form-group">
+												        	<label class="control-label col-md-3">Parent</label>
+												        	<div class="col-md-6">
+												        		<select id='offer1' class="form-control" ng-model='newoffer.offerId'>
+												        			<option ng-repeat='x in offers' value="{{x.id}}">{{x.identifier}}</option>
+												        			<option value=''></option>
+												        		</select>
+												        	</div>
+												        </div>
+												        <div class="form-group">
+												        	<label class="control-label col-md-3">Extra Price</label>
+												        	<div class="col-md-6">
+												        		<input type="number" min='1' max='99999999' class="form-control" ng-model='newoffer.extraprice'/>
+												        	</div>
+												        </div>
+												      </div>
+											      <div class="modal-footer">
+											      	<button type="button" name='submit' class="btn btn-success" ng-click='addActvity()'><i class='icon-save'></i>&nbsp;Add</button>
+											        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											      </div>
+											    </div>
+										      </form>
 										</div>
 		                            </div>
                           		</div>
@@ -326,7 +419,7 @@
                           					</div>
                           				</div>
                           				<div class="box-content">
-                          					<div class="alert alert-info clickable"
+                          					<div style='cursor:pointer' class="alert alert-info clickable"
 							                     ngf-drop="processFiles($files)"
 							                     ngf-select="processFiles($files)"
 							                     ngf-drag-over-class="'alert-danger dragover'"
@@ -339,8 +432,8 @@
 							                <div ngf-no-file-drop>
 							                    <h2>File upload is unavailable please use unother browser.</h2>
 							                </div>
-							                <div class="card-columns" ng-if="media.length > 0">
-							                	<div class="card card-white" ng-repeat="mediaItem in media | orderBy:'':true">
+							                <div class="col-md-12" ng-if="media.length > 0">
+							                	<div class="" ng-repeat="mediaItem in media | orderBy:'':true">
 							                        <div style="height:12em;width:100%" class="text-center">
 							                            <img class="card-img-top" ng-src="{{mediaItem.media}}" alt="{{mediaItem.name}}"
 							                                 style="max-height:100%;max-width:100%">
@@ -369,6 +462,27 @@
                           			</div>
                           		</div>
                           		<div class="step-pane" id='step6'>
+                          			<div class="box">
+                          				<div class="box-header" style="background-color:grey">
+                          					<div class="title" style="color:white">
+                          						Billing Details
+                          					</div>
+                          				</div>
+                          				<div class="box-content">
+                          					<div class="form-group">
+                          						<label class="control-label col-md-3">Currency</label>
+                          						<div class="col-md-5">
+                          							<select ng-options="currency.id as currency.symbol for currency in currencies"
+						                                    ng-model="bill.currencyId"
+						                                    class="c-select form-control"
+						                                    id="currency1">
+						                                <option value="">{{'CURRENCY' | translate}}</option>
+						                            </select>
+                          						</div>
+                          					</div>
+                          				</div>
+
+                          			</div>
                           		</div>
                           </form>
                         </div>

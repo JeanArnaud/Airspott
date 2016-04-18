@@ -30,7 +30,7 @@ angular.module('com.airspott.club')
             content: {
               controller: 'ClubCtrl',
               templateUrl: 'template/overview.html'
-            }
+                }
           }
         })
         .state('club-new.manage-activity', {
@@ -47,9 +47,10 @@ angular.module('com.airspott.club')
           views : {
             content :{
               controller : 'ClubActivityCtrl',
-              templateUrl : 'template/add-activity.html'
+              templateUrl : 'template/add-activity.html',
+              
+              }
             }
-          }
         })
         .state('club-new.edit-activity',{
           url : '/edit-activity/:id',
@@ -83,7 +84,8 @@ angular.module('com.airspott.club')
           views:{
             content : {
               controller : 'ClubCtrl',
-              templateUrl: 'template/general-detail.html'
+              templateUrl: 'template/general-detail.html',
+              
             }
           }
         })

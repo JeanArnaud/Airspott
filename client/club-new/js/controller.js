@@ -5,7 +5,7 @@ angular.module("com.airspott.club")
          function ($rootScope, $scope, $state, $log, Customer, $location)
          {
 
-             $rootScope.countries = ['AT', 'DE', 'CH'];
+             $rootScope.countries = ['Osterreich', 'Deutschland', 'Schweiz'];
              $rootScope.saleUnits = ['DAYS', 'HOURS'];
              $rootScope.languages = ['DE', 'EN'];
 
@@ -17,6 +17,11 @@ angular.module("com.airspott.club")
                  return;
              }
 
+             $scope.toggleMenu = function()
+             {
+                console.log('menu clicked');
+                //$('#wrapper').toggle('slide','left');
+             }
              $rootScope.meta = {
                  title: 'Airspott'
              };

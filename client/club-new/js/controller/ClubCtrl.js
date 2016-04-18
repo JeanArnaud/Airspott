@@ -1,9 +1,10 @@
 angular.module('com.airspott.club')
     .controller('ClubCtrl',
     [
-        '$rootScope', '$scope', '$location','Club','Customer', '$log', 'Currency', 'Offer', 'Upload',
+        '$rootScope', '$scope', '$location','Club','Customer', '$log', 'Offer', 'Upload',
+         'Currency', '$http',
 
-        function ($rootScope, $scope, $location, Club, Customer, $log, Currency, Offer, Upload)
+        function ($rootScope, $scope, $location, Club, Customer, $log, Offer, Upload, Currency, $http)
         {
 
             $scope.capacityPlanningEntries = [[]];
@@ -31,7 +32,7 @@ angular.module('com.airspott.club')
                     "Friday": {},
                     "Saturday": {},
                     "Sunday": {},
-                    "Holyday": {}
+                    "Bank Holiday": {}
                 }
             };
             // Form data
@@ -108,7 +109,8 @@ angular.module('com.airspott.club')
                         header: {
                             left: 'title',
                             center: '',
-                            right: 'today prev,next' + ($scope.clubdetail.saleUnit == 'DAYS' ? 'month' : 'agendaWeek')
+                            right: 'today' + ($scope.clubdetail.saleUnit == 'DAYS' ? 'month' : 'agendaWeek'),
+                            right: 'today prev,next'
                         },
 
                         selectable: true,
@@ -159,6 +161,51 @@ angular.module('com.airspott.club')
                 };
             };
             
+            // Capacity or planning changed
+            $scope.updateCapacities = function ()
+            {
+                //@todo update the modal!
+                if ($scope.eventInChange)
+                {
+                    if ($scope.eventInChange.price)
+                    {
+                        $scope.eventInChange.price = $scope.modal.price;
+                    }
+                    else if ($scope.eventInChange.capacity)
+                    {
+                        $scope.eventInChange.capacity = $scope.modal.capacity;
+                    }
+
+                    $scope.hideCapacityModal();
+
+                    return;
+                }
+
+                if ($scope.modal.price)
+                {
+                    $scope.capacityPlanningEntries[0].push({
+                        title: 'Price Change',
+                        start: $scope.modal.start,
+                        end: $scope.modal.end,
+                        price: $scope.modal.price
+                    });
+                }
+
+                if ($scope.modal.capacity)
+                {
+                    $scope.capacityPlanningEntries[0].push(
+                        {
+                            title: 'Capacity Change',
+                            start: $scope.modal.start,
+                            end: $scope.modal.end,
+                            backgroundColor: '#378006',
+                            capacity: $scope.modal.capacity
+                        });
+                }
+
+                $scope.hideCapacityModal();
+
+            };
             // Add new club within database
             $scope.AddnewClub = function()
             {
@@ -172,6 +219,62 @@ angular.module('com.airspott.club')
                 //     console.log(data);
                 // });
             }
-
+            // get child activity from parent id      
+            $('.activity').live('click', function()
+            {
+                var flag = $(this).prop('checked');
+                if(flag)
+                {
+                    var str = '';
+                    // $scope.child = [];
+                    var pid = $(this).val();
+                    for(var i=0; i<$scope.offers.length; i++)
+                    {
+                        if($scope.offers[i].offerId == pid)
+                        {
+                            str += '<div class="checkbox child_'+pid+'" style="margin-left:1em">';
+                            str +='<label>';
+                            str +='<input type="checkbox" class="activity" ng-model"offer.link" value="'+$scope.offers[i].id+'"/>';
+                            str += $scope.offers[i].identifier;
+                            str +='</label>';
+                            str +='</div>';
+                        }
+                    }
+                    $(this).parent().parent().append(str);    
+                }
+                else
+                {
+                    $(this).parent().parent().find(".child_"+$(this).val()).remove();
+                }
+            });
+            // Add new Activity
+            $scope.newoffer = {};
+            $scope.newoffer.offerId = '';
+            $scope.addActvity = function()
+            {
+                if(typeof($scope.newoffer.identifier) != 'undefined')
+                {
+                    if($scope.newoffer.offerId != '')
+                    {
+                      $scope.newoffer.parent = $('#offer1 option:selected').text();
+                    }
+                    else
+                    {
+                        $scope.newoffer.parent = '';   
+                    }
+                    Offer.create($scope.newoffer, function(data){
+                        $scope.offers.push(data);
+                        $scope.newoffer = {};
+                        $scope.nameerr = '';
+                        $('#offer').modal('hide');
+                    });
+                    
+                }
+                else
+                {
+                    $scope.nameerr = 'Please enter activity name.';
+                }
+            }
+           
         }
     ]);

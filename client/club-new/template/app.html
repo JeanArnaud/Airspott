@@ -5,7 +5,7 @@
       <!-- <img width="21" height="21" class="logo-xs" alt="Flatty" src="assets/images/logo_xs.svg" /> -->
       <!-- <h3 style="color:white">Airspott</h3> -->
     </a>
-    <a class='toggle-nav btn pull-left' href='javascript:;'>
+    <a class='toggle-nav btn pull-left' href='javascript:;' ng-click='toggleMenu()'>
       <i class='icon-reorder'></i>
     </a>
     <ul class='nav'>
@@ -41,8 +41,8 @@
   </nav>
 </header>
 <div id='wrapper'>
-  <div id='main-nav-bg'></div>
-  <nav id='main-nav'>
+  <div id='main-nav-bg' class="leftmenu"></div>
+  <nav id='main-nav' class='leftmenu'>
     <div class='navigation'>
       <ul class='nav nav-stacked'>
         <li ng-class='activeLink("/main")'>

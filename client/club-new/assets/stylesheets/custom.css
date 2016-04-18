@@ -6,6 +6,22 @@ body{overflow-x:hidden; }
 #wrapper{position: relative;}
 #footer{bottom:0; position: absolute;width: 100%;}
 #content-wrapper{padding-bottom: 48px !important;min-height: 1024px;}
+.fc-header .fc-header-left {
+    text-align: center !important;
+}
+
+.fc-button {
+    box-sizing: border-box !important;
+    cursor: pointer !important;
+    display: inline-block !important;
+    height: 2.3em !important;
+    line-height: 1.9em !important;
+    overflow: hidden !important;
+    padding: 0 1.6em !important;
+    position: relative !important;
+    white-space: nowrap !important;
+    border-radius: 25px;
+}
 /*.fc-header-right span.fc-button{
 	box-sizing: border-box;
     cursor: pointer;
