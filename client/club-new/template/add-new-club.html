@@ -62,7 +62,7 @@
 					                    		</div>
 						                    </div>
 						                    <div class="form-group">
-						                        <label class="col-md-3 control-label">Club Name : </label>
+						                        <label class="col-md-3 control-label">Club Name <span style='color:red'>*</span> : </label>
 						                        <div class="col-md-5">
 						                            <input ng-model='clubdetail.name' class="form-control" required=""/>
 						                        </div>
@@ -74,7 +74,7 @@
 						                        </div>
 						                    </div>
 						                    <div class="form-group">
-						                        <label class="col-md-3 control-label">Address 1: </label>
+						                        <label class="col-md-3 control-label">Address 1 <span style='color:red'>*</span>: </label>
 						                        <div class="col-md-5">
 						                            <textarea ng-model='clubdetail._address.address' 
 						                            class="form-control" required="">
@@ -90,19 +90,19 @@
 						                        </div>
 						                    </div>
 						                    <div class="form-group">
-						                        <label class="col-md-3 control-label">Zip code : </label>
+						                        <label class="col-md-3 control-label">Zip code <span style='color:red'>*</span>: </label>
 						                        <div class="col-md-5">
 						                            <input ng-model='clubdetail._address.zip' class="form-control" required=""/>
 						                        </div>
 						                    </div>
 						                    <div class="form-group">
-						                        <label class="col-md-3 control-label">City : </label>
+						                        <label class="col-md-3 control-label">City <span style='color:red'>*</span>: </label>
 						                        <div class="col-md-5">
 						                            <input ng-model='clubdetail._address.city' class="form-control" required=""/>
 						                        </div>
 						                    </div>
 						                    <div class="form-group">
-						                        <label class="col-md-3 control-label">Country : </label>
+						                        <label class="col-md-3 control-label">Country <span style='color:red'>*</span>: </label>
 						                        <div class="col-md-5">
 						                            <select class="c-select form-control"
 							                                ng-model="club._address.country"
@@ -115,7 +115,7 @@
 						                        </div>
 						                    </div>
 						                    <div class="form-group">
-						                        <label class="col-md-3 control-label">Short description : </label>
+						                        <label class="col-md-3 control-label">Short description <span style='color:red'>*</span>: </label>
 						                        <div class="col-md-5">
 						                            <textarea ng-model='clubdetail.description' 
 						                            class="form-control" required="">
@@ -130,21 +130,8 @@
 					                    			<label>Club's manager Detail</label>
 					                    		</div>
 						                    </div>
-
 						                    <div class="form-group">
-						                        <label class="col-md-3 control-label">Last Name : </label>
-						                        <div class="col-md-5">
-						                            <input ng-model='lname' class="form-control" required=""/>
-						                        </div>
-						                    </div>
-						                    <div class="form-group">
-						                        <label class="col-md-3 control-label">First Name : </label>
-						                        <div class="col-md-5">
-						                            <input ng-model='fname' class="form-control" required=""/>
-						                        </div>
-						                    </div>
-						                    <div class="form-group">
-						                        <label class="col-md-3 control-label">Gender</label>
+						                        <label class="col-md-3 control-label">Gender :</label>
 						                        <div class="col-md-9">
 						                          <label class="radio radio-inline">
 						                            <input  type="radio" vlaue='male' ng-model='clubdetail.gender'>
@@ -157,13 +144,25 @@
 						                        </div>
 						                    </div>
 						                    <div class="form-group">
-						                        <label class="col-md-3 control-label">Phone Number : </label>
+						                        <label class="col-md-3 control-label">First Name <span style='color:red'>*</span>: </label>
 						                        <div class="col-md-5">
-						                        	<input class="form-control" ng-model='clubdetail.responsibleTel' data-mask="+99 999 999 999" placeholder="+99 999 999 999" type="text" required="">
+						                            <input ng-model='fname' class="form-control" required=""/>
 						                        </div>
 						                    </div>
 						                    <div class="form-group">
-						                        <label class="col-md-3 control-label">Email : </label>
+						                        <label class="col-md-3 control-label">Last Name <span style='color:red'>*</span> : </label>
+						                        <div class="col-md-5">
+						                            <input ng-model='lname' class="form-control" required=""/>
+						                        </div>
+						                    </div>
+						                    <div class="form-group">
+						                        <label class="col-md-3 control-label">Phone Number <span style='color:red'>*</span>: </label>
+						                        <div class="col-md-5">
+						                        	<input class="form-control" ng-model='clubdetail.responsibleTel' data-mask="+99 999 9999 999" placeholder="+99 999 999 999" type="text" required="">
+						                        </div>
+						                    </div>
+						                    <div class="form-group">
+						                        <label class="col-md-3 control-label">Email <span style='color:red'>*</span>: </label>
 						                        <div class="col-md-5">
 						                            <input type="email" ng-model='fd.email' class="form-control" required=""/>
 						                        </div>
@@ -181,38 +180,69 @@
 							            		<div class="row" ng-repeat="(day, openingObj) in clubdetail.openingHours">
 							            			<div class="form-group">
 								                      <hr style="margin-right:5em;margin-left:1em" />
+								                      <div class="col-sm-12 col-sm-offset-10">
+								                     	 <a href="javascript:;" class="btn btn-xs" id='btn_{{day}}' ng-click='closeDay(day)' >Close</a>
+								                      </div>
 								                    </div>
 								                    <div class="col-xs-12">
-									                    <h4 class="list-group-item-heading">{{day | translate}}
-									                    </h4>
+									                    <div class="list-group-item-heading col-md-12"><h4>{{day | translate}}</h4>
+									                    	
+									                    </div>
+									                    
 								                    </div>
+								                    <div  id='{{day}}'>
+									                    <div class="row col-md-12">
+									                    	<span class='pull-right' ng-if='day != "Bank Holiday"'>
+										                    	<label >
+											                    	<a href="javascript:;" class="pull-right" ng-click='copyToNextDay(day, openingObj)'>
+											                    		Copy to next day
+											                    	</a>
+										                    	</label>
+											                </span>
+											                <span class='col-sm-12 col-sm-offset-6'>
+											                	<a href="javascript:;" id='break_{{day}}' ng-click='break(day)' class="btn btn-xs">Want a middle Break?</a>
+											                </span>
+									                    </div>
+									                    <div class="col-md-12">
+										                    <div class="col-md-6">
+											                    <div class="col-md-6">
+											                        <p>{{'OPEN_FROM' | translate}}</p>
 
-								                    <div class="col-md-3 col-xs-6">
-								                        <p>{{'OPEN_FROM' | translate}}</p>
+											                        <uib-timepicker ng-model="openingObj.openFrom" 
+											                        				 hour-step="1" minute-step="1"
+											                                        show-meridian="false">
+											                        </uib-timepicker>
+											                    </div>
 
-								                        <uib-timepicker ng-model="openingObj.openFrom" hour-step="1" minute-step="1"
-								                                        show-meridian="false"></uib-timepicker>
-								                    </div>
+											                    <div class="col-md-6">
+											                        <p>{{'OPEN_TO' | translate}}</p>
 
-								                    <div class="col-md-3 col-xs-6">
-								                        <p>{{'BREAK_FROM' | translate}}</p>
+											                        <uib-timepicker ng-model="openingObj.openTo" 
+											                        				 hour-step="1" minute-step="1"
+											                                        show-meridian="false">
+											                        </uib-timepicker>
+											                    </div>
+										                    </div>
+										                    <div class="col-md-6" id='wbreak_{{day}}' style="display:none">
+											                    <div class="col-md-6">
+											                        <p>{{'BREAK_FROM' | translate}}</p>
 
-								                        <uib-timepicker ng-model="openingObj.breakFrom" hour-step="1" minute-step="1"
-								                                        show-meridian="false"></uib-timepicker>
-								                    </div>
+											                        <uib-timepicker ng-model="openingObj.breakFrom" 
+											                        				 hour-step="1" minute-step="1"
+											                                        show-meridian="false">
+											                        </uib-timepicker>
+											                    </div>
 
-								                    <div class="col-md-3 col-xs-6">
-								                        <p>{{'BREAK_TO' | translate}}</p>
+											                    <div class="col-md-6">
+											                        <p>{{'BREAK_TO' | translate}}</p>
 
-								                        <uib-timepicker ng-model="openingObj.breakTo" hour-step="1" minute-step="1"
-								                                        show-meridian="false"></uib-timepicker>
-								                    </div>
-
-								                    <div class="col-md-3 col-xs-6">
-								                        <p>{{'OPEN_TO' | translate}}</p>
-
-								                        <uib-timepicker ng-model="openingObj.openTo" hour-step="1" minute-step="1"
-								                                        show-meridian="false"></uib-timepicker>
+											                        <uib-timepicker ng-model="openingObj.breakTo" 
+											                        				 hour-step="1" minute-step="1"
+											                                        show-meridian="false">
+											                        </uib-timepicker>
+											                    </div>
+										                    </div>
+									                    </div>
 								                    </div>
 
 								                    
@@ -330,7 +360,7 @@
 							                        </div>
 							                    </div>
 							                </div>
-							                <div class="col-md-12">
+							                <div class="col-md-12 calhide">
 							                	 <div ui-calendar="calConfig.calendar" ng-model="capacityPlanningEntries" ng-if="calConfig"></div>
 							                </div>	 
 		                             	</div>
@@ -408,7 +438,7 @@
 											        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 											      </div>
 											    </div>
-										      </form>
+										     
 										</div>
 		                            </div>
                           		</div>
@@ -464,14 +494,14 @@
                           		<div class="step-pane" id='step6'>
                           			<div class="box">
                           				<div class="box-header" style="background-color:grey">
-                          					<div class="title" style="color:white">
-                          						Billing Details
+                          					<div class="title" style="color:white">Billing Details
                           					</div>
                           				</div>
                           				<div class="box-content">
+                          					<div class="row ">
                           					<div class="form-group">
-                          						<label class="control-label col-md-3">Currency</label>
-                          						<div class="col-md-5">
+                          						<label class="col-md-3 control-label">Country <span style='color:red'>*</span>:</label>
+                          						<div class="col-sm-6">
                           							<select ng-options="currency.id as currency.symbol for currency in currencies"
 						                                    ng-model="bill.currencyId"
 						                                    class="c-select form-control"
@@ -480,8 +510,32 @@
 						                            </select>
                           						</div>
                           					</div>
+                          					<div class="form-group">
+                          						<label class="col-md-3 control-label">Bank Name <span style='color:red'>*</span> :</label>
+                          						<div class="col-md-6">
+                          							<input class="form-control" ng-model='bill.bank_name'/>
+                          						</div>
+                          					</div>
+                          					<div class="form-group">
+                          						<label class="col-md-3 control-label">IBAN <span style='color:red'>*</span> :</label>
+                          						<div class="col-md-6">
+                          							<input class="form-control" ng-model='bill.iban' maxlength='34'/>
+                          						</div>
+                          					</div>
+                          					<div class="form-group">
+                          						<label class="col-md-3 control-label">BIC <span style='color:red'>*</span> :</label>
+                          						<div class="col-md-6">
+                          							<input class="form-control" ng-model='bill.bic'/>
+                          						</div>
+                          					</div>
+                          					<div class="form-group">
+                          						<label class="col-md-3 control-label">Account_Holder_Name <span style='color:red'>*</span> :</label>
+                          						<div class="col-md-6">
+                          							<input class="form-control" ng-model='bill.acc_holder_name'/>
+                          						</div>
+                          					</div>
+                          					</div>
                           				</div>
-
                           			</div>
                           		</div>
                           </form>

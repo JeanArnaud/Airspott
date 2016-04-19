@@ -40,3 +40,9 @@ body{overflow-x:hidden; }
     text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
 }
 */
+
+header .navbar > .nav > li.dark > a:hover, 
+header .navbar > .nav > li.dark > a:active, 
+header .navbar > .nav > li.dark > a:focus{
+    background: #616161;
+}

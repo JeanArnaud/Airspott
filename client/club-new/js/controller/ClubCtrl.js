@@ -32,7 +32,7 @@ angular.module('com.airspott.club')
                     "Friday": {},
                     "Saturday": {},
                     "Sunday": {},
-                    "Bank Holiday": {}
+                    "Bank_Holiday": {}
                 }
             };
             // Form data
@@ -101,8 +101,12 @@ angular.module('com.airspott.club')
                 $log.log($scope.clubdetail);
                 $log.log($scope.clubdetail.saleUnit);
 
-                if (!$scope.clubdetail.saleUnit) return;
-
+                if (!$scope.clubdetail.saleUnit) 
+                {
+                    $('.calhide').hide();
+                        return;
+                }
+                $('.calhide').show();
                 $scope.calConfig = {
                     calendar: {
                         editable: true,
@@ -276,5 +280,55 @@ angular.module('com.airspott.club')
                 }
             }
            
+            // Copy Current settings to next day
+            $scope.copyToNextDay = function(day, obj)
+            {
+                var days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ,'Sunday', 'Bank Holiday'];
+                var nxt = days[days.indexOf(day)+1];
+                if(($('#break_'+nxt).html() == "Don't want a middle Break?" &&  $('#btn_'+nxt).html() == 'Close'))
+                {
+                    $scope.clubdetail.openingHours[days[days.indexOf(day)+1]] = angular.copy($scope.clubdetail.openingHours[day]);
+                }
+                else if(($('#break_'+nxt).html() == "Want a middle Break?" && $('#btn_'+nxt).html() == 'Close'))
+                {
+                    $scope.clubdetail.openingHours[nxt].openFrom = angular.copy($scope.clubdetail.openingHours[day].openFrom);
+                    $scope.clubdetail.openingHours[nxt].openTo = angular.copy($scope.clubdetail.openingHours[day].openTo);
+                }
+
+            }
+
+            // Closed club on particular day
+            $scope.closeDay = function(day)
+            {
+                if($('#btn_'+day).html() == 'Close')
+                {
+                    $('#'+day).hide();
+                    $('#btn_'+day).html('Open');
+                    $scope.clubdetail.openingHours[day] = {};
+                }
+                else
+                {
+                    $('#'+day).show();   
+                    $('#btn_'+day).html('Close');   
+                }
+            }
+
+            // Manage Break
+            $scope.break = function(day)
+            {
+                if($('#break_'+day).html() == 'Want a middle Break?')
+                {
+                    $('#wbreak_'+day).show();
+                    $('#break_'+day).html("Don't want a middle Break?");  
+                    
+                }
+                else
+                {
+                    $('#wbreak_'+day).hide();
+                    $('#break_'+day).html("Want a middle Break?");   
+                    $scope.clubdetail.openingHours[day].breakFrom = '';
+                    $scope.clubdetail.openingHours[day].breakTo = '';
+                }
+            }
         }
     ]);
