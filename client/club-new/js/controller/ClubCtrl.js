@@ -18,6 +18,12 @@ angular.module('com.airspott.club')
             		return 'active';
             	}
             }
+
+            $scope.phnoeChange = function()
+            {
+                console.log('Value change');
+            }
+           
             $scope.mediaRange = [];
              $scope.media = [];
             // Club detail json
@@ -37,6 +43,34 @@ angular.module('com.airspott.club')
             };
             // Form data
             $scope.fd = {};
+
+            // Check Variable Empty or not
+            $scope.checkEmpty = function(val)
+            {
+                if(Object.keys(val).length == 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            // Upload Cover Photo
+            $scope.coverPhoto = {};
+            $scope.uploadCoverPhoto = function(file)
+            {
+                 Upload.base64DataUrl(file).then(function (url)
+                 {
+                    $scope.coverPhoto = {'media' : url[0], 'description' : '', 'name' : '', 'type' : 'coverPhoto'};
+                    console.log($scope.coverPhoto);
+                 },function(err){
+                    $translate('GENERIC_ERROR_CLUB_MEDIA_ENCODE').then(function (translation)
+                    {
+                        Message.error(translation);
+                    });
+                 });
+            }
 
             // File upload code
             $scope.processFiles = function (files)
@@ -188,7 +222,7 @@ angular.module('com.airspott.club')
                 if ($scope.modal.price)
                 {
                     $scope.capacityPlanningEntries[0].push({
-                        title: 'Price Change',
+                        title: 'Unit Price '+$scope.modal.price,
                         start: $scope.modal.start,
                         end: $scope.modal.end,
                         price: $scope.modal.price
@@ -199,7 +233,7 @@ angular.module('com.airspott.club')
                 {
                     $scope.capacityPlanningEntries[0].push(
                         {
-                            title: 'Capacity Change',
+                            title: 'Amount available '+$scope.modal.capacity,
                             start: $scope.modal.start,
                             end: $scope.modal.end,
                             backgroundColor: '#378006',
@@ -241,6 +275,13 @@ angular.module('com.airspott.club')
                             str +='<input type="checkbox" class="activity" ng-model"offer.link" value="'+$scope.offers[i].id+'"/>';
                             str += $scope.offers[i].identifier;
                             str +='</label>';
+                            if(typeof($scope.offers[i].extraprice) != 'undefined')
+                            {
+                                str +='&nbsp;&nbsp&nbsp<label>';
+                                str += $scope.offers[i].extraprice;
+                                str +='</label>';
+                            }
+                            
                             str +='</div>';
                         }
                     }
@@ -285,11 +326,11 @@ angular.module('com.airspott.club')
             {
                 var days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ,'Sunday', 'Bank Holiday'];
                 var nxt = days[days.indexOf(day)+1];
-                if(($('#break_'+nxt).html() == "Don't want a middle Break?" &&  $('#btn_'+nxt).html() == 'Close'))
+                if(($('#break_'+nxt).html() == "Don't want a middle Break?" &&  $('#btn_'+nxt).html() == 'Day Off-Closed'))
                 {
                     $scope.clubdetail.openingHours[days[days.indexOf(day)+1]] = angular.copy($scope.clubdetail.openingHours[day]);
                 }
-                else if(($('#break_'+nxt).html() == "Want a middle Break?" && $('#btn_'+nxt).html() == 'Close'))
+                else if(($('#break_'+nxt).html() == "Want a middle Break?" && $('#btn_'+nxt).html() == 'Day Off-Closed'))
                 {
                     $scope.clubdetail.openingHours[nxt].openFrom = angular.copy($scope.clubdetail.openingHours[day].openFrom);
                     $scope.clubdetail.openingHours[nxt].openTo = angular.copy($scope.clubdetail.openingHours[day].openTo);
@@ -300,7 +341,7 @@ angular.module('com.airspott.club')
             // Closed club on particular day
             $scope.closeDay = function(day)
             {
-                if($('#btn_'+day).html() == 'Close')
+                if($('#btn_'+day).html() == 'Day Off-Closed')
                 {
                     $('#'+day).hide();
                     $('#btn_'+day).html('Open');
@@ -309,7 +350,8 @@ angular.module('com.airspott.club')
                 else
                 {
                     $('#'+day).show();   
-                    $('#btn_'+day).html('Close');   
+                    $('#btn_'+day).html('Day Off-Closed');   
+                    $scope.clubdetail.openingHours[day] = {};
                 }
             }
 
@@ -328,6 +370,18 @@ angular.module('com.airspott.club')
                     $('#break_'+day).html("Want a middle Break?");   
                     $scope.clubdetail.openingHours[day].breakFrom = '';
                     $scope.clubdetail.openingHours[day].breakTo = '';
+                }
+            }
+
+            // Copy to all days
+            $scope.copyToAllDays = function(day)
+            {
+                for(var d in $scope.clubdetail.openingHours)
+                {
+                    if(day != d)
+                    {
+                        $scope.clubdetail.openingHours[d] = angular.copy($scope.clubdetail.openingHours[day]);       
+                    }
                 }
             }
         }

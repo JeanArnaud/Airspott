@@ -31,6 +31,50 @@
         this.$element.on('click', 'li.complete', $.proxy(this.stepclicked, this));
     };
 
+    var firstpage = function()
+    {   
+        var club = $('[name="club_name"]').val();
+        if(club == '')
+        {
+            return true;
+        }
+        else if($('[name="address1"]').val() == '')
+        {
+            return true;
+        }
+        else if($('[name="zip"]').val() == '')
+        {
+            return true;
+        }
+        else if($('[name="city"]').val() == '')
+        {
+            return true;
+        }
+        else if($('[name="country"]').val() == '')
+        {
+            return true;
+        }
+        else if($('[name="shortdesc"]').val() == '')
+        {
+            return true;
+        }
+        else if($('[name="fname"]').val() == '')
+        {
+            return true;
+        }
+        else if($('[name="lname"]').val() == '')
+        {
+            return true;
+        }
+        else if($('[name="phno"]').val() == '')
+        {
+            return true;
+        }
+        else if($('[name="email"]').val() == '')
+        {
+            return true;
+        }
+    }
     Wizard.prototype = {
 
         constructor: Wizard,
@@ -108,8 +152,14 @@
         next: function () {
             var canMoveNext = (this.currentStep + 1 <= this.numSteps);
             var lastStep = (this.currentStep === this.numSteps);
-
+            if(firstpage())
+            {
+                $('.firsterr').show();
+                return false;
+            }
+            $('.firsterr').hide();
             if (canMoveNext) {
+
                 var e = $.Event('change');
                 this.$element.trigger(e, {step: this.currentStep, direction: 'next'});
 
