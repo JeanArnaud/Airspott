@@ -34,6 +34,7 @@
     var firstpage = function()
     {   
         var club = $('[name="club_name"]').val();
+        $('[name="club_name"]').focus();
         if(club == '')
         {
             return true;
@@ -155,9 +156,11 @@
             if(firstpage())
             {
                 $('.firsterr').show();
+               
                 return false;
             }
             $('.firsterr').hide();
+            
             if (canMoveNext) {
 
                 var e = $.Event('change');

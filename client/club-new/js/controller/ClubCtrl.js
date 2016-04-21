@@ -2,45 +2,63 @@ angular.module('com.airspott.club')
     .controller('ClubCtrl',
     [
         '$rootScope', '$scope', '$location','Club','Customer', '$log', 'Offer', 'Upload',
-         'Currency', '$http',
+         'Currency', '$http', '$stateParams',
 
-        function ($rootScope, $scope, $location, Club, Customer, $log, Offer, Upload, Currency, $http)
+        function ($rootScope, $scope, $location, Club, Customer, $log, Offer, Upload, Currency, $http, $stateParams)
         {
 
             $scope.capacityPlanningEntries = [[]];
+            $scope.mediaRange = [];
+            $scope.media = [];
             $scope.currencies = Currency.find();
             $scope.offers = Offer.find();
             $rootScope.meta.title = "MANAGE_CLUB";
+            $scope.clubs = Club.find({filter : {where : {customerId : Customer.getCurrentId()}}});
+            $scope.pageSize = 5;
+            $scope.currentPage = 1;
+            
             $scope.activeLink = function(data)
             {
             	if($location.path() == data)
             	{
             		return 'active';
             	}
-            }
-
-            $scope.phnoeChange = function()
-            {
-                console.log('Value change');
-            }
+            }         
            
-            $scope.mediaRange = [];
-             $scope.media = [];
-            // Club detail json
-            $scope.clubdetail = 
+            if($stateParams.id != '')
             {
-                customerId: Customer.getCurrentId(),
-                openingHours: {
-                    "Monday": {},
-                    "Tuesday": {},
-                    "Wednesday": {},
-                    "Thursday": {},
-                    "Friday": {},
-                    "Saturday": {},
-                    "Sunday": {},
-                    "Bank_Holiday": {}
-                }
-            };
+                $scope.clubid = $stateParams.id;
+                // console.log("clubid = "+$scope.clubid);
+                $scope.clubdetail = Club.findOne({"id": $scope.clubid});
+                $http.get("/api/Clubs/"+$scope.clubid+"/manager").success(function(res)
+                {
+                    $scope.fd.email= res.email;
+                    $scope.oldemail = res.email;
+                });
+            }
+            else
+            {
+                $scope.clubid = '';
+                
+                // Club detail json
+                $scope.clubdetail = 
+                {
+                    customerId: Customer.getCurrentId(),
+                    openingHours: {
+                        "Monday": {},
+                        "Tuesday": {},
+                        "Wednesday": {},
+                        "Thursday": {},
+                        "Friday": {},
+                        "Saturday": {},
+                        "Sunday": {},
+                        "Bank_Holiday": {}
+                    },
+                    gender : "male"
+                    
+                };
+            }
+            
             // Form data
             $scope.fd = {};
 
@@ -244,18 +262,55 @@ angular.module('com.airspott.club')
                 $scope.hideCapacityModal();
 
             };
+
+            
+            
+
             // Add new club within database
             $scope.AddnewClub = function()
             {
-                // $scope.clubdetail.responsibleName = $scope.lname+" "+$scope.fname;
-                // $scope.clubdetail.customerId = $rootScope.user.id;
-                // console.log("Customer = "+JSON.stringify($scope.fd));
-                // console.log('Club = '+JSON.stringify($scope.clubdetail));
-                // $scope.realm = 'manager';
-                // Customer.create($scope.fd, function(data)
-                // {
-                //     console.log(data);
-                // });
+                if($scope.clubid == '')
+                {
+                    $scope.fd.password = Math.floor((Math.random() * 10000) + 1000).toString();
+                    $scope.fd.credentials = {"passwd" : $scope.fd.password};
+                    $scope.fd.realm = 'clubmanager';
+                    console.log($scope.fd);
+                    Customer.create($scope.fd, function(user)
+                    {
+                        $scope.clubdetail.customerId = $rootScope.user.id;
+                        $scope.clubdetail.managerId = user.id;
+                        $scope.clubdetail.status = "In-complete";
+                        Club.create($scope.clubdetail, function(club)
+                        {
+                            $scope.clubid = club.id;
+                            $scope.clubdetail = club;
+                        });
+                        $scope.fd = user;
+                        $scope.oldemail = user.email;
+                    });
+                    console.log("Club inof = "+ JSON.stringify($scope.clubdetail));
+                }
+                else
+                {
+                    if($scope.fd.email != $scope.oldemail)
+                    {
+                        $scope.fd.password = Math.floor((Math.random() * 10000) + 1000).toString();
+                        $scope.fd.credentials = {"passwd" : $scope.fd.password};
+                        $scope.fd.realm = 'clubmanager';
+                        Customer.create($scope.fd, function(user)
+                        {
+                            $scope.clubdetail.managerId = user.id;
+                            $scope.oldemail = user.email;
+                            $scope.clubdetail.$save();
+                        });
+                       // console.log("old = "+$scope.oldemail + " "+"newemail = "+$scope.fd.email);
+                    }
+                    else
+                    {
+                        // Update clubdeatil
+                        $scope.clubdetail.$save();
+                    }
+                }
             }
             // get child activity from parent id      
             $('.activity').live('click', function()

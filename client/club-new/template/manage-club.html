@@ -26,8 +26,74 @@
 		                  </div>
 			                  <div class="box-content box-no-padding">
 			                    <div class="table-responsive">
-			                      <div class="scrollable-area">
-			                      </div>
+			                       <div class="scrollable-area">
+				                        <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline" role="grid">
+					                        <div class="row datatables-top">
+					                          <div class="col-sm-6">
+					                          
+					                          </div>
+					                          <div class="col-sm-6 text-right">
+					                            <div id="DataTables_Table_1_filter" class="dataTables_filter">
+					                              <label>Search: 
+					                                <input placeholder="Search" ng-model='search' class="form-control input-sm" style="width: 200px;" aria-controls="DataTables_Table_1" type="text">
+					                              </label>
+					                            </div>
+					                          </div>
+					                        </div>
+					                        <table  class="data-table-column-filter table table-bordered table-striped dataTable" style="margin-bottom:0;">
+					                          <thead>
+					                            <tr role="row">
+					                              <th >
+					                                Name
+					                              </th>
+					                              <th >
+					                                Franchise Name
+					                              </th>
+					                              <th >
+					                                Description
+					                              </th>
+					                              <th >
+					                                Address
+					                              </th>
+					                              <th>Manger</th>
+					                              <th>Manager's Number</th>
+					                              <th>Status</th>
+					                              <th>Operation</th>
+					                          </tr>
+					                          </thead>
+					                         <tbody aria-relevant="all" aria-live="polite" role="alert">
+					                           <tr  dir-paginate='(k,row) in clubs|filter:search|itemsPerPage:pageSize' current-page='currentPage'>
+					                                <td>{{row.name}}</td>
+					                                <td>{{row.franchise_name != null ? row.franchise_name : '----'}}</td>
+					                                <td>{{row.description}}</td>
+					                                <td>{{row._address.address}}</td>
+					                                <td>{{row.responsibleLname +" "+ row.responsibleFname}}</td>
+					                                <td>{{row.responsibleTel}}</td>
+					                                <td style="color:red" ng-if='row.status == "In-complete"'>{{row.status}}</td>
+					                                <td style="color:green" ng-if='row.status != "In-complete"'>{{row.status}}</td>
+					                                <td>
+					                                    <a href="#/Add_Edit-club/{{row.id}}">
+					                                      <i class="icon-edit"></i>
+					                                    </a>&nbsp;&nbsp;
+					                                    <a href="javascript:;" ><i class="icon-trash"></i></a>&nbsp;&nbsp;
+					                                </td>
+					                            </tr>
+					                        	</tbody>
+					                      	</table>
+					                      <div class="row datatables-bottom">
+					                        <div class="col-sm-6">
+					                        
+					                        </div>
+						                        <div class="col-sm-6 text-right">
+						                            <dir-pagination-controls
+						                              boundary-links="true"
+						                              on-page-change="pageChangeHandler(newPageNumber)"
+						                              template-url="./template/dirPagination.tpl.html">
+						                            </dir-pagination-controls>
+						                        </div>
+					                        </div>
+				                        </div>
+				                    </div>
 			                    </div>
 			                  </div>
 		                 </div>

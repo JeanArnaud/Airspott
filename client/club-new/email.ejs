@@ -1,4 +1,4 @@
-<html ng-app='com.airspott'>
+<html >
 	<head>
 		<title>Airspott Mail</title>
 	</head>
@@ -7,16 +7,9 @@
 			<%= text %>
 			<br/>
 			Username : <%= user.email %>
-			{{fname}}
-
+			<br/>
+			Password : <%= user.credentials.passwd %>
 		</div>
-		<script type="text/javascript" src="../common/lib/angular/angular.min.js"></script>
-		<script type='text/javascript'>
-			var app = angular.module('com.airspott', []);
-			app.controller('myctrl', function($scope)
-			{
-				$scope.fname = 'sid';
-			});
-		</script>
+		
 	</body>
 </html>

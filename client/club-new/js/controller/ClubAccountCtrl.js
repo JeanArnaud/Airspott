@@ -42,6 +42,8 @@ angular.module('com.airspott.club')
                 $scope.registerNow = function ()
                 {
                     $scope.fd.realm = 'clubowner';
+                    $scope.fd.credentials = {"passwd" : $scope.fd.password};
+                   
                     Customer.create($scope.fd, function ()
                     {
                         $('.regsuc').toggle();

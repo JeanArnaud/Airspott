@@ -12,7 +12,7 @@ module.exports = function (Customer) {
       template: path.resolve(__dirname, '../../client/club-new/email.ejs'),
       user: user
     };
-
+    console.log(user);
     user.verify(options, function (err, response) {
       if (err) return next(err);
 

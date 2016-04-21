@@ -12,18 +12,23 @@
             "required": true,
             "description":"The name of the club / product / saleEntity"
         },
+        "franchise_name": {
+            "type": "string",
+            "required": false,
+            "description":"The franchise_name of the club / product / saleEntity"
+        },
         "description": {
             "type": "string",
             "description":"A description HTML content for the club"
         },
         "price": {
             "type": "number",
-            "required": true,
+            "required": false,
             "description":"The default price tag for the club (may be overwritten by a calendar entry for a time span)"
         },
         "capacity": {
             "type": "number",
-            "required": true,
+            "required": false,
             "description":"The default capacity for the club (may be overwritten by a calendar entry for a time span)"
         },
         "openingHours": {
@@ -33,10 +38,15 @@
         },
         "saleUnit": {
             "type": "string",
-            "required": true,
+            "required": false,
             "description":"The sale unit (either DAY or HOUR, refer this as an ENUM)"
         },
-        "responsibleName": {
+        "responsibleFname": {
+            "type": "string",
+            "required": true,
+            "description":"The name of a club representative (may not be shown to Buyer!)"
+        },
+        "responsibleLname": {
             "type": "string",
             "required": true,
             "description":"The name of a club representative (may not be shown to Buyer!)"
@@ -45,6 +55,11 @@
             "type": "string",
             "required": true,
             "description":"The phone number of a club representative (may not be shown to Buyer!)"
+        },
+        "status":{
+            "type" : "string",
+            "required" : false,
+            "description" : "Use for knowing club all details are fillup or not"
         }
     },
     "validations": [],
@@ -108,7 +123,14 @@
             "model": "Currency",
             "foreignKey": "",
             "description":"Each Club has a base Currency it is created and sold in (and payed out in)"
+        },
+        "manager": {
+            "type": "belongsTo",
+            "model": "Customer",
+            "foreignKey": "",
+            "description":"Each Club has one manager who is responsible to that club"
         }
+
     },
     "acls": [],
     "methods": {}

@@ -15,10 +15,10 @@
 		       <div class="col-sm-12">
                   <div class="box">
                     <div class="box-content box-padding">
-                      <div class="fuelux">
+                      <div class="fuelux fuelux-custom">
                         <div class="wizard">
                           <ul class="steps">
-                            <li class="active" data-target="#step1">
+                            <!-- <li class="active" data-target="#step1">
                               <span class="step">1</span>
                             </li>
                             <li data-target="#step2">
@@ -35,8 +35,8 @@
                             </li>
                             <li data-target="#step6">
                               <span class="step">6</span>
-                            </li>
-                            <!-- <li class="active" data-target="#step1">
+                            </li> -->
+                            <li class="active" data-target="#step1">
                               <span class="step">Club Form</span>
                             </li>
                             <li data-target="#step2">
@@ -53,12 +53,12 @@
                             </li>
                             <li data-target="#step6">
                               <span class="step">Billing Details</span>
-                            </li> -->
+                            </li>
                           </ul>
-                          <div class="actions">
+                          <div class="actions margin-top-15">
                             <button class="btn  btn-prev"><i class="icon-arrow-left"></i>Prev
                             </button>
-                            <button class="btn  btn-success btn-next"  data-last="Finish">
+                            <button class="btn  btn-success btn-next" ng-click='AddnewClub()' data-last="Finish">
                               Next
                               <i class="icon-arrow-right"></i>
                             </button>
@@ -137,7 +137,7 @@
 						                        <label class="col-md-3 control-label">Country <span style='color:red'>*</span>: </label>
 						                        <div class="col-md-5">
 						                            <select class="c-select form-control" name='country'
-							                                ng-model="club._address.country"
+							                                ng-model="clubdetail._address.country"
 							                                name="country"
 							                                id="country"
 							                                ng-options="country as country | translate for country in countries"
@@ -172,11 +172,11 @@
 						                        <label class="col-md-3 control-label">Gender :</label>
 						                        <div class="col-md-9">
 						                          <label class="radio radio-inline">
-						                            <input  type="radio" vlaue='male' ng-model='clubdetail.gender'>
+						                            <input  type="radio" value='male' name='gender' ng-model='clubdetail.gender'>
 						                            Male
 						                          </label>
 						                          <label class="radio radio-inline">
-						                            <input  type="radio" value='female' ng-model='clubdetail.gender'>
+						                            <input  type="radio" value='female' name='gender' ng-model='clubdetail.gender'>
 						                            Female
 						                          </label>
 						                        </div>
@@ -184,7 +184,7 @@
 						                    <div class="form-group">
 						                        <label class="col-md-3 control-label">First Name <span style='color:red'>*</span>: </label>
 						                        <div class="col-md-5">
-						                            <input ng-model='fname' class="form-control" required="" name='fname'/>
+						                            <input ng-model='clubdetail.responsibleFname' class="form-control" required="" name='fname'/>
 						                            <span style="color:red" ng-show="form1.fname.$touched && form1.fname.$invalid">
        													 Please Provide First Name.
        											    </span>
@@ -193,7 +193,7 @@
 						                    <div class="form-group">
 						                        <label class="col-md-3 control-label">Last Name <span style='color:red'>*</span> : </label>
 						                        <div class="col-md-5">
-						                            <input ng-model='lname' class="form-control" required="" name='lname'/>
+						                            <input ng-model='clubdetail.responsibleLname' class="form-control" required="" name='lname'/>
 						                            <span style="color:red" ng-show="form1.lname.$touched && form1.lname.$invalid">
        													 Please Provide Last Name.
        											    </span>
@@ -231,9 +231,9 @@
 
 							            		<div class="row" ng-repeat="(day, openingObj) in clubdetail.openingHours">
 							            		<hr style="margin-left: -55px; margin-right: 5px;" />
-							            			<div class="form-group">
+							            			<div class="">
 								                      
-								                      <div class="col-sm-12 col-sm-offset-10">
+								                      <div class="col-sm-12 col-sm-offset-0 text-right">
 								                     	 <a href="javascript:;" class="btn btn-xs" id='btn_{{day}}' ng-click='closeDay(day)' >Day Off-Closed</a>
 								                      </div>
 								                    </div>
@@ -275,8 +275,7 @@
 											                                        show-meridian="false">
 											                        </uib-timepicker>
 											                    </div>
-
-											                    <div class="" id='wbreak_{{day}}' style="display:none">
+											                    <div class="" id='wbreak_{{day}}' style='display:none'>
 												                    <div class="col-md-3">
 												                        <p>{{'BREAK_FROM' | translate}}</p>
 
@@ -295,7 +294,6 @@
 												                        </uib-timepicker>
 												                    </div>
 											                    </div>
-
 											                    <div class="col-md-3">
 											                        <p>{{'OPEN_TO' | translate}}</p>
 
@@ -524,8 +522,8 @@
 								                    </div>
 							                </div>
 							                <div class="col-md-12" ng-if='checkEmpty(coverPhoto)'>
-							                	<div class="row text-center img-parent">
-							                		<img class="img-zoom" ng-src="{{coverPhoto.media}}" alt="{{coverPhoto.name}}"
+							                	<div class="row text-center transition">
+							                		<img  ng-src="{{coverPhoto.media}}" alt="{{coverPhoto.name}}"
 							                                 >
 							                	</div>
 							                	<div class="col-md-12">
@@ -560,8 +558,8 @@
 							                </div>
 							                <div class="col-md-12 " ng-if="media.length > 0">
 							                	<div class="" ng-repeat="mediaItem in media | orderBy:'':true">
-							                        <div class="text-center img-parent row">
-							                            <img class="img-zoom" ng-src="{{mediaItem.media}}" alt="{{mediaItem.name}}"
+							                        <div class="text-center transition row">
+							                            <img  ng-src="{{mediaItem.media}}" alt="{{mediaItem.name}}"
 							                                 >
 							                        </div>
 							                        <div class="col-md-12">
