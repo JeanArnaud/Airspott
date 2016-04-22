@@ -153,12 +153,14 @@
         next: function () {
             var canMoveNext = (this.currentStep + 1 <= this.numSteps);
             var lastStep = (this.currentStep === this.numSteps);
+            console.log('Next step');
             if(firstpage())
             {
                 $('.firsterr').show();
                
                 return false;
             }
+
             $('.firsterr').hide();
             
             if (canMoveNext) {

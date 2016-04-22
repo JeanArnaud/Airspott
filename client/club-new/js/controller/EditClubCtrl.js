@@ -51,7 +51,7 @@ angular.module('com.airspott.club').controller('EditClubCtrl', [
 
         $scope.generateCalConfig = function ()
         {
-            $log.log($scope.club);
+            //$log.log($scope.club);
             $log.log($scope.club.saleUnit);
 
             if (!$scope.club.saleUnit) return;
@@ -70,7 +70,7 @@ angular.module('com.airspott.club').controller('EditClubCtrl', [
 
                     eventClick: function (date, jsEvent, view)
                     {
-
+                        
                         $scope.eventInChange = date;
 
                         $scope.modal = {

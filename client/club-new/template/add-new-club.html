@@ -63,6 +63,9 @@
                               <i class="icon-arrow-right"></i>
                             </button>
                           </div>
+                          <div class="alert alert-danger errmsg" style="display:none;margin-top:8em">
+                          	{{errmsg}}
+                          </div>
                         </div>
                         <div class="step-content">
                           <hr class="hr-normal">
@@ -444,7 +447,7 @@
 		                             		 	<div class="col-md-6"></div>
 		                             		 	<div class="col-md-6 text-right">
 		                             		 		<label>
-						                                <input placeholder="Search" ng-model='search' class="form-control input-sm" style="width: 200px;" aria-controls="DataTables_Table_1" type="text">
+						                                <input placeholder="Search"  ng-model='search' class="form-control input-sm" style="width: 200px;" aria-controls="DataTables_Table_1" type="text">
 						                            </label>
 		                             		 	</div>
 		                             		 </div>
@@ -453,7 +456,7 @@
 		                             		 </div>
 		                             		<div class="checkbox" ng-repeat="offer in offers | filter : search" ng-if='!offer.offerId'>
 							                    <label>
-							                        <input type="checkbox" class="activity" ng-model="offer.link" value="{{offer.id}}" >
+							                        <input type="checkbox"  class="activity" ng-model="offer.link" value="{{offer.id}}" >
 							                        {{offer.identifier | translate}}
 							                    </label>
 							                </div>
@@ -511,6 +514,7 @@
                           					</div>
                           				</div>
                           				<div class="box-content">
+
                           					<div style='cursor:pointer' class="alert alert-info clickable"
 							                     ngf-drop="uploadCoverPhoto($files)"
 							                     ngf-select="uploadCoverPhoto($files)"
@@ -521,10 +525,12 @@
 								                        <br/><small>Allow types are jpeg/png/svg.</small>
 								                    </div>
 							                </div>
-							                <div class="col-md-12" ng-if='checkEmpty(coverPhoto)'>
+							                <div class="col-md-12 transition-wrapper" ng-if='checkEmpty(coverPhoto)'>
 							                	<div class="row text-center transition">
+							                		
 							                		<img  ng-src="{{coverPhoto.media}}" alt="{{coverPhoto.name}}"
-							                                 >
+							                                 > 
+
 							                	</div>
 							                	<div class="col-md-12">
 							                		<hr/>
@@ -649,6 +655,14 @@
                           		</div>
                           </form>
                         </div>
+                        <!-- <div class="actions margin-top-15 text-right">
+                            <button class="btn pre"><i class="icon-arrow-left"></i>Prev
+                            </button>
+                            <button class="btn btn-success nxt1"  data-last="Finish">
+                              Next
+                              <i class="icon-arrow-right"></i>
+                            </button>
+                          </div> -->
                     </div>
                   </div> 
 		       </div>

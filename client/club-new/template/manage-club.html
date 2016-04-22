@@ -43,32 +43,31 @@
 					                        <table  class="data-table-column-filter table table-bordered table-striped dataTable" style="margin-bottom:0;">
 					                          <thead>
 					                            <tr role="row">
+					                              <th>Cover Photo</th>
 					                              <th >
 					                                Name
 					                              </th>
 					                              <th >
 					                                Franchise Name
 					                              </th>
-					                              <th >
-					                                Description
-					                              </th>
-					                              <th >
-					                                Address
-					                              </th>
-					                              <th>Manger</th>
-					                              <th>Manager's Number</th>
+					                              <th>Zip Code | City | Country</th>
+					                              <th>Standard Price</th>
+					                              <th>Club's Manger</th>
 					                              <th>Status</th>
 					                              <th>Operation</th>
 					                          </tr>
 					                          </thead>
 					                         <tbody aria-relevant="all" aria-live="polite" role="alert">
+					                         	<tr ng-if='clubs.length == 0'>
+					                         		<td colspan="8">No Data Available</td>
+					                         	</tr>
 					                           <tr  dir-paginate='(k,row) in clubs|filter:search|itemsPerPage:pageSize' current-page='currentPage'>
+					                           		<td>Not Available</td>
 					                                <td>{{row.name}}</td>
 					                                <td>{{row.franchise_name != null ? row.franchise_name : '----'}}</td>
-					                                <td>{{row.description}}</td>
-					                                <td>{{row._address.address}}</td>
-					                                <td>{{row.responsibleLname +" "+ row.responsibleFname}}</td>
-					                                <td>{{row.responsibleTel}}</td>
+					                                <td>{{row._address.zip +","+row._address.city+","+row._address.country}}</td>
+					                                <td>{{row.price+" "+row.currency}}</td>
+					                                <td>{{row.responsibleFname+" "+row.responsibleTel}}</td>
 					                                <td style="color:red" ng-if='row.status == "In-complete"'>{{row.status}}</td>
 					                                <td style="color:green" ng-if='row.status != "In-complete"'>{{row.status}}</td>
 					                                <td>
