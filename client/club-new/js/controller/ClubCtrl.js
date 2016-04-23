@@ -13,7 +13,7 @@ angular.module('com.airspott.club')
             $scope.currencies = Currency.find();
             $scope.offers = Offer.find();
             $rootScope.meta.title = "MANAGE_CLUB";
-            $scope.clubs = Club.find({filter : {where : {customerId : $rootScope.user.id}}});
+            $scope.clubs = Club.find({filter : {where : {Customer.getCurrentId()}}});
             $scope.pageSize = 5;
             $scope.currentPage = 1;
             
@@ -467,16 +467,16 @@ angular.module('com.airspott.club')
                         //Add/Edit Media entries inti club
                         if(Object.keys($scope.coverPhoto).length != 0)
                         {
-                            var index = $scope.media.indexOf($scope.coverPhoto);
-                            if(index == -1)
-                            {
+                            // var index = $scope.media.indexOf($scope.coverPhoto);
+                            // if(index == -1)
+                            // {
                                 $scope.media.push($scope.coverPhoto);
-                            }
-                            else
-                            {
-                                $scope.media.splice(index, 1);
-                                $scope.media.push($scope.coverPhoto);   
-                            }
+                            // }
+                            // else
+                            // {
+                            //     $scope.media.splice(index, 1);
+                            //     $scope.media.push($scope.coverPhoto);   
+                            // }
                         }
 
 
