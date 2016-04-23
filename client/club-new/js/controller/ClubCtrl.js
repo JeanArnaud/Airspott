@@ -467,7 +467,16 @@ angular.module('com.airspott.club')
                         //Add/Edit Media entries inti club
                         if(Object.keys($scope.coverPhoto).length != 0)
                         {
-                              $scope.media.push($scope.coverPhoto);
+                            var index = $scope.media.indexOf($scope.coverPhoto);
+                            if(index == -1)
+                            {
+                                $scope.media.push($scope.coverPhoto);
+                            }
+                            else
+                            {
+                                $scope.media.splice(index, 1);
+                                $scope.media.push($scope.coverPhoto);   
+                            }
                         }
 
 
