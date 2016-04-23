@@ -13,7 +13,7 @@ angular.module('com.airspott.club')
             $scope.currencies = Currency.find();
             $scope.offers = Offer.find();
             $rootScope.meta.title = "MANAGE_CLUB";
-            $scope.clubs = Club.find({filter : {where : {customerId : Customer.getCurrentId()}}});
+            $scope.clubs = Club.find({filter : {where : {customerId : $rootScope.user.id}}});
             $scope.pageSize = 5;
             $scope.currentPage = 1;
             
@@ -27,11 +27,61 @@ angular.module('com.airspott.club')
 
 
            
-            if($stateParams.id != '')
+            if($stateParams.id && $stateParams.id != '')
             {
                 $scope.clubid = $stateParams.id;
-                // console.log("clubid = "+$scope.clubid);
-                $scope.clubdetail = Club.findOne({"id": $scope.clubid});
+                $scope.clubdetail = Club.findById({id: $scope.clubid}, {include: ['address']}, function (club)
+                {
+
+                    $scope.loading = false;
+
+                    $scope.media = Club.media({id: $scope.clubid}, {order: 'order ASC'}, function (media)
+                    {
+                        for(var i=0; i<media.length; i++)
+                        {
+                            if(media[i].type == 'coverPhoto')
+                            {
+                                $scope.coverPhoto = media[i];
+                                $scope.media.splice(i, 1);
+                                break;
+                            }
+                        }
+
+                        
+                    });
+
+
+                    Club.planningEntries({id: $scope.clubid}, function (entries)
+                    {
+                        for (var i in entries)
+                        {
+                            if (!entries.hasOwnProperty(i)) continue;
+
+                            entries[i].start = new Date(entries[i].start);
+                            entries[i].end = new Date(entries[i].end);
+
+                            if (entries[i].price)
+                            {
+                                entries[i].title = entries[i].title;
+                            }
+                            else if (entries[i].capacity)
+                            {
+                                entries[i].title = entries[i].title;
+                                entries[i].backgroundColor = '#378006';
+                            }
+
+                        }
+
+                        //@todo: this does not correctly render the shitty calendar!
+                        $scope.capacityPlanningEntries = [entries];
+                        $scope.generateCalConfig();
+                    });
+
+                }, function (err)
+                {
+                    Message.error('GENERIC_ERROR_CLUB_LOAD');
+                });
+                
                 $http.get("/api/Clubs/"+$scope.clubid+"/manager").success(function(res)
                 {
                     $scope.fd.email= res.email;
@@ -154,8 +204,6 @@ angular.module('com.airspott.club')
             // Generate calender as quantity change
             $scope.generateCalConfig = function ()
             {
-                var date = new Date();
-                //$log.log($scope.clubdetail);
                 $log.log($scope.clubdetail.saleUnit);
 
                 if (!$scope.clubdetail.saleUnit) 
@@ -164,13 +212,14 @@ angular.module('com.airspott.club')
                         return;
                 }
                 $('.calhide').show();
+
                 $scope.calConfig = {
                     calendar: {
                         editable: true,
                         header: {
                             left: 'title',
                             center: '',
-                            // right: 'today' + ($scope.clubdetail.saleUnit == 'DAYS' ? 'month' : 'agendaWeek'),
+                            right: 'today' + ($scope.clubdetail.saleUnit == 'DAYS' ? 'month' : 'agendaWeek'),
                             right: 'today prev,next'
                         },
 
@@ -270,7 +319,7 @@ angular.module('com.airspott.club')
             
             
 
-            // Add new club within database
+            // Add new club into the database
             $scope.AddnewClub = function()
             {
                 console.log("ClubId = "+$scope.clubid);
@@ -283,7 +332,6 @@ angular.module('com.airspott.club')
                         $scope.clubid = club.id;
                         $scope.clubdetail = club;
                     });
-                    console.log("Club inof = "+ JSON.stringify($scope.clubdetail));
                     console.log($scope.fd);
 
                     // Random generated password
@@ -344,19 +392,51 @@ angular.module('com.airspott.club')
                         //$scope.clubdetail.managerId = $scope.fd.id;
                         $scope.clubdetail.$save();
 
-                        // Add planning entries into club
+                        // Add/Edit planning entries into club
                         if($scope.capacityPlanningEntries[0].length != 0)
                         {
                             for(var i = 0 ; i < $scope.capacityPlanningEntries[0].length; i++)
                             {
                                 var origEntry = $scope.capacityPlanningEntries[0][i];
+
                                 var oneEntry;
-                                if (origEntry.clubId)
+                                if (origEntry.clubId != null)
                                 {
-                                    oneEntry = Club.planningEntries.updateById({
-                                        id: $scope.clubid,
-                                        fk: $scope.origEntry.id
-                                    }, $scope.origEntry);
+
+                                    var modal = '';
+                                    if(origEntry.price)
+                                    {
+                                        modal = {
+                                            id : origEntry.id,
+                                            clubId : origEntry.clubid,
+                                            title : origEntry.title,
+                                            price : origEntry.price,
+                                            start : origEntry.start,
+                                            end : origEntry.end
+                                        };
+                                        Club.planningEntries.updateById({
+                                            id: origEntry.clubId,
+                                            fk: origEntry.id
+                                        }, modal);
+                                    }    
+                                    if(origEntry.capacity)
+                                    {
+                                        modal = {
+                                            id : origEntry.id,
+                                            clubId : origEntry.clubid,
+                                            title : origEntry.title,
+                                            capacity : origEntry.price,
+                                            backgroundColor : origEntry.backgroundColor,
+                                            start : origEntry.start,
+                                            end : origEntry.end
+                                        };
+                                        Club.planningEntries.updateById({
+                                            id: origEntry.clubId,
+                                            fk: origEntry.id
+                                        }, modal);
+                                    }
+                                    
+                                    // $http.put("/api/Clubs/"+origEntry.clubId+"/planningEntries/"+origEntry.id,origEntry);
                                 }
                                 else
                                 {
@@ -365,12 +445,50 @@ angular.module('com.airspott.club')
                             }
                         }
 
-                        // Add Activity entries into club
-                        // if($scope.cluboffers.length != 0)
-                        // {
-                            
-                        // }
+                        // Add/Edit Activity entries into club
+                        if($scope.cluboffers.length != 0)
+                        {
+                            for(var i=0; i<$scope.cluboffers.length; i++)
+                            {
+                                for(var j=0; j<$scope.offers.length; j++)
+                                {
+                                    if($scope.offers[j].id == $scope.cluboffers[i])
+                                    {
+                                        var data = $scope.offers[j];
+                                        data.clubId = $scope.clubid;
+                                        delete data.id;
+                                        Club.offers.create({id:$scope.clubid},data);
+                                        break;
+                                    }
+                                }
+                            }
+                        }
 
+                        //Add/Edit Media entries inti club
+                        if(Object.keys($scope.coverPhoto).length != 0)
+                        {
+                              $scope.media.push($scope.coverPhoto);
+                        }
+
+
+                        if($scope.media.length != 0)
+                        {
+                            for (var i = 0; i < $scope.media.length; i++)
+                            {
+                                if ($scope.media[i].clubId)
+                                {
+                                    oneMedia = Club.media.updateById({
+                                        id: $scope.media[i].clubId,
+                                        fk: $scope.media[i].id
+                                    }, $scope.media[i]);
+                                }
+                                else
+                                {
+                                    oneMedia = Club.media.create({id: $scope.clubid}, $scope.media[i]);
+                                }
+                            }
+                        }
+                        
                     }
                 }
             }
