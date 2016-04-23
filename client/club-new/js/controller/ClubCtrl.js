@@ -13,7 +13,7 @@ angular.module('com.airspott.club')
             $scope.currencies = Currency.find();
             $scope.offers = Offer.find();
             $rootScope.meta.title = "MANAGE_CLUB";
-            $scope.clubs = Club.find({filter : {where : {Customer.getCurrentId()}}});
+            $scope.clubs = Club.find({filter : {where : {customerId : Customer.getCurrentId()}}});
             $scope.pageSize = 5;
             $scope.currentPage = 1;
             
