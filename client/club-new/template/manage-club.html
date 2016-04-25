@@ -62,12 +62,14 @@
 					                         		<td colspan="8">No Data Available</td>
 					                         	</tr>
 					                           <tr  dir-paginate='(k,row) in clubs|filter:search|itemsPerPage:pageSize' current-page='currentPage'>
-					                           		<td>Not Available</td>
+					                           		<td class="text-center"><img height="25%" width="50%" ng-src="{{row.coverPhoto.media}}" alt="{{row.coverPhoto.name}}"
+							                                 > 
+							                        </td>
 					                                <td>{{row.name}}</td>
 					                                <td>{{row.franchise_name != null ? row.franchise_name : '----'}}</td>
 					                                <td>{{row._address.zip +","+row._address.city+","+row._address.country}}</td>
 					                                <td>{{row.price+" "+row.currency}}</td>
-					                                <td>{{row.responsibleFname+" "+row.responsibleTel}}</td>
+					                                <td>{{row.responsibleFname+" "+row.responsibleTel+" "+row.email}}</td>
 					                                <td style="color:red" ng-if='row.status == "In-complete"'>{{row.status}}</td>
 					                                <td style="color:green" ng-if='row.status != "In-complete"'>{{row.status}}</td>
 					                                <td>

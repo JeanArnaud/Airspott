@@ -56,7 +56,7 @@
                             </li>
                           </ul>
                           <div class="actions margin-top-15">
-                            <button class="btn  btn-prev"><i class="icon-arrow-left"></i>Prev
+                            <button class="btn  btn-prev" ng-click='prevStep()'><i class="icon-arrow-left"></i>Prev
                             </button>
                             <button class="btn  btn-success btn-next" ng-click='AddnewClub()' data-last="Finish">
                               Next
@@ -256,7 +256,12 @@
 										                    	</label>
 											                </span>
 											                <span class='col-sm-12 col-sm-offset-3'>
-											                	<a href="javascript:;" id='break_{{day}}' ng-click='break(day)' class="btn btn-xs">Want a middle Break?</a>
+											                	<span ng-if='!openingObj.break'>
+											                		<a href="javascript:;" id='break_{{day}}' ng-click='break(day)' class="btn btn-xs">Want a middle Break?</a>
+											                	</span>
+											                	<span ng-if='openingObj.break'>
+											                		<a href="javascript:;" id='break_{{day}}' ng-click='break(day)' class="btn btn-xs">Don't want a middle Break?</a>
+											                	</span>
 											                </span>
 											                <div class="clearfix"></div>
 									                    </div>
@@ -278,7 +283,7 @@
 											                                        show-meridian="false">
 											                        </uib-timepicker>
 											                    </div>
-											                    <div class="" id='wbreak_{{day}}' style='display:none'>
+											                    <div class="" id='wbreak_{{day}}' ng-style='{display:openingObj.break?"block":"none"}' >
 												                    <div class="col-md-3">
 												                        <p>{{'BREAK_FROM' | translate}}</p>
 
@@ -456,7 +461,7 @@
 		                             		 </div>
 		                             		<div class="checkbox" ng-repeat="offer in offers | filter : search" ng-if='!offer.offerId'>
 							                    <label>
-							                        <input type="checkbox"  class="activity" ng-model="offer.link" value="{{offer.id}}" >
+							                        <input type="checkbox" ng-click="activityClick($event)" class="activity" ng-model="offer.link" value="{{offer.id}}" >
 							                        {{offer.identifier | translate}}
 							                    </label>
 							                </div>
@@ -525,7 +530,7 @@
 								                        <br/><small>Allow types are jpeg/png/svg.</small>
 								                    </div>
 							                </div>
-							                <div class="col-md-12 transition-wrapper" ng-if='checkEmpty(coverPhoto)'>
+							                <div class="col-md-12 transition-wrapper" ng-if='coverPhoto != null'>
 							                	<div class="row text-center transition">
 							                		
 							                		<img  ng-src="{{coverPhoto.media}}" alt="{{coverPhoto.name}}"
@@ -592,6 +597,9 @@
                           			</div>
                           		</div>
                           		<div class="step-pane" id='step6'>
+                          			<div class="alert alert-danger bnkerr" style="display:none">
+                          				Please fill all required field first.
+                          			</div>
                           			<div class="box">
                           				<div class="box-header" style="background-color:grey">
                           					<div class="title" style="color:white">Billing Details
@@ -603,7 +611,7 @@
                           						<label class="col-md-3 control-label">Currency <span style='color:red'>*</span>:</label>
                           						<div class="col-sm-6">
                           							<select ng-options="currency.id as currency.symbol for currency in currencies"
-						                                    ng-model="bill.currencyId"
+						                                    ng-model="bill.currency"
 						                                    class="c-select form-control"
 						                                    id="currency1" name='currency' required>
 						                                <option value="">{{'CURRENCY' | translate}}</option>
@@ -643,7 +651,7 @@
                           					<div class="form-group">
                           						<label class="col-md-3 control-label">Account_Holder_Name <span style='color:red'>*</span> :</label>
                           						<div class="col-md-6">
-                          							<input class="form-control" ng-model='bill.acc_holder_name' name='acholder' required/>
+                          							<input class="form-control" ng-model='bill.account_holder_name' name='acholder' required/>
                           							<span style="color:red" ng-show="form1.acholder.$touched && form1.acholder.$invalid">
        													 Please Provide Account Holder Name.
        												  </span>

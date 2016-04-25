@@ -60,6 +60,21 @@
             "type" : "string",
             "required" : false,
             "description" : "Use for knowing club all details are fillup or not"
+        },
+        "email":{
+            "type" : "string",
+            "required" : false,
+            "description" : "Use for knowing club's manager email id"
+        },
+        "coverPhoto":{
+            "type" : "object",
+            "required" : false,
+            "description" : "Use for knowing coverPhoto of the club"
+        },
+        "activities":{
+            "type" : "object",
+            "required" : false,
+            "description" : "Use for knowing activities provided by the club"
         }
     },
     "validations": [],
@@ -129,6 +144,12 @@
             "model": "Customer",
             "foreignKey": "",
             "description":"Each Club has one manager who is responsible to that club"
+        },
+        "billing": {
+            "type": "belongsTo",
+            "model": "OwnerAccount",
+            "foreignKey": "",
+            "description":"Each Club has one Bankking detail"
         }
 
     },

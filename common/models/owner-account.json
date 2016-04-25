@@ -17,15 +17,30 @@
             "required": true,
             "description": "The BIC of the OwnerAccount to payout"
         },
+        "currency": {
+            "type": "string",
+            "required": true,
+            "description": "Currency in which payment accepted"
+        },
+        "bank_name": {
+            "type": "string",
+            "required": true,
+            "description": "Name of the bank"
+        },
+        "account_holder_name": {
+            "type": "string",
+            "required": true,
+            "description": "account holder name"
+        },
         "salesCommission": {
             "type": "number",
-            "required": true,
+            "required": false,
             "default": 0.2,
             "description": "The Customers commission"
         },
         "toc": {
             "type": "string",
-            "required": true,
+            "required": false,
             "description": "The TOC version accepted by the Customer"
         }
     },
