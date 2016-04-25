@@ -10,7 +10,6 @@ angular.module('com.airspott.club')
             $scope.capacityPlanningEntries = [[]];
             $scope.mediaRange = [];
             $scope.media = [];
-            $scope.cluboffers = [];
             $scope.coverPhoto = {};
             $scope.currencies = Currency.find();
             $scope.offers = Offer.find();
@@ -600,7 +599,7 @@ angular.module('com.airspott.club')
             
 
 
-           
+            $scope.cluboffers = [];
             // get child activity from parent id      
             
             $scope.activityClick = function($event)
