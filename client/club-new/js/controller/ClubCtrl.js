@@ -28,6 +28,17 @@ angular.module('com.airspott.club')
             	}
             }     
 
+
+            // clicked and direct goto particular step which are completed
+            $scope.goToStep = function(val, $event)
+            {
+                var thi = $event.target;
+                if($(thi).parent().attr("class") == 'complete')
+                {
+                    $scope.step = val;
+                }
+                console.log(val+" "+$(thi).parent().attr("class"));
+            }
             // Manage previous Step pointer
             $scope.prevStep = function()
             {
@@ -35,7 +46,13 @@ angular.module('com.airspott.club')
                 if($scope.step <= 0)
                 {
                     $scope.step = 1;
+                    $(".prev").prop("disabled",true);
                 }
+                else
+                {
+                    $(".prev").prop("disabled",false);   
+                }
+                $(".nxt").html("Next <i class='icon-arrow-right'></i>");
                 console.log("step = "+$scope.step);
             }
            
@@ -46,6 +63,10 @@ angular.module('com.airspott.club')
                 {
 
                     $scope.loading = false;
+                    if(typeof(club.step) != 'undefined')
+                    {
+                        $scope.step = club.step;
+                    }
                    
                     if(typeof(club.coverPhoto) != 'undefined')
                     {
@@ -94,15 +115,11 @@ angular.module('com.airspott.club')
                     if(typeof(club.activities) != 'undefined' && angular.isArray(club.activities))
                     {
                         $scope.cluboffers = club.activities;
-                        for(var i=0; i<$scope.cluboffers.length; i++)
+                        for(var j=0; j<$scope.offers.length; j++)
                         {
-                            for(var j=0; j<$scope.offers.length; j++)
+                            if($scope.cluboffers.indexOf($scope.offers[j].id) != -1)
                             {
-                                if($scope.cluboffers[i] == $scope.offers[j].id)
-                                {
-                                    $scope.offers[j].link = true;
-                                    break;
-                                }
+                                $scope.offers[j].link = true;
                             }
                         }
                     }
@@ -355,113 +372,230 @@ angular.module('com.airspott.club')
             {
                 if($("[name='currency']").val() == '')
                 {
-                    $(".bnkerr").show();
+                    $(".bnkcurr").removeClass("ng-hide");
+                    $(".bnkcurr").show();
                     return false;
                 }
                 if($("[name='bank']").val() == '')
                 {
-                    $(".bnkerr").show();
+                    $(".bnknm").removeClass("ng-hide");
+                    $(".bnknm").show();
                     return false;
                 }
                 if($("[name='iban']").val() == '')
                 {
-                    $(".bnkerr").show();
+                    $(".bnkiban").removeClass("ng-hide");
+                    $(".bnkiban").show();
                     return false;
                 }
                 if($("[name='bic']").val() == '')
                 {
-                    $(".bnkerr").show();
+                    $(".bnkbic").removeClass("ng-hide");
+                    $(".bnkbic").show();
                     return false;
                 }
                 if($("[name='acholder']").val() == '')
                 {
-                    $(".bnkerr").show();
+                    $(".bnkac").removeClass("ng-hide");
+                    $(".bnkac").show();
                     return false;
                 }
                 return true;
+            }
+
+            // check validation for club details
+            var clubValidation = function()
+            {
+               var club = $('[name="club_name"]').val();
+                // $('[name="club_name"]').focus();
+
+                if(club == '')
+                {
+                    $(".cluberrnm").removeClass("ng-hide");
+                    $(".cluberrnm").show();
+                    return true;
+                }
+                if($('[name="address1"]').val() == '')
+                {
+                    $(".cluberradd").removeClass("ng-hide");
+                    $(".cluberradd").show();
+                    return true;
+                }
+                if($('[name="zip"]').val() == '')
+                {
+                    $(".cluberrzip").removeClass("ng-hide");
+                    $(".cluberrzip").show();
+                    return true;
+                }
+                if($('[name="city"]').val() == '')
+                {
+                    $(".cluberrcity").removeClass("ng-hide");
+                    $(".cluberrcity").show();
+                    return true;
+                }
+                if($('[name="country"]').val() == '')
+                {
+                    $(".cluberrcoun").removeClass("ng-hide");
+                    $(".cluberrcoun").show();
+                    return true;
+                }
+                if($('[name="shortdesc"]').val() == '')
+                {
+                    $(".cluberrdesc").removeClass("ng-hide");
+                    $(".cluberrdesc").show();
+                    return true;
+                }
+                if($('[name="fname"]').val() == '')
+                {
+                    $(".cluberrfname").removeClass("ng-hide");
+                    $(".cluberrfname").show();
+                    return true;
+                }
+                if($('[name="lname"]').val() == '')
+                {
+                    $(".cluberrlname").removeClass("ng-hide");
+                    $(".cluberrlname").show();
+                    return true;
+                }
+                if($('[name="phno"]').val() == '')
+                {
+                    $(".cluberrphno").removeClass("ng-hide");
+                    $(".cluberrphno").show();
+                    return true;
+                }
+                if($('[name="email"]').val() == '')
+                {
+                    $(".cluberremail").removeClass("ng-hide");
+                    $(".cluberremail").show();
+                    return true;
+                }
             }
 
             // Add new club into the database
             $scope.AddnewClub = function()
             {
                 console.log("ClubId = "+$scope.clubid);
+                $(".prev").prop("disabled",false);
 
                 if($scope.clubid == '')
                 {
                     $scope.clubdetail.status = "In-complete";
-                    if($scope.step == 1)
+                    if(clubValidation())
                     {
-                        // Add club into database
-                        Club.create($scope.clubdetail, function(club)
-                        {
-                            $scope.clubid = club.id;
-                            $scope.clubdetail = club;
-                            $scope.step++;
-                        });
-                        console.log($scope.fd);
-
-                        // Random generated password
-                        $scope.fd.password = Math.floor((Math.random() * 10000) + 1000).toString();
-                        $scope.fd.credentials = {"passwd" : $scope.fd.password};
-                        $scope.fd.realm = 'clubmanager';
-
-                        // Add manager into database
-                        Customer.create($scope.fd, function(user)
-                        {
-                            $(".errmsg").hide();
-                            $scope.clubdetail.managerId = user.id;
-                            $scope.clubdetail.email = user.email;
-                            
-                            $scope.fd = user;
-                            $scope.oldemail = user.email;
-                        },function(err)
-                        {
-                            if(err.data.error.details.messages.email.length == 2)
-                            {
-                                $scope.errmsg = "Email "+err.data.error.details.messages.email[0];    
-                            }
-                            else
-                            {
-                                $scope.errmsg = err.data.error.details.messages.email[0];
-                            }
-                            $(".errmsg").show();
-                        });
+                        return false;
                     }
-                    console.log("step = "+$scope.step);
-                }
-                else
-                {
-                    if($scope.step == 1)
+                    else
                     {
-                        // Update club manager email id
-                        if($scope.fd.email != $scope.oldemail)
+                        if($scope.step == 1)
                         {
-                            
+                            $(".err").hide();
+                            // Add club into database
+                            Club.create($scope.clubdetail, function(club)
+                            {
+                                $scope.clubid = club.id;
+                                $scope.clubdetail = club;
+                                // $scope.step++;
+                            });
+                            console.log($scope.fd);
+
+                            // Random generated password
                             $scope.fd.password = Math.floor((Math.random() * 10000) + 1000).toString();
                             $scope.fd.credentials = {"passwd" : $scope.fd.password};
                             $scope.fd.realm = 'clubmanager';
-                            // Addd club manager 
+
+                            // Add manager into database
                             Customer.create($scope.fd, function(user)
                             {
                                 $(".errmsg").hide();
                                 $scope.clubdetail.managerId = user.id;
                                 $scope.clubdetail.email = user.email;
                                 $scope.clubdetail.$save();
-                                $scope.oldemail = user.email;
                                 $scope.fd = user;
-
+                                $scope.oldemail = user.email;
                             },function(err)
                             {
-                                $scope.errmsg = err.email;
-                                $(".errmsg").show();
+                                if(err.data.error.details.messages.email.length == 2)
+                                {
+                                    $scope.errmsg = "Email "+err.data.error.details.messages.email[0];    
+                                }
+                                else
+                                {
+                                    $scope.errmsg = err.data.error.details.messages.email[0];
+                                }
+                                $(".cluberremail").removeClass("ng-hide");
+                                $(".cluberremail").html($scope.errmsg);
+                                $(".cluberremail").show();
                             });
-                           console.log("old = "+$scope.oldemail + " "+"newemail = "+$scope.fd.email);
+                            if($scope.errmsg != '')
+                            {
+                                return false;
+                            }
+                            else
+                            {
+                                $(".err").hide();
+                            }
+                        }    
+                    }
+                    
+                    console.log("step = "+$scope.step);
+                }
+                else
+                {
+                    if($scope.step == 1)
+                    {
+                        if(clubValidation())
+                        {
+                            return false;
                         }
                         else
                         {
-                            $scope.clubdetail.email = $scope.fd.email;
-                            $scope.clubdetail.$save();
+                            $(".err").hide();
+                            // Update club manager email id
+                            if($scope.fd.email != $scope.oldemail)
+                            {
+                                $scope.fd.password = Math.floor((Math.random() * 10000) + 1000).toString();
+                                $scope.fd.credentials = {"passwd" : $scope.fd.password};
+                                $scope.fd.realm = 'clubmanager';
+                                // Addd club manager 
+                                Customer.create($scope.fd, function(user)
+                                {
+                                    $scope.clubdetail.managerId = user.id;
+                                    $scope.clubdetail.email = user.email;
+                                    $scope.clubdetail.$save();
+                                    $scope.oldemail = user.email;
+                                    $scope.fd = user;
+
+                                },function(err)
+                                {
+                                    if(err.data.error.details.messages.email.length == 2)
+                                    {
+                                        $scope.errmsg = "Email "+err.data.error.details.messages.email[0];    
+                                    }
+                                    else
+                                    {
+                                        $scope.errmsg = err.data.error.details.messages.email[0];
+                                    }
+                                    $(".cluberremail").removeClass("ng-hide");
+                                    $(".cluberremail").html($scope.errmsg);
+                                    $(".cluberremail").show();
+                                });
+                                if($scope.errmsg != '')
+                                {
+                                    return false;
+                                }
+                                else
+                                {
+                                    $(".err").hide();
+                                }
+                               console.log("old = "+$scope.oldemail + " "+"newemail = "+$scope.fd.email);
+                            }
+                            else
+                            {
+                                $scope.clubdetail.email = $scope.fd.email;
+                                $scope.clubdetail.$save();
+                            }
                         }
+                        
                         
                     }
 
@@ -569,6 +703,7 @@ angular.module('com.airspott.club')
                     {
                         if(bankValidation())
                         {
+                            $(".bnk").hide();
                             if(typeof($scope.bill.customerId) == 'undefined')
                             {
                                 $scope.bill.customerId = $scope.clubdetail.managerId;
@@ -597,10 +732,21 @@ angular.module('com.airspott.club')
 
                         
                       $scope.step++;
+                      $scope.clubdetail.step = $scope.step;
+                      $scope.clubdetail.$save();
+
+
                       console.log("step = "+$scope.step);  
                       if($scope.step >= 6)
                       { 
                          $scope.step = 6;
+                         $scope.clubdetail.step = $scope.step;
+                         $scope.clubdetail.$save();
+                         $(".nxt").html("Finish");
+                      }
+                      else
+                      {
+                         $(".nxt").html("Next <i class='icon-arrow-right'></i>");
                       }
 
                 }

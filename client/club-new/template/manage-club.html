@@ -25,7 +25,7 @@
 		                    </div>
 		                  </div>
 			                  <div class="box-content box-no-padding">
-			                    <div class="table-responsive">
+			                    <div class="table-responsive manage-clubs-table">
 			                       <div class="scrollable-area">
 				                        <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline" role="grid">
 					                        <div class="row datatables-top">
@@ -40,9 +40,9 @@
 					                            </div>
 					                          </div>
 					                        </div>
-					                        <table  class="data-table-column-filter table table-bordered table-striped dataTable" style="margin-bottom:0;">
-					                          <thead>
-					                            <tr role="row">
+					                        <table  class="table table-bordered table-striped " style="margin-bottom:0;">
+					                          <!-- <thead> -->
+					                            <tr >
 					                              <th>Cover Photo</th>
 					                              <th >
 					                                Name
@@ -56,13 +56,13 @@
 					                              <th>Status</th>
 					                              <th>Operation</th>
 					                          </tr>
-					                          </thead>
-					                         <tbody aria-relevant="all" aria-live="polite" role="alert">
+					                          <!-- </thead> -->
+					                         <!-- <tbody aria-relevant="all" aria-live="polite" role="alert"> -->
 					                         	<tr ng-if='clubs.length == 0'>
 					                         		<td colspan="8">No Data Available</td>
 					                         	</tr>
 					                           <tr  dir-paginate='(k,row) in clubs|filter:search|itemsPerPage:pageSize' current-page='currentPage'>
-					                           		<td class="text-center"><img height="25%" width="50%" ng-src="{{row.coverPhoto.media}}" alt="{{row.coverPhoto.name}}"
+					                           		<td class="text-center"><img height="100%" width="100%" ng-src="{{row.coverPhoto.media}}" alt="Image Not Available"
 							                                 > 
 							                        </td>
 					                                <td>{{row.name}}</td>
@@ -79,7 +79,7 @@
 					                                    <a href="javascript:;" ><i class="icon-trash"></i></a>&nbsp;&nbsp;
 					                                </td>
 					                            </tr>
-					                        	</tbody>
+					                        	<!-- </tbody> -->
 					                      	</table>
 					                      <div class="row datatables-bottom">
 					                        <div class="col-sm-6">
