@@ -10,6 +10,7 @@ angular.module('com.airspott.club')
             $scope.capacityPlanningEntries = [[]];
             $scope.mediaRange = [];
             $scope.media = [];
+            $scope.cluboffers = [];
             $scope.coverPhoto = {};
             $scope.currencies = Currency.find();
             $scope.offers = Offer.find();
@@ -599,7 +600,7 @@ angular.module('com.airspott.club')
             
 
 
-            $scope.cluboffers = [];
+            
             // get child activity from parent id      
             
             $scope.activityClick = function($event)
@@ -656,17 +657,17 @@ angular.module('com.airspott.club')
                 {
                     var index  = $scope.cluboffers.indexOf(oid);
                     $scope.cluboffers.splice(index, 1);
-                    for(var i=0; i<$scope.offers.length; i++)
-                    {
-                        if($scope.offers[i].offerId == oid)
-                        {
-                            index = $scope.cluboffers.indexOf($scope.offers[i].id);
-                            if(index != -1)
-                            {
-                                $scope.cluboffers.splice(index, 1);
-                            }
-                        }
-                    }
+                    // for(var i=0; i<$scope.offers.length; i++)
+                    // {
+                    //     if($scope.offers[i].offerId == oid)
+                    //     {
+                    //         index = $scope.cluboffers.indexOf($scope.offers[i].id);
+                    //         if(index != -1)
+                    //         {
+                    //             $scope.cluboffers.splice(index, 1);
+                    //         }
+                    //     }
+                    // }
                     $(thi).parent().parent().find(".child_"+$(thi).val()).remove();
                 }
                 console.log($scope.cluboffers);
@@ -727,12 +728,14 @@ angular.module('com.airspott.club')
                     $('#'+day).hide();
                     $('#btn_'+day).html('Open');
                     $scope.clubdetail.openingHours[day] = {};
+                    $scope.clubdetail.openingHours[day].dayOff = true;
                 }
                 else
                 {
                     $('#'+day).show();   
                     $('#btn_'+day).html('Day Off-Closed');   
                     $scope.clubdetail.openingHours[day] = {};
+                    $scope.clubdetail.openingHours[day].dayoff = false;
                 }
             }
 

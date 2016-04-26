@@ -246,7 +246,7 @@
 									                    </div>
 									                    
 								                    </div>
-								                    <div  id='{{day}}'>
+								                    <div  id='{{day}}' >
 									                    <div class=" col-md-12">
 									                    	<span class='pull-right' ng-if='day != "Bank_Holiday"'>
 										                    	<label >
@@ -530,7 +530,7 @@
 								                        <br/><small>Allow types are jpeg/png/svg.</small>
 								                    </div>
 							                </div>
-							                <div class="col-md-12 transition-wrapper" ng-if='coverPhoto != null'>
+							                <div class="col-md-12 transition-wrapper" ng-if='checkEmpty(coverPhoto)'>
 							                	<div class="row text-center transition">
 							                		
 							                		<img  ng-src="{{coverPhoto.media}}" alt="{{coverPhoto.name}}"
