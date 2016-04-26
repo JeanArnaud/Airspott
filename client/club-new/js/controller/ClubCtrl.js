@@ -46,7 +46,12 @@ angular.module('com.airspott.club')
                 {
 
                     $scope.loading = false;
-                    $scope.coverPhoto = club.coverPhoto;
+                   
+                    if(typeof(club.coverPhoto) != 'undefined')
+                    {
+                        $scope.coverPhoto = club.coverPhoto;
+                    }
+                    
                     // get media from club id
                     $scope.media = Club.media({id: $scope.clubid}, {order: 'order ASC'}, function (media)
                     {
@@ -86,20 +91,24 @@ angular.module('com.airspott.club')
                         $scope.bill = bank;                        
                     });
 
-
-                    $scope.cluboffers = club.activities;
-
-                    for(var i=0; i<$scope.cluboffers.length; i++)
+                    if(typeof(club.activities) != 'undefined' && angular.isArray(club.activities))
                     {
-                        for(var j=0; j<$scope.offers.length; j++)
+                        $scope.cluboffers = club.activities;
+                        for(var i=0; i<$scope.cluboffers.length; i++)
                         {
-                            if($scope.cluboffers[i] == $scope.offers[j].id)
+                            for(var j=0; j<$scope.offers.length; j++)
                             {
-                                $scope.offers[j].link = true;
-                                break;
+                                if($scope.cluboffers[i] == $scope.offers[j].id)
+                                {
+                                    $scope.offers[j].link = true;
+                                    break;
+                                }
                             }
                         }
                     }
+                    
+
+                    
 
                 }, function (err)
                 {
