@@ -63,7 +63,7 @@
         },
         "email":{
             "type" : "string",
-            "required" : false,
+            "required" : true,
             "description" : "Use for knowing club's manager email id"
         },
         "coverPhoto":{

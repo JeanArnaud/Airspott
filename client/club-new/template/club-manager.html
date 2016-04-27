@@ -1,0 +1,115 @@
+<section id='content' ng-cloak=''>
+<div class='container'>
+    <div class='row' id='content-wrapper'>
+      <div class='col-xs-12'>
+          <div class='page-header page-header-with-buttons'>
+            <h1 class='pull-left'>
+              <i class='icon-leaf' ></i>
+              <span>Manage Manager</span>
+            </h1>
+            <div class='pull-right'>
+
+            </div>
+          </div>
+               
+          <div class="row">
+              <div class="col-sm-12">
+                <div class="box bordered-box orange-border" style="margin-bottom:0;">
+                  <div class="box-header" style="background-color:gray">
+                    <div class="title" style="color:white">Managers</div>
+                    <div class="actions">
+                      <button class="btn btn-default"  ui-sref='club-new.add-new-club' >
+                       <i class="icon-plus"></i>&nbsp;Add
+                      </button>
+                    </div>
+                  </div>
+                  <div class="box-content box-no-padding">
+                    <div class="table-responsive">
+                      <div class="scrollable-area">
+                        <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline" role="grid">
+                        <div class="row datatables-top">
+                          <div class="col-sm-6">
+                          
+                          </div>
+                          <div class="col-sm-6 text-right">
+                            <div id="DataTables_Table_1_filter" class="dataTables_filter">
+                              <label>Search: 
+                                <input placeholder="Search" ng-model='search' class="form-control input-sm" style="width: 200px;" aria-controls="DataTables_Table_1" type="text">
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <table  class="data-table-column-filter table table-bordered table-striped dataTable" style="margin-bottom:0;">
+                          <thead>
+                            <tr role="row">
+                              <th>Club Name</th>
+                              <th >
+                                First Name
+                              </th>
+                              <th >
+                                Last name
+                              </th>
+                              <th>Phone Number</th>
+                              <th>Email</th>
+                              <th >
+                                Operation
+                              </th>
+                          </tr>
+                          </thead>
+                         <tbody aria-relevant="all" aria-live="polite" role="alert">
+                           <tr  dir-paginate='(k,row) in managers|filter:search|itemsPerPage:pageSize' ng-if="row.email != ''" current-page='currentPage'>
+                                <td>{{row.name | uppercase}}</td>
+                                <td>{{row.responsibleFname}}</td>
+                                <td>{{row.responsibleLname}}</td>
+                                <td>{{row.responsibleTel}}</td>
+                                <td>{{row.email}}</td>
+                                <td>
+                                    <a href="#/edit-manager/{{k}}">
+                                      <i class="icon-edit"></i>
+                                    </a>&nbsp;&nbsp;
+                                    <a href="javascript:;" ng-click="deleteManager(k)">
+                                      <i class="icon-trash"></i>
+                                    </a>&nbsp;&nbsp;
+                                </td>
+                            </tr>
+                        </tbody>
+                      </table>
+                      <div class="row datatables-bottom">
+                        <div class="col-sm-6">
+                        
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <dir-pagination-controls
+                              boundary-links="true"
+                              on-page-change="pageChangeHandler(newPageNumber)"
+                              template-url="./template/dirPagination.tpl.html">
+                            </dir-pagination-controls>
+                        </div>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        <!-- <hr class='hr-drouble'> -->
+        </div>
+      </div>
+    </div>
+    <footer id='footer'>
+       <div class='footer-wrapper'>
+        <div class="container">
+          <div class='row'>
+            <div class='col-sm-6 text'>
+              Copyright © 2013 Airsott
+            </div>
+            <div class='col-sm-6 buttons'>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</section>

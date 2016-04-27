@@ -1,0 +1,64 @@
+<header>
+  <nav class='navbar navbar-default nav-right_fixed'>
+    <a class='navbar-brand' href='javascript:;' ui-sref='club-new.main'>
+      <img width="auto" height="100%" class="logo" alt="Flatty" src="assets/images/airspott-beta.png" />
+      <!-- <img width="21" height="21" class="logo-xs" alt="Flatty" src="assets/images/logo_xs.svg" /> -->
+      <!-- <h3 style="color:white">Airspott</h3> -->
+    </a>
+    <a class='toggle-nav btn pull-left' href='javascript:;' ng-click='toggleMenu()'>
+      <i class='icon-reorder'></i>
+    </a>
+    <ul class='nav'>
+      <li class='dropdown dark user-menu'>
+        <a class='dropdown-toggle' data-toggle='dropdown' href='javascript:;'>
+          <!-- <img width="23" height="23" alt="Mila Kunis" src="assets/images/avatar.jpg" /> -->
+          <span class='user-name'>{{user.email}}</span>
+          <b class='caret'></b>
+        </a>
+        <ul class='dropdown-menu'>
+          <li>
+            <a href='javascript:;'>
+              <i class='icon-user'></i>
+              Profile
+            </a>
+          </li>
+          <li>
+            <a href='javascript:;'>
+              <i class='icon-cog'></i>
+              Settings
+            </a>
+          </li>
+          <li class='divider'></li>
+          <li>
+            <a href='javascript:;' ng-click="logout()">
+              <i class='icon-signout'></i>
+              Sign out
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+<div id='wrapper'>
+  <div id='main-nav-bg' class="leftmenu"></div>
+  <nav id='main-nav' class='leftmenu'>
+    <div class='navigation'>
+      <ul class='nav nav-stacked'>
+        <li ng-class='activeLink("/main")'>
+          <a href='javascript:;' ui-sref='club-manager.main'>
+            <i class='icon-dashboard'></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li ng-class='activeLink("/manage-club")'>
+          <a  href="javascript:;" ui-sref='club-manager.manage-club' >
+              <i class='icon-edit'></i>
+              <span>{{clubname[0].name}}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div ui-view="content"></div>
+</div>

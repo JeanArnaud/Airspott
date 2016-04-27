@@ -52,6 +52,12 @@
       },
       {
         "paths": [
+          "/club-manager"
+        ],
+        "params": "$!../client/club-manager"
+      },
+      {
+        "paths": [
           "/common"
         ],
         "params": "$!../client/common"

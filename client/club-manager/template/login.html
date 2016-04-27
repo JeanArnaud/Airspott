@@ -1,0 +1,53 @@
+
+<div class='middle-container'>
+     <div class='middle-row'>
+       <div class='middle-wrapper'>
+         <div class='login-container-header'>
+           <div class='container'>
+             <div class='row'>
+               <div class='col-sm-12'>
+                 <div class='text-center'>
+                   <!-- <h3 style="color:white">Airspott</h3> -->
+                   <img width="121" height="100%" src="assets/images/airspott-beta.png" />
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+         <div class='login-container'>
+           <div class='container'>
+             <div class='row'>
+               <div class='col-sm-4 col-sm-offset-4'>
+                 <h1 class='text-center title'>Sign in</h1>
+                 <form class='validate-form'  ng-submit='login()'>
+                   <div class='form-group'>
+                     <div class='controls with-icon-over-input'>
+                       <input value="" ng-model="credentials.email" placeholder="E-mail" class="form-control" required name="email" type="email" />
+                       <i class='icon-user text-muted'></i>
+                     </div>
+                   </div>
+                   <div class='form-group'>
+                     <div class='controls with-icon-over-input'>
+                       <input value="" ng-model="credentials.password" required placeholder="Password" class="form-control"  name="password" type="password" />
+                       <i class='icon-lock text-muted'></i>
+                     </div>
+                   </div>
+                   <div class='checkbox'>
+                     <label for='remember_me'>
+                       <input id='remember_me' ng-model="rememberMe" name='remember_me' type='checkbox'>
+                       Remember me
+                     </label>
+                   </div>
+                   <button type='submit' class='btn btn-block' >Sign in</button>
+                 </form>
+                 <div class='text-center'>
+                   <hr class='hr-normal'>
+                   <div class="alert alert-danger err" style="display:none"></div>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>

@@ -79,6 +79,26 @@ angular.module('com.airspott.club')
             }
           }
         })
+        .state('club-new.club-manager',{
+          url : '/club-manager',
+          views:{
+            content : {
+              controller : 'ClubManagerCtrl',
+              templateUrl: 'template/club-manager.html',
+              
+            }
+          }
+        })
+        .state('club-new.edit-manager',{
+          url : '/edit-manager/:id',
+          views:{
+            content : {
+              controller : 'ClubManagerCtrl',
+              templateUrl: 'template/edit-manager.html',
+              
+            }
+          }
+        })
         .state('club-new.general-detail',{
           url : '/general-detail',
           views:{

@@ -11,7 +11,7 @@
     <ul class='nav'>
       <li class='dropdown dark user-menu'>
         <a class='dropdown-toggle' data-toggle='dropdown' href='javascript:;'>
-          <img width="23" height="23" alt="Mila Kunis" src="assets/images/avatar.jpg" />
+          <!-- <img width="23" height="23" alt="Mila Kunis" src="assets/images/avatar.jpg" /> -->
           <span class='user-name'>{{user.email}}</span>
           <b class='caret'></b>
         </a>
@@ -59,6 +59,12 @@
         <li ng-class='activeLink("/manage-club")'>
                   <a  href="javascript:;" ui-sref='club-new.manage-club' ><i class='icon-edit'></i>
           <span>Manage Clubs</span>
+          </a>
+        </li>
+        <li ng-class='activeLink("/club-manager")'>
+          <a  href="javascript:;" ui-sref='club-new.club-manager' >
+              <i class='icon-edit'></i>
+              <span>Manage Managers</span>
           </a>
         </li>
       </ul>

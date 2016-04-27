@@ -2,9 +2,9 @@ angular.module('com.airspott.club')
     .controller('ClubCtrl',
     [
         '$rootScope', '$scope', '$location','Club','Customer', '$log', 'Offer', 'Upload',
-         'Currency', '$http', '$stateParams', '$state','$compile',
+         'Currency', '$http', '$stateParams', '$state','$compile','$interval',
 
-        function ($rootScope, $scope, $location, Club, Customer, $log, Offer, Upload, Currency, $http, $stateParams, $state, $compile)
+        function ($rootScope, $scope, $location, Club, Customer, $log, Offer, Upload, Currency, $http, $stateParams, $state, $compile, $interval)
         {
 
             $scope.capacityPlanningEntries = [[]];
@@ -20,6 +20,7 @@ angular.module('com.airspott.club')
             $scope.currentPage = 1;
             $scope.step = 1;
             
+
             $scope.activeLink = function(data)
             {
             	if($location.path() == data)
@@ -28,10 +29,13 @@ angular.module('com.airspott.club')
             	}
             }     
 
-
             // clicked and direct goto particular step which are completed
             $scope.goToStep = function(val, $event)
             {
+                setTimeout(function()
+                {
+                    $(".fc-button-today").click();
+                },500);
                 var thi = $event.target;
                 if($(thi).parent().attr("class") == 'complete')
                 {
@@ -42,6 +46,10 @@ angular.module('com.airspott.club')
             // Manage previous Step pointer
             $scope.prevStep = function()
             {
+                setTimeout(function()
+                {
+                    $(".fc-button-today").click();
+                },500);
                 $scope.step--;
                 if($scope.step <= 0)
                 {
@@ -56,6 +64,7 @@ angular.module('com.airspott.club')
                 console.log("step = "+$scope.step);
             }
            
+
             if($stateParams.id && $stateParams.id != '')
             {
                 $scope.clubid = $stateParams.id;
@@ -270,7 +279,7 @@ angular.module('com.airspott.club')
                             left: 'title',
                             center: '',
                             right: 'today' + ($scope.clubdetail.saleUnit == 'DAYS' ? 'month' : 'agendaWeek'),
-                            right: 'today prev,next'
+                            right: 'today prev,next',
                         },
 
                         selectable: true,
@@ -474,6 +483,12 @@ angular.module('com.airspott.club')
             // Add new club into the database
             $scope.AddnewClub = function()
             {
+                setTimeout(function()
+                {
+                    $(".fc-button-today").click();
+                },500);
+
+                
                 console.log("ClubId = "+$scope.clubid);
                 $(".prev").prop("disabled",false);
 
