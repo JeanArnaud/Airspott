@@ -1,5 +1,4 @@
 var path = require('path');
-var loopback = require("loopback");
 module.exports = function (Customer) {
 
   Customer.afterRemote('create', function (context, user, next) {
@@ -7,7 +6,7 @@ module.exports = function (Customer) {
       type: 'email',
       to: user.email,
       from: 'test.narolainfotech@gmail.com',
-      subject: 'Thanks for registering.',
+      subject: 'Thanks for registering',
       // template: path.resolve(__dirname, '../../server/templates/email/customer-activation.ejs'),
       template: path.resolve(__dirname, '../../client/club-new/email.ejs'),
       user: user

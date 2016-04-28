@@ -9,6 +9,7 @@ angular.module("com.airspott.club")
              $rootScope.saleUnits = ['DAYS', 'HOURS'];
              $rootScope.languages = ['DE', 'EN'];
 
+             console.log(localStorage.number);
              //@todo check if user is an owner (club user role!)
              if (!Customer.isAuthenticated())
              {
@@ -17,10 +18,19 @@ angular.module("com.airspott.club")
                  return;
              }
 
+            
              $scope.toggleMenu = function()
              {
-                console.log('menu clicked');
-                //$('#wrapper').toggle('slide','left');
+                if($("body").hasClass("main-nav-open"))
+                {
+                    $("body").removeClass("main-nav-open");
+                    $("body").addClass("main-nav-closed");
+                }
+                else
+                {
+                    $("body").removeClass("main-nav-closed");
+                    $("body").addClass("main-nav-open");
+                }
              }
              $rootScope.meta = {
                  title: 'Airspott'

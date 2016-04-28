@@ -1,5 +1,5 @@
 <header>
-  <nav class='navbar navbar-default nav-right_fixed'>
+  <nav class='navbar navbar-default navbar-fixed-top'>
     <a class='navbar-brand' href='javascript:;' ui-sref='club-new.main'>
       <img width="auto" height="100%" class="logo" alt="Flatty" src="assets/images/airspott-beta.png" />
       <!-- <img width="21" height="21" class="logo-xs" alt="Flatty" src="assets/images/logo_xs.svg" /> -->
@@ -23,7 +23,7 @@
             </a>
           </li>
           <li>
-            <a href='javascript:;'>
+            <a href='#/change-password' >
               <i class='icon-cog'></i>
               Settings
             </a>
@@ -55,6 +55,12 @@
           <a  href="javascript:;" ui-sref='club-manager.manage-club' >
               <i class='icon-edit'></i>
               <span>{{clubname[0].name}}</span>
+          </a>
+        </li>
+        <li ng-class='activeLink("/manage-activity")'>
+          <a href='javascript:;' ui-sref='club-manager.manage-activity'>
+            <i class='icon-edit'></i>
+            <span>Manage Activity</span>
           </a>
         </li>
       </ul>

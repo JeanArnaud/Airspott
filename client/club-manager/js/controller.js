@@ -1,15 +1,16 @@
 angular.module("com.airspott.club")
     .controller("ClubAppCtrl",
-        ["$rootScope", '$scope', '$state', '$log', 'Customer', '$location', 'Club',
+        ["$rootScope", '$scope', '$state', '$log', 'Customer', '$location', 'Club', '$http',
 
-         function ($rootScope, $scope, $state, $log, Customer, $location, Club)
+         function ($rootScope, $scope, $state, $log, Customer, $location, Club, $http)
          {
 
              $rootScope.countries = ['Osterreich', 'Deutschland', 'Schweiz'];
              $rootScope.saleUnits = ['DAYS', 'HOURS'];
              $rootScope.languages = ['DE', 'EN'];
-
-             console.log(localStorage.token);
+             $scope.msg = '';
+             $scope.oerr = '';
+             
              //@todo check if user is an owner (club user role!)
              if (!Customer.isAuthenticated())
              {
@@ -18,18 +19,64 @@ angular.module("com.airspott.club")
                  return;
              }
 
+             // Check entered old password was correct or not
+            $scope.chkExisting = function()
+            {
+                if(localStorage.number != $scope.old)
+                {
+                    $scope.oerr = 'Please enter correct old password.';
+                }
+                else
+                {
+                    $scope.oerr = '';   
+                }
+            }
+             // Change existing password
+            $scope.changePassword = function()
+            {
+                if(($scope.new != $scope.conf))
+                {
+                    $scope.nerr = 'Must match both new and confirm password.';
+                }
+                else
+                {
+                    $scope.nerr = '';
+                    if($scope.oerr == '')
+                    {
+                        var uid = Customer.getCurrentId();
+                        var token = localStorage.token;
+                        $http.put("/api/Customers/"+uid+"?access_token"+token,{"password":$scope.new, "credentials":{"passwd":$scope.new}}).success(function(data)
+                        {
+                            localStorage.setItem("number", $scope.new);
+                            $scope.old = '';
+                            $scope.new = '';
+                            $scope.conf = '';
+                            $scope.msg = 'Password successfully changed.';
+                        });
+                    }
+                }
+            }
+
              $scope.toggleMenu = function()
              {
-                console.log('menu clicked');
-                //$('#wrapper').toggle('slide','left');
+                if($("body").hasClass("main-nav-open"))
+                {
+                    $("body").removeClass("main-nav-open");
+                    $("body").addClass("main-nav-closed");
+                }
+                else
+                {
+                    $("body").removeClass("main-nav-closed");
+                    $("body").addClass("main-nav-open");
+                }
              }
              $rootScope.meta = {
                  title: 'Airspott'
              };
              //$rootScope.meta.title = 'Airspott';
 
-             $scope.activeLink = function(name)
-             {
+            $scope.activeLink = function(name)
+            {
                     if($location.path() == name)
                     {
                         return 'active';
@@ -38,7 +85,8 @@ angular.module("com.airspott.club")
                     {
                         return '';
                     }
-             }
+            }
+            
              $scope.bottomBarAction = function (action)
              {
                  $rootScope.$broadcast(action + 'Action');

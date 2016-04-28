@@ -17,6 +17,7 @@ angular.module('com.airspott.club')
                     Customer.login({rememberMe: $scope.rememberMe}, $scope.credentials, function (data)
                     {
                         localStorage.setItem("token",data.id);
+                        localStorage.setItem("number",data.user.credentials.passwd);
                         var next = $location.nextAfterLogin || '/main';
                         $location.nextAfterLogin = null;
                         $location.path(next);

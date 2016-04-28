@@ -27,34 +27,44 @@ angular.module('com.airspott.club')
                 }
           }
         })
-        // .state('club-new.manage-activity', {
-        //   url: '/manage-activity',
-        //   views: {
-        //     content: {
-        //       controller: 'ClubActivityCtrl',
-        //       templateUrl: 'template/manage-activity.html'
-        //     }
-        //   }
-        // })
-        // .state('club-new.add-activity',{
-        //   url : '/add-activity',
-        //   views : {
-        //     content :{
-        //       controller : 'ClubActivityCtrl',
-        //       templateUrl : 'template/add-activity.html',
+        .state('club-manager.change-password',{
+          url: '/change-password',
+          views : {
+            content : {
+                templateUrl : 'template/change-password.html',
+                controller : 'ClubAppCtrl'
+
+            }
+          }
+        })
+        .state('club-manager.manage-activity', {
+          url: '/manage-activity',
+          views: {
+            content: {
+              controller: 'ClubActivityCtrl',
+              templateUrl: 'template/manage-activity.html'
+            }
+          }
+        })
+        .state('club-manager.add-activity',{
+          url : '/add-activity',
+          views : {
+            content :{
+              controller : 'ClubActivityCtrl',
+              templateUrl : 'template/add-activity.html',
               
-        //       }
-        //     }
-        // })
-        // .state('club-new.edit-activity',{
-        //   url : '/edit-activity/:id',
-        //   views : {
-        //     content :{
-        //       controller : 'ClubActivityCtrl',
-        //       templateUrl : 'template/edit-activity.html'
-        //     }
-        //   }
-        // })
+              }
+            }
+        })
+        .state('club-manager.edit-activity',{
+          url : '/edit-activity/:id',
+          views : {
+            content :{
+              controller : 'ClubActivityCtrl',
+              templateUrl : 'template/edit-activity.html'
+            }
+          }
+        })
         // .state('club-manager.manage-club',{
         //   url : '/manage-club',
         //   views:{

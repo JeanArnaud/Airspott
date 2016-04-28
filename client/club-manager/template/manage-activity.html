@@ -18,7 +18,7 @@
                   <div class="box-header" style="background-color:gray">
                     <div class="title" style="color:white">Activities</div>
                     <div class="actions">
-                      <button class="btn btn-default"  ui-sref='club-new.add-activity' >
+                      <button class="btn btn-default"  ui-sref='club-manager.add-activity' >
                        <i class="icon-plus"></i>&nbsp;Add
                       </button>
                     </div>
@@ -58,10 +58,10 @@
                                 <td>{{row.identifier}}</td>
                                 <td>{{row.parent != null ? row.parent : '----'}}</td>
                                 <td>
-                                    <a href="#/edit-activity/{{k}}">
+                                    <a href="#/edit-activity/{{row.id}}">
                                       <i class="icon-edit"></i>
                                     </a>&nbsp;&nbsp;
-                                    <a href="javascript:;" ng-click='deleteActivity(row)'><i class="icon-trash"></i></a>&nbsp;&nbsp;
+                                    <a href="javascript:;" ng-click='deleteActivity(row.id)'><i class="icon-trash"></i></a>&nbsp;&nbsp;
                                 </td>
                             </tr>
                         </tbody>
