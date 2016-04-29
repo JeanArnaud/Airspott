@@ -2,9 +2,9 @@ angular.module('com.airspott.club')
     .controller('ClubCtrl',
     [
         '$rootScope', '$scope', '$location','Club','Customer', '$log', 'Offer', 'Upload',
-         'Currency', '$http', '$stateParams', '$state','$compile','$interval',
+         'Currency', '$http', '$stateParams', '$state','$compile','$interval', 'uiCalendarConfig',
 
-        function ($rootScope, $scope, $location, Club, Customer, $log, Offer, Upload, Currency, $http, $stateParams, $state, $compile, $interval)
+        function ($rootScope, $scope, $location, Club, Customer, $log, Offer, Upload, Currency, $http, $stateParams, $state, $compile, $interval, uiCalendarConfig)
         {
 
             $scope.capacityPlanningEntries = [[]];
@@ -19,7 +19,8 @@ angular.module('com.airspott.club')
             $scope.pageSize = 5;
             $scope.currentPage = 1;
             $scope.step = 1;
-            
+            $scope.cap = {};
+            $scope.weeknm = ["sun","mon","tue","wed","thu","fri","sat"];            
 
             $scope.activeLink = function(data)
             {
@@ -28,7 +29,80 @@ angular.module('com.airspott.club')
             		return 'active';
             	}
             }     
+            // Set Capacity
+            $scope.setCapcity = function()
+            {
+                var date = new Date();
+                y = date.getFullYear();
+                m = date.getMonth();
 
+                var start = new Date(y, m, 1);
+                var end = new Date(y, m+1 , 1);
+
+                var length  = (end - start)/(1000*60*60*24);
+
+                console.log(length);
+                for(var d in $scope.cap)
+                {
+                    for(var i=1; i<=length; i++)
+                    {
+                        var tempdate = new Date(y, m, i);
+                        var index = $scope.weeknm.indexOf(d);
+                        if(tempdate.getDay()==index)
+                        {
+                            if($scope.cap[d].stand==true)
+                            {
+                                var mp = {
+                                    title: 'Unit Price '+$scope.clubdetail.price,
+                                    start: tempdate,
+                                    end: new Date(y,m,i),
+                                    backgroundColor: '#378006',
+                                    allDay : false,
+                                    price: $scope.clubdetail.price
+                                }
+                                $scope.capacityPlanningEntries[0].push(mp);
+                                var mc = {
+                                    title: 'Amount available '+$scope.clubdetail.capacity,
+                                    start: tempdate,
+                                    end: new Date(y,m,i),
+                                    allDay : false,
+                                    backgroundColor: '#378006',
+                                    capacity : $scope.clubdetail.capacity
+                                }
+                                $scope.capacityPlanningEntries[0].push(mc);
+                                // console.log(mp);
+                            }
+                            else
+                            {
+                                if ($scope.cap[d].price)
+                                {
+                                   var modal = {
+                                        title: 'Unit Price '+$scope.cap[d].price,
+                                        start: tempdate,
+                                        end: tempdate,
+                                        backgroundColor: '#378006',
+                                        price: $scope.cap[d].price
+                                    };
+                                    $scope.capacityPlanningEntries[0].push(modal);
+                                }
+
+                                if ($scope.cap[d].cap)
+                                {
+                                    var modal1 = {
+                                            title: 'Amount available '+$scope.cap[d].cap,
+                                            start: tempdate,
+                                            end: tempdate,
+                                            backgroundColor: '#378006',
+                                            capacity: $scope.cap[d].cap
+                                    }
+                                    $scope.capacityPlanningEntries[0].push(modal1);
+                                }                          
+                            }
+                        }
+                    }
+                }
+                console.log($scope.capacityPlanningEntries);
+            }
             // clicked and direct goto particular step which are completed
             $scope.goToStep = function(val, $event)
             {
@@ -272,13 +346,15 @@ angular.module('com.airspott.club')
                 }
                 $('.calhide').show();
 
+                // uiCalendarConfig.calendars[].fullCalendar('generateCalConfig','agendaDay');
+
                 $scope.calConfig = {
                     calendar: {
                         editable: true,
                         header: {
                             left: 'title',
                             center: '',
-                            right: 'today' + ($scope.clubdetail.saleUnit == 'DAYS' ? 'month' : 'agendaWeek'),
+                            right: 'today' + ($scope.clubdetail.saleUnit == 'DAYS' ? 'agendDay' : 'agendaWeek'),
                             right: 'today prev,next',
                         },
 
@@ -348,30 +424,53 @@ angular.module('com.airspott.club')
                     return;
                 }
                 
-                if ($scope.modal.price)
+                if(typeof($scope.standard) == 'undefined')
                 {
-                   var modal = {
-                        title: 'Unit Price '+$scope.modal.price,
-                        start: $scope.modal.start,
-                        end: $scope.modal.end,
-                        backgroundColor: '#378006',
-                        price: $scope.modal.price
-                    };
-                    $scope.capacityPlanningEntries[0].push(modal);
-                }
-
-                if ($scope.modal.capacity)
-                {
-                    var modal1 = {
-                            title: 'Amount available '+$scope.modal.capacity,
+                    if ($scope.modal.price)
+                    {
+                       var modal = {
+                            title: 'Unit Price '+$scope.modal.price,
                             start: $scope.modal.start,
                             end: $scope.modal.end,
                             backgroundColor: '#378006',
-                            capacity: $scope.modal.capacity
+                            price: $scope.modal.price
+                        };
+                        $scope.capacityPlanningEntries[0].push(modal);
+                    }
+
+                    if ($scope.modal.capacity)
+                    {
+                        var modal1 = {
+                                title: 'Amount available '+$scope.modal.capacity,
+                                start: $scope.modal.start,
+                                end: $scope.modal.end,
+                                backgroundColor: '#378006',
+                                capacity: $scope.modal.capacity
+                        }
+                        $scope.capacityPlanningEntries[0].push(modal1);
+                    }
+                }
+                else
+                {
+                    var modal = {
+                            title: 'Unit Price '+$scope.clubdetail.price,
+                            start: $scope.modal.start,
+                            end: $scope.modal.end,
+                            backgroundColor: '#378006',
+                            price: $scope.clubdetail.price
+                        };
+                        $scope.capacityPlanningEntries[0].push(modal);
+                    var modal1 = {
+                            title: 'Amount available '+$scope.clubdetail.capacity,
+                            start: $scope.modal.start,
+                            end: $scope.modal.end,
+                            backgroundColor: '#378006',
+                            capacity: $scope.clubdetail.capacity
                     }
                     $scope.capacityPlanningEntries[0].push(modal1);
+
                 }
-                $scope.hideCapacityModal();
+                    $scope.hideCapacityModal();
 
             };
 

@@ -109,6 +109,16 @@ angular.module('com.airspott.club')
             }
           }
         })
+        .state('club-new.change-password',{
+          url: '/change-password',
+          views : {
+            content : {
+                templateUrl : 'template/change-password.html',
+                controller : 'ClubAppCtrl'
+
+            }
+          }
+        })
 
         // .state('sellerRegister1', {
         //   url: '/register1',

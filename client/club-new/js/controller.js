@@ -8,6 +8,8 @@ angular.module("com.airspott.club")
              $rootScope.countries = ['Osterreich', 'Deutschland', 'Schweiz'];
              $rootScope.saleUnits = ['DAYS', 'HOURS'];
              $rootScope.languages = ['DE', 'EN'];
+             $scope.msg = '';
+             $scope.oerr = '';
 
              console.log(localStorage.number);
              //@todo check if user is an owner (club user role!)
@@ -17,7 +19,31 @@ angular.module("com.airspott.club")
 
                  return;
              }
-
+              // Change existing password
+            $scope.changePassword = function()
+            {
+                if(($scope.new != $scope.conf))
+                {
+                    $scope.nerr = 'Must match both new and confirm password.';
+                }
+                else
+                {
+                    $scope.nerr = '';
+                    if($scope.oerr == '')
+                    {
+                        var uid = Customer.getCurrentId();
+                        var token = localStorage.token;
+                        $http.put("/api/Customers/"+uid+"?access_token"+token,{"password":$scope.new, "credentials":{"passwd":$scope.new}}).success(function(data)
+                        {
+                            localStorage.setItem("number", $scope.new);
+                            $scope.old = '';
+                            $scope.new = '';
+                            $scope.conf = '';
+                            $scope.msg = 'Password successfully changed.';
+                        });
+                    }
+                }
+            }
             
              $scope.toggleMenu = function()
              {

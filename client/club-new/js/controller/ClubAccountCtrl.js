@@ -14,7 +14,7 @@ angular.module('com.airspott.club')
                 $scope.login = function ()
                 {
                     $scope.credentials.realm = 'clubowner';
-                    Customer.login({rememberMe: $scope.rememberMe}, $scope.credentials, function ()
+                    Customer.login({rememberMe: $scope.rememberMe}, $scope.credentials, function (data)
                     {
                         var next = $location.nextAfterLogin || '/main';
                         $location.nextAfterLogin = null;

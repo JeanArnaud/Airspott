@@ -368,6 +368,7 @@
 							                         required>
 							                    </div>
 							                </div>
+							                <div class="clearfix"></div>
 							                <div class="modal fade" id="calendarEventModal" tabindex="-1" role="dialog"	>
 							                    <div class="modal-dialog modal-sm">
 							                        <div class="modal-content">
@@ -383,6 +384,15 @@
 							                            <div class="modal-body">
 
 							                                <p ng-if="!eventInChange">We sell a maximum of the standard capacity of your offer per unit time at the standard price per unit of sales. Enter data for detailed planning and you can schedule any or all time-based changes to:</p>
+
+							                                <div class="form-group">
+							                                	<div class="col-md-12">
+								                                	<label class="checkbox-inline">
+								                                		<input type="checkbox" value="standard" ng-model='standard'/>
+								                                		Standard
+								                                	</label>
+							                                	</div>
+							                                </div>
 
 							                                <fieldset class="form-group" ng-if="!eventInChange || eventInChange.price">
 							                                	<div class="col-md-12">
@@ -418,8 +428,137 @@
 							                        </div>
 							                    </div>
 							                </div>
+							                <div class="row" >
+								                <div class="col-md-12">
+								                <div class="responsive-table margin-bottom-10 ">
+								                	<div class="scrollable-area">
+								                	<table class="table">
+								                		<thead>
+								                			<tr >
+								                				<th >Sun</th>
+									                			<th >Mon</th>
+									                			<th >Tue</th>
+									                			<th >Wed</th>
+									                			<th >Thu</th>
+									                			<th >Fri</th>
+									                			<th >Sat</th>
+								                			</tr>
+								                		</thead>
+								                		<tbody>
+								                			<tr>
+								                				<td>
+								                					<div style="min-height:94px">
+									                					<div class="fc-day-content">
+									                						<label class="checkbox-inline">
+									                							<input type="checkbox" value='standard' ng-model='cap.sun.stand'/>
+									                							Standard
+									                						</label>
+									                						<div>
+									                							Price <input  ng-model='cap.sun.price' placeholder="set" style="width:5em" class="form-control margin-bottom-10"/>
+									                							Cap. <input  ng-model='cap.sun.cap' placeholder="set" style="width:5em"  class="form-control margin-bottom-10"/>
+									                						</div>
+									                					</div>
+								                					</div>
+								                				</td>
+								                				<td>
+								                					<div style="min-height:94px">
+								                						<div class="fc-day-content">
+									                						<label class="checkbox-inline">
+									                							<input type="checkbox" ng-model='cap.mon.stand' value='standard'/>
+									                							Standard
+									                						</label>
+									                						<div>
+									                							Price <input placeholder="set" ng-model='cap.mon.price' style="width:5em" class="form-control margin-bottom-10"/>
+									                							Cap. <input  placeholder="set" ng-model='cap.mon.cap' style="width:5em" class="form-control margin-bottom-10"/>
+									                						</div>
+									                					</div>
+								                					</div>
+								                				</td>
+								                				<td>
+								                					<div style="min-height:94px">
+								                						<div class="fc-day-content">
+									                						<label class="checkbox-inline">
+									                							<input type="checkbox" ng-model='cap.tue.standard' value='standard'/>
+									                							Standard
+									                						</label>
+									                						<div>
+									                							Price <input placeholder="set" ng-model='cap.tue.price' style="width:5em"  class="form-control margin-bottom-10"/>
+									                							Cap. <input  placeholder="set" style="width:5em" ng-model='cap.tue.cap' class="form-control margin-bottom-10"/>
+									                						</div>
+									                					</div>
+								                					</div>
+								                				</td>
+								                				<td>
+								                					<div style="min-height:94px">
+								                						<div class="fc-day-content">
+									                						<label class="checkbox-inline">
+									                							<input type="checkbox" value='standard' ng-model='cap.wed.stand'/>
+									                							Standard
+									                						</label>
+									                						<div>
+									                							Price <input placeholder="set" style="width:5em" ng-model='cap.wed.price' class="form-control margin-bottom-10"/>
+									                							Cap. <input  placeholder="set" style="width:5em" ng-model='cap.wed.cap' class="form-control margin-bottom-10"/>
+									                						</div>
+									                					</div>
+								                					</div>
+								                				</td>
+								                				<td>
+								                					<div style="min-height:94px">
+								                						<div class="fc-day-content">
+									                						<label class="checkbox-inline">
+									                							<input type="checkbox" value='standard' ng-model='cap.thu.stand'/>
+									                							Standard
+									                						</label>
+									                						<div>
+									                							Price <input placeholder="set" style="width:5em" ng-model='cap.thu.price' class="form-control margin-bottom-10"/>
+									                							Cap. <input  placeholder="set" style="width:5em" ng-model='cap.thu.cap' class="form-control margin-bottom-10"/>
+									                						</div>
+									                					</div>
+								                					</div>
+								                				</td>
+								                				<td>
+								                					<div style="min-height:94px">
+								                						<div class="fc-day-content">
+									                						<label class="checkbox-inline">
+									                							<input type="checkbox" value='standard' ng-model='cap.fri.stand'/>
+									                							Standard
+									                						</label>
+									                						<div>
+									                							Price <input placeholder="set" style="width:5em" ng-model='cap.fri.price' class="form-control margin-bottom-10"/>
+									                							Cap. <input  placeholder="set" style="width:5em" ng-model='cap.fri.cap' class="form-control margin-bottom-10"/>
+									                						</div>
+									                					</div>
+								                					</div>
+								                				</td>
+								                				<td>
+								                					<div style="min-height:94px;">
+								                						<div class="fc-day-content">
+									                						<label class="checkbox-inline">
+									                							<input type="checkbox" value='standard' ng-model='cap.sat.stand'/>
+									                							Standard
+									                						</label>
+									                						<div>
+									                							Price <input placeholder="set" style="width:5em" ng-model='cap.sat.price' class="form-control margin-bottom-10 "/> 
+									                							Cap. <input  placeholder="set" style="width:5em" ng-model='cap.sat.cap' class="form-control margin-bottom-10" />
+									                						</div>
+									                					</div>
+								                					</div>
+								                				</td>
+								                			</tr>
+								                		</tbody>
+								                	</table>
+								                	</div>
+								                	</div>
+								                </div>
+								                <div class="col-md-12 margin-bottom-10">
+								                	<a href="javascript:;" class="btn btn-success pull-right" ng-click='setCapcity()'>Save</a>
+								                	<div class="clearfix"></div>
+								                </div>
+
+								                <div class="clearfix"></div>
+							                </div>
 							                <div class="col-md-12 calhide" >
-							                	 <div class="cal" ui-calendar="calConfig.calendar" ng-model="capacityPlanningEntries" ng-if="calConfig"> </div>							                	 <div class="clearfix"></div>
+							                	 <div class="cal" ui-calendar="calConfig.calendar" calendar='mycal' ng-model="capacityPlanningEntries" ng-if="calConfig"> </div>							                	 <div class="clearfix"></div>
 							                </div>	 
 		                             	</div>
 		                            </div>
@@ -447,12 +586,17 @@
 		                             		 <div class="col-md-12">
 		                             		 	<hr/>
 		                             		 </div>
-		                             		<div class="checkbox" ng-repeat="offer in offers | filter : search" ng-if='!offer.offerId'>
-							                    <label>
-							                        <input type="checkbox" ng-click="activityClick($event)" class="activity" ng-model="offer.link" value="{{offer.id}}" >
-							                        {{offer.identifier | translate}}
-							                    </label>
+		                             		 <div class="custom-checkbox-list-wrapper">
+		                             			<div class="checkbox custom-checkbox-list" ng-repeat="offer in offers | filter : search" ng-if='!offer.offerId'>
+								                    <label>
+								                        <input type="checkbox" ng-click="activityClick($event)" class="activity" ng-model="offer.link" value="{{offer.id}}" >
+								                        {{offer.identifier | translate}}
+								                    </label>
+							                	</div>
+
+
 							                </div>
+
 		                             	</div>
 		                            </div>
 		                            <div class="modal fade" id='offer' role='dialog'>
