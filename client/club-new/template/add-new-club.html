@@ -317,56 +317,35 @@
 		                             	<div class="box-content">
 		                             		<fieldset class="form-group row">
 							                    <div class="col-xs-12">
-							                        <label for="saleUnit">
-							                        	Pass Selling Unit
-							                        </label>
+							                    	<div class="col-md-6">
+								                        <label for="saleUnit">
+								                        	Pass Selling Unit
+								                        </label>
 
-							                        <select ng-options="saleUnit as  saleUnit for saleUnit in saleUnits"
-							                                ng-model="clubdetail.saleUnit"
-							                                class="c-select form-control"
-							                                id="saleUnit"
-							                                ng-change="generateCalConfig()">
+								                        <select ng-options="saleUnit as  saleUnit for saleUnit in saleUnits"
+								                                ng-model="clubdetail.saleUnit"
+								                                class="c-select form-control"
+								                                id="saleUnit"
+								                                ng-change="generateCalConfig()">
 
-							                            <option value="">Select</option>
-							                        </select>
-							                    </div>
-							                </fieldset>
-
-							                <div class="row">
-							                	<div class="col-md-6 col-xs-12">
-							                		<div class="">
-							                		<div class="">
-							                        <label for="price">
-							                        	Standard price per Pass
-							                        </label>
-							                        <label for="currency" class="sr-only">	
-							                         	{{'CURRENCY' | translate}}
-							                        </label>
+								                            <option value="">Select</option>
+								                        </select>
 							                        </div>
-							                        <div class="row">
-							                        	<div class="col-md-6">
-							                            	<input type="text" ng-model="clubdetail.price" id="price" class="form-control"
-							                                   placeholder="{{'DEFAULT_PRICE' | translate}}" required>
-							                            </div>
-							                            <div class="col-md-6">
-								                            <select ng-options="currency.id as currency.symbol for currency in currencies"
+							                        <div class="col-md-6">
+							                        <label> </label>
+
+							                        	<select ng-options="currency.id as currency.symbol for currency in currencies"
 								                                    ng-model="club.currencyId"
 								                                    class="c-select form-control"
 								                                    id="currency">
 								                                <option value="">{{'CURRENCY' | translate}}</option>
-								                            </select>
-							                            </div>
+							                            </select>
 							                        </div>
 							                    </div>
-							                	</div>
+							                </fieldset>
+
+							                <div class="row">
 							                	
-							                    <div class="col-xs-12 col-md-6">
-							                        <label for="defaultCapacity">
-							                        	Standard capacity per selling unit
-							                        </label>
-							                        <input type="text" ng-model="clubdetail.capacity" id="defaultCapacity" class="form-control"
-							                         required>
-							                    </div>
 							                </div>
 							                <div class="clearfix"></div>
 							                <div class="modal fade" id="calendarEventModal" tabindex="-1" role="dialog"	>
@@ -428,6 +407,146 @@
 							                        </div>
 							                    </div>
 							                </div>
+							                <div class="clearfix"></div>
+							                <div class="col-md-12">
+							                	<div  style="width:auto;float:left;margin-right:1em">
+									                  <div class="box box-nomargin">
+									                    <div class="box-header box-header-small red-background">
+									                      <div class="title">
+									                        Monday
+									                      </div>
+									                      <div class="actions">
+									                      </div>
+									                    </div>
+									                    <div class="box-content box-padding">
+					                						<div>
+					                							Standard Price <input  ng-model='cap.mon.price' placeholder="set" style="width:5em" class="form-control margin-bottom-10"/>
+					                							Max Capacity <input  ng-model='cap.mon.cap' placeholder="set" style="width:5em"  class="form-control margin-bottom-10"/>
+					                						</div>
+									                    </div>
+									                  </div>
+							                	</div>
+							                	<div  style="width:auto;float:left;margin-right:1em">
+									                  <div class="box box-nomargin">
+									                    <div class="box-header box-header-small red-background">
+									                      <div class="title">
+									                        Tuesday
+									                      </div>
+									                      <div class="actions">
+									                      </div>
+									                    </div>
+									                    <div class="box-content box-padding">
+									                      <div>
+					                							Standard Price <input  ng-model='cap.tue.price' placeholder="set" style="width:5em" class="form-control margin-bottom-10"/>
+					                							Max Capacity <input  ng-model='cap.tue.cap' placeholder="set" style="width:5em"  class="form-control margin-bottom-10"/>
+					                						</div>
+									                    </div>
+									                  </div>
+							                	</div>
+							                	<div  style="width:auto;float:left;margin-right:1em">
+									                  <div class="box box-nomargin">
+									                    <div class="box-header box-header-small red-background">
+									                      <div class="title">
+									                        Wednesday
+									                      </div>
+									                      <div class="actions">
+									                      </div>
+									                    </div>
+									                    <div class="box-content box-padding">
+									                      <div>
+					                							Standard Price <input  ng-model='cap.wed.price' placeholder="set" style="width:5em" class="form-control margin-bottom-10"/>
+					                							Max Capacity <input  ng-model='cap.wed.cap' placeholder="set" style="width:5em"  class="form-control margin-bottom-10"/>
+					                						</div>
+									                    </div>
+									                  </div>
+							                	</div>
+							                	<div  style="width:auto;float:left;margin-right:1em">
+									                  <div class="box box-nomargin">
+									                    <div class="box-header box-header-small red-background">
+									                      <div class="title">
+									                        Thursday
+									                      </div>
+									                      <div class="actions">
+									                      </div>
+									                    </div>
+									                    <div class="box-content box-padding">
+									                      <div>
+					                							Standard Price <input  ng-model='cap.thu.price' placeholder="set" style="width:5em" class="form-control margin-bottom-10"/>
+					                							Max Capacity <input  ng-model='cap.thu.cap' placeholder="set" style="width:5em"  class="form-control margin-bottom-10"/>
+					                						</div>
+									                    </div>
+									                  </div>
+							                	</div>
+							                	<div  style="width:auto;float:left;margin-right:1em">
+									                  <div class="box box-nomargin">
+									                    <div class="box-header box-header-small red-background">
+									                      <div class="title">
+									                        Friday
+									                      </div>
+									                      <div class="actions">
+									                      </div>
+									                    </div>
+									                    <div class="box-content box-padding">
+									                      <div>
+					                							Standard Price <input  ng-model='cap.fri.price' placeholder="set" style="width:5em" class="form-control margin-bottom-10"/>
+					                							Max Capacity <input  ng-model='cap.fri.cap' placeholder="set" style="width:5em"  class="form-control margin-bottom-10"/>
+					                						</div>
+									                    </div>
+									                  </div>
+							                	</div>
+							                	<div  style="width:auto;float:left;margin-right:1em">
+									                  <div class="box box-nomargin">
+									                    <div class="box-header box-header-small red-background">
+									                      <div class="title">
+									                        Saturday
+									                      </div>
+									                      <div class="actions">
+									                      </div>
+									                    </div>
+									                    <div class="box-content box-padding">
+									                      <div>
+					                							Standard Price <input  ng-model='cap.sat.price' placeholder="set" style="width:5em" class="form-control margin-bottom-10"/>
+					                							Max Capacity <input  ng-model='cap.sat.cap' placeholder="set" style="width:5em"  class="form-control margin-bottom-10"/>
+					                						</div>
+									                    </div>
+									                  </div>
+							                	</div>
+							                	<div  style="width:auto;float:left;margin-right:1em">
+									                  <div class="box box-nomargin">
+									                    <div class="box-header box-header-small red-background">
+									                      <div class="title">
+									                        Sunday
+									                      </div>
+									                      <div class="actions">
+									                      </div>
+									                    </div>
+									                    <div class="box-content box-padding">
+									                      <div>
+					                							Standard Price <input  ng-model='cap.sun.price' placeholder="set" style="width:5em" class="form-control margin-bottom-10"/>
+					                							Max Capacity <input  ng-model='cap.sun.cap' placeholder="set" style="width:5em"  class="form-control margin-bottom-10"/>
+					                						</div>
+									                    </div>
+									                  </div>
+							                	</div>
+							                	<div  style="width:auto;float:left;margin-right:1em">
+									                  <div class="box box-nomargin">
+									                    <div class="box-header box-header-small red-background">
+									                      <div class="title">
+									                        Bank Holydays
+									                      </div>
+									                      <div class="actions">
+									                      </div>
+									                    </div>
+									                    <div class="box-content box-padding">
+									                        <div>
+					                							Standard Price <input  ng-model='cap.bank.price' placeholder="set" style="width:5em" class="form-control margin-bottom-10"/>
+					                							Max Capacity <input  ng-model='cap.bank.cap' placeholder="set" style="width:5em"  class="form-control margin-bottom-10"/>
+					                						</div>
+									                    </div>
+									                  </div>
+							                	</div>
+							                </div>
+							                <div class="clearfix"></div>
 							                <div class="row" >
 								                <div class="col-md-12">
 								                <div class="responsive-table margin-bottom-10 ">

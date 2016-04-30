@@ -31,13 +31,17 @@
     <![endif]-->
     
       <!-- Form wizard  -->
+    <!-- <link href="assets/stylesheets/plugins/fuelux/wizard.css" type="text/css" rel="stylesheet" /> -->
     <link href="assets/stylesheets/plugins/fuelux/wizard.css" type="text/css" rel="stylesheet" />
     <link href="assets/stylesheets/dark-theme.css" type="text/css" rel="stylesheet" />
       <!-- Airspott  -->
     <!-- <link href="assets/stylesheets/airspott.club.min.css" type="text/css" rel="stylesheet" /> -->
 
     <!-- / START - Full Calender css stylesheets [optional] -->
-    <link href="assets/stylesheets/plugins/fullcalendar/fullcalendar.css" media="all" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/stylesheets/plugins/fullcalendar/fullcalendar.css" media="all" rel="stylesheet" type="text/css" /> -->
+    <link href="http://angular-ui.github.io/ui-calendar/bower_components/fullcalendar/dist/fullcalendar.css" media="all" rel="stylesheet" type="text/css" />
+    
+    <link href="assets/stylesheets/calendarDemo.css" media="all" rel="stylesheet" type="text/css" />  
     <link href="assets/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />  
   </head>
   <body class='contrast-muted login main-nav-open contrast-background fixed-header fixed-navigation' ng-cloak=''>
@@ -58,10 +62,12 @@
     <script type="text/javascript" src="../common/lib/dirpagination/dirPagination.js"></script>
 
     <!-- Full Calendar -->
+    <script type="text/javascript" src="../common/lib/moment/min/moment.min.js"></script>
+    
     <!-- // <script type="text/javascript" src="../common/lib/jquery/dist/jquery.min.js"></script> -->
 
-    <script type="text/javascript" src="../common/lib/moment/min/moment.min.js"></script>
-     <script type="text/javascript" src="../common/lib/angular-ui-calendar/src/calendar.js"></script>
+    
+     <!-- // <script type="text/javascript" src="../common/lib/angular-ui-calendar/src/calendar.js"></script> -->
      
     <!-- Full Calendar End -->
 
@@ -134,8 +140,14 @@
     <script src="assets/javascripts/plugins/validate/jquery.validate.min.js" type="text/javascript"></script>
 
     <!-- / START - page related files and scripts [optional] -->
-    
-      <script src="assets/javascripts/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+    <script src="http://angular-ui.github.io/ui-calendar/bower_components/jquery/dist/jquery.js" type="text/javascript"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+     <script  src="http://angular-ui.github.io/ui-calendar/bower_components/fullcalendar/dist/fullcalendar.js"></script>
+     
+     <script  src="http://angular-ui.github.io/ui-calendar/bower_components/fullcalendar/dist/gcal.js"></script>
+      <script  src="http://angular-ui.github.io/ui-calendar/src/calendar.js"></script>
+  <!-- // <script src="assets/javascripts/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script> -->
+
     
    
     <!-- / END - page related files and scripts [optional] -->

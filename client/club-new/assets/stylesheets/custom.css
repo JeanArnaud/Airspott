@@ -8,6 +8,7 @@ body{overflow-x:hidden; }
 #content-wrapper{padding-bottom: 48px !important;min-height: 1024px;}
 .fc-header .fc-header-left {
     text-align: center !important;
+    padding-left: 5em !important;
 }
 
 .fc-button {
